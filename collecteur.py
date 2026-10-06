@@ -21,6 +21,8 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+import alertes                                                       # alertes.py, à côté de ce fichier
+
 ICI = Path(__file__).resolve().parent
 SORTIE = ICI / "docs"
 
@@ -41,6 +43,8 @@ KP_A, KP_B, KP_SIGMA = -0.1123, 0.2124, 0.2642
 SIGMA_KP_PREVU = 1.0                   # incertitude supposée d'un Kp prévu (± 1 point)
 Z90 = 1.2816                           # quantile 90 % de la loi normale
 SEUIL_CHOC = 0.6                       # saut de sqrt(P) sur 10 min (nPa^0.5) qui signale un choc
+SEUIL_CHOC_V = 20.0                    # ... confirmé par un saut de vitesse (km/s), critère usuel des catalogues
+                                       # de chocs : une pointe de densité isolée (bruit) ne fait pas sauter V
 
 
 # ---------------------------------------------------------------- petites fonctions utilitaires
@@ -114,7 +118,7 @@ def analyse_l1(mag, vent):
     phi = {t: newell(V[t], by[t], bz[t]) for t in communes}
 
     # Prédicteurs du rapport, calculés sur des moyennes de 5 min (comme OMNI)
-    P5, phi5 = blocs_5min(P), blocs_5min(phi)
+    P5, phi5, V5 = blocs_5min(P), blocs_5min(phi), blocs_5min(V)
     sqP5 = {t: math.sqrt(p) for t, p in P5.items()}
     fen2h = [v for t, v in phi5.items() if t > t_fin - timedelta(hours=2)]
     fen1h = [v for t, v in sqP5.items() if t > t_fin - timedelta(hours=1)]
@@ -123,10 +127,11 @@ def analyse_l1(mag, vent):
         if t <= t_fin - timedelta(hours=1):
             continue
         # valeur de référence : le bloc le plus récent situé 5 à 20 min avant (tolère les trous de données)
-        avant = [u for tb, u in sqP5.items() if t - timedelta(minutes=20) <= tb <= t - timedelta(minutes=5)]
+        avant = [tb for tb in sqP5 if t - timedelta(minutes=20) <= tb <= t - timedelta(minutes=5)]
         if avant:
-            sauts.append((v - avant[-1], t))
-    saut, t_saut = max(sauts) if sauts else (0.0, None)
+            dV = V5[t] - V5[avant[-1]] if t in V5 and avant[-1] in V5 else 0.0
+            sauts.append((v - sqP5[avant[-1]], t, dV))
+    saut, t_saut, saut_V = max(sauts) if sauts else (0.0, None, 0.0)
     phi_moy = max(100.0, moyenne(fen2h))
     mu = (COEF_L1[0] + COEF_L1[1] * math.log10(phi_moy) + COEF_L1[2] * max(0.0, saut)
           + COEF_L1[3] * moyenne(fen1h))
@@ -135,9 +140,9 @@ def analyse_l1(mag, vent):
     V30 = moyenne([v for t, v in V.items() if t > t_fin - timedelta(minutes=30)])
     delai = min(60.0, max(15.0, 1.4e6 / V30 / 60))
     choc = None
-    if saut >= SEUIL_CHOC:
+    if saut >= SEUIL_CHOC and saut_V >= SEUIL_CHOC_V:
         choc = {"vu_a_L1": iso(t_saut), "arrivee_estimee": iso(t_saut + timedelta(minutes=delai)),
-                "saut_racine_P": arrondi(saut)}
+                "saut_racine_P": arrondi(saut), "saut_V": arrondi(saut_V, 0)}
 
     derniere = m[t_fin]
     serie = [{"t": iso(t), "V": arrondi(V[t], 0), "n": arrondi(n[t], 1), "Bz": arrondi(bz[t], 1),
@@ -306,6 +311,7 @@ def main():
     hist = mettre_a_jour_historique(hist, maintenant, etat["l1"], clf_h)
     fichier_hist.write_text(json.dumps(hist, indent=0))
     etat["historique"] = [{"heure": k, **v} for k, v in list(hist.items())[-48:]]
+    etat["alerte"] = alertes.traiter(etat, maintenant, None if demo else SORTIE / "alertes.json", erreurs)
     etat["erreurs"] = erreurs
 
     nom = "etat_demo.json" if demo else "etat_courant.json"

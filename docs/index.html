@@ -433,7 +433,12 @@ details.valid summary{font-weight:600;cursor:pointer}
     ban.classList.toggle('hidden',!LIVE.demo&&!stale);
     ban.textContent=LIVE.demo?`Démonstration : rejeu du 10 mai 2024 à ${hm(LIVE.genere)}, comme si c'était maintenant. Instants à L1 reconstitués à partir d'OMNI ; Kp « prévu » = Kp observé ensuite.`:`Attention : dernière mise à jour il y a ${ageMin(LIVE.genere)} min, le collecteur ne tourne peut-être plus.`;
     const l1=LIVE.l1, kp=LIVE.kp, clf=LIVE.clf;
-    if(l1&&l1.choc){choc.classList.remove('hidden');choc.textContent=`Choc interplanétaire détecté à L1 à ${hm(l1.choc.vu_a_L1)} : arrivée estimée sur Terre vers ${hm(l1.choc.arrivee_estimee)}.`;} else choc.classList.add('hidden');
+    const al=LIVE.alerte, txt=[];
+    if(l1&&l1.choc) txt.push(`Choc interplanétaire détecté à L1 à ${hm(l1.choc.vu_a_L1)} : arrivée estimée sur Terre vers ${hm(l1.choc.arrivee_estimee)}.`);
+    if(al) txt.push(`Alerte ${al.niveau} en cours depuis ${hm(al.depuis)}${al.signaux&&al.signaux.length?'':' (signal retombé : fermeture après 3 h de calme)'}.`);
+    choc.classList.toggle('hidden',!txt.length); choc.innerHTML='';
+    txt.forEach(x=>{const p=document.createElement('p');p.style.margin='0';p.textContent=x;choc.appendChild(p);});
+    if(al&&al.lien&&!LIVE.demo){const a=document.createElement('a');a.href=al.lien;a.target='_blank';a.rel='noopener';a.textContent='Voir le journal de l’épisode';choc.appendChild(a);}
     const pk=kp&&kp.pic_24h;
     $('tile-kp').innerHTML=`<span class="k">Veille · 24 h</span><span class="big">${pk?fmt(pk.dbdt_p90,0):'—'}<span class="s"> nT/min</span></span><span class="s">${pk?`Kp ${fmt(pk.kp,1)} ${pk.statut==='predicted'?'prévu':'observé'} vers ${hm(pk.t)} (médiane ${fmt(pk.dbdt_med,0)})`:'pas de prévision'}</span>`;
     $('tile-l1').innerHTML=`<span class="k">Pré-alerte · L1</span><span class="big">${l1?fmt(l1.dbdt_p90,0):'—'}<span class="s"> nT/min</span></span><span class="s">${l1?`heure qui commence (médiane ${fmt(l1.dbdt_med,0)}) · V ${fmt(l1.V,0)} km/s, Bz ${fmt(l1.Bz,1)} nT · arrivée +${l1.delai_min} min`:'pas de données L1'}</span>`;

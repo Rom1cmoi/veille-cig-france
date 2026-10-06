@@ -26,6 +26,7 @@ Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 | `docs/index.html` | La page Veille CIG France complète (tous les modes + le mode Direct). |
 | `docs/etat_demo.json` | Une démonstration : le 10 mai 2024 à 16 h 35 UTC, quand le choc est déjà mesuré à L1 mais pas encore arrivé. La page l'affiche si le vrai fichier n'existe pas encore. |
 | `demo/` | Les données qui ont servi à fabriquer la démonstration (`python collecteur.py --demo`). |
+| `alertes.py` | Décide s'il faut prévenir et envoie les alertes (issue GitHub, ntfy). |
 | `.github/workflows/collecte.yml` | La tâche planifiée de GitHub : lance le collecteur toutes les 5 minutes. |
 | `en_continu.py` | Pour tout faire tourner sur ton ordinateur, sans GitHub. |
 
@@ -59,6 +60,31 @@ GitHub héberge la page (GitHub Pages) et lance le collecteur toutes les 5 minut
 - **« Attention : dernière mise à jour il y a … min »** : les lancements automatiques de GitHub peuvent prendre 5 à 15 minutes de retard aux heures chargées. Au-delà de 30 minutes, regarde l'onglet Actions.
 - **GitHub désactive parfois les tâches planifiées** d'un dépôt resté sans activité pendant 60 jours : il suffit de la réactiver dans l'onglet Actions.
 - **Une source en panne** (NOAA, INTERMAGNET) n'arrête pas les autres : la page indique « sources en erreur » en bas du bloc Direct.
+
+## Alertes
+
+Le collecteur prévient tout seul quand il se passe quelque chose (fichier `alertes.py`).
+
+**Quand ?** Dès qu'un de ces signaux apparaît :
+
+| Signal | Condition |
+|---|---|
+| Choc à L1 | Saut brutal de pression ET de vitesse (≥ 20 km/s) du vent solaire : arrivée sur Terre dans 15 à 60 min |
+| Veille, Pré-alerte ou Constat orange | dB/dt (P90 prévu, ou mesuré) ≥ 68 nT/min, soit 10 A par phase au poste le plus exposé |
+| Rouge | dB/dt ≥ 509 nT/min, soit 75 A |
+
+**Comment ?** Un épisode s'ouvre au premier signal : une *issue* GitHub est créée dans le dépôt (onglet **Issues**), et GitHub t'envoie une notification (e-mail, appli GitHub). Chaque nouveau signal ou aggravation ajoute un commentaire, donc une nouvelle notification. Après 3 h sans signal, l'épisode se ferme avec un bilan (dB/dt prévu et mesuré maximaux). L'onglet Issues devient ainsi le journal des épisodes.
+
+**Tester :** onglet **Actions** → **collecte** → **Run workflow** → coche **Envoyer une alerte de test** → **Run workflow**. Une issue « [TEST] » est créée puis fermée aussitôt.
+
+**Option : notifications push sur téléphone ou iPad (ntfy)**
+
+1. Installe l'appli gratuite **ntfy** (App Store ou Google Play).
+2. Dans l'appli : **+** → choisis un nom de sujet difficile à deviner (par exemple `veille-cig-` suivi de lettres au hasard) → **Subscribe**. Toute personne qui connaît ce nom peut lire les messages : ne le publie pas.
+3. Sur GitHub : **Settings** → **Secrets and variables** → **Actions** → **New repository secret**. Nom : `NTFY_TOPIC`. Valeur : le nom du sujet. **Add secret**.
+4. Lance le test ci-dessus : la notification arrive sur l'appareil.
+
+Sur ton ordinateur (`en_continu.py`), rien n'est envoyé : les alertes sont seulement affichées dans le terminal.
 
 ## Ce qu'il faut savoir sur les données
 
