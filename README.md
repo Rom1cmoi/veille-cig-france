@@ -26,6 +26,7 @@ Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 | `docs/index.html` | La page Veille CIG France complète (tous les modes + le mode Direct). |
 | `docs/etat_demo.json` | Une démonstration : le 10 mai 2024 à 16 h 35 UTC, quand le choc est déjà mesuré à L1 mais pas encore arrivé. La page l'affiche si le vrai fichier n'existe pas encore. |
 | `demo/` | Les données qui ont servi à fabriquer la démonstration (`python collecteur.py --demo`). |
+| `validation.py` | Bilan de la prévision L1 en conditions réelles (mêmes indicateurs que le rapport). |
 | `alertes.py` | Décide s'il faut prévenir et envoie les alertes (issue GitHub, ntfy). |
 | `.github/workflows/collecte.yml` | La tâche planifiée de GitHub : lance le collecteur toutes les 5 minutes. |
 | `en_continu.py` | Pour tout faire tourner sur ton ordinateur, sans GitHub. |
@@ -85,6 +86,20 @@ Le collecteur prévient tout seul quand il se passe quelque chose (fichier `aler
 4. Lance le test ci-dessus : la notification arrive sur l'appareil.
 
 Sur ton ordinateur (`en_continu.py`), rien n'est envoyé : les alertes sont seulement affichées dans le terminal.
+
+## Journal et validation sur la durée
+
+Chaque collecte laisse une trace dans le dossier `journal/` :
+
+| Fichier | Contenu |
+|---|---|
+| `journal/collectes_AAAA-MM.csv` | Une ligne par collecte : ce que l'outil disait à cet instant (vent solaire, choc, dB/dt prévus, Kp, Chambon, alerte). |
+| `journal/l1/l1_AAAA-MM-JJ.csv` | Les mesures brutes à la minute du satellite actif à L1. La NOAA ne les garde en ligne que quelques jours, et OMNI (utilisé dans le rapport) est une série retraitée : ce sont ces données temps réel, avec leur bruit, qu'il faut garder pour juger l'outil. |
+| `docs/historique.json` | Une ligne par heure : prévision L1 émise en début d'heure, puis dB/dt maximal mesuré à Chambon. Rien n'est effacé : c'est le jeu de validation. |
+
+`validation.py` calcule sur cet historique les mêmes indicateurs que le chapitre 4 du rapport (corrélation, RMSE, biais, couverture du P90, POD et FAR de l'alerte à 30 nT/min). Le bilan s'affiche dans le bloc « Auto-validation » du mode Direct, à côté des valeurs du rapport. Pour l'afficher dans un terminal : `python validation.py`.
+
+Les données de Chambon ne sont pas archivées : les données définitives se récupèrent plus tard sur INTERMAGNET.
 
 ## Ce qu'il faut savoir sur les données
 

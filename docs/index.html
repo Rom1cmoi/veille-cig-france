@@ -448,8 +448,17 @@ details.valid summary{font-weight:600;cursor:pointer}
     $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',clf&&clf.derniere_mesure,60)+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
     chart('ch-p',l1&&l1.serie,'P','nPa'); chart('ch-h',clf&&clf.serie,'h','nT/min');
     const H=(LIVE.historique||[]).filter(r=>r.observe!=null);
+    const V=LIVE.validation;
+    const bil=()=>{if(!V||!V.toutes||!V.toutes.n)return '';const a=V.toutes,b=V.emises_a_l_heure||{},R=V.rapport;
+      const c=(x,k,f)=>x&&x.n&&x[k]!=null?f(x[k]):'—', pc=v=>Math.round(100*v)+' %', d2=v=>fmt(v,2), fx=v=>'×'+fmt(v,2);
+      const lig=(nom,k,f,ref)=>`<tr><td>${nom}</td><td class="mono">${c(a,k,f)}</td><td class="mono">${c(b,k,f)}</td><td class="mono">${ref}</td></tr>`;
+      return `<div class="tscroll"><table><thead><tr><th>Indicateur</th><th>Toutes (${a.n} h)</th><th>Émises à l'heure (${b.n||0} h)</th><th>Rapport (11 orages)</th></tr></thead><tbody>`+
+        lig('Couverture du P90 (90 % visés)','couverture_p90',pc,pc(R.couverture_p90))+lig('Corrélation r (log)','r',d2,d2(R.r))+
+        lig('Erreur RMSE (dex)','rmse',v=>fmt(v,3),fmt(R.rmse,3))+lig('Biais mesuré / prévu','biais_facteur',fx,'×0,56 (orages 2024 : prévu 1,8 fois trop haut)')+
+        `<tr><td>Alerte P90 ≥ 30 nT/min : POD / FAR</td><td class="mono" colspan="2">${a.n_obs_30?`${c(a,'pod',d2)} / ${c(a,'far',d2)} (${a.n_obs_30} h ≥ 30)`:`aucune heure ≥ 30 nT/min (${a.n_annonces_30} annonce${a.n_annonces_30>1?'s':''})`}</td><td class="mono">${d2(R.pod)} / ${d2(R.far)}</td></tr></tbody></table></div>`+
+        `<p class="hint">« Émises à l'heure » : prévisions enregistrées moins de 15 min après le début de l'heure (GitHub retarde parfois les collectes ; une prévision tardive a déjà vu une partie de l'heure). Le modèle a été ajusté sur des jours d'orage : par temps calme, il travaille hors de son domaine d'ajustement.</p>`;};
     if(H.length){const cov=H.filter(r=>r.observe<=r.prevu_p90).length/H.length;
-      $('valid').innerHTML=`<p class="hint">${H.length} heures vérifiées : le dB/dt mesuré est resté sous le P90 prévu dans ${Math.round(100*cov)} % des cas (90 % attendus).</p><div class="tscroll"><table><thead><tr><th>Heure</th><th>Prévu médian</th><th>Prévu P90</th><th>Mesuré</th><th>Sous le P90</th></tr></thead><tbody>${H.slice(-8).reverse().map(r=>`<tr><td>${hm(r.heure)}</td><td class="mono">${fmt(r.prevu_med,1)}</td><td class="mono">${fmt(r.prevu_p90,1)}</td><td class="mono">${fmt(r.observe,1)}</td><td>${r.observe<=r.prevu_p90?'oui':'non'}</td></tr>`).join('')}</tbody></table></div>`;}
+      $('valid').innerHTML=bil()+`<p class="hint">Dernières heures vérifiées :</p><div class="tscroll"><table><thead><tr><th>Heure</th><th>Prévu médian</th><th>Prévu P90</th><th>Mesuré</th><th>Sous le P90</th></tr></thead><tbody>${H.slice(-8).reverse().map(r=>`<tr><td>${hm(r.heure)}</td><td class="mono">${fmt(r.prevu_med,1)}</td><td class="mono">${fmt(r.prevu_p90,1)}</td><td class="mono">${fmt(r.observe,1)}</td><td>${r.observe<=r.prevu_p90?'oui':'non'}</td></tr>`).join('')}</tbody></table></div>`;}
     else $('valid').innerHTML='<p class="hint">Pas encore d\'heure vérifiée. La prévision est enregistrée en début d\'heure, puis comparée au maximum mesuré à Chambon une fois l\'heure finie et les données arrivées (environ 20 min de retard) : comptez 1 h 30 à 2 h après le démarrage pour la première ligne.</p>';
     $('live-maj').textContent=`Collecteur : ${LIVE.genere?hm(LIVE.genere):'—'}${(LIVE.erreurs||[]).length?' · sources en erreur : '+LIVE.erreurs.join(' ; '):''}`;
   }

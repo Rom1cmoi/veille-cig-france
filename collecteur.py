@@ -22,9 +22,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import alertes                                                       # alertes.py, à côté de ce fichier
+import validation                                                    # validation.py, idem
 
 ICI = Path(__file__).resolve().parent
 SORTIE = ICI / "docs"
+JOURNAL = ICI / "journal"                    # archives pour la validation sur la durée (non lues par la page)
 
 URL_MAG = "https://services.swpc.noaa.gov/json/rtsw/rtsw_mag_1m.json"
 URL_VENT = "https://services.swpc.noaa.gov/json/rtsw/rtsw_wind_1m.json"
@@ -266,8 +268,58 @@ def mettre_a_jour_historique(hist, maintenant, l1, clf_h):
             valeurs = [v for t, v in clf_h.items() if debut <= t < debut + timedelta(hours=1)]
             if len(valeurs) >= 54:                                          # au moins 90 % de l'heure
                 ligne["observe"] = round(max(valeurs), 1)
-    limite = maintenant - timedelta(days=14)
-    return {k: v for k, v in sorted(hist.items()) if date(k) > limite}
+    return dict(sorted(hist.items()))                                       # tout est gardé : c'est le jeu de validation
+
+
+# ---------------------------------------------------------------- 5. Journal (archives)
+def ajouter_csv(fichier, entete, lignes):
+    """Ajoute des lignes à un CSV (crée le fichier et son en-tête si besoin)."""
+    fichier.parent.mkdir(parents=True, exist_ok=True)
+    neuf = not fichier.exists()
+    with fichier.open("a", encoding="utf-8") as f:
+        if neuf:
+            f.write(",".join(entete) + "\n")
+        for l in lignes:
+            f.write(",".join("" if x is None else str(x) for x in l) + "\n")
+
+
+def archiver_l1(mag, vent):
+    """Garde les mesures brutes à la minute du satellite actif, un fichier par jour.
+    La NOAA n'en garde que quelques jours en ligne, et OMNI (utilisé dans le rapport) est une série
+    retraitée : ces données temps réel, avec leur bruit, sont celles qu'il faut pour juger l'outil."""
+    m = minutes_actives(mag, ["bz_gsm"])
+    w = minutes_actives(vent, ["proton_speed"])
+    par_jour = {}
+    for t in sorted(set(m) | set(w)):
+        par_jour.setdefault(t.strftime("%Y-%m-%d"), []).append(t)
+    for jour, minutes in par_jour.items():
+        fichier = JOURNAL / "l1" / f"l1_{jour}.csv"
+        deja = {l.split(",")[0] for l in fichier.read_text().splitlines()[1:]} if fichier.exists() else set()
+        lignes = []
+        for t in minutes:
+            if iso(t) in deja:
+                continue
+            a, b = m.get(t, {}), w.get(t, {})
+            lignes.append([iso(t), a.get("source") or b.get("source"), b.get("proton_speed"), b.get("proton_density"),
+                           b.get("proton_temperature"), a.get("bt"), a.get("bx_gsm"), a.get("by_gsm"), a.get("bz_gsm")])
+        if lignes:
+            ajouter_csv(fichier, ["t", "source", "V", "n", "T", "Bt", "Bx_gsm", "By_gsm", "Bz_gsm"], lignes)
+
+
+def journaliser(etat, maintenant):
+    """Une ligne par collecte : ce que l'outil disait à cet instant (un fichier par mois)."""
+    l1, kp, clf = etat["l1"] or {}, etat["kp"] or {}, etat["clf"] or {}
+    pic, obs, choc = kp.get("pic_24h") or {}, kp.get("observe") or {}, l1.get("choc") or {}
+    ajouter_csv(JOURNAL / f"collectes_{maintenant:%Y-%m}.csv",
+                ["t", "l1_source", "l1_derniere", "V", "n", "Bz", "By", "P", "newell_2h", "delai_min",
+                 "choc_vu_a_L1", "choc_arrivee", "dbdt_med", "dbdt_p90", "kp_observe", "kp_pic24", "kp_pic24_p90",
+                 "clf_max_1h", "clf_heure_max", "clf_retard_min", "clf_theta", "clf_periode_min", "alerte", "erreurs"],
+                [[iso(maintenant), l1.get("source"), l1.get("derniere_mesure"), l1.get("V"), l1.get("n"), l1.get("Bz"),
+                  l1.get("By"), l1.get("P"), l1.get("newell_2h"), l1.get("delai_min"), choc.get("vu_a_L1"),
+                  choc.get("arrivee_estimee"), l1.get("dbdt_med"), l1.get("dbdt_p90"), obs.get("kp"), pic.get("kp"),
+                  pic.get("dbdt_p90"), clf.get("dbdt_max_1h"), clf.get("heure_max"), clf.get("retard_min"),
+                  clf.get("theta"), clf.get("periode_min"), (etat.get("alerte") or {}).get("niveau"),
+                  len(etat.get("erreurs") or [])]])
 
 
 # ---------------------------------------------------------------- programme principal
@@ -311,8 +363,17 @@ def main():
     hist = mettre_a_jour_historique(hist, maintenant, etat["l1"], clf_h)
     fichier_hist.write_text(json.dumps(hist, indent=0))
     etat["historique"] = [{"heure": k, **v} for k, v in list(hist.items())[-48:]]
+    etat["validation"] = validation.tout(hist)
     etat["alerte"] = alertes.traiter(etat, maintenant, None if demo else SORTIE / "alertes.json", erreurs)
     etat["erreurs"] = erreurs
+
+    if not demo:
+        try:
+            if "mag" in sources and "vent" in sources:
+                archiver_l1(sources["mag"], sources["vent"])
+            journaliser(etat, maintenant)
+        except Exception as e:                                              # l'archive ne doit jamais bloquer la page
+            erreurs.append(f"journal : {e}")
 
     nom = "etat_demo.json" if demo else "etat_courant.json"
     (SORTIE / nom).write_text(json.dumps(etat, ensure_ascii=False, separators=(",", ":")))
