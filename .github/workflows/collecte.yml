@@ -1,0 +1,34 @@
+# Lance le collecteur toutes les 5 minutes et publie le résultat dans docs/ (servi par GitHub Pages).
+name: collecte
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"      # toutes les 5 min (GitHub peut retarder de quelques minutes)
+  workflow_dispatch:            # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write               # autorise le robot à enregistrer les fichiers mis à jour
+
+concurrency:
+  group: collecte               # jamais deux collectes en même temps
+  cancel-in-progress: false
+
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collecte et calcul
+        run: python collecteur.py
+      - name: Enregistrement
+        run: |
+          git config user.name "veille-cig-robot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/etat_courant.json docs/historique.json
+          git commit -m "Donnees $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
+          git pull --rebase
+          git push
