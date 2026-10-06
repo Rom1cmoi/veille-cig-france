@@ -57,7 +57,7 @@ def date(s):
 
 
 def iso(t):
-    return t.strftime("%Y-%m-%dT%H:%M:00Z")  # le serveur BGS refuse les secondes if t else None
+    return t.strftime("%Y-%m-%dT%H:%M:%SZ") if t else None
 
 
 def moyenne(v):
