@@ -1,0 +1,4 @@
+simulation,calculee,arrivee_prevue,cme,vitesse_max,effleurement,impact_mineur,kp_90,kp_135,kp_180,magnetopause_re,duree_h
+WSA-ENLIL/48903/1,2026-09-30T12:25Z,2026-10-03T12:34Z,2026-09-30T03:12:00-CME-001,488.0,False,False,3,4,4,6.6,24.0
+WSA-ENLIL/48993/1,2026-10-06T12:08Z,2026-10-09T04:16Z,,,False,False,4,5,6,6.0,21.2
+WSA-ENLIL/48994/1,2026-10-06T12:22Z,2026-10-09T02:21Z,,,False,False,4,6,7,5.7,21.0
