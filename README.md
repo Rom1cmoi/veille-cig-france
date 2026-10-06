@@ -4,6 +4,7 @@ Cette version de l'outil se nourrit **toute seule** des données du moment :
 
 | Horizon | Source | Ce qu'on en tire |
 |---|---|---|
+| Veille CME (1 à 3 jours) | CME vues par les coronographes, simulées par WSA-ENLIL (NASA, base DONKI) | Heure d'arrivée du choc (±10 h) et Kp estimé selon l'orientation du champ : la force reste inconnue jusqu'à L1 |
 | Veille (24 h) | Kp prévu à 3 jours par la NOAA | dB/dt attendu (modèle Kp du rapport) |
 | Pré-alerte (20 à 60 min) | Vent solaire mesuré à L1 par la NOAA (SOLAR-1, DSCOVR, ACE, IMAP), à la minute | dB/dt de l'heure qui commence (modèle vent solaire du rapport), détection des chocs et heure d'arrivée |
 | Constat (maintenant) | Magnétomètre de Chambon-la-Forêt, INTERMAGNET (environ 15 min de retard) | dB/dt réellement mesuré, direction et période |
@@ -62,6 +63,19 @@ GitHub héberge la page (GitHub Pages) et lance le collecteur toutes les 5 minut
 - **GitHub désactive parfois les tâches planifiées** d'un dépôt resté sans activité pendant 60 jours : il suffit de la réactiver dans l'onglet Actions.
 - **Une source en panne** (NOAA, INTERMAGNET) n'arrête pas les autres : la page indique « sources en erreur » en bas du bloc Direct.
 
+## CME en route (horizon 1 à 3 jours)
+
+Les coronographes (SOHO, STEREO-A, GOES CCOR-1) voient partir les éjections de masse coronale (CME). La NASA (CCMC) en mesure la vitesse et la direction, puis simule leur propagation avec le modèle WSA-ENLIL. Le collecteur lit ces simulations dans la base DONKI (`https://ccmc.gsfc.nasa.gov/DONKI-API/`, nouvelle adresse depuis le 30 septembre 2026), toutes les 30 minutes au plus.
+
+Pour chaque CME attendue sur Terre, la page affiche :
+- l'heure d'arrivée estimée du choc, avec une erreur typique de ±10 h (ordre de grandeur des bilans du CME Arrival Time Scoreboard de la CCMC) ;
+- le Kp estimé par la simulation pour trois orientations du champ magnétique de la CME (angle d'horloge 90°, 135°, 180° : de « pas orienté sud » à « plein sud »), converti en dB/dt avec le modèle Kp du rapport ;
+- la compression de la magnétopause (sous 6,6 rayons terrestres, elle passe sous l'orbite géostationnaire).
+
+**Ce que ça montre :** on sait prévoir quand une CME arrive, pas avec quelle force. La force dépend surtout de l'orientation de son champ, qu'on ne mesure qu'à L1, 30 à 60 min avant l'impact. Une alerte « veille » est envoyée si le cas plein sud atteint l'orange.
+
+Chaque simulation qui prévoit un impact est gardée dans `journal/cme_previsions.csv`. Comparée aux chocs détectés à L1 (journal des collectes), elle donnera l'erreur réelle sur l'heure d'arrivée.
+
 ## Alertes
 
 Le collecteur prévient tout seul quand il se passe quelque chose (fichier `alertes.py`).
@@ -70,6 +84,7 @@ Le collecteur prévient tout seul quand il se passe quelque chose (fichier `aler
 
 | Signal | Condition |
 |---|---|
+| CME en route | Simulation WSA-ENLIL : Kp « plein sud » qui donnerait l'orange (Kp 8 ou plus) |
 | Choc à L1 | Saut brutal de pression ET de vitesse (≥ 20 km/s) du vent solaire : arrivée sur Terre dans 15 à 60 min |
 | Veille, Pré-alerte ou Constat orange | dB/dt (P90 prévu, ou mesuré) ≥ 68 nT/min, soit 10 A par phase au poste le plus exposé |
 | Rouge | dB/dt ≥ 509 nT/min, soit 75 A |

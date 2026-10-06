@@ -73,6 +73,23 @@ def signaux(etat):
         s.append({"cle": "clf " + n, "niveau": n, "titre": f"Constat {n} : {clf['dbdt_max_1h']} nT/min à Chambon",
                   "texte": f"dB/dt mesuré à Chambon-la-Forêt : {clf['dbdt_max_1h']} nT/min à {hm(clf['heure_max'])} "
                            f"(données provisoires, {clf['retard_min']} min de retard)."})
+    # CME en route : on prévient si, dans le cas où le champ arrive plein sud (Kp ENLIL à 180°), le dB/dt P90
+    # atteint l'orange. Le signal reste actif jusqu'à 12 h après l'heure d'arrivée prévue (erreur typique ±10 h).
+    for c in (etat.get("cme") or {}).get("attendues", []):
+        p90 = (c.get("dbdt_p90") or {}).get("180")
+        n = niveau(p90)
+        if not n or lire_date(c["arrivee"]) < datetime.now(timezone.utc) - timedelta(hours=12):
+            continue
+        kp = c["kp"]
+        vit = max((x.get("vitesse") or 0) for x in c["cmes"]) if c["cmes"] else "?"
+        ids = "+".join(x.get("id") or "?" for x in c["cmes"])                 # une seule alerte par CME et par niveau,
+        s.append({"cle": f"cme {ids} {n}", "niveau": n,                       # même si ENLIL la recalcule
+                  "titre": f"Veille {n} : CME attendue le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers {hm(c['arrivee'])}",
+                  "texte": f"CME à {vit:.0f} km/s, arrivée du choc estimée le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers "
+                           f"{hm(c['arrivee'])} (±{c['erreur_h']} h){', effleurement' if c['effleurement'] else ''}. "
+                           f"Kp estimé {kp.get('90')} si le champ n'est pas orienté sud, jusqu'à {kp.get('180')} s'il l'est "
+                           f"franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : "
+                           f"dB/dt P90 {p90} nT/min. Simulation {c['simulation']} : {c.get('lien') or ''}"})
     return s
 
 

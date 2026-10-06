@@ -31,6 +31,11 @@ JOURNAL = ICI / "journal"                    # archives pour la validation sur l
 URL_MAG = "https://services.swpc.noaa.gov/json/rtsw/rtsw_mag_1m.json"
 URL_VENT = "https://services.swpc.noaa.gov/json/rtsw/rtsw_wind_1m.json"
 URL_KP = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json"
+# Simulations WSA-ENLIL de la NASA (base DONKI) : CME vues par les coronographes, heure d'arrivée sur Terre
+# et Kp estimé selon l'orientation du champ. Nouvelle adresse depuis le 30/09/2026 (l'ancienne kauai.ccmc... redirige).
+URL_CME = "https://ccmc.gsfc.nasa.gov/DONKI-API/get/WSAEnlilSimulations?startDate={debut}&endDate={fin}"
+CME_CACHE_MIN = 30                     # on ne réinterroge DONKI que toutes les 30 min (quelques simulations par jour)
+CME_ERREUR_H = 10                      # erreur typique sur l'heure d'arrivée d'une CME (bilans du CME Scoreboard)
 URL_CLF = ("https://imag-data.bgs.ac.uk/GIN_V1/GINServices?Request=GetData&format=iaga2002"
            "&observatoryIagaCode=CLF&samplesPerDay=minute&dataStartDate={debut}&dataDuration=1"
            "&publicationState=best-avail&orientation=native")
@@ -161,6 +166,13 @@ def analyse_l1(mag, vent):
 
 
 # ---------------------------------------------------------------- 2. Kp observé et prévu
+def dbdt_kp(kp, sigma_kp):
+    """Modèle Kp du rapport : dB/dt médian et P90 (nT/min). sigma_kp = incertitude sur le Kp lui-même."""
+    mu = KP_A + KP_B * kp
+    s = math.sqrt(KP_SIGMA ** 2 + (KP_B * sigma_kp) ** 2)
+    return arrondi(10 ** mu, 1), arrondi(10 ** (mu + Z90 * s), 1)
+
+
 def analyse_kp(donnees, maintenant):
     lignes = []
     for e in donnees:
@@ -176,17 +188,12 @@ def analyse_kp(donnees, maintenant):
     obs = [l for l in lignes if l["statut"] in ("observed", "estimated") and l["t"] <= maintenant]
     futur = [l for l in lignes if l["t"] + timedelta(hours=3) > maintenant]
 
-    def dbdt(kp, sigma_kp):
-        mu = KP_A + KP_B * kp
-        s = math.sqrt(KP_SIGMA ** 2 + (KP_B * sigma_kp) ** 2)
-        return arrondi(10 ** mu, 1), arrondi(10 ** (mu + Z90 * s), 1)
-
     def pic(heures):
         f = [l for l in futur if l["t"] < maintenant + timedelta(hours=heures)]
         if not f:
             return None
         l = max(f, key=lambda x: x["kp"])
-        med, p90 = dbdt(l["kp"], 0.0 if l["statut"] == "observed" else SIGMA_KP_PREVU)
+        med, p90 = dbdt_kp(l["kp"], 0.0 if l["statut"] == "observed" else SIGMA_KP_PREVU)
         return {"t": iso(l["t"]), "kp": l["kp"], "statut": l["statut"], "dbdt_med": med, "dbdt_p90": p90}
 
     dernier = obs[-1] if obs else None
@@ -196,6 +203,63 @@ def analyse_kp(donnees, maintenant):
         "serie": [{"t": iso(l["t"]), "kp": l["kp"], "statut": l["statut"]}
                   for l in lignes if l["t"] > maintenant - timedelta(hours=24)],
     }
+
+
+# ---------------------------------------------------------------- 2 bis. CME en route (coronographes, WSA-ENLIL)
+def analyse_cme(simulations, maintenant):
+    """CME attendues sur Terre d'après la dernière simulation WSA-ENLIL de chacune.
+
+    Une même CME est simulée plusieurs fois (mesures affinées, ou nouvelle CME ajoutée au calcul) : on parcourt
+    les simulations de la plus récente à la plus ancienne et on ne garde une simulation que si aucune de ses CME
+    n'apparaît dans une simulation plus récente. Si la plus récente ne prévoit plus d'impact, la CME disparaît.
+    Kp estimé par ENLIL pour un angle d'horloge du champ de 90° (Bz nul), 135° et 180° (Bz plein sud) : l'orientation
+    réelle ne se mesure qu'à L1, d'où la fourchette.
+    """
+    vues, attendues = set(), []
+    for s in sorted(simulations, key=lambda x: x.get("modelCompletionTime") or "", reverse=True):
+        ids = {c.get("CMEID") for c in s.get("cmeInputs") or [] if c.get("CMEID")}
+        if not ids or ids & vues:
+            vues |= ids
+            continue
+        vues |= ids
+        arrivee = s.get("estimatedShockArrivalTime")
+        if not arrivee:
+            continue
+        t = date(arrivee)
+        if t < maintenant - timedelta(hours=24):                           # arrivée passée depuis plus d'un jour
+            continue
+        kp = {a: s.get(f"kp_{a}") for a in (90, 135, 180)}
+        dbdt = {a: dbdt_kp(k, SIGMA_KP_PREVU) for a, k in kp.items() if k is not None}
+        attendues.append({
+            "arrivee": iso(t), "dans_h": arrondi((t - maintenant).total_seconds() / 3600, 1),
+            "erreur_h": CME_ERREUR_H, "effleurement": bool(s.get("isEarthGB")),
+            "impact_mineur": bool(s.get("isEarthMinorImpact")),
+            "kp": kp, "dbdt_med": {a: v[0] for a, v in dbdt.items()}, "dbdt_p90": {a: v[1] for a, v in dbdt.items()},
+            "magnetopause_re": s.get("rmin_re"), "duree_h": s.get("estimatedDuration"),
+            "cmes": [{"id": c.get("CMEID"), "depart": c.get("cmeStartTime"), "vitesse": c.get("speed"),
+                      "demi_angle": c.get("halfAngle")} for c in s.get("cmeInputs") or []],
+            "simulation": s.get("simulationID"), "calculee": s.get("modelCompletionTime"), "lien": s.get("link"),
+        })
+    return {"attendues": sorted(attendues, key=lambda x: x["arrivee"]), "n_simulations": len(simulations)}
+
+
+def lire_donki(maintenant, erreurs):
+    """Simulations des 7 derniers jours, avec un cache de 30 min (fichier docs/donki.json)."""
+    cache = SORTIE / "donki.json"
+    if cache.exists():
+        c = json.loads(cache.read_text())
+        if maintenant - date(c["lu"]) < timedelta(minutes=CME_CACHE_MIN):
+            return c["simulations"]
+    try:
+        url = URL_CME.format(debut=(maintenant - timedelta(days=7)).strftime("%Y-%m-%d"),
+                             fin=maintenant.strftime("%Y-%m-%d"))
+        texte = lire_url(url)
+        sims = json.loads(texte) if texte.strip() else []                  # réponse vide = aucune simulation
+    except Exception as e:
+        erreurs.append(f"cme : {e}")
+        return json.loads(cache.read_text())["simulations"] if cache.exists() else None
+    cache.write_text(json.dumps({"lu": iso(maintenant), "simulations": sims}, separators=(",", ":")))
+    return sims
 
 
 # ---------------------------------------------------------------- 3. Chambon-la-Forêt
@@ -310,6 +374,25 @@ def archiver_l1(mag, vent):
             ajouter_csv(fichier, ["t", "source", "V", "n", "T", "Bt", "Bx_gsm", "By_gsm", "Bz_gsm"], lignes)
 
 
+def archiver_cme(simulations):
+    """Chaque simulation WSA-ENLIL qui prévoit un impact sur Terre, une seule fois. Comparée plus tard aux chocs
+    détectés à L1 (journal des collectes), elle donne l'erreur réelle sur l'heure d'arrivée."""
+    fichier = JOURNAL / "cme_previsions.csv"
+    deja = {l.split(",")[0] for l in fichier.read_text().splitlines()[1:]} if fichier.exists() else set()
+    lignes = []
+    for s in sorted(simulations, key=lambda x: x.get("modelCompletionTime") or ""):
+        if not s.get("estimatedShockArrivalTime") or s.get("simulationID") in deja:
+            continue
+        cmes = s.get("cmeInputs") or []
+        lignes.append([s["simulationID"], s.get("modelCompletionTime"), s["estimatedShockArrivalTime"],
+                       " ".join(c.get("CMEID", "") for c in cmes), max((c.get("speed") or 0) for c in cmes) if cmes else "",
+                       s.get("isEarthGB"), s.get("isEarthMinorImpact"), s.get("kp_90"), s.get("kp_135"), s.get("kp_180"),
+                       s.get("rmin_re"), s.get("estimatedDuration")])
+    if lignes:
+        ajouter_csv(fichier, ["simulation", "calculee", "arrivee_prevue", "cme", "vitesse_max", "effleurement",
+                              "impact_mineur", "kp_90", "kp_135", "kp_180", "magnetopause_re", "duree_h"], lignes)
+
+
 def journaliser(etat, maintenant):
     """Une ligne par collecte : ce que l'outil disait à cet instant (un fichier par mois)."""
     l1, kp, clf = etat["l1"] or {}, etat["kp"] or {}, etat["clf"] or {}
@@ -350,7 +433,7 @@ def main():
                 erreurs_lecture.append(f"{cle} : {e}")
 
     erreurs = [] if demo else erreurs_lecture
-    etat = {"genere": iso(maintenant), "demo": demo, "l1": None, "kp": None, "clf": None}
+    etat = {"genere": iso(maintenant), "demo": demo, "l1": None, "kp": None, "clf": None, "cme": None}
     for cle, besoins, fonction in (("l1", ("mag", "vent"), lambda: analyse_l1(sources["mag"], sources["vent"])),
                                    ("kp", ("kp",), lambda: analyse_kp(sources["kp"], maintenant)),
                                    ("clf", ("clf",), lambda: analyse_clf(lire_iaga(sources["clf"]), maintenant))):
@@ -361,6 +444,12 @@ def main():
         except Exception as e:
             erreurs.append(f"{cle} : {e}")
     clf_h = etat["clf"].pop("_h") if etat["clf"] else None
+    simulations = None if demo else lire_donki(maintenant, erreurs)       # pas de CME dans la démonstration
+    if simulations is not None:
+        try:
+            etat["cme"] = analyse_cme(simulations, maintenant)
+        except Exception as e:
+            erreurs.append(f"cme : {e}")
 
     fichier_hist = SORTIE / ("historique_demo.json" if demo else "historique.json")
     hist = json.loads(fichier_hist.read_text()) if fichier_hist.exists() else {}
@@ -375,6 +464,8 @@ def main():
         try:
             if "mag" in sources and "vent" in sources:
                 archiver_l1(sources["mag"], sources["vent"])
+            if simulations:
+                archiver_cme(simulations)
             journaliser(etat, maintenant)
         except Exception as e:                                              # l'archive ne doit jamais bloquer la page
             erreurs.append(f"journal : {e}")

@@ -124,6 +124,16 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
 .banner{background:var(--accent-soft);border-radius:8px;padding:8px 12px;font-size:13px}
 .alert{border:2px solid var(--o);border-radius:8px;padding:10px 12px;font-weight:600}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cme{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:8px}
+.cme .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cme-item{display:grid;gap:6px;padding-top:8px;border-top:1px solid var(--line)}
+.cme-item:first-of-type{border-top:0;padding-top:0}
+.cme-arr{font-weight:600}
+.cme-or{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.cme-or div{border-radius:6px;padding:6px 8px;background:var(--surface);border-left:4px solid var(--g);font-size:12.5px;display:grid;gap:2px}
+.cme-or b{font:600 15px var(--mono)}
+.cme-or .l1{border-left-color:var(--y)}.cme-or .l2{border-left-color:var(--o)}.cme-or .l3{border-left-color:var(--r)}
+@media (max-width:640px){.cme-or{grid-template-columns:1fr}}
 @media (max-width:640px){.tiles{grid-template-columns:1fr}}
 .tile{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:3px;align-content:start;cursor:pointer;text-align:left;font:inherit;color:inherit;background:transparent}
 .tile[aria-pressed="true"]{border:2px solid var(--accent);padding:9px 11px}
@@ -271,6 +281,7 @@ details.valid summary{font-weight:600;cursor:pointer}
           <button type="button" class="tile" id="tile-l1" aria-pressed="true"></button>
           <button type="button" class="tile" id="tile-clf" aria-pressed="false"></button>
         </div>
+        <div class="cme" id="live-cme"></div>
         <div class="charts">
           <div><span class="hint">Pression dynamique du vent solaire à L1 (nPa), 6 h</span><svg id="ch-p" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="Pression dynamique à L1"></svg></div>
           <div><span class="hint">dB/dt mesuré à Chambon-la-Forêt (nT/min), 6 h</span><svg id="ch-h" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="dB/dt à Chambon"></svg></div>
@@ -425,6 +436,23 @@ details.valid summary{font-weight:600;cursor:pointer}
       `<text x="2" y="9" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">max ${fmt(mx,1)} ${unit}</text>`+
       `<text x="298" y="9" font-size="10" text-anchor="end" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${hm(pts.at(-1).t).slice(0,5)}</text>`;
   }
+  function renderCme(C){
+    const el=$('live-cme'); const head='<span class="k">CME en route · coronographes et simulation WSA-ENLIL (NASA)</span>';
+    if(!C){el.innerHTML=head+`<p class="hint">${LIVE&&LIVE.demo?'Pas de simulation de CME dans la démonstration.':'Base DONKI indisponible pour l\'instant.'}</p>`;return;}
+    const A=C.attendues||[];
+    if(!A.length){el.innerHTML=head+`<p class="hint">Aucune CME attendue sur Terre d'après les dernières simulations (${C.n_simulations} sur 7 jours).</p>`;return;}
+    const cmax=Math.max(...D.nodes.flatMap(n=>n.c[D.periods.indexOf(20)].map(Math.abs)));
+    const jour=t=>new Date(t).toLocaleDateString('fr-FR',{weekday:'short',day:'2-digit',month:'2-digit',timeZone:'UTC'});
+    const dans=h=>h>=0?`dans ${h<48?Math.round(h)+' h':Math.round(h/24)+' j'}`:`il y a ${Math.round(-h)} h`;
+    el.innerHTML=head+A.map(c=>{const v=Math.max(...c.cmes.map(x=>x.vitesse||0));
+      const cas=[['90','champ non orienté sud'],['135','en partie sud'],['180','plein sud']].map(([a,lib])=>{const k=c.kp[a],p=c.dbdt_p90[a];
+        return k==null?'':`<div class="l${level(p*cmax)}"><span>${lib} (${a}°)</span><b>Kp ${k}</b><span>dB/dt P90 ${fmt(p,0)} nT/min</span></div>`;}).join('');
+      return `<div class="cme-item"><span class="cme-arr">Arrivée du choc : ${jour(c.arrivee)} vers ${hm(c.arrivee)} ± ${c.erreur_h} h (${dans(c.dans_h)})</span>
+        <span class="hint">CME à ${fmt(v,0)} km/s${c.effleurement?' · effleurement prévu (bord de la CME)':''}${c.impact_mineur?' · impact mineur':''}${c.magnetopause_re?` · magnétopause comprimée jusqu'à ${fmt(c.magnetopause_re,1)} rayons terrestres${c.magnetopause_re<6.6?' (sous l\'orbite géostationnaire)':''}`:''}${c.duree_h?` · durée ${fmt(c.duree_h,0)} h`:''}</span>
+        <div class="cme-or">${cas}</div>
+        ${c.lien?`<span class="hint"><a href="${c.lien}" target="_blank" rel="noopener">Simulation ${c.simulation}</a></span>`:''}</div>`;}).join('')+
+      `<p class="hint">On sait prévoir <b>quand</b> une CME arrive (à ±10 h environ), pas <b>avec quelle force</b> : elle dépend de l'orientation de son champ magnétique, qu'on ne mesure qu'en passant à L1, 30 à 60 min avant l'impact. D'où les trois cas, avec le Kp estimé par la simulation pour chacun. Couleurs : vigilance du poste le plus exposé (cas pessimiste).</p>`;
+  }
   function renderLive(){
     const ban=$('live-banner'), choc=$('live-choc');
     if(!LIVE){ban.classList.remove('hidden');ban.textContent="Flux en direct indisponible : cette copie de la page n'est pas reliée au collecteur (voir le guide d'installation). Les autres modes fonctionnent normalement.";
@@ -446,6 +474,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     ['kp','l1','clf'].forEach(x=>$('tile-'+x).setAttribute('aria-pressed',String(x===liveH)));
     const row=(nom,t,lim)=>{const a=ageMin(t);const ok=a!=null&&a<=lim;return `<li><span>${nom}</span><span class="${ok?'ok':'ko'}">${a==null?'indisponible':(a<=0?'à l\'instant':'il y a '+a+' min')}</span></li>`;};
     $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',clf&&clf.derniere_mesure,60)+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
+    renderCme(LIVE.cme);
     chart('ch-p',l1&&l1.serie,'P','nPa'); chart('ch-h',clf&&clf.serie,'h','nT/min');
     const H=(LIVE.historique||[]).filter(r=>r.observe!=null);
     const V=LIVE.validation;
