@@ -137,6 +137,8 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
 .src li{display:flex;justify-content:space-between;gap:8px}
 .src .ok{color:var(--g)}.src .ko{color:var(--r)}
 .valid table{min-width:0}
+details.valid{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px}
+details.valid summary{font-weight:600;cursor:pointer}
 </style>
 
 <div class="wrap">
@@ -273,7 +275,7 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
           <div><span class="hint">Pression dynamique du vent solaire à L1 (nPa), 6 h</span><svg id="ch-p" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="Pression dynamique à L1"></svg></div>
           <div><span class="hint">dB/dt mesuré à Chambon-la-Forêt (nT/min), 6 h</span><svg id="ch-h" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="dB/dt à Chambon"></svg></div>
         </div>
-        <details class="valid"><summary class="hint" style="cursor:pointer">Auto-validation : chaque heure, la prévision L1 comparée au dB/dt mesuré ensuite</summary><div id="valid"></div></details>
+        <details class="valid"><summary>Auto-validation : la prévision L1 de chaque heure comparée au dB/dt mesuré ensuite (toucher pour ouvrir)</summary><div id="valid"></div></details>
         <p class="hint" id="live-maj"></p>
       </div>
 
@@ -443,7 +445,7 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
     const H=(LIVE.historique||[]).filter(r=>r.observe!=null);
     if(H.length){const cov=H.filter(r=>r.observe<=r.prevu_p90).length/H.length;
       $('valid').innerHTML=`<p class="hint">${H.length} heures vérifiées : le dB/dt mesuré est resté sous le P90 prévu dans ${Math.round(100*cov)} % des cas (90 % attendus).</p><div class="tscroll"><table><thead><tr><th>Heure</th><th>Prévu médian</th><th>Prévu P90</th><th>Mesuré</th><th>Sous le P90</th></tr></thead><tbody>${H.slice(-8).reverse().map(r=>`<tr><td>${hm(r.heure)}</td><td class="mono">${fmt(r.prevu_med,1)}</td><td class="mono">${fmt(r.prevu_p90,1)}</td><td class="mono">${fmt(r.observe,1)}</td><td>${r.observe<=r.prevu_p90?'oui':'non'}</td></tr>`).join('')}</tbody></table></div>`;}
-    else $('valid').innerHTML='<p class="hint">Pas encore d\'heure vérifiée : il faut au moins une heure complète de fonctionnement du collecteur.</p>';
+    else $('valid').innerHTML='<p class="hint">Pas encore d\'heure vérifiée. La prévision est enregistrée en début d\'heure, puis comparée au maximum mesuré à Chambon une fois l\'heure finie et les données arrivées (environ 20 min de retard) : comptez 1 h 30 à 2 h après le démarrage pour la première ligne.</p>';
     $('live-maj').textContent=`Collecteur : ${LIVE.genere?hm(LIVE.genere):'—'}${(LIVE.erreurs||[]).length?' · sources en erreur : '+LIVE.erreurs.join(' ; '):''}`;
   }
   const T3={"kp": {"a": -0.11227935133694074, "b": 0.21244159172919028, "sigma": 0.26418398789874875, "r": 0.8878858434231376}, "l1": {"coef": [-0.7237253677360235, 0.294212452907563, 0.2668019415454145, 0.1258057789396702], "rmse": 0.32489733553399563}};

@@ -250,8 +250,11 @@ def mettre_a_jour_historique(hist, maintenant, l1, clf_h):
     """Une ligne par heure : prévision émise au début de l'heure, puis dB/dt maximal mesuré pendant l'heure."""
     heure = maintenant.replace(minute=0, second=0, microsecond=0)
     cle = iso(heure)
-    if l1 and cle not in hist and maintenant - heure < timedelta(minutes=15):
-        hist[cle] = {"prevu_med": l1["dbdt_med"], "prevu_p90": l1["dbdt_p90"], "observe": None}
+    # GitHub retarde souvent ses lancements de 10 à 20 min : on accepte la première collecte
+    # des 30 premières minutes de l'heure, et on note avec quel retard la prévision a été émise.
+    if l1 and cle not in hist and maintenant - heure < timedelta(minutes=30):
+        hist[cle] = {"prevu_med": l1["dbdt_med"], "prevu_p90": l1["dbdt_p90"], "observe": None,
+                     "emise_min": int((maintenant - heure).total_seconds() // 60)}
     for k, ligne in hist.items():
         debut = date(k)
         if ligne["observe"] is None and clf_h and debut + timedelta(hours=1) <= maintenant:
