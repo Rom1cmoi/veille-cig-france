@@ -289,8 +289,12 @@ def archiver_l1(mag, vent):
     retraitée : ces données temps réel, avec leur bruit, sont celles qu'il faut pour juger l'outil."""
     m = minutes_actives(mag, ["bz_gsm"])
     w = minutes_actives(vent, ["proton_speed"])
-    par_jour = {}
-    for t in sorted(set(m) | set(w)):
+    toutes = sorted(set(m) | set(w))
+    if not toutes:
+        return
+    stables = [t for t in toutes if t <= toutes[-1] - timedelta(minutes=10)]  # les dernières minutes peuvent encore
+    par_jour = {}                                                           # changer de satellite : on attend 10 min
+    for t in stables:
         par_jour.setdefault(t.strftime("%Y-%m-%d"), []).append(t)
     for jour, minutes in par_jour.items():
         fichier = JOURNAL / "l1" / f"l1_{jour}.csv"
