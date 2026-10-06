@@ -443,7 +443,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     if(!A.length){el.innerHTML=head+`<p class="hint">Aucune CME attendue sur Terre d'après les dernières simulations (${C.n_simulations} sur 7 jours).</p>`;return;}
     const cmax=Math.max(...D.nodes.flatMap(n=>n.c[D.periods.indexOf(20)].map(Math.abs)));
     const jour=t=>new Date(t).toLocaleDateString('fr-FR',{weekday:'short',day:'2-digit',month:'2-digit',timeZone:'UTC'});
-    const dans=h=>h>=0?`dans ${h<48?Math.round(h)+' h':Math.round(h/24)+' j'}`:`il y a ${Math.round(-h)} h`;
+    const dans=h=>h>=0?`dans ${h<96?Math.round(h)+' h':(h/24).toFixed(1).replace('.',',')+' j'}`:`il y a ${Math.round(-h)} h`;
     el.innerHTML=head+A.map(c=>{const v=c.cmes.length?Math.max(...c.cmes.map(x=>x.vitesse||0)):null;
       const cas=[['90','champ non orienté sud'],['135','en partie sud'],['180','plein sud']].map(([a,lib])=>{const k=c.kp[a],p=c.dbdt_p90[a];
         return k==null?'':`<div class="l${level(p*cmax)}"><span>${lib} (${a}°)</span><b>Kp ${k}</b><span>dB/dt P90 ${fmt(p,0)} nT/min</span></div>`;}).join('');
