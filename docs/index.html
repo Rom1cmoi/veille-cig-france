@@ -444,11 +444,11 @@ details.valid summary{font-weight:600;cursor:pointer}
     const cmax=Math.max(...D.nodes.flatMap(n=>n.c[D.periods.indexOf(20)].map(Math.abs)));
     const jour=t=>new Date(t).toLocaleDateString('fr-FR',{weekday:'short',day:'2-digit',month:'2-digit',timeZone:'UTC'});
     const dans=h=>h>=0?`dans ${h<48?Math.round(h)+' h':Math.round(h/24)+' j'}`:`il y a ${Math.round(-h)} h`;
-    el.innerHTML=head+A.map(c=>{const v=Math.max(...c.cmes.map(x=>x.vitesse||0));
+    el.innerHTML=head+A.map(c=>{const v=c.cmes.length?Math.max(...c.cmes.map(x=>x.vitesse||0)):null;
       const cas=[['90','champ non orienté sud'],['135','en partie sud'],['180','plein sud']].map(([a,lib])=>{const k=c.kp[a],p=c.dbdt_p90[a];
         return k==null?'':`<div class="l${level(p*cmax)}"><span>${lib} (${a}°)</span><b>Kp ${k}</b><span>dB/dt P90 ${fmt(p,0)} nT/min</span></div>`;}).join('');
       return `<div class="cme-item"><span class="cme-arr">Arrivée du choc : ${jour(c.arrivee)} vers ${hm(c.arrivee)} ± ${c.erreur_h} h (${dans(c.dans_h)})</span>
-        <span class="hint">CME à ${fmt(v,0)} km/s${c.effleurement?' · effleurement prévu (bord de la CME)':''}${c.impact_mineur?' · impact mineur':''}${c.magnetopause_re?` · magnétopause comprimée jusqu'à ${fmt(c.magnetopause_re,1)} rayons terrestres${c.magnetopause_re<6.6?' (sous l\'orbite géostationnaire)':''}`:''}${c.duree_h?` · durée ${fmt(c.duree_h,0)} h`:''}</span>
+        <span class="hint">${c.cmes.length?`CME à ${fmt(v,0)} km/s`:'Simulation toute récente, pas encore rattachée à une CME du catalogue DONKI'}${c.effleurement?' · effleurement prévu (bord de la CME)':''}${c.impact_mineur?' · impact mineur':''}${c.magnetopause_re?` · magnétopause comprimée jusqu'à ${fmt(c.magnetopause_re,1)} rayons terrestres${c.magnetopause_re<6.6?' (sous l\'orbite géostationnaire)':''}`:''}${c.duree_h?` · durée ${fmt(c.duree_h,0)} h`:''}</span>
         <div class="cme-or">${cas}</div>
         ${c.lien?`<span class="hint"><a href="${c.lien}" target="_blank" rel="noopener">Simulation ${c.simulation}</a></span>`:''}</div>`;}).join('')+
       `<p class="hint">On sait prévoir <b>quand</b> une CME arrive (à ±10 h environ), pas <b>avec quelle force</b> : elle dépend de l'orientation de son champ magnétique, qu'on ne mesure qu'en passant à L1, 30 à 60 min avant l'impact. D'où les trois cas, avec le Kp estimé par la simulation pour chacun. Couleurs : vigilance du poste le plus exposé (cas pessimiste).</p>`;

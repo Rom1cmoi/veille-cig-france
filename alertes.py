@@ -81,11 +81,11 @@ def signaux(etat):
         if not n or lire_date(c["arrivee"]) < datetime.now(timezone.utc) - timedelta(hours=12):
             continue
         kp = c["kp"]
-        vit = max((x.get("vitesse") or 0) for x in c["cmes"]) if c["cmes"] else "?"
-        ids = "+".join(x.get("id") or "?" for x in c["cmes"])                 # une seule alerte par CME et par niveau,
+        vit = f"{max((x.get('vitesse') or 0) for x in c['cmes']):.0f} km/s" if c["cmes"] else "pas encore cataloguée"
+        ids = "+".join(x.get("id") or "?" for x in c["cmes"]) or c["arrivee"][:13]  # une seule alerte par CME et niveau,
         s.append({"cle": f"cme {ids} {n}", "niveau": n,                       # même si ENLIL la recalcule
                   "titre": f"Veille {n} : CME attendue le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers {hm(c['arrivee'])}",
-                  "texte": f"CME à {vit:.0f} km/s, arrivée du choc estimée le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers "
+                  "texte": f"CME ({vit}), arrivée du choc estimée le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers "
                            f"{hm(c['arrivee'])} (±{c['erreur_h']} h){', effleurement' if c['effleurement'] else ''}. "
                            f"Kp estimé {kp.get('90')} si le champ n'est pas orienté sud, jusqu'à {kp.get('180')} s'il l'est "
                            f"franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : "

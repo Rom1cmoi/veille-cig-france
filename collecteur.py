@@ -206,6 +206,22 @@ def analyse_kp(donnees, maintenant):
 
 
 # ---------------------------------------------------------------- 2 bis. CME en route (coronographes, WSA-ENLIL)
+def fiche_cme(s, t, maintenant):
+    """Ce que la page affiche pour une simulation WSA-ENLIL qui prévoit un impact sur Terre à l'instant t."""
+    kp = {a: s.get(f"kp_{a}") for a in (90, 135, 180)}
+    dbdt = {a: dbdt_kp(k, SIGMA_KP_PREVU) for a, k in kp.items() if k is not None}
+    return {
+        "arrivee": iso(t), "dans_h": arrondi((t - maintenant).total_seconds() / 3600, 1),
+        "erreur_h": CME_ERREUR_H, "effleurement": bool(s.get("isEarthGB")),
+        "impact_mineur": bool(s.get("isEarthMinorImpact")),
+        "kp": kp, "dbdt_med": {a: v[0] for a, v in dbdt.items()}, "dbdt_p90": {a: v[1] for a, v in dbdt.items()},
+        "magnetopause_re": s.get("rmin_re"), "duree_h": s.get("estimatedDuration"),
+        "cmes": [{"id": c.get("CMEID"), "depart": c.get("cmeStartTime"), "vitesse": c.get("speed"),
+                  "demi_angle": c.get("halfAngle")} for c in s.get("cmeInputs") or []],
+        "simulation": s.get("simulationID"), "calculee": s.get("modelCompletionTime"), "lien": s.get("link"),
+    }
+
+
 def analyse_cme(simulations, maintenant):
     """CME attendues sur Terre d'après la dernière simulation WSA-ENLIL de chacune.
 
@@ -215,31 +231,34 @@ def analyse_cme(simulations, maintenant):
     Kp estimé par ENLIL pour un angle d'horloge du champ de 90° (Bz nul), 135° et 180° (Bz plein sud) : l'orientation
     réelle ne se mesure qu'à L1, d'où la fourchette.
     """
-    vues, attendues = set(), []
+    vues, attendues, anonymes = set(), [], []
     for s in sorted(simulations, key=lambda x: x.get("modelCompletionTime") or "", reverse=True):
         ids = {c.get("CMEID") for c in s.get("cmeInputs") or [] if c.get("CMEID")}
-        if not ids or ids & vues:
+        arrivee = s.get("estimatedShockArrivalTime")
+        if not ids:
+            # Simulation toute récente, pas encore rattachée à une CME du catalogue (DONKI le fait plus tard) :
+            # on la garde si elle a moins de 48 h, mais une seule par heure d'arrivée (voir plus bas).
+            if arrivee and maintenant - date(s["modelCompletionTime"]) < timedelta(hours=48):
+                anonymes.append(s)
+            continue
+        if ids & vues:
             vues |= ids
             continue
         vues |= ids
-        arrivee = s.get("estimatedShockArrivalTime")
         if not arrivee:
             continue
         t = date(arrivee)
-        if t < maintenant - timedelta(hours=24):                           # arrivée passée depuis plus d'un jour
+        if t >= maintenant - timedelta(hours=24):                          # arrivée passée depuis plus d'un jour : non
+            attendues.append(fiche_cme(s, t, maintenant))
+    # Simulations anonymes (de la plus récente à la plus ancienne) : on écarte celles dont l'arrivée tombe à moins
+    # de 12 h d'une CME déjà retenue (probablement la même CME, simulée plusieurs fois).
+    for s in anonymes:
+        t = date(s["estimatedShockArrivalTime"])
+        if t < maintenant - timedelta(hours=24):
             continue
-        kp = {a: s.get(f"kp_{a}") for a in (90, 135, 180)}
-        dbdt = {a: dbdt_kp(k, SIGMA_KP_PREVU) for a, k in kp.items() if k is not None}
-        attendues.append({
-            "arrivee": iso(t), "dans_h": arrondi((t - maintenant).total_seconds() / 3600, 1),
-            "erreur_h": CME_ERREUR_H, "effleurement": bool(s.get("isEarthGB")),
-            "impact_mineur": bool(s.get("isEarthMinorImpact")),
-            "kp": kp, "dbdt_med": {a: v[0] for a, v in dbdt.items()}, "dbdt_p90": {a: v[1] for a, v in dbdt.items()},
-            "magnetopause_re": s.get("rmin_re"), "duree_h": s.get("estimatedDuration"),
-            "cmes": [{"id": c.get("CMEID"), "depart": c.get("cmeStartTime"), "vitesse": c.get("speed"),
-                      "demi_angle": c.get("halfAngle")} for c in s.get("cmeInputs") or []],
-            "simulation": s.get("simulationID"), "calculee": s.get("modelCompletionTime"), "lien": s.get("link"),
-        })
+        if any(abs((t - date(a["arrivee"])).total_seconds()) < 12 * 3600 for a in attendues):
+            continue
+        attendues.append(fiche_cme(s, t, maintenant))
     return {"attendues": sorted(attendues, key=lambda x: x["arrivee"]), "n_simulations": len(simulations)}
 
 
