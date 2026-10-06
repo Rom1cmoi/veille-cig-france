@@ -57,7 +57,7 @@ def date(s):
 
 
 def iso(t):
-    return t.strftime("%Y-%m-%dT%H:%M:%SZ") if t else None
+    return t.strftime("%Y-%m-%dT%H:%M:00Z")  # le serveur BGS refuse les secondes if t else None
 
 
 def moyenne(v):
@@ -275,7 +275,7 @@ def main():
                    "clf": (d / "clf.iaga").read_text()}
     else:
         maintenant = datetime.now(timezone.utc)
-        debut = (maintenant - timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        debut = (maintenant - timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M:00Z")  # le serveur BGS refuse les secondes
         sources, erreurs_lecture = {}, []
         for cle, url, est_json in (("mag", URL_MAG, True), ("vent", URL_VENT, True), ("kp", URL_KP, True),
                                     ("clf", URL_CLF.format(debut=debut), False)):
