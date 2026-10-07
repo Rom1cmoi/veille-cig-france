@@ -1,0 +1,32 @@
+# Télécharge une fois les données de l'année 2024 pour le rejeu du service (voir rejeu_2024/).
+# Se lance tout seul quand ce fichier ou le script de téléchargement change, ou à la main (Run workflow).
+name: rejeu-2024-donnees
+
+on:
+  push:
+    paths:
+      - "rejeu_2024/telecharger.py"
+      - ".github/workflows/rejeu_2024.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  telechargement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Téléchargement
+        run: python rejeu_2024/telecharger.py
+      - name: Enregistrement
+        run: |
+          git config user.name "veille-cig-robot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rejeu_2024/donnees
+          git commit -m "Rejeu 2024 : donnees telechargees" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep 5; done
