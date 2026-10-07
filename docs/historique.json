@@ -146,7 +146,7 @@
 "2026-10-07T12:00:00Z": {
 "prevu_med": 2.0,
 "prevu_p90": 5.1,
-"observe": null,
+"observe": 0.7,
 "emise_min": 0
 },
 "2026-10-07T13:00:00Z": {
