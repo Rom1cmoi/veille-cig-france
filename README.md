@@ -78,7 +78,7 @@ Chaque simulation qui prévoit un impact est gardée dans `journal/cme_prevision
 
 ## Collecte vraiment toutes les 5 minutes (déclencheur externe)
 
-GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 min en médiane entre deux collectes (jusqu'à 30 min). C'est gênant pour l'alerte de choc à L1, qui ne laisse que 30 à 60 min d'avance. Un lancement à la demande (« Run workflow »), lui, démarre en quelques secondes. On fait donc appuyer sur ce bouton toutes les 5 minutes par un service gratuit, cron-job.org. La tâche planifiée de GitHub reste en secours.
+GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 min en médiane entre deux collectes (jusqu'à 30 min). C'est gênant pour l'alerte de choc à L1, qui ne laisse que 30 à 60 min d'avance. Un lancement à la demande (« Run workflow »), lui, démarre en quelques secondes. On fait donc appuyer sur ce bouton toutes les 5 minutes par un service gratuit, cron-job.org. La tâche planifiée de GitHub reste en secours, toutes les 30 min (si cron-job.org s'arrête, la collecte continue, moins souvent).
 
 1. **Jeton GitHub limité.** GitHub → photo de profil → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**. Nom : `cron veille-cig`. Expiration : une date après la soutenance. **Repository access** : *Only select repositories* → `veille-cig-france`. **Permissions** → **Repository permissions** → **Actions** : *Read and write*. **Generate token**, puis copie-le (il ne s'affiche qu'une fois). Ce jeton ne permet que de lancer les tâches de ce dépôt : il ne donne accès ni au code des autres dépôts ni au compte.
 2. **Compte** sur https://cron-job.org (gratuit).

@@ -3,7 +3,8 @@ name: collecte
 
 on:
   schedule:
-    - cron: "*/5 * * * *"      # toutes les 5 min (GitHub peut retarder de quelques minutes)
+    - cron: "*/30 * * * *"     # secours : la cadence de 5 min vient de cron-job.org (voir README),
+                                # car GitHub retarde beaucoup ses propres lancements planifiés
   workflow_dispatch:            # bouton « Run workflow » pour lancer à la main
     inputs:
       test:
