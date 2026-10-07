@@ -237,8 +237,8 @@ def analyse_cme(simulations, maintenant):
         arrivee = s.get("estimatedShockArrivalTime")
         if not ids:
             # Simulation toute récente, pas encore rattachée à une CME du catalogue (DONKI le fait plus tard) :
-            # on la garde si elle a moins de 48 h, mais une seule par heure d'arrivée (voir plus bas).
-            if arrivee and maintenant - date(s["modelCompletionTime"]) < timedelta(hours=48):
+            # traitée plus bas.
+            if arrivee:
                 anonymes.append(s)
             continue
         if ids & vues:
@@ -250,11 +250,20 @@ def analyse_cme(simulations, maintenant):
         t = date(arrivee)
         if t >= maintenant - timedelta(hours=24):                          # arrivée passée depuis plus d'un jour : non
             attendues.append(fiche_cme(s, t, maintenant))
-    # Simulations anonymes (de la plus récente à la plus ancienne) : on écarte celles dont l'arrivée tombe à moins
-    # de 12 h d'une CME déjà retenue (probablement la même CME, simulée plusieurs fois).
+    # Simulations anonymes (de la plus récente à la plus ancienne). On les écarte :
+    #  - au bout de 12 h : DONKI publie entre-temps des simulations rattachées à la CME ;
+    #  - dès qu'une simulation plus récente, rattachée et qui touche la Terre, porte sur une CME déjà partie au moment
+    #    du calcul anonyme : c'est très probablement la même CME, mieux mesurée (cas du 6 octobre 2026 : deux calculs
+    #    anonymes à 12 h, Kp 4 à 7, remplacés à 17 h par la CME de 9 h 53 à 424 km/s, Kp 3 à 4) ;
+    #  - si l'arrivée tombe à moins de 12 h d'une CME déjà retenue (même CME simulée plusieurs fois).
+    rattachees = [s for s in simulations if s.get("estimatedShockArrivalTime") and s.get("cmeInputs")]
     for s in anonymes:
-        t = date(s["estimatedShockArrivalTime"])
-        if t < maintenant - timedelta(hours=24):
+        t, calcul = date(s["estimatedShockArrivalTime"]), date(s["modelCompletionTime"])
+        if t < maintenant - timedelta(hours=24) or maintenant - calcul > timedelta(hours=12):
+            continue
+        if any(date(r["modelCompletionTime"]) > calcul and
+               any(c.get("cmeStartTime") and date(c["cmeStartTime"]) <= calcul for c in r["cmeInputs"])
+               for r in rattachees):
             continue
         if any(abs((t - date(a["arrivee"])).total_seconds()) < 12 * 3600 for a in attendues):
             continue
