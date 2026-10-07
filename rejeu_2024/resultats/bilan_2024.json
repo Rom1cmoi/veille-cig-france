@@ -1,0 +1,3082 @@
+{
+ "horaire": {
+  "n": 8215,
+  "r": 0.63,
+  "rmse": 0.376,
+  "biais_facteur": 0.51,
+  "couverture_p90": 0.99,
+  "n_obs_30": 29,
+  "n_annonces_30": 82,
+  "pod": 0.76,
+  "far": 0.73,
+  "mesure_max": 107.0,
+  "n_obs_68": 3,
+  "n_annonces_68": 23,
+  "pod_68": 1.0,
+  "far_68": 0.87,
+  "strate calme (< 10 nT/min)": {
+   "n": 8045,
+   "r": 0.53,
+   "rmse": 0.377,
+   "biais_facteur": 0.49,
+   "couverture_p90": 1.0,
+   "n_obs_30": 0,
+   "n_annonces_30": 12,
+   "pod": null,
+   "far": 1.0,
+   "mesure_max": 9.9
+  },
+  "strate actif (10-30)": {
+   "n": 141,
+   "r": 0.34,
+   "rmse": 0.341,
+   "biais_facteur": 1.64,
+   "couverture_p90": 0.78,
+   "n_obs_30": 0,
+   "n_annonces_30": 48,
+   "pod": null,
+   "far": 1.0,
+   "mesure_max": 29.5
+  },
+  "strate orageux (>= 30)": {
+   "n": 29,
+   "r": 0.32,
+   "rmse": 0.444,
+   "biais_facteur": 1.78,
+   "couverture_p90": 0.62,
+   "n_obs_30": 29,
+   "n_annonces_30": 22,
+   "pod": 0.76,
+   "far": 0.0,
+   "mesure_max": 107.0
+  }
+ },
+ "episodes": {
+  "nombre": 47,
+  "duree_mediane_h": 4.5,
+  "par_ouverture": {
+   "choc": 29,
+   "cme": 18
+  },
+  "par_issue": {
+   "< 30 nT/min": 41,
+   "30 à 68 nT/min": 5,
+   "orange observé": 1
+  },
+  "liste": [
+   {
+    "debut": "2024-01-03T04:35:00Z",
+    "fin": "2024-01-03T08:30:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 30 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-01-03T04:35:00Z"
+    },
+    "mesure_max": 5.4,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-01-20T15:15:00Z",
+    "fin": "2024-01-20T19:35:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 22/01 vers 08 h 25 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-01-20T15:15:00Z"
+    },
+    "mesure_max": 2.14,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-01-29T08:45:00Z",
+    "fin": "2024-01-29T16:55:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 30/01 vers 11 h 21 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-01-29T08:45:00Z"
+    },
+    "mesure_max": 3.8,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-02-11T00:25:00Z",
+    "fin": "2024-02-13T20:15:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 01 h 20 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-02-11T00:25:00Z",
+     "cme": "2024-02-11T03:30:00Z"
+    },
+    "mesure_max": 23.82,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-02-24T16:25:00Z",
+    "fin": "2024-02-24T20:20:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 20 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-02-24T16:25:00Z"
+    },
+    "mesure_max": 8.01,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-03-03T08:30:00Z",
+    "fin": "2024-03-03T13:25:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 09 h 25 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-03-03T08:30:00Z"
+    },
+    "mesure_max": 5.79,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-03-23T16:30:00Z",
+    "fin": "2024-03-25T08:55:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 24/03 vers 17 h 55 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-03-23T16:30:00Z",
+     "choc": "2024-03-24T14:10:00Z"
+    },
+    "mesure_max": 63.45,
+    "issue": "30 à 68 nT/min"
+   },
+   {
+    "debut": "2024-04-30T11:20:00Z",
+    "fin": "2024-04-30T15:15:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 12 h 15 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-04-30T11:20:00Z"
+    },
+    "mesure_max": 6.79,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-05-02T13:15:00Z",
+    "fin": "2024-05-02T17:25:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 14 h 10 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-05-02T13:15:00Z"
+    },
+    "mesure_max": 19.09,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-05-08T16:45:00Z",
+    "fin": "2024-05-12T16:55:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 10/05 vers 12 h 12 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-05-08T16:45:00Z",
+     "choc": "2024-05-10T13:40:00Z",
+     "l1": "2024-05-10T16:30:00Z",
+     "clf": "2024-05-10T17:25:00Z"
+    },
+    "mesure_max": 106.95,
+    "issue": "orange observé"
+   },
+   {
+    "debut": "2024-05-16T05:10:00Z",
+    "fin": "2024-05-16T09:10:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 53 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-05-16T05:10:00Z"
+    },
+    "mesure_max": 9.7,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-05-16T09:20:00Z",
+    "fin": "2024-05-16T12:55:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 06 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-05-16T09:20:00Z"
+    },
+    "mesure_max": 11.79,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-05-23T21:30:00Z",
+    "fin": "2024-05-24T01:50:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 22 h 25 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-05-23T21:30:00Z"
+    },
+    "mesure_max": 3.36,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-05-27T00:35:00Z",
+    "fin": "2024-05-27T04:45:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 01 h 30 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-05-27T00:35:00Z"
+    },
+    "mesure_max": 1.49,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-06-08T05:10:00Z",
+    "fin": "2024-06-08T16:50:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 09/06 vers 23 h 19 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-06-08T05:10:00Z"
+    },
+    "mesure_max": 8.94,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-06-08T19:15:00Z",
+    "fin": "2024-06-10T13:05:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 09/06 vers 22 h 07 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-06-08T19:15:00Z"
+    },
+    "mesure_max": 1.94,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-06-10T16:30:00Z",
+    "fin": "2024-06-10T20:45:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 25 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-06-10T16:30:00Z"
+    },
+    "mesure_max": 10.88,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-06-15T10:45:00Z",
+    "fin": "2024-06-15T14:45:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 11 h 35 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-06-15T10:45:00Z"
+    },
+    "mesure_max": 9.8,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-07-21T23:30:00Z",
+    "fin": "2024-07-22T14:25:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 23/07 vers 16 h 36 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-07-21T23:30:00Z"
+    },
+    "mesure_max": 3.1,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-07-23T19:45:00Z",
+    "fin": "2024-07-24T01:05:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 20 h 40 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-07-23T19:45:00Z"
+    },
+    "mesure_max": 3.98,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-07-26T22:30:00Z",
+    "fin": "2024-07-27T02:40:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 23 h 10 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-07-26T22:30:00Z"
+    },
+    "mesure_max": 2.18,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-07-27T20:25:00Z",
+    "fin": "2024-07-30T04:35:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 29/07 vers 13 h 38 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-07-27T20:25:00Z",
+     "choc": "2024-07-29T22:55:00Z"
+    },
+    "mesure_max": 14.48,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-07-30T11:00:00Z",
+    "fin": "2024-07-30T14:00:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 11 h 43 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-07-30T11:00:00Z"
+    },
+    "mesure_max": 6.17,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-08-04T21:35:00Z",
+    "fin": "2024-08-05T01:30:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 22 h 30 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-08-04T21:35:00Z"
+    },
+    "mesure_max": 13.72,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-08-07T19:45:00Z",
+    "fin": "2024-08-10T08:15:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 09/08 vers 19 h 19 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-08-07T19:45:00Z"
+    },
+    "mesure_max": 3.31,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-08-17T13:40:00Z",
+    "fin": "2024-08-17T20:10:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 14 h 35 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-08-17T13:40:00Z",
+     "l1": "2024-08-17T16:40:00Z"
+    },
+    "mesure_max": 49.64,
+    "issue": "30 à 68 nT/min"
+   },
+   {
+    "debut": "2024-08-27T07:15:00Z",
+    "fin": "2024-08-27T11:10:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 10 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-08-27T07:15:00Z"
+    },
+    "mesure_max": 3.7,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-08-30T07:55:00Z",
+    "fin": "2024-08-30T11:50:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 50 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-08-30T07:55:00Z"
+    },
+    "mesure_max": 6.94,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-09-04T09:55:00Z",
+    "fin": "2024-09-04T14:10:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 50 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-09-04T09:55:00Z"
+    },
+    "mesure_max": 37.76,
+    "issue": "30 à 68 nT/min"
+   },
+   {
+    "debut": "2024-09-10T12:20:00Z",
+    "fin": "2024-09-13T07:55:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 12/09 vers 16 h 57 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-09-10T12:20:00Z",
+     "choc": "2024-09-12T02:35:00Z"
+    },
+    "mesure_max": 26.02,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-09-14T18:20:00Z",
+    "fin": "2024-09-17T06:35:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 16/09 vers 04 h 43 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-09-14T18:20:00Z",
+     "choc": "2024-09-16T23:00:00Z"
+    },
+    "mesure_max": 21.01,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-09-17T07:05:00Z",
+    "fin": "2024-09-17T11:00:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 41 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-09-17T07:05:00Z"
+    },
+    "mesure_max": 7.72,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-09-23T11:50:00Z",
+    "fin": "2024-09-25T09:55:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 24/09 vers 18 h 55 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-09-23T11:50:00Z",
+     "choc": "2024-09-23T11:55:00Z"
+    },
+    "mesure_max": 7.27,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-02T17:00:00Z",
+    "fin": "2024-10-03T03:45:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 04/10 vers 00 h 37 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-10-02T17:00:00Z"
+    },
+    "mesure_max": 1.71,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-03T17:10:00Z",
+    "fin": "2024-10-04T15:40:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 05/10 vers 21 h 49 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-10-03T17:10:00Z"
+    },
+    "mesure_max": 3.82,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-06T06:55:00Z",
+    "fin": "2024-10-06T10:50:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 49 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-10-06T06:55:00Z"
+    },
+    "mesure_max": 13.81,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-08T00:10:00Z",
+    "fin": "2024-10-08T15:10:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 09/10 vers 18 h 09 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-10-08T00:10:00Z"
+    },
+    "mesure_max": 8.18,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-09T13:05:00Z",
+    "fin": "2024-10-11T09:35:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 10/10 vers 14 h 55 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-10-09T13:05:00Z",
+     "choc": "2024-10-10T14:55:00Z",
+     "l1": "2024-10-10T15:15:00Z"
+    },
+    "mesure_max": 60.18,
+    "issue": "30 à 68 nT/min"
+   },
+   {
+    "debut": "2024-10-11T09:50:00Z",
+    "fin": "2024-10-11T13:45:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 18 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-10-11T09:50:00Z"
+    },
+    "mesure_max": 21.65,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-24T17:05:00Z",
+    "fin": "2024-10-26T01:40:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 25/10 vers 10 h 44 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-10-24T17:05:00Z"
+    },
+    "mesure_max": 1.81,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-10-26T15:40:00Z",
+    "fin": "2024-10-28T08:55:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 16 h 34 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-10-26T15:40:00Z",
+     "cme": "2024-10-26T18:20:00Z"
+    },
+    "mesure_max": 16.34,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-11-03T16:40:00Z",
+    "fin": "2024-11-03T21:10:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 26 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-11-03T16:40:00Z"
+    },
+    "mesure_max": 4.62,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-11-07T14:15:00Z",
+    "fin": "2024-11-07T18:10:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 15 h 10 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-11-07T14:15:00Z"
+    },
+    "mesure_max": 10.24,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-12-16T03:10:00Z",
+    "fin": "2024-12-16T07:00:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 03 h 55 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-12-16T03:10:00Z"
+    },
+    "mesure_max": 3.48,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-12-17T04:20:00Z",
+    "fin": "2024-12-17T08:50:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 12 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-12-17T04:20:00Z",
+     "l1": "2024-12-17T05:15:00Z"
+    },
+    "mesure_max": 35.8,
+    "issue": "30 à 68 nT/min"
+   },
+   {
+    "debut": "2024-12-17T10:35:00Z",
+    "fin": "2024-12-17T14:05:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 40 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-12-17T10:35:00Z"
+    },
+    "mesure_max": 20.6,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-12-29T15:25:00Z",
+    "fin": "2025-01-01T00:00:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 31/12 vers 13 h 14 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-12-29T15:25:00Z",
+     "choc": "2024-12-31T15:30:00Z"
+    },
+    "mesure_max": 12.16,
+    "issue": "< 30 nT/min"
+   }
+  ]
+ },
+ "depassements_orange": [
+  {
+   "debut": "2024-05-10T17:07:00Z",
+   "max": 107.0,
+   "annonce": true,
+   "preavis_min": 2902,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 2902,
+   "preavis_choc_min": 207,
+   "preavis_l1_min": 37
+  },
+  {
+   "debut": "2024-05-10T22:36:00Z",
+   "max": 103.0,
+   "annonce": true,
+   "preavis_min": 3231,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 3231,
+   "preavis_choc_min": 536,
+   "preavis_l1_min": 366,
+   "preavis_clf_min": 311
+  },
+  {
+   "debut": "2024-05-11T08:20:00Z",
+   "max": 82.3,
+   "annonce": true,
+   "preavis_min": 3815,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 3815,
+   "preavis_choc_min": 1120,
+   "preavis_l1_min": 950,
+   "preavis_clf_min": 895
+  }
+ ],
+ "depassements_30": [
+  {
+   "debut": "2024-03-24T14:37:00Z",
+   "max": 63.5,
+   "annonce": true,
+   "preavis_min": 1327,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 1327,
+   "preavis_choc_min": 27
+  },
+  {
+   "debut": "2024-03-25T04:02:00Z",
+   "max": 30.2,
+   "annonce": true,
+   "preavis_min": 2132,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 2132,
+   "preavis_choc_min": 832
+  },
+  {
+   "debut": "2024-05-10T17:07:00Z",
+   "max": 107.0,
+   "annonce": true,
+   "preavis_min": 2902,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 2902,
+   "preavis_choc_min": 207,
+   "preavis_l1_min": 37
+  },
+  {
+   "debut": "2024-05-11T06:13:00Z",
+   "max": 82.3,
+   "annonce": true,
+   "preavis_min": 3688,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 3688,
+   "preavis_choc_min": 993,
+   "preavis_l1_min": 823,
+   "preavis_clf_min": 768
+  },
+  {
+   "debut": "2024-05-11T18:23:00Z",
+   "max": 33.9,
+   "annonce": true,
+   "preavis_min": 4418,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 4418,
+   "preavis_choc_min": 1723,
+   "preavis_l1_min": 1553,
+   "preavis_clf_min": 1498
+  },
+  {
+   "debut": "2024-06-07T14:54:00Z",
+   "max": 30.4,
+   "annonce": false
+  },
+  {
+   "debut": "2024-08-11T15:14:00Z",
+   "max": 31.2,
+   "annonce": false
+  },
+  {
+   "debut": "2024-08-12T03:02:00Z",
+   "max": 30.7,
+   "annonce": false
+  },
+  {
+   "debut": "2024-08-12T08:47:00Z",
+   "max": 47.4,
+   "annonce": false
+  },
+  {
+   "debut": "2024-08-17T17:27:00Z",
+   "max": 49.6,
+   "annonce": true,
+   "preavis_min": 227,
+   "ouvert_par": [
+    "choc"
+   ],
+   "preavis_choc_min": 227,
+   "preavis_l1_min": 47
+  },
+  {
+   "debut": "2024-09-04T10:35:00Z",
+   "max": 37.8,
+   "annonce": true,
+   "preavis_min": 40,
+   "ouvert_par": [
+    "choc"
+   ],
+   "preavis_choc_min": 40
+  },
+  {
+   "debut": "2024-10-10T15:16:00Z",
+   "max": 60.2,
+   "annonce": true,
+   "preavis_min": 1571,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 1571,
+   "preavis_choc_min": 21,
+   "preavis_l1_min": 1
+  },
+  {
+   "debut": "2024-10-10T22:35:00Z",
+   "max": 44.2,
+   "annonce": true,
+   "preavis_min": 2010,
+   "ouvert_par": [
+    "cme"
+   ],
+   "preavis_cme_min": 2010,
+   "preavis_choc_min": 460,
+   "preavis_l1_min": 440
+  },
+  {
+   "debut": "2024-12-17T05:17:00Z",
+   "max": 35.8,
+   "annonce": true,
+   "preavis_min": 57,
+   "ouvert_par": [
+    "choc"
+   ],
+   "preavis_choc_min": 57,
+   "preavis_l1_min": 2
+  },
+  {
+   "debut": "2024-12-17T15:12:00Z",
+   "max": 32.6,
+   "annonce": false
+  }
+ ],
+ "chocs": {
+  "catalogue_DONKI": 83,
+  "avec_donnees_L1": 27,
+  "detectes": 5,
+  "pod": 0.19,
+  "detections": 53,
+  "fausses_detections": 27,
+  "far": 0.51,
+  "fausses_par_mois": 2.2,
+  "manques": [
+   "2024-01-02T00:20:00Z",
+   "2024-01-22T16:01:00Z",
+   "2024-01-28T03:42:00Z",
+   "2024-02-01T05:18:00Z",
+   "2024-02-10T08:24:00Z",
+   "2024-03-18T19:30:00Z",
+   "2024-03-21T01:50:00Z",
+   "2024-03-30T12:20:00Z",
+   "2024-04-04T03:07:00Z",
+   "2024-04-15T17:27:00Z",
+   "2024-05-02T07:46:00Z",
+   "2024-05-12T08:55:00Z",
+   "2024-05-17T12:40:00Z",
+   "2024-06-03T21:40:00Z",
+   "2024-06-28T09:09:00Z",
+   "2024-07-04T09:23:00Z",
+   "2024-07-05T03:11:00Z",
+   "2024-07-15T21:46:00Z",
+   "2024-07-31T13:46:00Z",
+   "2024-08-12T07:44:00Z",
+   "2024-09-16T04:54:00Z",
+   "2024-09-28T07:00:00Z"
+  ],
+  "fausses": [
+   "2024-02-11T00:20:00Z",
+   "2024-05-02T13:10:00Z",
+   "2024-05-10T13:35:00Z",
+   "2024-05-10T18:55:00Z",
+   "2024-05-10T21:40:00Z",
+   "2024-05-10T23:50:00Z",
+   "2024-05-11T02:50:00Z",
+   "2024-05-11T18:00:00Z",
+   "2024-05-11T23:00:00Z",
+   "2024-05-16T09:15:00Z",
+   "2024-05-23T21:25:00Z",
+   "2024-05-27T00:30:00Z",
+   "2024-07-23T21:05:00Z",
+   "2024-07-26T22:25:00Z",
+   "2024-07-29T22:45:00Z",
+   "2024-07-30T10:55:00Z",
+   "2024-08-30T07:50:00Z",
+   "2024-09-12T08:20:00Z",
+   "2024-09-12T11:15:00Z",
+   "2024-09-17T07:00:00Z",
+   "2024-09-23T23:30:00Z",
+   "2024-10-10T22:45:00Z",
+   "2024-10-11T05:35:00Z",
+   "2024-10-11T09:45:00Z",
+   "2024-10-28T04:55:00Z",
+   "2024-12-16T03:00:00Z",
+   "2024-12-17T10:05:00Z"
+  ]
+ },
+ "cme": {
+  "chocs_relies_a_une_cme": 62,
+  "annoncees": 55,
+  "simulees_sans_impact": 6,
+  "non_simulees": 1,
+  "erreur_moyenne_h": -6.4,
+  "erreur_absolue_moyenne_h": 13.4,
+  "erreur_mediane_h": -3.5,
+  "part_dans_10h": 0.51,
+  "fausses_annonces": 91,
+  "cas": [
+   {
+    "choc": "2024-01-03T04:50:00Z",
+    "cme": [
+     "2023-12-31T10:00:00-CME-001"
+    ],
+    "kp_observe_24h": 3.333,
+    "dbdt_max_24h": 5.4,
+    "statut": "annoncée",
+    "erreur_h": 4.2,
+    "preavis_h": 27.9,
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-01-03T14:19:00Z",
+    "cme": [
+     "2023-12-31T22:00:00-CME-001"
+    ],
+    "kp_observe_24h": 3.333,
+    "dbdt_max_24h": 3.71,
+    "statut": "annoncée",
+    "erreur_h": -20.3,
+    "preavis_h": 46.8,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-01-22T16:01:00Z",
+    "cme": [
+     "2024-01-20T09:24:00-CME-001",
+     "2024-01-21T00:36:00-CME-001"
+    ],
+    "kp_observe_24h": 3.333,
+    "dbdt_max_24h": 4.12,
+    "statut": "annoncée",
+    "erreur_h": -3.0,
+    "preavis_h": 48.8,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-01-25T05:35:00Z",
+    "cme": [
+     "2024-01-22T10:48:00-CME-001"
+    ],
+    "kp_observe_24h": 2.333,
+    "dbdt_max_24h": 2.97,
+    "statut": "annoncée",
+    "erreur_h": 8.4,
+    "preavis_h": 60.0,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-01-28T03:42:00Z",
+    "cme": [
+     "2024-01-23T17:36:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 3.5,
+    "statut": "annoncée",
+    "erreur_h": -19.7,
+    "preavis_h": 85.8,
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-02-01T05:18:00Z",
+    "cme": [
+     "2024-01-29T04:38:00-CME-001"
+    ],
+    "kp_observe_24h": 2.0,
+    "dbdt_max_24h": 2.31,
+    "statut": "annoncée",
+    "erreur_h": -32.4,
+    "preavis_h": 68.6,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-02-09T21:40:00Z",
+    "cme": [
+     "2024-02-06T02:53:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 5.46,
+    "statut": "simulée sans impact"
+   },
+   {
+    "choc": "2024-02-10T08:24:00Z",
+    "cme": [
+     "2024-02-06T13:48:00-CME-001"
+    ],
+    "kp_observe_24h": 4.333,
+    "dbdt_max_24h": 23.82,
+    "statut": "annoncée",
+    "erreur_h": -0.4,
+    "preavis_h": 84.5,
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-02-11T01:18:00Z",
+    "cme": [
+     "2024-02-09T13:23:00-CME-001"
+    ],
+    "kp_observe_24h": 4.333,
+    "dbdt_max_24h": 23.82,
+    "statut": "simulée sans impact"
+   },
+   {
+    "choc": "2024-02-13T01:38:00Z",
+    "cme": [
+     "2024-02-09T00:12:00-CME-001",
+     "2024-02-10T07:00:00-CME-001",
+     "2024-02-10T23:36:00-CME-001"
+    ],
+    "kp_observe_24h": 3.667,
+    "dbdt_max_24h": 4.3,
+    "statut": "annoncée",
+    "erreur_h": 3.6,
+    "preavis_h": 58.3,
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-02-24T16:16:00Z",
+    "cme": [
+     "2024-02-21T18:36:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 8.01,
+    "statut": "annoncée",
+    "erreur_h": 0.0,
+    "preavis_h": 50.5,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-03-03T08:47:00Z",
+    "cme": [
+     "2024-02-28T17:48:00-CME-001"
+    ],
+    "kp_observe_24h": 6.333,
+    "dbdt_max_24h": 10.91,
+    "statut": "annoncée",
+    "erreur_h": 21.2,
+    "preavis_h": 66.2,
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-03-21T01:50:00Z",
+    "cme": [
+     "2024-03-17T03:12:00-CME-001",
+     "2024-03-17T03:36:00-CME-001"
+    ],
+    "kp_observe_24h": 4.667,
+    "dbdt_max_24h": 9.99,
+    "statut": "annoncée",
+    "erreur_h": 2.2,
+    "preavis_h": 81.5,
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-03-24T14:10:00Z",
+    "cme": [
+     "2024-03-23T01:25:00-CME-001",
+     "2024-03-23T01:48:00-CME-001"
+    ],
+    "kp_observe_24h": 8.333,
+    "dbdt_max_24h": 63.45,
+    "statut": "annoncée",
+    "erreur_h": 3.8,
+    "preavis_h": 21.7,
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-04-15T17:27:00Z",
+    "cme": [
+     "2024-04-11T07:00:00-CME-001"
+    ],
+    "kp_observe_24h": 4.667,
+    "dbdt_max_24h": 6.57,
+    "statut": "annoncée",
+    "erreur_h": -24.6,
+    "preavis_h": 73.0,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-04-16T09:20:00Z",
+    "cme": [
+     "2024-04-12T02:00:00-CME-001"
+    ],
+    "kp_observe_24h": 5.333,
+    "dbdt_max_24h": 11.86,
+    "statut": "annoncée",
+    "erreur_h": -40.5,
+    "preavis_h": 89.9,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-04-17T08:55:00Z",
+    "cme": [
+     "2024-04-14T11:12:00-CME-001"
+    ],
+    "kp_observe_24h": 2.0,
+    "dbdt_max_24h": 2.88,
+    "statut": "annoncée",
+    "erreur_h": -7.8,
+    "preavis_h": 37.7,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-04-19T04:53:00Z",
+    "cme": [
+     "2024-04-15T06:48:00-CME-001"
+    ],
+    "kp_observe_24h": 7.0,
+    "dbdt_max_24h": 17.28,
+    "statut": "annoncée",
+    "erreur_h": -51.8,
+    "preavis_h": 81.4,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-04-26T00:17:00Z",
+    "cme": [
+     "2024-04-23T09:12:00-CME-001",
+     "2024-04-24T01:48:00-CME-001"
+    ],
+    "kp_observe_24h": 5.0,
+    "dbdt_max_24h": 8.34,
+    "statut": "annoncée",
+    "erreur_h": 21.7,
+    "preavis_h": 30.3,
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-05-05T11:30:00Z",
+    "cme": [
+     "2024-05-03T02:48:00-CME-001"
+    ],
+    "kp_observe_24h": 5.333,
+    "dbdt_max_24h": 6.76,
+    "statut": "annoncée",
+    "erreur_h": 18.5,
+    "preavis_h": 46.3,
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-05-10T16:36:00Z",
+    "cme": [
+     "2024-05-07T03:12:00-CME-001",
+     "2024-05-07T05:24:00-CME-001",
+     "2024-05-08T05:36:00-CME-001",
+     "2024-05-08T12:24:00-CME-001",
+     "2024-05-08T19:12:00-CME-001"
+    ],
+    "kp_observe_24h": 9.0,
+    "dbdt_max_24h": 106.95,
+    "statut": "annoncée",
+    "erreur_h": -3.8,
+    "preavis_h": 75.2,
+    "kp_prevu": [
+     8,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-05-11T09:30:00Z",
+    "cme": [
+     "2024-05-08T22:24:00-CME-001",
+     "2024-05-09T09:24:00-CME-001"
+    ],
+    "kp_observe_24h": 9.0,
+    "dbdt_max_24h": 60.9,
+    "statut": "annoncée",
+    "erreur_h": -20.7,
+    "preavis_h": 40.8,
+    "kp_prevu": [
+     8,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-05-11T20:30:00Z",
+    "cme": [
+     "2024-05-09T18:23:00-CME-001"
+    ],
+    "kp_observe_24h": 7.667,
+    "dbdt_max_24h": 23.07,
+    "statut": "annoncée",
+    "erreur_h": -25.5,
+    "preavis_h": 42.5,
+    "kp_prevu": [
+     7,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-05-12T08:55:00Z",
+    "cme": [
+     "2024-05-10T07:12:00-CME-001"
+    ],
+    "kp_observe_24h": 6.333,
+    "dbdt_max_24h": 17.95,
+    "statut": "annoncée",
+    "erreur_h": -7.0,
+    "preavis_h": 42.3,
+    "kp_prevu": [
+     7,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-05-15T18:13:00Z",
+    "cme": [
+     "2024-05-13T09:12:00-CME-001"
+    ],
+    "kp_observe_24h": 6.0,
+    "dbdt_max_24h": 19.1,
+    "statut": "simulée sans impact"
+   },
+   {
+    "choc": "2024-05-17T12:40:00Z",
+    "cme": [
+     "2024-05-14T10:09:00-CME-001"
+    ],
+    "kp_observe_24h": 6.0,
+    "dbdt_max_24h": 9.95,
+    "statut": "annoncée",
+    "erreur_h": 10.3,
+    "preavis_h": 65.9,
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-05-26T14:35:00Z",
+    "cme": [
+     "2024-05-23T07:12:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 4.1,
+    "statut": "annoncée",
+    "erreur_h": 12.4,
+    "preavis_h": 69.3,
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-06-10T16:36:00Z",
+    "cme": [
+     "2024-06-08T01:53:00-CME-001"
+    ],
+    "kp_observe_24h": 4.333,
+    "dbdt_max_24h": 10.88,
+    "statut": "annoncée",
+    "erreur_h": -18.5,
+    "preavis_h": 59.5,
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-06-28T09:09:00Z",
+    "cme": [
+     "2024-06-25T05:00:00-CME-001"
+    ],
+    "kp_observe_24h": 7.667,
+    "dbdt_max_24h": 27.24,
+    "statut": "annoncée",
+    "erreur_h": 4.9,
+    "preavis_h": 60.6,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-07-02T23:41:00Z",
+    "cme": [
+     "2024-06-29T04:00:00-CME-001",
+     "2024-06-29T16:12:00-CME-001"
+    ],
+    "kp_observe_24h": 1.333,
+    "dbdt_max_24h": 2.55,
+    "statut": "annoncée",
+    "erreur_h": -1.6,
+    "preavis_h": 78.5,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-07-04T09:23:00Z",
+    "cme": [
+     "2024-06-30T03:48:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 8.08,
+    "statut": "annoncée",
+    "erreur_h": 0.6,
+    "preavis_h": 87.6,
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-07-05T03:11:00Z",
+    "cme": [
+     "2024-07-01T11:36:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 8.08,
+    "statut": "simulée sans impact"
+   },
+   {
+    "choc": "2024-07-23T19:48:00Z",
+    "cme": [
+     "2024-07-19T21:36:00-CME-001",
+     "2024-07-19T22:24:00-CME-001",
+     "2024-07-21T16:48:00-CME-001"
+    ],
+    "kp_observe_24h": 2.667,
+    "dbdt_max_24h": 3.98,
+    "statut": "annoncée",
+    "erreur_h": 20.4,
+    "preavis_h": 76.8,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-07-29T23:20:00Z",
+    "cme": [
+     "2024-07-26T15:23:00-CME-001",
+     "2024-07-26T20:48:00-CME-001",
+     "2024-07-26T21:24:00-CME-001",
+     "2024-07-27T06:36:00-CME-001"
+    ],
+    "kp_observe_24h": 5.333,
+    "dbdt_max_24h": 14.48,
+    "statut": "annoncée",
+    "erreur_h": -9.7,
+    "preavis_h": 67.6,
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-07-31T13:46:00Z",
+    "cme": [
+     "2024-07-27T11:12:00-CME-001",
+     "2024-07-28T02:24:00-CME-001",
+     "2024-07-28T12:12:00-CME-001",
+     "2024-07-28T14:36:00-CME-001"
+    ],
+    "kp_observe_24h": 5.333,
+    "dbdt_max_24h": 24.85,
+    "statut": "annoncée",
+    "erreur_h": -8.5,
+    "preavis_h": 87.0,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-08-01T16:47:00Z",
+    "cme": [
+     "2024-07-29T02:00:00-CME-001",
+     "2024-07-29T02:12:00-CME-001",
+     "2024-07-29T13:25:00-CME-001"
+    ],
+    "kp_observe_24h": 2.667,
+    "dbdt_max_24h": 10.82,
+    "statut": "annoncée",
+    "erreur_h": -17.5,
+    "preavis_h": 70.5,
+    "kp_prevu": [
+     4,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-08-04T13:21:00Z",
+    "cme": [
+     "2024-08-01T07:24:00-CME-001"
+    ],
+    "kp_observe_24h": 7.0,
+    "dbdt_max_24h": 16.04,
+    "statut": "annoncée",
+    "erreur_h": -28.0,
+    "preavis_h": 67.5,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-08-04T21:25:00Z",
+    "cme": [
+     "2024-08-01T11:48:00-CME-001"
+    ],
+    "kp_observe_24h": 4.0,
+    "dbdt_max_24h": 13.72,
+    "statut": "simulée sans impact"
+   },
+   {
+    "choc": "2024-08-10T11:55:00Z",
+    "cme": [
+     "2024-08-07T03:24:00-CME-001",
+     "2024-08-07T14:24:00-CME-001",
+     "2024-08-07T19:36:00-CME-001"
+    ],
+    "kp_observe_24h": 4.667,
+    "dbdt_max_24h": 26.03,
+    "statut": "annoncée",
+    "erreur_h": 18.1,
+    "preavis_h": 65.2,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-08-11T12:00:00Z",
+    "cme": [
+     "2024-08-08T05:30:00-CME-001",
+     "2024-08-08T20:00:00-CME-001"
+    ],
+    "kp_observe_24h": 8.0,
+    "dbdt_max_24h": 47.36,
+    "statut": "annoncée",
+    "erreur_h": -0.8,
+    "preavis_h": 43.8,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-08-17T13:29:00Z",
+    "cme": [
+     "2024-08-14T08:23:00-CME-001"
+    ],
+    "kp_observe_24h": 6.333,
+    "dbdt_max_24h": 49.64,
+    "statut": "annoncée",
+    "erreur_h": -8.3,
+    "preavis_h": 68.9,
+    "kp_prevu": [
+     4,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-08-27T07:33:00Z",
+    "cme": [
+     "2024-08-23T02:00:00-CME-001"
+    ],
+    "kp_observe_24h": 5.667,
+    "dbdt_max_24h": 8.16,
+    "statut": "annoncée",
+    "erreur_h": -17.2,
+    "preavis_h": 86.9,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-09-04T09:40:00Z",
+    "cme": [
+     "2024-09-01T03:24:00-CME-001"
+    ],
+    "kp_observe_24h": 4.333,
+    "dbdt_max_24h": 37.76,
+    "statut": "non simulée"
+   },
+   {
+    "choc": "2024-09-11T14:18:00Z",
+    "cme": [
+     "2024-09-08T01:36:00-CME-001"
+    ],
+    "kp_observe_24h": 6.667,
+    "dbdt_max_24h": 26.02,
+    "statut": "annoncée",
+    "erreur_h": -14.4,
+    "preavis_h": 70.8,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-09-12T02:53:00Z",
+    "cme": [
+     "2024-09-10T00:23:00-CME-001"
+    ],
+    "kp_observe_24h": 7.0,
+    "dbdt_max_24h": 26.02,
+    "statut": "annoncée",
+    "erreur_h": 14.1,
+    "preavis_h": 38.6,
+    "kp_prevu": [
+     5,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-09-13T18:05:00Z",
+    "cme": [
+     "2024-09-11T02:23:00-CME-001"
+    ],
+    "kp_observe_24h": 6.0,
+    "dbdt_max_24h": 8.16,
+    "statut": "annoncée",
+    "erreur_h": 2.1,
+    "preavis_h": 48.6,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-09-16T04:54:00Z",
+    "cme": [
+     "2024-09-13T10:12:00-CME-001"
+    ],
+    "kp_observe_24h": 7.333,
+    "dbdt_max_24h": 21.01,
+    "statut": "annoncée",
+    "erreur_h": -0.4,
+    "preavis_h": 60.9,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-09-16T22:49:00Z",
+    "cme": [
+     "2024-09-14T15:36:00-CME-001"
+    ],
+    "kp_observe_24h": 7.333,
+    "dbdt_max_24h": 21.01,
+    "statut": "annoncée",
+    "erreur_h": -7.2,
+    "preavis_h": 52.5,
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-09-28T07:00:00Z",
+    "cme": [
+     "2024-09-23T20:48:00-CME-001"
+    ],
+    "kp_observe_24h": 3.333,
+    "dbdt_max_24h": 3.2,
+    "statut": "annoncée",
+    "erreur_h": -7.0,
+    "preavis_h": 91.0,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-10-06T06:55:00Z",
+    "cme": [
+     "2024-10-03T12:48:00-CME-001"
+    ],
+    "kp_observe_24h": 5.333,
+    "dbdt_max_24h": 13.81,
+    "statut": "annoncée",
+    "erreur_h": -54.2,
+    "preavis_h": 62.7,
+    "kp_prevu": [
+     7,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-10-07T22:12:00Z",
+    "cme": [
+     "2024-10-04T04:13:00-CME-001"
+    ],
+    "kp_observe_24h": 7.0,
+    "dbdt_max_24h": 8.18,
+    "statut": "annoncée",
+    "erreur_h": -23.1,
+    "preavis_h": 74.2,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-10-10T14:46:00Z",
+    "cme": [
+     "2024-10-09T02:12:00-CME-001"
+    ],
+    "kp_observe_24h": 8.667,
+    "dbdt_max_24h": 60.18,
+    "statut": "annoncée",
+    "erreur_h": 0.0,
+    "preavis_h": 25.7,
+    "kp_prevu": [
+     8,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-10-26T15:34:00Z",
+    "cme": [
+     "2024-10-24T03:48:00-CME-001"
+    ],
+    "kp_observe_24h": 4.0,
+    "dbdt_max_24h": 9.28,
+    "statut": "annoncée",
+    "erreur_h": -28.8,
+    "preavis_h": 51.2,
+    "kp_prevu": [
+     7,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-10-28T04:13:00Z",
+    "cme": [
+     "2024-10-26T06:48:00-CME-001"
+    ],
+    "kp_observe_24h": 4.667,
+    "dbdt_max_24h": 16.34,
+    "statut": "annoncée",
+    "erreur_h": -12.5,
+    "preavis_h": 36.3,
+    "kp_prevu": [
+     8,
+     9
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-10-31T19:28:00Z",
+    "cme": [
+     "2024-10-29T13:23:00-CME-001"
+    ],
+    "kp_observe_24h": 3.667,
+    "dbdt_max_24h": 3.55,
+    "statut": "annoncée",
+    "erreur_h": -0.3,
+    "preavis_h": 23.0,
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-11-03T16:47:00Z",
+    "cme": [
+     "2024-10-31T13:48:00-CME-001"
+    ],
+    "kp_observe_24h": 4.333,
+    "dbdt_max_24h": 6.41,
+    "statut": "annoncée",
+    "erreur_h": 5.2,
+    "preavis_h": 65.7,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-11-07T14:29:00Z",
+    "cme": [
+     "2024-11-04T17:24:00-CME-001",
+     "2024-11-05T00:09:00-CME-001"
+    ],
+    "kp_observe_24h": 3.0,
+    "dbdt_max_24h": 10.24,
+    "statut": "annoncée",
+    "erreur_h": 1.5,
+    "preavis_h": 60.7,
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-11-14T03:32:00Z",
+    "cme": [
+     "2024-11-11T01:23:00-CME-001"
+    ],
+    "kp_observe_24h": 3.667,
+    "dbdt_max_24h": 3.16,
+    "statut": "annoncée",
+    "erreur_h": -3.5,
+    "preavis_h": 61.5,
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true
+   },
+   {
+    "choc": "2024-11-29T02:15:00Z",
+    "cme": [
+     "2024-11-25T03:12:00-CME-001",
+     "2024-11-25T04:00:00-CME-001",
+     "2024-11-25T21:24:00-CME-001"
+    ],
+    "kp_observe_24h": 4.333,
+    "dbdt_max_24h": 6.46,
+    "statut": "annoncée",
+    "erreur_h": -20.2,
+    "preavis_h": 82.6,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-12-02T20:07:00Z",
+    "cme": [
+     "2024-11-27T19:24:00-CME-001"
+    ],
+    "kp_observe_24h": 3.333,
+    "dbdt_max_24h": 5.15,
+    "statut": "simulée sans impact"
+   },
+   {
+    "choc": "2024-12-17T04:40:00Z",
+    "cme": [
+     "2024-12-15T01:25:00-CME-001",
+     "2024-12-15T04:23:00-CME-001"
+    ],
+    "kp_observe_24h": 5.333,
+    "dbdt_max_24h": 35.8,
+    "statut": "annoncée",
+    "erreur_h": 20.6,
+    "preavis_h": 37.4,
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false
+   },
+   {
+    "choc": "2024-12-31T15:44:00Z",
+    "cme": [
+     "2024-12-29T01:23:00-CME-001",
+     "2024-12-29T06:24:00-CME-001"
+    ],
+    "kp_observe_24h": 4.0,
+    "dbdt_max_24h": 12.16,
+    "statut": "annoncée",
+    "erreur_h": -5.2,
+    "preavis_h": 48.3,
+    "kp_prevu": [
+     7,
+     8
+    ],
+    "effleurement": false
+   }
+  ],
+  "fausses": [
+   {
+    "cme": "2024-01-06T08:12:00-CME-001",
+    "arrivee_prevue": "2024-01-09T02:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-01-06T17:36:00-CME-001",
+    "arrivee_prevue": "2024-01-10T01:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-01-09T15:48:00-CME-001",
+    "arrivee_prevue": "2024-01-12T09:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 1.667
+   },
+   {
+    "cme": "2024-01-22T22:36:00-CME-001",
+    "arrivee_prevue": "2024-01-26T13:26Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-01-23T03:48:00-CME-001",
+    "arrivee_prevue": "2024-01-26T17:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-01-23T07:24:00-CME-001",
+    "arrivee_prevue": "2024-01-26T13:26Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-02-01T08:00:00-CME-001",
+    "arrivee_prevue": "2024-02-04T02:16Z",
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-02-02T04:17:00-CME-001",
+    "arrivee_prevue": "2024-02-05T10:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-02-16T03:12:00-CME-001",
+    "arrivee_prevue": "2024-02-19T12:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-02-27T11:36:00-CME-001",
+    "arrivee_prevue": "2024-03-02T08:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-02-28T09:24:00-CME-001",
+    "arrivee_prevue": "2024-03-02T15:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 5.667
+   },
+   {
+    "cme": "2024-02-28T23:12:00-CME-001",
+    "arrivee_prevue": "2024-03-04T00:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 6.333
+   },
+   {
+    "cme": "2024-03-10T12:48:00-CME-001",
+    "arrivee_prevue": "2024-03-14T05:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-03-14T09:23:00-CME-001",
+    "arrivee_prevue": "2024-03-17T15:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 0.667
+   },
+   {
+    "cme": "2024-03-21T18:48:00-CME-001",
+    "arrivee_prevue": "2024-03-25T18:00Z",
+    "kp_prevu": [
+     1,
+     2
+    ],
+    "effleurement": true,
+    "kp_observe": 5.0
+   },
+   {
+    "cme": "2024-03-25T15:12:00-CME-001",
+    "arrivee_prevue": "2024-03-29T14:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 1.667
+   },
+   {
+    "cme": "2024-04-18T06:48:00-CME-001",
+    "arrivee_prevue": "2024-04-21T14:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-04-18T02:48:00-CME-001",
+    "arrivee_prevue": "2024-04-21T14:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-04-17T21:12:00-CME-001",
+    "arrivee_prevue": "2024-04-21T14:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-04-21T22:12:00-CME-001",
+    "arrivee_prevue": "2024-04-24T18:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 0.667
+   },
+   {
+    "cme": "2024-05-01T06:36:00-CME-001",
+    "arrivee_prevue": "2024-05-04T04:46Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-05-04T06:53:00-CME-001",
+    "arrivee_prevue": "2024-05-06T21:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-05-03T21:17:00-CME-001",
+    "arrivee_prevue": "2024-05-06T19:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-05-03T21:28:00-CME-001",
+    "arrivee_prevue": "2024-05-06T19:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-05-05T08:09:00-CME-001",
+    "arrivee_prevue": "2024-05-07T23:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-05-05T03:38:00-CME-001",
+    "arrivee_prevue": "2024-05-07T23:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-05-05T02:09:00-CME-001",
+    "arrivee_prevue": "2024-05-07T23:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-05-05T06:38:00-CME-001",
+    "arrivee_prevue": "2024-05-07T23:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-05-05T15:48:00-CME-001",
+    "arrivee_prevue": "2024-05-08T13:05Z",
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-05-11T01:36:00-CME-001",
+    "arrivee_prevue": "2024-05-13T12:23Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 6.0
+   },
+   {
+    "cme": "2024-05-10T21:28:00-CME-001",
+    "arrivee_prevue": "2024-05-13T12:23Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 6.0
+   },
+   {
+    "cme": "2024-05-10T23:13:00-CME-001",
+    "arrivee_prevue": "2024-05-13T07:34Z",
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false,
+    "kp_observe": 6.333
+   },
+   {
+    "cme": "2024-05-11T03:12:00-CME-002",
+    "arrivee_prevue": "2024-05-13T12:23Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 6.0
+   },
+   {
+    "cme": "2024-05-15T10:36:00-CME-001",
+    "arrivee_prevue": "2024-05-19T04:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-05-17T04:28:00-CME-001",
+    "arrivee_prevue": "2024-05-20T17:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-05-19T19:09:00-CME-001",
+    "arrivee_prevue": "2024-05-22T23:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-05-19T14:23:00-CME-001",
+    "arrivee_prevue": "2024-05-22T23:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-05-20T20:12:00-CME-001",
+    "arrivee_prevue": "2024-05-23T23:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-05-20T21:12:00-CME-001",
+    "arrivee_prevue": "2024-05-23T23:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-06-01T20:00:00-CME-001",
+    "arrivee_prevue": "2024-06-04T18:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-06-05T16:48:00-CME-001",
+    "arrivee_prevue": "2024-06-09T07:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-06-25T13:25:00-CME-001",
+    "arrivee_prevue": "2024-06-29T05:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 5.667
+   },
+   {
+    "cme": "2024-06-25T23:48:00-CME-001",
+    "arrivee_prevue": "2024-06-29T14:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-06-28T00:36:00-CME-001",
+    "arrivee_prevue": "2024-07-01T21:37Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 1.667
+   },
+   {
+    "cme": "2024-07-09T06:24:00-CME-001",
+    "arrivee_prevue": "2024-07-13T12:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 1.333
+   },
+   {
+    "cme": "2024-07-16T08:48:00-CME-001",
+    "arrivee_prevue": "2024-07-20T10:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-07-16T23:12:00-CME-001",
+    "arrivee_prevue": "2024-07-19T13:30Z",
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-07-16T23:23:00-CME-001",
+    "arrivee_prevue": "2024-07-19T13:30Z",
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-07-17T07:48:00-CME-001",
+    "arrivee_prevue": "2024-07-19T13:30Z",
+    "kp_prevu": [
+     4,
+     6
+    ],
+    "effleurement": false,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-07-23T04:24:00-CME-001",
+    "arrivee_prevue": "2024-07-26T20:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.333
+   },
+   {
+    "cme": "2024-07-23T14:48:00-CME-001",
+    "arrivee_prevue": "2024-07-25T23:19Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 5.0
+   },
+   {
+    "cme": "2024-07-27T21:36:00-CME-001",
+    "arrivee_prevue": "2024-07-31T20:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 5.333
+   },
+   {
+    "cme": "2024-08-05T05:53:00-CME-001",
+    "arrivee_prevue": "2024-08-07T20:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-08-05T16:00:00-CME-001",
+    "arrivee_prevue": "2024-08-08T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-08-05T05:48:00-CME-001",
+    "arrivee_prevue": "2024-08-08T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-08-05T03:12:00-CME-001",
+    "arrivee_prevue": "2024-08-08T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-08-04T23:12:00-CME-001",
+    "arrivee_prevue": "2024-08-08T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-08-09T12:53:00-CME-001",
+    "arrivee_prevue": "2024-08-12T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 8.0
+   },
+   {
+    "cme": "2024-08-09T08:24:00-CME-001",
+    "arrivee_prevue": "2024-08-12T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 8.0
+   },
+   {
+    "cme": "2024-08-09T21:48:00-CME-001",
+    "arrivee_prevue": "2024-08-13T12:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 6.0
+   },
+   {
+    "cme": "2024-08-10T03:12:00-CME-001",
+    "arrivee_prevue": "2024-08-12T21:45Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 8.0
+   },
+   {
+    "cme": "2024-08-10T03:24:00-CME-001",
+    "arrivee_prevue": "2024-08-12T21:45Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 8.0
+   },
+   {
+    "cme": "2024-09-03T20:12:00-CME-001",
+    "arrivee_prevue": "2024-09-06T08:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-09-07T07:36:00-CME-001",
+    "arrivee_prevue": "2024-09-12T06:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 7.0
+   },
+   {
+    "cme": "2024-09-07T08:00:00-CME-001",
+    "arrivee_prevue": "2024-09-12T06:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 7.0
+   },
+   {
+    "cme": "2024-09-22T21:36:00-CME-001",
+    "arrivee_prevue": "2024-09-24T18:55Z",
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false,
+    "kp_observe": 4.667
+   },
+   {
+    "cme": "2024-10-01T01:09:00-CME-001",
+    "arrivee_prevue": "2024-10-05T11:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-10-01T23:09:00-CME-001",
+    "arrivee_prevue": "2024-10-04T20:19Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-10-02T06:36:00-CME-001",
+    "arrivee_prevue": "2024-10-04T20:19Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-10-02T14:24:00-CME-001",
+    "arrivee_prevue": "2024-10-04T20:19Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 3.0
+   },
+   {
+    "cme": "2024-10-03T20:36:00-CME-001",
+    "arrivee_prevue": "2024-10-06T02:59Z",
+    "kp_prevu": [
+     4,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 5.333
+   },
+   {
+    "cme": "2024-10-08T06:12:00-CME-001",
+    "arrivee_prevue": "2024-10-11T04:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 8.667
+   },
+   {
+    "cme": "2024-10-09T02:09:00-CME-001",
+    "arrivee_prevue": "2024-10-10T16:24Z",
+    "kp_prevu": [
+     8,
+     9
+    ],
+    "effleurement": false,
+    "kp_observe": 8.667
+   },
+   {
+    "cme": "2024-10-23T12:48:00-CME-001",
+    "arrivee_prevue": "2024-10-27T00:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-11-04T01:36:00-CME-001",
+    "arrivee_prevue": "2024-11-06T09:22Z",
+    "kp_prevu": [
+     4,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-11-13T17:12:00-CME-001",
+    "arrivee_prevue": "2024-11-17T02:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-11-14T13:25:00-CME-001",
+    "arrivee_prevue": "2024-11-17T21:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.667
+   },
+   {
+    "cme": "2024-11-25T21:36:00-CME-001",
+    "arrivee_prevue": "2024-11-29T06:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.333
+   },
+   {
+    "cme": "2024-12-08T09:24:00-CME-001",
+    "arrivee_prevue": "2024-12-11T12:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-12-09T06:36:00-CME-001",
+    "arrivee_prevue": "2024-12-13T22:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-12-10T09:53:00-CME-001",
+    "arrivee_prevue": "2024-12-15T08:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 3.333
+   },
+   {
+    "cme": "2024-12-20T23:23:00-CME-001",
+    "arrivee_prevue": "2024-12-24T00:59Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 3.667
+   },
+   {
+    "cme": "2024-12-23T11:36:00-CME-001",
+    "arrivee_prevue": "2024-12-25T19:04Z",
+    "kp_prevu": [
+     5,
+     7
+    ],
+    "effleurement": false,
+    "kp_observe": 1.667
+   },
+   {
+    "cme": "2024-12-22T21:36:00-CME-001",
+    "arrivee_prevue": "2024-12-25T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-12-23T21:36:00-CME-001",
+    "arrivee_prevue": "2024-12-27T18:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 1.333
+   },
+   {
+    "cme": "2024-12-24T09:24:00-CME-001",
+    "arrivee_prevue": "2024-12-27T18:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 1.333
+   },
+   {
+    "cme": "2024-12-24T00:36:00-CME-001",
+    "arrivee_prevue": "2024-12-27T18:00Z",
+    "kp_prevu": [
+     3,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 1.333
+   },
+   {
+    "cme": "2024-12-25T04:48:00-CME-001",
+    "arrivee_prevue": "2024-12-27T21:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 1.333
+   },
+   {
+    "cme": "2024-12-25T17:12:00-CME-001",
+    "arrivee_prevue": "2024-12-29T20:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-12-26T19:12:00-CME-001",
+    "arrivee_prevue": "2024-12-30T13:00Z",
+    "kp_prevu": [
+     2,
+     3
+    ],
+    "effleurement": true,
+    "kp_observe": 2.333
+   },
+   {
+    "cme": "2024-12-29T18:24:00-CME-001",
+    "arrivee_prevue": "2024-12-31T22:30Z",
+    "kp_prevu": [
+     6,
+     8
+    ],
+    "effleurement": false,
+    "kp_observe": 4.0
+   }
+  ],
+  "kp_dans_la_fourchette": 0.47,
+  "n_kp": 55
+ },
+ "complements": {
+  "non_annonces_30": [
+   {
+    "debut": "2024-06-07T14:54:00Z",
+    "max": 30.4,
+    "p90_L1_heure_avant": 26.2,
+    "donnees_L1": 13,
+    "kp": 6.333
+   },
+   {
+    "debut": "2024-08-11T15:14:00Z",
+    "max": 31.2,
+    "p90_L1_heure_avant": 27.3,
+    "donnees_L1": 13,
+    "kp": 4.333
+   },
+   {
+    "debut": "2024-08-12T03:02:00Z",
+    "max": 30.7,
+    "p90_L1_heure_avant": 48.8,
+    "donnees_L1": 13,
+    "kp": 7.0
+   },
+   {
+    "debut": "2024-08-12T08:47:00Z",
+    "max": 47.4,
+    "p90_L1_heure_avant": 37.4,
+    "donnees_L1": 13,
+    "kp": 7.0
+   },
+   {
+    "debut": "2024-12-17T15:12:00Z",
+    "max": 32.6,
+    "p90_L1_heure_avant": 28.3,
+    "donnees_L1": 13,
+    "kp": 4.0
+   }
+  ],
+  "calibrage": [
+   {
+    "prevu_med": "0-3",
+    "n": 3584,
+    "mesure_sur_prevu": 0.52,
+    "couverture_p90": 0.99,
+    "part_obs_30": 0.0
+   },
+   {
+    "prevu_med": "3-5",
+    "n": 3915,
+    "mesure_sur_prevu": 0.47,
+    "couverture_p90": 0.99,
+    "part_obs_30": 0.0
+   },
+   {
+    "prevu_med": "5-10",
+    "n": 605,
+    "mesure_sur_prevu": 0.66,
+    "couverture_p90": 0.98,
+    "part_obs_30": 0.005
+   },
+   {
+    "prevu_med": "10-20",
+    "n": 79,
+    "mesure_sur_prevu": 1.13,
+    "couverture_p90": 0.91,
+    "part_obs_30": 0.101
+   },
+   {
+    "prevu_med": "20-+",
+    "n": 32,
+    "mesure_sur_prevu": 0.81,
+    "couverture_p90": 0.97,
+    "part_obs_30": 0.531
+   }
+  ],
+  "chocs_detectes_reponse": [
+   8.0,
+   10.2,
+   13.7,
+   29.4,
+   35.8
+  ],
+  "chocs_manques_reponse": [
+   1.3,
+   1.4,
+   1.5,
+   1.7,
+   2.3,
+   2.3,
+   2.5,
+   3.2,
+   3.3,
+   3.5,
+   5.4,
+   5.5,
+   5.5,
+   6.6,
+   7.6,
+   9.4,
+   9.8,
+   10.0,
+   10.7,
+   10.7,
+   14.2,
+   47.4
+  ],
+  "fausses_detections_reponse": [
+   0.7,
+   1.3,
+   2.2,
+   3.3,
+   3.5,
+   4.2,
+   5.7,
+   6.2,
+   6.9,
+   7.7,
+   7.9,
+   10.4,
+   11.8,
+   14.3,
+   14.5,
+   17.7,
+   19.1,
+   21.5,
+   21.6,
+   23.8,
+   23.8,
+   26.0,
+   33.9,
+   33.9,
+   37.4,
+   50.8,
+   103.0
+  ],
+  "veilles_cme": [
+   {
+    "debut": "2024-01-20T15:15:00Z",
+    "kp_observe": 1.667,
+    "mesure_max": 2.14
+   },
+   {
+    "debut": "2024-01-29T08:45:00Z",
+    "kp_observe": 2.333,
+    "mesure_max": 3.8
+   },
+   {
+    "debut": "2024-03-23T16:30:00Z",
+    "kp_observe": 8.333,
+    "mesure_max": 63.45
+   },
+   {
+    "debut": "2024-05-08T16:45:00Z",
+    "kp_observe": 9.0,
+    "mesure_max": 106.95
+   },
+   {
+    "debut": "2024-06-08T05:10:00Z",
+    "kp_observe": 3.0,
+    "mesure_max": 8.94
+   },
+   {
+    "debut": "2024-06-08T19:15:00Z",
+    "kp_observe": 2.0,
+    "mesure_max": 1.94
+   },
+   {
+    "debut": "2024-07-21T23:30:00Z",
+    "kp_observe": 3.0,
+    "mesure_max": 3.1
+   },
+   {
+    "debut": "2024-07-27T20:25:00Z",
+    "kp_observe": 5.333,
+    "mesure_max": 14.48
+   },
+   {
+    "debut": "2024-08-07T19:45:00Z",
+    "kp_observe": 2.667,
+    "mesure_max": 3.31
+   },
+   {
+    "debut": "2024-09-10T12:20:00Z",
+    "kp_observe": 7.0,
+    "mesure_max": 26.02
+   },
+   {
+    "debut": "2024-09-14T18:20:00Z",
+    "kp_observe": 7.333,
+    "mesure_max": 21.01
+   },
+   {
+    "debut": "2024-09-23T11:50:00Z",
+    "kp_observe": 4.667,
+    "mesure_max": 7.27
+   },
+   {
+    "debut": "2024-10-02T17:00:00Z",
+    "kp_observe": 1.333,
+    "mesure_max": 1.71
+   },
+   {
+    "debut": "2024-10-03T17:10:00Z",
+    "kp_observe": 2.333,
+    "mesure_max": 3.82
+   },
+   {
+    "debut": "2024-10-08T00:10:00Z",
+    "kp_observe": 7.0,
+    "mesure_max": 8.18
+   },
+   {
+    "debut": "2024-10-09T13:05:00Z",
+    "kp_observe": 8.667,
+    "mesure_max": 60.18
+   },
+   {
+    "debut": "2024-10-24T17:05:00Z",
+    "kp_observe": 2.0,
+    "mesure_max": 1.81
+   },
+   {
+    "debut": "2024-12-29T15:25:00Z",
+    "kp_observe": 4.0,
+    "mesure_max": 12.16
+   }
+  ],
+  "fausses_cme_effleurement": 65,
+  "preavis_L1_30": [
+   27,
+   832,
+   37,
+   823,
+   1553,
+   47,
+   40,
+   1,
+   440,
+   2
+  ]
+ }
+}

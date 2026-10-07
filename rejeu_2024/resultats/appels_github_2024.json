@@ -1,0 +1,1610 @@
+[
+{
+"t": "2024-01-03T04:35:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 30 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 05 h 30 UTC**\nSaut de pression et de vitesse (+63.0 km/s) vu à L1 à 04 h 30 UTC. dB/dt attendu dans l'heure à Chambon : 4.8 nT/min (P90 12.6).\n\nCollecte du 03/01/2024 à 04 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-01-03T08:30:00Z",
+"methode": "POST",
+"chemin": "/issues/1/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-01-03T04:35:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 12.6 nT/min · dB/dt mesuré maximal à Chambon : 5.4 nT/min."
+},
+{
+"t": "2024-01-03T08:30:00Z",
+"methode": "PATCH",
+"chemin": "/issues/1",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-01-20T15:15:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 22/01 vers 08 h 25 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 22/01 vers 08 h 25 UTC**\nCME (1088 km/s), arrivée du choc estimée le 22/01 vers 08 h 25 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/28651/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/28651/-1\n\nCollecte du 20/01/2024 à 15 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-01-20T19:35:00Z",
+"methode": "POST",
+"chemin": "/issues/2/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-01-20T15:15:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 9.2 nT/min · dB/dt mesuré maximal à Chambon : 2.1 nT/min."
+},
+{
+"t": "2024-01-20T19:35:00Z",
+"methode": "PATCH",
+"chemin": "/issues/2",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-01-29T08:45:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 30/01 vers 11 h 21 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 30/01 vers 11 h 21 UTC**\nCME (1888 km/s), arrivée du choc estimée le 30/01 vers 11 h 21 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/28850/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/28850/-1\n\nCollecte du 29/01/2024 à 08 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-01-29T16:55:00Z",
+"methode": "POST",
+"chemin": "/issues/3/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-01-29T08:45:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 9.7 nT/min · dB/dt mesuré maximal à Chambon : 3.8 nT/min."
+},
+{
+"t": "2024-01-29T16:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/3",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-02-11T00:25:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 01 h 20 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 01 h 20 UTC**\nSaut de pression et de vitesse (+52.0 km/s) vu à L1 à 00 h 20 UTC. dB/dt attendu dans l'heure à Chambon : 3.4 nT/min (P90 8.8).\n\nCollecte du 11/02/2024 à 00 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-02-11T03:30:00Z",
+"methode": "POST",
+"chemin": "/issues/4/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 13/02 vers 05 h 17 UTC**\nCME (989 km/s), arrivée du choc estimée le 13/02 vers 05 h 17 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/29139/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/29139/-1\n\nCollecte du 11/02/2024 à 03 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-02-11T03:30:00Z",
+"methode": "PATCH",
+"chemin": "/issues/4",
+"titre": "[ORANGE] Veille orange : CME attendue le 13/02 vers 05 h 17 UTC",
+"etat": null,
+"texte": ""
+},
+{
+"t": "2024-02-13T20:15:00Z",
+"methode": "POST",
+"chemin": "/issues/4/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-02-11T00:25:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 16.9 nT/min · dB/dt mesuré maximal à Chambon : 23.8 nT/min."
+},
+{
+"t": "2024-02-13T20:15:00Z",
+"methode": "PATCH",
+"chemin": "/issues/4",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-02-24T16:25:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 20 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 20 UTC**\nSaut de pression et de vitesse (+28.0 km/s) vu à L1 à 16 h 20 UTC. dB/dt attendu dans l'heure à Chambon : 3.9 nT/min (P90 10.3).\n\nCollecte du 24/02/2024 à 16 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-02-24T20:20:00Z",
+"methode": "POST",
+"chemin": "/issues/5/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-02-24T16:25:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 15.5 nT/min · dB/dt mesuré maximal à Chambon : 8.0 nT/min."
+},
+{
+"t": "2024-02-24T20:20:00Z",
+"methode": "PATCH",
+"chemin": "/issues/5",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-03-03T08:30:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 09 h 25 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 09 h 25 UTC**\nSaut de pression et de vitesse (+21.0 km/s) vu à L1 à 08 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 2.2 nT/min (P90 5.8).\n\nCollecte du 03/03/2024 à 08 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-03-03T09:35:00Z",
+"methode": "POST",
+"chemin": "/issues/6/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 25 UTC**\nSaut de pression et de vitesse (+23.0 km/s) vu à L1 à 09 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 5.9 nT/min (P90 15.3).\n\nCollecte du 03/03/2024 à 09 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-03-03T13:25:00Z",
+"methode": "POST",
+"chemin": "/issues/6/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-03-03T08:30:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 23.2 nT/min · dB/dt mesuré maximal à Chambon : 5.8 nT/min."
+},
+{
+"t": "2024-03-03T13:25:00Z",
+"methode": "PATCH",
+"chemin": "/issues/6",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-03-23T16:30:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 24/03 vers 17 h 55 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 24/03 vers 17 h 55 UTC**\nCME (1613 km/s), arrivée du choc estimée le 24/03 vers 17 h 55 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/29739/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/29739/-1\n\nCollecte du 23/03/2024 à 16 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-03-24T14:10:00Z",
+"methode": "POST",
+"chemin": "/issues/7/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 14 h 45 UTC**\nSaut de pression et de vitesse (+152.0 km/s) vu à L1 à 14 h 05 UTC. dB/dt attendu dans l'heure à Chambon : 10.3 nT/min (P90 26.7).\n\nCollecte du 24/03/2024 à 14 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-03-24T15:10:00Z",
+"methode": "POST",
+"chemin": "/issues/7/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 14 h 50 UTC**\nSaut de pression et de vitesse (+67.0 km/s) vu à L1 à 14 h 20 UTC. dB/dt attendu dans l'heure à Chambon : 22.8 nT/min (P90 59.6).\n\nCollecte du 24/03/2024 à 15 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-03-25T08:55:00Z",
+"methode": "POST",
+"chemin": "/issues/7/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-03-23T16:30:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 66.5 nT/min · dB/dt mesuré maximal à Chambon : 63.4 nT/min."
+},
+{
+"t": "2024-03-25T08:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/7",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-04-30T11:20:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 12 h 15 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 12 h 15 UTC**\nSaut de pression et de vitesse (+49.0 km/s) vu à L1 à 11 h 15 UTC. dB/dt attendu dans l'heure à Chambon : 1.8 nT/min (P90 4.8).\n\nCollecte du 30/04/2024 à 11 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-04-30T15:15:00Z",
+"methode": "POST",
+"chemin": "/issues/8/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-04-30T11:20:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 13.9 nT/min · dB/dt mesuré maximal à Chambon : 6.8 nT/min."
+},
+{
+"t": "2024-04-30T15:15:00Z",
+"methode": "PATCH",
+"chemin": "/issues/8",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-05-02T13:15:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 14 h 10 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 14 h 10 UTC**\nSaut de pression et de vitesse (+46.0 km/s) vu à L1 à 13 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 9.0 nT/min (P90 23.5).\n\nCollecte du 02/05/2024 à 13 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-02T14:15:00Z",
+"methode": "POST",
+"chemin": "/issues/9/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 14 h 24 UTC**\nSaut de pression et de vitesse (+36.0 km/s) vu à L1 à 13 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 10.4 nT/min (P90 27.1).\n\nCollecte du 02/05/2024 à 14 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-02T17:25:00Z",
+"methode": "POST",
+"chemin": "/issues/9/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-05-02T13:15:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 32.3 nT/min · dB/dt mesuré maximal à Chambon : 19.1 nT/min."
+},
+{
+"t": "2024-05-02T17:25:00Z",
+"methode": "PATCH",
+"chemin": "/issues/9",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-05-08T16:45:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 10/05 vers 12 h 12 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/05 vers 12 h 12 UTC**\nCME (1156 km/s), arrivée du choc estimée le 10/05 vers 12 h 12 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30576/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30576/-1\n\nCollecte du 08/05/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-08T18:25:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/05 vers 12 h 14 UTC**\nCME (870 km/s), arrivée du choc estimée le 10/05 vers 12 h 14 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30591/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30591/-1\n\nCollecte du 08/05/2024 à 18 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-09T16:45:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 11/05 vers 05 h 02 UTC**\nCME (1330 km/s), arrivée du choc estimée le 11/05 vers 05 h 02 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30626/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30626/-1\n\nCollecte du 09/05/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-09T19:35:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/05 vers 23 h 46 UTC**\nCME (1130 km/s), arrivée du choc estimée le 10/05 vers 23 h 46 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30644/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30644/-1\n\nCollecte du 09/05/2024 à 19 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-09T20:30:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/05 vers 13 h 03 UTC**\nCME (1330 km/s), arrivée du choc estimée le 10/05 vers 13 h 03 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/30651/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30651/-1\n\nCollecte du 09/05/2024 à 20 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T02:00:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/05 vers 19 h 02 UTC**\nCME (1236 km/s), arrivée du choc estimée le 10/05 vers 19 h 02 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30669/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30669/-1\n\nCollecte du 10/05/2024 à 02 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T13:40:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 14 h 28 UTC**\nSaut de pression et de vitesse (+24.0 km/s) vu à L1 à 13 h 35 UTC. dB/dt attendu dans l'heure à Chambon : 3.7 nT/min (P90 9.8).\n\nCollecte du 10/05/2024 à 13 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T14:40:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 12/05 vers 01 h 55 UTC**\nCME (1332 km/s), arrivée du choc estimée le 12/05 vers 01 h 55 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/30683/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30683/-1\n\nCollecte du 10/05/2024 à 14 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T16:30:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 03 UTC**\nSaut de pression et de vitesse (+266.0 km/s) vu à L1 à 16 h 20 UTC. dB/dt attendu dans l'heure à Chambon : 94.7 nT/min (P90 247.0).\n\n**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 94.7 nT/min, P90 247.0 nT/min (V = 537.0 km/s, Bz = -7.5 nT, arrivée vers 17 h 11 UTC).\n\nCollecte du 10/05/2024 à 16 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T17:25:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 58 UTC**\nSaut de pression et de vitesse (+246.0 km/s) vu à L1 à 17 h 20 UTC. dB/dt attendu dans l'heure à Chambon : 85.2 nT/min (P90 222.3).\n\n**Constat orange : 107.0 nT/min à Chambon**\ndB/dt mesuré à Chambon-la-Forêt : 107.0 nT/min à 17 h 07 UTC (données provisoires, 15 min de retard).\n\nCollecte du 10/05/2024 à 17 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T19:05:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 19 h 30 UTC**\nSaut de pression et de vitesse (+26.0 km/s) vu à L1 à 18 h 55 UTC. dB/dt attendu dans l'heure à Chambon : 37.0 nT/min (P90 96.5).\n\nCollecte du 10/05/2024 à 19 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T19:25:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 19 h 48 UTC**\nSaut de pression et de vitesse (+32.0 km/s) vu à L1 à 19 h 15 UTC. dB/dt attendu dans l'heure à Chambon : 43.7 nT/min (P90 114.1).\n\nCollecte du 10/05/2024 à 19 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T21:45:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 22 h 14 UTC**\nSaut de pression et de vitesse (+40.0 km/s) vu à L1 à 21 h 40 UTC. dB/dt attendu dans l'heure à Chambon : 37.2 nT/min (P90 97.1).\n\nCollecte du 10/05/2024 à 21 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T23:55:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 00 h 21 UTC**\nSaut de pression et de vitesse (+29.0 km/s) vu à L1 à 23 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 34.3 nT/min (P90 89.6).\n\nCollecte du 10/05/2024 à 23 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-11T02:55:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 03 h 20 UTC**\nSaut de pression et de vitesse (+22.0 km/s) vu à L1 à 02 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 88.2 nT/min (P90 230.1).\n\nCollecte du 11/05/2024 à 02 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-11T10:00:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 29 UTC**\nSaut de pression et de vitesse (+57.0 km/s) vu à L1 à 09 h 55 UTC. dB/dt attendu dans l'heure à Chambon : 50.2 nT/min (P90 130.9).\n\nCollecte du 11/05/2024 à 10 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-11T10:30:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 57 UTC**\nSaut de pression et de vitesse (+39.0 km/s) vu à L1 à 10 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 46.4 nT/min (P90 121.0).\n\nCollecte du 11/05/2024 à 10 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-11T18:05:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 18 h 27 UTC**\nSaut de pression et de vitesse (+33.0 km/s) vu à L1 à 18 h 00 UTC. dB/dt attendu dans l'heure à Chambon : 13.9 nT/min (P90 36.4).\n\nCollecte du 11/05/2024 à 18 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-11T23:05:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 23 h 27 UTC**\nSaut de pression et de vitesse (+24.0 km/s) vu à L1 à 23 h 00 UTC. dB/dt attendu dans l'heure à Chambon : 5.9 nT/min (P90 15.3).\n\nCollecte du 11/05/2024 à 23 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-12T16:55:00Z",
+"methode": "POST",
+"chemin": "/issues/10/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-05-08T16:45:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 428.2 nT/min · dB/dt mesuré maximal à Chambon : 107.0 nT/min."
+},
+{
+"t": "2024-05-12T16:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/10",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-05-16T05:10:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 53 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 05 h 53 UTC**\nSaut de pression et de vitesse (+23.0 km/s) vu à L1 à 05 h 00 UTC. dB/dt attendu dans l'heure à Chambon : 7.1 nT/min (P90 18.5).\n\nCollecte du 16/05/2024 à 05 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-16T06:05:00Z",
+"methode": "POST",
+"chemin": "/issues/11/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 06 h 01 UTC**\nSaut de pression et de vitesse (+23.0 km/s) vu à L1 à 05 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 8.7 nT/min (P90 22.6).\n\nCollecte du 16/05/2024 à 06 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-16T09:10:00Z",
+"methode": "POST",
+"chemin": "/issues/11/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-05-16T05:10:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 26.4 nT/min · dB/dt mesuré maximal à Chambon : 9.7 nT/min."
+},
+{
+"t": "2024-05-16T09:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/11",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-05-16T09:20:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 06 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 06 UTC**\nSaut de pression et de vitesse (+23.0 km/s) vu à L1 à 09 h 15 UTC. dB/dt attendu dans l'heure à Chambon : 12.5 nT/min (P90 32.7).\n\nCollecte du 16/05/2024 à 09 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-16T12:55:00Z",
+"methode": "POST",
+"chemin": "/issues/12/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-05-16T09:20:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 47.2 nT/min · dB/dt mesuré maximal à Chambon : 11.8 nT/min."
+},
+{
+"t": "2024-05-16T12:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/12",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-05-23T21:30:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 22 h 25 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 22 h 25 UTC**\nSaut de pression et de vitesse (+27.0 km/s) vu à L1 à 21 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 5.3 nT/min (P90 13.8).\n\nCollecte du 23/05/2024 à 21 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-24T01:50:00Z",
+"methode": "POST",
+"chemin": "/issues/13/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-05-23T21:30:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 13.8 nT/min · dB/dt mesuré maximal à Chambon : 3.4 nT/min."
+},
+{
+"t": "2024-05-24T01:50:00Z",
+"methode": "PATCH",
+"chemin": "/issues/13",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-05-27T00:35:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 01 h 30 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 01 h 30 UTC**\nSaut de pression et de vitesse (+51.0 km/s) vu à L1 à 00 h 30 UTC. dB/dt attendu dans l'heure à Chambon : 2.4 nT/min (P90 6.3).\n\nCollecte du 27/05/2024 à 00 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-27T04:45:00Z",
+"methode": "POST",
+"chemin": "/issues/14/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-05-27T00:35:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 11.3 nT/min · dB/dt mesuré maximal à Chambon : 1.5 nT/min."
+},
+{
+"t": "2024-05-27T04:45:00Z",
+"methode": "PATCH",
+"chemin": "/issues/14",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-06-08T05:10:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 09/06 vers 23 h 19 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 09/06 vers 23 h 19 UTC**\nCME (1376 km/s), arrivée du choc estimée le 09/06 vers 23 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/31361/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/31361/-1\n\nCollecte du 08/06/2024 à 05 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-06-08T16:50:00Z",
+"methode": "POST",
+"chemin": "/issues/15/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-06-08T05:10:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 9.7 nT/min · dB/dt mesuré maximal à Chambon : 8.9 nT/min."
+},
+{
+"t": "2024-06-08T16:50:00Z",
+"methode": "PATCH",
+"chemin": "/issues/15",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-06-08T19:15:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 09/06 vers 22 h 07 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 09/06 vers 22 h 07 UTC**\nCME (1528 km/s), arrivée du choc estimée le 09/06 vers 22 h 07 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/31370/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/31370/-1\n\nCollecte du 08/06/2024 à 19 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-06-10T13:05:00Z",
+"methode": "POST",
+"chemin": "/issues/16/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-06-08T19:15:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 9.2 nT/min · dB/dt mesuré maximal à Chambon : 1.9 nT/min."
+},
+{
+"t": "2024-06-10T13:05:00Z",
+"methode": "PATCH",
+"chemin": "/issues/16",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-06-10T16:30:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 25 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 25 UTC**\nSaut de pression et de vitesse (+44.0 km/s) vu à L1 à 16 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 6.2 nT/min (P90 16.1).\n\nCollecte du 10/06/2024 à 16 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-06-10T17:30:00Z",
+"methode": "POST",
+"chemin": "/issues/17/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 40 UTC**\nSaut de pression et de vitesse (+64.0 km/s) vu à L1 à 16 h 45 UTC. dB/dt attendu dans l'heure à Chambon : 7.8 nT/min (P90 20.4).\n\nCollecte du 10/06/2024 à 17 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-06-10T20:45:00Z",
+"methode": "POST",
+"chemin": "/issues/17/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-06-10T16:30:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 26.8 nT/min · dB/dt mesuré maximal à Chambon : 10.9 nT/min."
+},
+{
+"t": "2024-06-10T20:45:00Z",
+"methode": "PATCH",
+"chemin": "/issues/17",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-06-15T10:45:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 11 h 35 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 11 h 35 UTC**\nSaut de pression et de vitesse (+72.0 km/s) vu à L1 à 10 h 35 UTC. dB/dt attendu dans l'heure à Chambon : 7.7 nT/min (P90 20.0).\n\nCollecte du 15/06/2024 à 10 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-06-15T14:45:00Z",
+"methode": "POST",
+"chemin": "/issues/18/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-06-15T10:45:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 20.0 nT/min · dB/dt mesuré maximal à Chambon : 9.8 nT/min."
+},
+{
+"t": "2024-06-15T14:45:00Z",
+"methode": "PATCH",
+"chemin": "/issues/18",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-07-21T23:30:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 23/07 vers 16 h 36 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 23/07 vers 16 h 36 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 23/07 vers 16 h 36 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32095/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32095/-1\n\nCollecte du 21/07/2024 à 23 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-22T14:25:00Z",
+"methode": "POST",
+"chemin": "/issues/19/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-07-21T23:30:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 13.9 nT/min · dB/dt mesuré maximal à Chambon : 3.1 nT/min."
+},
+{
+"t": "2024-07-22T14:25:00Z",
+"methode": "PATCH",
+"chemin": "/issues/19",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-07-23T19:45:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 20 h 40 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 20 h 40 UTC**\nSaut de pression et de vitesse (+59.0 km/s) vu à L1 à 19 h 40 UTC. dB/dt attendu dans l'heure à Chambon : 2.4 nT/min (P90 6.2).\n\nCollecte du 23/07/2024 à 19 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-23T20:45:00Z",
+"methode": "POST",
+"chemin": "/issues/20/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 20 h 55 UTC**\nSaut de pression et de vitesse (+37.0 km/s) vu à L1 à 19 h 55 UTC. dB/dt attendu dans l'heure à Chambon : 2.3 nT/min (P90 5.9).\n\nCollecte du 23/07/2024 à 20 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-23T21:10:00Z",
+"methode": "POST",
+"chemin": "/issues/20/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 22 h 05 UTC**\nSaut de pression et de vitesse (+46.0 km/s) vu à L1 à 21 h 05 UTC. dB/dt attendu dans l'heure à Chambon : 2.8 nT/min (P90 7.2).\n\nCollecte du 23/07/2024 à 21 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-24T01:05:00Z",
+"methode": "POST",
+"chemin": "/issues/20/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-07-23T19:45:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 10.4 nT/min · dB/dt mesuré maximal à Chambon : 4.0 nT/min."
+},
+{
+"t": "2024-07-24T01:05:00Z",
+"methode": "PATCH",
+"chemin": "/issues/20",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-07-26T22:30:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 23 h 10 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 23 h 10 UTC**\nSaut de pression et de vitesse (+572.0 km/s) vu à L1 à 22 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 7.5 nT/min (P90 19.7).\n\nCollecte du 26/07/2024 à 22 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-27T02:40:00Z",
+"methode": "POST",
+"chemin": "/issues/21/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-07-26T22:30:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 21.3 nT/min · dB/dt mesuré maximal à Chambon : 2.2 nT/min."
+},
+{
+"t": "2024-07-27T02:40:00Z",
+"methode": "PATCH",
+"chemin": "/issues/21",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-07-27T20:25:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 29/07 vers 13 h 38 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 29/07 vers 13 h 38 UTC**\nCME (803 km/s), arrivée du choc estimée le 29/07 vers 13 h 38 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32250/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32250/-1\n\nCollecte du 27/07/2024 à 20 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-28T14:05:00Z",
+"methode": "POST",
+"chemin": "/issues/22/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 30/07 vers 12 h 03 UTC**\nCME (920 km/s), arrivée du choc estimée le 30/07 vers 12 h 03 UTC (±10 h). Kp estimé 5 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32274/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32274/-1\n\nCollecte du 28/07/2024 à 14 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-29T22:55:00Z",
+"methode": "POST",
+"chemin": "/issues/22/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 23 h 45 UTC**\nSaut de pression et de vitesse (+77.0 km/s) vu à L1 à 22 h 45 UTC. dB/dt attendu dans l'heure à Chambon : 4.2 nT/min (P90 10.9).\n\nCollecte du 29/07/2024 à 22 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-30T04:35:00Z",
+"methode": "POST",
+"chemin": "/issues/22/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-07-27T20:25:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 27.3 nT/min · dB/dt mesuré maximal à Chambon : 14.5 nT/min."
+},
+{
+"t": "2024-07-30T04:35:00Z",
+"methode": "PATCH",
+"chemin": "/issues/22",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-07-30T11:00:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 11 h 43 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 11 h 43 UTC**\nSaut de pression et de vitesse (+33.0 km/s) vu à L1 à 10 h 55 UTC. dB/dt attendu dans l'heure à Chambon : 6.9 nT/min (P90 18.1).\n\nCollecte du 30/07/2024 à 11 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-07-30T14:00:00Z",
+"methode": "POST",
+"chemin": "/issues/23/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-07-30T11:00:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 18.6 nT/min · dB/dt mesuré maximal à Chambon : 6.2 nT/min."
+},
+{
+"t": "2024-07-30T14:00:00Z",
+"methode": "PATCH",
+"chemin": "/issues/23",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-08-04T21:35:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 22 h 30 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 22 h 30 UTC**\nSaut de pression et de vitesse (+35.0 km/s) vu à L1 à 21 h 30 UTC. dB/dt attendu dans l'heure à Chambon : 6.8 nT/min (P90 17.6).\n\nCollecte du 04/08/2024 à 21 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-05T01:30:00Z",
+"methode": "POST",
+"chemin": "/issues/24/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-08-04T21:35:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 22.2 nT/min · dB/dt mesuré maximal à Chambon : 13.7 nT/min."
+},
+{
+"t": "2024-08-05T01:30:00Z",
+"methode": "PATCH",
+"chemin": "/issues/24",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-08-07T19:45:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 09/08 vers 19 h 19 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 09/08 vers 19 h 19 UTC**\nCME (925 km/s), arrivée du choc estimée le 09/08 vers 19 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32603/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32603/-1\n\nCollecte du 07/08/2024 à 19 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-07T20:15:00Z",
+"methode": "POST",
+"chemin": "/issues/25/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 09/08 vers 17 h 19 UTC**\nCME (925 km/s), arrivée du choc estimée le 09/08 vers 17 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32604/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32604/-1\n\nCollecte du 07/08/2024 à 20 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-10T08:15:00Z",
+"methode": "POST",
+"chemin": "/issues/25/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-08-07T19:45:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 10.1 nT/min · dB/dt mesuré maximal à Chambon : 3.3 nT/min."
+},
+{
+"t": "2024-08-10T08:15:00Z",
+"methode": "PATCH",
+"chemin": "/issues/25",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-08-17T13:40:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 14 h 35 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 14 h 35 UTC**\nSaut de pression et de vitesse (+65.0 km/s) vu à L1 à 13 h 35 UTC. dB/dt attendu dans l'heure à Chambon : 5.4 nT/min (P90 14.0).\n\nCollecte du 17/08/2024 à 13 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-17T16:40:00Z",
+"methode": "POST",
+"chemin": "/issues/26/comments",
+"titre": null,
+"etat": null,
+"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 37.8 nT/min, P90 98.7 nT/min (V = 449.0 km/s, Bz = 21.9 nT, arrivée vers 17 h 29 UTC).\n\nCollecte du 17/08/2024 à 16 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-17T16:40:00Z",
+"methode": "PATCH",
+"chemin": "/issues/26",
+"titre": "[ORANGE] Pré-alerte orange : vent solaire à L1",
+"etat": null,
+"texte": ""
+},
+{
+"t": "2024-08-17T20:10:00Z",
+"methode": "POST",
+"chemin": "/issues/26/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-08-17T13:40:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 102.8 nT/min · dB/dt mesuré maximal à Chambon : 49.6 nT/min."
+},
+{
+"t": "2024-08-17T20:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/26",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-08-27T07:15:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 10 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 08 h 10 UTC**\nSaut de pression et de vitesse (+50.0 km/s) vu à L1 à 07 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 5.7 nT/min (P90 14.9).\n\nCollecte du 27/08/2024 à 07 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-27T11:10:00Z",
+"methode": "POST",
+"chemin": "/issues/27/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-08-27T07:15:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 22.7 nT/min · dB/dt mesuré maximal à Chambon : 3.7 nT/min."
+},
+{
+"t": "2024-08-27T11:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/27",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-08-30T07:55:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 50 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 08 h 50 UTC**\nSaut de pression et de vitesse (+28.0 km/s) vu à L1 à 07 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 1.9 nT/min (P90 4.9).\n\nCollecte du 30/08/2024 à 07 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-08-30T11:50:00Z",
+"methode": "POST",
+"chemin": "/issues/28/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-08-30T07:55:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 19.0 nT/min · dB/dt mesuré maximal à Chambon : 6.9 nT/min."
+},
+{
+"t": "2024-08-30T11:50:00Z",
+"methode": "PATCH",
+"chemin": "/issues/28",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-09-04T09:55:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 50 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 50 UTC**\nSaut de pression et de vitesse (+70.0 km/s) vu à L1 à 09 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 8.3 nT/min (P90 21.6).\n\nCollecte du 04/09/2024 à 09 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-04T10:55:00Z",
+"methode": "POST",
+"chemin": "/issues/29/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 11 h 07 UTC**\nSaut de pression et de vitesse (+23.0 km/s) vu à L1 à 10 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 7.1 nT/min (P90 18.6).\n\nCollecte du 04/09/2024 à 10 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-04T14:10:00Z",
+"methode": "POST",
+"chemin": "/issues/29/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-09-04T09:55:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 28.6 nT/min · dB/dt mesuré maximal à Chambon : 37.8 nT/min."
+},
+{
+"t": "2024-09-04T14:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/29",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-09-10T12:20:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 12/09 vers 16 h 57 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 12/09 vers 16 h 57 UTC**\nCME (755 km/s), arrivée du choc estimée le 12/09 vers 16 h 57 UTC (±10 h). Kp estimé 5 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33300/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33300/-1\n\nCollecte du 10/09/2024 à 12 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-12T02:35:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 03 h 25 UTC**\nSaut de pression et de vitesse (+29.0 km/s) vu à L1 à 02 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 3.7 nT/min (P90 9.6).\n\nCollecte du 12/09/2024 à 02 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-12T02:50:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 03 h 40 UTC**\nSaut de pression et de vitesse (+20.0 km/s) vu à L1 à 02 h 40 UTC. dB/dt attendu dans l'heure à Chambon : 3.8 nT/min (P90 9.9).\n\nCollecte du 12/09/2024 à 02 h 50 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-12T03:45:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 04 h 02 UTC**\nSaut de pression et de vitesse (+28.0 km/s) vu à L1 à 03 h 05 UTC. dB/dt attendu dans l'heure à Chambon : 8.1 nT/min (P90 21.2).\n\nCollecte du 12/09/2024 à 03 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-12T04:10:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 04 h 08 UTC**\nSaut de pression et de vitesse (+22.0 km/s) vu à L1 à 03 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 8.4 nT/min (P90 21.9).\n\nCollecte du 12/09/2024 à 04 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-12T08:25:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 09 h 17 UTC**\nSaut de pression et de vitesse (+39.0 km/s) vu à L1 à 08 h 20 UTC. dB/dt attendu dans l'heure à Chambon : 11.5 nT/min (P90 29.9).\n\nCollecte du 12/09/2024 à 08 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-12T11:25:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 12 h 05 UTC**\nSaut de pression et de vitesse (+77.0 km/s) vu à L1 à 11 h 15 UTC. dB/dt attendu dans l'heure à Chambon : 12.4 nT/min (P90 32.3).\n\nCollecte du 12/09/2024 à 11 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-13T07:55:00Z",
+"methode": "POST",
+"chemin": "/issues/30/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-09-10T12:20:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 47.3 nT/min · dB/dt mesuré maximal à Chambon : 26.0 nT/min."
+},
+{
+"t": "2024-09-13T07:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/30",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-09-14T18:20:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 16/09 vers 04 h 43 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 16/09 vers 04 h 43 UTC**\nCME (1470 km/s), arrivée du choc estimée le 16/09 vers 04 h 43 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33438/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33438/-1\n\nCollecte du 14/09/2024 à 18 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-16T23:00:00Z",
+"methode": "POST",
+"chemin": "/issues/31/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 23 h 45 UTC**\nSaut de pression et de vitesse (+95.0 km/s) vu à L1 à 22 h 55 UTC. dB/dt attendu dans l'heure à Chambon : 9.2 nT/min (P90 24.0).\n\nCollecte du 16/09/2024 à 23 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-17T06:35:00Z",
+"methode": "POST",
+"chemin": "/issues/31/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-09-14T18:20:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 36.6 nT/min · dB/dt mesuré maximal à Chambon : 21.0 nT/min."
+},
+{
+"t": "2024-09-17T06:35:00Z",
+"methode": "PATCH",
+"chemin": "/issues/31",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-09-17T07:05:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 41 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 07 h 41 UTC**\nSaut de pression et de vitesse (+89.0 km/s) vu à L1 à 07 h 00 UTC. dB/dt attendu dans l'heure à Chambon : 10.3 nT/min (P90 26.9).\n\nCollecte du 17/09/2024 à 07 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-17T11:00:00Z",
+"methode": "POST",
+"chemin": "/issues/32/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-09-17T07:05:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 29.8 nT/min · dB/dt mesuré maximal à Chambon : 7.7 nT/min."
+},
+{
+"t": "2024-09-17T11:00:00Z",
+"methode": "PATCH",
+"chemin": "/issues/32",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-09-23T11:50:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 24/09 vers 18 h 55 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 24/09 vers 18 h 55 UTC**\nCME (1381 km/s), arrivée du choc estimée le 24/09 vers 18 h 55 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33533/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33533/-1\n\nCollecte du 23/09/2024 à 11 h 50 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-23T11:55:00Z",
+"methode": "POST",
+"chemin": "/issues/33/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 12 h 50 UTC**\nSaut de pression et de vitesse (+44.0 km/s) vu à L1 à 11 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 5.1 nT/min (P90 13.2).\n\nCollecte du 23/09/2024 à 11 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-23T23:35:00Z",
+"methode": "POST",
+"chemin": "/issues/33/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 00 h 24 UTC**\nSaut de pression et de vitesse (+21.0 km/s) vu à L1 à 23 h 30 UTC. dB/dt attendu dans l'heure à Chambon : 3.1 nT/min (P90 8.1).\n\nCollecte du 23/09/2024 à 23 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-09-25T09:55:00Z",
+"methode": "POST",
+"chemin": "/issues/33/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-09-23T11:50:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 22.6 nT/min · dB/dt mesuré maximal à Chambon : 7.3 nT/min."
+},
+{
+"t": "2024-09-25T09:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/33",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-02T17:00:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 04/10 vers 00 h 37 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 04/10 vers 00 h 37 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 04/10 vers 00 h 37 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33682/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33682/-1\n\nCollecte du 02/10/2024 à 17 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-03T03:45:00Z",
+"methode": "POST",
+"chemin": "/issues/34/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-02T17:00:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 8.9 nT/min · dB/dt mesuré maximal à Chambon : 1.7 nT/min."
+},
+{
+"t": "2024-10-03T03:45:00Z",
+"methode": "PATCH",
+"chemin": "/issues/34",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-03T17:10:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 05/10 vers 21 h 49 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 05/10 vers 21 h 49 UTC**\nCME (863 km/s), arrivée du choc estimée le 05/10 vers 21 h 49 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33709/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33709/-1\n\nCollecte du 03/10/2024 à 17 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-04T15:40:00Z",
+"methode": "POST",
+"chemin": "/issues/35/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-03T17:10:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 9.7 nT/min · dB/dt mesuré maximal à Chambon : 3.8 nT/min."
+},
+{
+"t": "2024-10-04T15:40:00Z",
+"methode": "PATCH",
+"chemin": "/issues/35",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-06T06:55:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 49 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 07 h 49 UTC**\nSaut de pression et de vitesse (+117.0 km/s) vu à L1 à 06 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 2.4 nT/min (P90 6.3).\n\nCollecte du 06/10/2024 à 06 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-06T10:50:00Z",
+"methode": "POST",
+"chemin": "/issues/36/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-06T06:55:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 11.3 nT/min · dB/dt mesuré maximal à Chambon : 13.8 nT/min."
+},
+{
+"t": "2024-10-06T10:50:00Z",
+"methode": "PATCH",
+"chemin": "/issues/36",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-08T00:10:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 09/10 vers 18 h 09 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 09/10 vers 18 h 09 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 09/10 vers 18 h 09 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33837/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33837/-1\n\nCollecte du 08/10/2024 à 00 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-08T15:10:00Z",
+"methode": "POST",
+"chemin": "/issues/37/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-08T00:10:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 22.7 nT/min · dB/dt mesuré maximal à Chambon : 8.2 nT/min."
+},
+{
+"t": "2024-10-08T15:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/37",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-09T13:05:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 10/10 vers 14 h 55 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/10 vers 14 h 55 UTC**\nCME (1509 km/s), arrivée du choc estimée le 10/10 vers 14 h 55 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33879/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33879/-1\n\nCollecte du 09/10/2024 à 13 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-10T14:55:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 15 h 35 UTC**\nSaut de pression et de vitesse (+301.0 km/s) vu à L1 à 14 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 14.5 nT/min (P90 37.8).\n\nCollecte du 10/10/2024 à 14 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-10T15:15:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 27.8 nT/min, P90 72.5 nT/min (V = 722.0 km/s, Bz = -1.6 nT, arrivée vers 15 h 45 UTC).\n\nCollecte du 10/10/2024 à 15 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-10T15:55:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 15 h 35 UTC**\nSaut de pression et de vitesse (+41.0 km/s) vu à L1 à 15 h 05 UTC. dB/dt attendu dans l'heure à Chambon : 31.7 nT/min (P90 82.7).\n\nCollecte du 10/10/2024 à 15 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-10T18:55:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 10/10 vers 16 h 19 UTC**\nCME (1473 km/s), arrivée du choc estimée le 10/10 vers 16 h 19 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33939/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33939/-1\n\nCollecte du 10/10/2024 à 18 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-10T23:45:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 23 h 18 UTC**\nSaut de pression et de vitesse (+32.0 km/s) vu à L1 à 22 h 45 UTC. dB/dt attendu dans l'heure à Chambon : 14.0 nT/min (P90 36.6).\n\nCollecte du 10/10/2024 à 23 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-11T05:40:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 06 h 10 UTC**\nSaut de pression et de vitesse (+26.0 km/s) vu à L1 à 05 h 35 UTC. dB/dt attendu dans l'heure à Chambon : 11.4 nT/min (P90 29.7).\n\nCollecte du 11/10/2024 à 05 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-11T09:35:00Z",
+"methode": "POST",
+"chemin": "/issues/38/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-09T13:05:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 198.7 nT/min · dB/dt mesuré maximal à Chambon : 60.2 nT/min."
+},
+{
+"t": "2024-10-11T09:35:00Z",
+"methode": "PATCH",
+"chemin": "/issues/38",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-11T09:50:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 18 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 18 UTC**\nSaut de pression et de vitesse (+48.0 km/s) vu à L1 à 09 h 45 UTC. dB/dt attendu dans l'heure à Chambon : 13.4 nT/min (P90 34.9).\n\nCollecte du 11/10/2024 à 09 h 50 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-11T13:45:00Z",
+"methode": "POST",
+"chemin": "/issues/39/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-11T09:50:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 37.6 nT/min · dB/dt mesuré maximal à Chambon : 21.6 nT/min."
+},
+{
+"t": "2024-10-11T13:45:00Z",
+"methode": "PATCH",
+"chemin": "/issues/39",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-24T17:05:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 25/10 vers 10 h 44 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 25/10 vers 10 h 44 UTC**\nCME (2006 km/s), arrivée du choc estimée le 25/10 vers 10 h 44 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/34158/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/34158/-1\n\nCollecte du 24/10/2024 à 17 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-26T01:40:00Z",
+"methode": "POST",
+"chemin": "/issues/40/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-24T17:05:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 9.9 nT/min · dB/dt mesuré maximal à Chambon : 1.8 nT/min."
+},
+{
+"t": "2024-10-26T01:40:00Z",
+"methode": "PATCH",
+"chemin": "/issues/40",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-10-26T15:40:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 16 h 34 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 16 h 34 UTC**\nSaut de pression et de vitesse (+82.0 km/s) vu à L1 à 15 h 35 UTC. dB/dt attendu dans l'heure à Chambon : 5.7 nT/min (P90 14.9).\n\nCollecte du 26/10/2024 à 15 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-26T18:20:00Z",
+"methode": "POST",
+"chemin": "/issues/41/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 27/10 vers 15 h 51 UTC**\nCME (1677 km/s), arrivée du choc estimée le 27/10 vers 15 h 51 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/34225/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/34225/-1\n\nCollecte du 26/10/2024 à 18 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-26T18:20:00Z",
+"methode": "PATCH",
+"chemin": "/issues/41",
+"titre": "[ORANGE] Veille orange : CME attendue le 27/10 vers 15 h 51 UTC",
+"etat": null,
+"texte": ""
+},
+{
+"t": "2024-10-28T03:55:00Z",
+"methode": "POST",
+"chemin": "/issues/41/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 04 h 47 UTC**\nSaut de pression et de vitesse (+132.0 km/s) vu à L1 à 03 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 12.7 nT/min (P90 33.2).\n\nCollecte du 28/10/2024 à 03 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-28T04:55:00Z",
+"methode": "POST",
+"chemin": "/issues/41/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 05 h 33 UTC**\nSaut de pression et de vitesse (+114.0 km/s) vu à L1 à 04 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 10.3 nT/min (P90 26.8).\n\nCollecte du 28/10/2024 à 04 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-28T05:55:00Z",
+"methode": "POST",
+"chemin": "/issues/41/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 05 h 36 UTC**\nSaut de pression et de vitesse (+66.0 km/s) vu à L1 à 04 h 55 UTC. dB/dt attendu dans l'heure à Chambon : 10.3 nT/min (P90 26.8).\n\nCollecte du 28/10/2024 à 05 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-10-28T08:55:00Z",
+"methode": "POST",
+"chemin": "/issues/41/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-10-26T15:40:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 39.7 nT/min · dB/dt mesuré maximal à Chambon : 16.3 nT/min."
+},
+{
+"t": "2024-10-28T08:55:00Z",
+"methode": "PATCH",
+"chemin": "/issues/41",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-11-03T16:40:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 26 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 26 UTC**\nSaut de pression et de vitesse (+47.0 km/s) vu à L1 à 16 h 30 UTC. dB/dt attendu dans l'heure à Chambon : 2.5 nT/min (P90 6.5).\n\nCollecte du 03/11/2024 à 16 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-11-03T17:35:00Z",
+"methode": "POST",
+"chemin": "/issues/42/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 18 h 01 UTC**\nSaut de pression et de vitesse (+35.0 km/s) vu à L1 à 17 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 4.9 nT/min (P90 12.7).\n\nCollecte du 03/11/2024 à 17 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-11-03T21:10:00Z",
+"methode": "POST",
+"chemin": "/issues/42/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-11-03T16:40:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 18.2 nT/min · dB/dt mesuré maximal à Chambon : 4.6 nT/min."
+},
+{
+"t": "2024-11-03T21:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/42",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-11-07T14:15:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 15 h 10 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 15 h 10 UTC**\nSaut de pression et de vitesse (+24.0 km/s) vu à L1 à 14 h 10 UTC. dB/dt attendu dans l'heure à Chambon : 4.9 nT/min (P90 12.8).\n\nCollecte du 07/11/2024 à 14 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-11-07T18:10:00Z",
+"methode": "POST",
+"chemin": "/issues/43/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-11-07T14:15:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 19.0 nT/min · dB/dt mesuré maximal à Chambon : 10.2 nT/min."
+},
+{
+"t": "2024-11-07T18:10:00Z",
+"methode": "PATCH",
+"chemin": "/issues/43",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-12-16T03:10:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 03 h 55 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 03 h 55 UTC**\nSaut de pression et de vitesse (+22.0 km/s) vu à L1 à 03 h 00 UTC. dB/dt attendu dans l'heure à Chambon : 3.6 nT/min (P90 9.4).\n\nCollecte du 16/12/2024 à 03 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-16T07:00:00Z",
+"methode": "POST",
+"chemin": "/issues/44/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-12-16T03:10:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 18.8 nT/min · dB/dt mesuré maximal à Chambon : 3.5 nT/min."
+},
+{
+"t": "2024-12-16T07:00:00Z",
+"methode": "PATCH",
+"chemin": "/issues/44",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-12-17T04:20:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 12 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 05 h 12 UTC**\nSaut de pression et de vitesse (+35.0 km/s) vu à L1 à 04 h 15 UTC. dB/dt attendu dans l'heure à Chambon : 7.5 nT/min (P90 19.6).\n\nCollecte du 17/12/2024 à 04 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-17T05:15:00Z",
+"methode": "POST",
+"chemin": "/issues/45/comments",
+"titre": null,
+"etat": null,
+"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 27.6 nT/min, P90 72.1 nT/min (V = 543.0 km/s, Bz = 14.4 nT, arrivée vers 05 h 55 UTC).\n\nCollecte du 17/12/2024 à 05 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-17T05:15:00Z",
+"methode": "PATCH",
+"chemin": "/issues/45",
+"titre": "[ORANGE] Pré-alerte orange : vent solaire à L1",
+"etat": null,
+"texte": ""
+},
+{
+"t": "2024-12-17T05:20:00Z",
+"methode": "POST",
+"chemin": "/issues/45/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 05 h 32 UTC**\nSaut de pression et de vitesse (+41.0 km/s) vu à L1 à 04 h 50 UTC. dB/dt attendu dans l'heure à Chambon : 26.1 nT/min (P90 68.2).\n\nCollecte du 17/12/2024 à 05 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-17T08:50:00Z",
+"methode": "POST",
+"chemin": "/issues/45/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-12-17T04:20:00Z · niveau maximal : orange · dB/dt prévu maximal (P90, L1) : 72.1 nT/min · dB/dt mesuré maximal à Chambon : 35.8 nT/min."
+},
+{
+"t": "2024-12-17T08:50:00Z",
+"methode": "PATCH",
+"chemin": "/issues/45",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-12-17T10:35:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 40 UTC",
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 10 h 40 UTC**\nSaut de pression et de vitesse (+50.0 km/s) vu à L1 à 10 h 05 UTC. dB/dt attendu dans l'heure à Chambon : 7.1 nT/min (P90 18.5).\n\nCollecte du 17/12/2024 à 10 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-17T14:05:00Z",
+"methode": "POST",
+"chemin": "/issues/46/comments",
+"titre": null,
+"etat": null,
+"texte": "Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : 2024-12-17T10:35:00Z · niveau maximal : choc · dB/dt prévu maximal (P90, L1) : 46.2 nT/min · dB/dt mesuré maximal à Chambon : 26.5 nT/min."
+},
+{
+"t": "2024-12-17T14:05:00Z",
+"methode": "PATCH",
+"chemin": "/issues/46",
+"titre": null,
+"etat": "closed",
+"texte": ""
+},
+{
+"t": "2024-12-29T15:25:00Z",
+"methode": "POST",
+"chemin": "/issues",
+"titre": "[ORANGE] Veille orange : CME attendue le 31/12 vers 13 h 14 UTC",
+"etat": null,
+"texte": "**Veille orange : CME attendue le 31/12 vers 13 h 14 UTC**\nCME (860 km/s), arrivée du choc estimée le 31/12 vers 13 h 14 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36055/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36055/-1\n\nCollecte du 29/12/2024 à 15 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-29T22:15:00Z",
+"methode": "POST",
+"chemin": "/issues/47/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 31/12 vers 22 h 30 UTC**\nCME (917 km/s), arrivée du choc estimée le 31/12 vers 22 h 30 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36090/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36090/-1\n\nCollecte du 29/12/2024 à 22 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-30T16:45:00Z",
+"methode": "POST",
+"chemin": "/issues/47/comments",
+"titre": null,
+"etat": null,
+"texte": "**Veille orange : CME attendue le 31/12 vers 10 h 28 UTC**\nCME (881 km/s), arrivée du choc estimée le 31/12 vers 10 h 28 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36117/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36117/-1\n\nCollecte du 30/12/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-31T15:30:00Z",
+"methode": "POST",
+"chemin": "/issues/47/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 16 h 25 UTC**\nSaut de pression et de vitesse (+49.0 km/s) vu à L1 à 15 h 25 UTC. dB/dt attendu dans l'heure à Chambon : 4.4 nT/min (P90 11.5).\n\nCollecte du 31/12/2024 à 15 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-12-31T16:10:00Z",
+"methode": "POST",
+"chemin": "/issues/47/comments",
+"titre": null,
+"etat": null,
+"texte": "**Choc détecté à L1, arrivée sur Terre vers 17 h 02 UTC**\nSaut de pression et de vitesse (+89.0 km/s) vu à L1 à 16 h 05 UTC. dB/dt attendu dans l'heure à Chambon : 5.9 nT/min (P90 15.5).\n\nCollecte du 31/12/2024 à 16 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+}
+]
