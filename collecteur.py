@@ -208,7 +208,8 @@ def analyse_kp(donnees, maintenant):
 # ---------------------------------------------------------------- 2 bis. CME en route (coronographes, WSA-ENLIL)
 def fiche_cme(s, t, maintenant):
     """Ce que la page affiche pour une simulation WSA-ENLIL qui prévoit un impact sur Terre à l'instant t."""
-    kp = {a: s.get(f"kp_{a}") for a in (90, 135, 180)}
+    # clés en texte ("90", "135", "180") : identiques en Python et dans le JSON lu par la page et par alertes.py
+    kp = {str(a): s.get(f"kp_{a}") for a in (90, 135, 180)}
     dbdt = {a: dbdt_kp(k, SIGMA_KP_PREVU) for a, k in kp.items() if k is not None}
     return {
         "arrivee": iso(t), "dans_h": arrondi((t - maintenant).total_seconds() / 3600, 1),

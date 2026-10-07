@@ -47,8 +47,10 @@ def niveau(dbdt):
 
 
 # ---------------------------------------------------------------- 1. Quels signaux dans l'état actuel ?
-def signaux(etat):
-    """Liste des raisons de prévenir. Chaque signal a une clé : on ne prévient qu'une fois par clé et par épisode."""
+def signaux(etat, maintenant=None):
+    """Liste des raisons de prévenir. Chaque signal a une clé : on ne prévient qu'une fois par clé et par épisode.
+    maintenant : instant de la collecte (par défaut l'heure actuelle ; le rejeu de 2024 passe l'instant simulé)."""
+    maintenant = maintenant or datetime.now(timezone.utc)
     l1, kp, clf = etat.get("l1"), etat.get("kp"), etat.get("clf")
     s = []
     if l1 and l1.get("choc"):
@@ -78,7 +80,7 @@ def signaux(etat):
     for c in (etat.get("cme") or {}).get("attendues", []):
         p90 = (c.get("dbdt_p90") or {}).get("180")
         n = niveau(p90)
-        if not n or lire_date(c["arrivee"]) < datetime.now(timezone.utc) - timedelta(hours=12):
+        if not n or lire_date(c["arrivee"]) < maintenant - timedelta(hours=12):
             continue
         kp = c["kp"]
         vit = f"{max((x.get('vitesse') or 0) for x in c['cmes']):.0f} km/s" if c["cmes"] else "pas encore cataloguée"
@@ -141,7 +143,7 @@ def traiter(etat, maintenant, fichier, erreurs):
     if os.environ.get("ALERTE_TEST") == "true":
         envoyer_test(maintenant, erreurs)                                   # puis traitement normal
     ep = json.loads(fichier.read_text()) if fichier and fichier.exists() else {}
-    sig = signaux(etat)
+    sig = signaux(etat, maintenant)
     lien = adresse_page()
     try:
         if sig:
