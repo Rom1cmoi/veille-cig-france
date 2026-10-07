@@ -76,6 +76,23 @@ Pour chaque CME attendue sur Terre, la page affiche :
 
 Chaque simulation qui prévoit un impact est gardée dans `journal/cme_previsions.csv`. Comparée aux chocs détectés à L1 (journal des collectes), elle donnera l'erreur réelle sur l'heure d'arrivée.
 
+## Collecte vraiment toutes les 5 minutes (déclencheur externe)
+
+GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 min en médiane entre deux collectes (jusqu'à 30 min). C'est gênant pour l'alerte de choc à L1, qui ne laisse que 30 à 60 min d'avance. Un lancement à la demande (« Run workflow »), lui, démarre en quelques secondes. On fait donc appuyer sur ce bouton toutes les 5 minutes par un service gratuit, cron-job.org. La tâche planifiée de GitHub reste en secours.
+
+1. **Jeton GitHub limité.** GitHub → photo de profil → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**. Nom : `cron veille-cig`. Expiration : une date après la soutenance. **Repository access** : *Only select repositories* → `veille-cig-france`. **Permissions** → **Repository permissions** → **Actions** : *Read and write*. **Generate token**, puis copie-le (il ne s'affiche qu'une fois). Ce jeton ne permet que de lancer les tâches de ce dépôt : il ne donne accès ni au code des autres dépôts ni au compte.
+2. **Compte** sur https://cron-job.org (gratuit).
+3. **Create cronjob** :
+   - URL : `https://api.github.com/repos/Rom1cmoi/veille-cig-france/actions/workflows/collecte.yml/dispatches`
+   - Exécution : toutes les 5 minutes.
+4. Onglet **Advanced** :
+   - Request method : `POST`
+   - Headers : `Authorization` = `Bearer <ton jeton>` ; `Accept` = `application/vnd.github+json` ; `Content-Type` = `application/json`
+   - Request body : `{"ref":"main"}`
+5. **Test run** : la réponse doit être `204 No Content` (= GitHub a accepté). Dans l'onglet **Actions** du dépôt, une collecte « workflow_dispatch » apparaît aussitôt.
+
+Erreurs possibles : `401` = jeton mal copié (vérifier le mot `Bearer` et l'espace) ; `403` ou `404` = jeton sans la permission Actions *Read and write*, ou pas limité au bon dépôt ; `422` = corps de requête incorrect.
+
 ## Alertes
 
 Le collecteur prévient tout seul quand il se passe quelque chose (fichier `alertes.py`).
