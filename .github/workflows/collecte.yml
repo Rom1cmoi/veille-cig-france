@@ -26,6 +26,9 @@ jobs:
     timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main                 # la dernière version, pas celle du déclenchement (sinon conflit si
+                                    # deux lancements se suivent de près)
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -41,5 +44,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/etat_courant.json docs/historique.json docs/alertes.json docs/donki.json journal/
           git commit -m "Donnees $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
-          git pull --rebase
-          git push
+          # Si une autre collecte a enregistré entre-temps : on se recale sur elle et on réessaie (3 fois).
+          # En cas de conflit sur un fichier, on garde la version de cette collecte (la plus récente).
+          for i in 1 2 3; do
+            if git pull --rebase -X theirs origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          exit 1
