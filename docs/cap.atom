@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Veille CIG France : alertes CAP (démonstrateur)</title>
+  <id>https://rom1cmoi.github.io/veille-cig-france/cap.atom</id>
+  <link rel="self" href="https://rom1cmoi.github.io/veille-cig-france/cap.atom"/>
+  <updated>2026-10-08T22:50:59Z</updated>
+  <author><name>Veille CIG France</name></author>
+</feed>

@@ -124,6 +124,11 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
 .banner{background:var(--accent-soft);border-radius:8px;padding:8px 12px;font-size:13px}
 .alert{border:2px solid var(--o);border-radius:8px;padding:10px 12px;font-weight:600}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bull{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:8px}
+.bull-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.bull-tabs button{font:inherit;font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}
+.bull-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.bull-txt{white-space:pre-line;line-height:1.5;font-size:14px}
 .cme{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:8px}
 .cme .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .cme-item{display:grid;gap:6px;padding-top:8px;border-top:1px solid var(--line)}
@@ -276,6 +281,15 @@ details.valid summary{font-weight:600;cursor:pointer}
       <div class="live hidden" id="livebox" aria-live="polite">
         <div class="banner hidden" id="live-banner"></div>
         <div class="alert hidden" id="live-choc"></div>
+        <div class="bull" id="live-bull">
+          <div class="bull-tabs" role="tablist">
+            <button type="button" data-b="public" aria-pressed="true">Grand public</button>
+            <button type="button" data-b="previsionniste" aria-pressed="false">Prévisionniste</button>
+            <button type="button" data-b="exploitant" aria-pressed="false">Exploitant</button>
+          </div>
+          <div class="bull-txt" id="bull-txt"></div>
+          <p class="hint">Bulletin rédigé automatiquement à chaque collecte. Alertes aussi au format CAP 1.2 (statut « Exercise » : démonstrateur non officiel) : <a href="cap.atom" target="_blank" rel="noopener">flux cap.atom</a>.</p>
+        </div>
         <div class="tiles">
           <button type="button" class="tile" id="tile-kp" aria-pressed="false"></button>
           <button type="button" class="tile" id="tile-l1" aria-pressed="true"></button>
@@ -436,6 +450,15 @@ details.valid summary{font-weight:600;cursor:pointer}
       `<text x="2" y="9" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">max ${fmt(mx,1)} ${unit}</text>`+
       `<text x="298" y="9" font-size="10" text-anchor="end" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${hm(pts.at(-1).t).slice(0,5)}</text>`;
   }
+  let bullSel='public';
+  function renderBull(){
+    const B=LIVE&&LIVE.bulletins, el=$('live-bull');
+    el.classList.toggle('hidden',!B);
+    if(!B)return;
+    el.querySelectorAll('[data-b]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.b===bullSel)));
+    $('bull-txt').textContent=B[bullSel]||'';
+  }
+  document.addEventListener('click',e=>{const b=e.target.closest('#live-bull [data-b]');if(b){bullSel=b.dataset.b;renderBull();}});
   function renderCme(C){
     const el=$('live-cme'); const head='<span class="k">CME en route · coronographes et simulation WSA-ENLIL (NASA)</span>';
     if(!C){el.innerHTML=head+`<p class="hint">${LIVE&&LIVE.demo?'Pas de simulation de CME dans la démonstration.':'Base DONKI indisponible pour l\'instant.'}</p>`;return;}
@@ -475,6 +498,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     const row=(nom,t,lim)=>{const a=ageMin(t);const ok=a!=null&&a<=lim;return `<li><span>${nom}</span><span class="${ok?'ok':'ko'}">${a==null?'indisponible':(a<=0?'à l\'instant':'il y a '+a+' min')}</span></li>`;};
     $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',clf&&clf.derniere_mesure,60)+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
     renderCme(LIVE.cme);
+    renderBull();
     chart('ch-p',l1&&l1.serie,'P','nPa'); chart('ch-h',clf&&clf.serie,'h','nT/min');
     const H=(LIVE.historique||[]).filter(r=>r.observe!=null);
     const V=LIVE.validation;

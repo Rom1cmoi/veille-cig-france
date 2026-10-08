@@ -28,6 +28,8 @@ Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 | `docs/etat_demo.json` | Une démonstration : le 10 mai 2024 à 16 h 35 UTC, quand le choc est déjà mesuré à L1 mais pas encore arrivé. La page l'affiche si le vrai fichier n'existe pas encore. |
 | `demo/` | Les données qui ont servi à fabriquer la démonstration (`python collecteur.py --demo`). |
 | `validation.py` | Bilan de la prévision L1 en conditions réelles (mêmes indicateurs que le rapport). |
+| `bulletins.py` | Bulletins grand public, prévisionniste et exploitant. |
+| `cap.py` | Messages d'alerte au format CAP 1.2 et flux Atom. |
 | `alertes.py` | Décide s'il faut prévenir et envoie les alertes (issue GitHub, ntfy). |
 | `.github/workflows/collecte.yml` | La tâche planifiée de GitHub : lance le collecteur toutes les 5 minutes. |
 | `en_continu.py` | Pour tout faire tourner sur ton ordinateur, sans GitHub. |
@@ -92,6 +94,15 @@ GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 mi
 5. **Test run** : la réponse doit être `204 No Content` (= GitHub a accepté). Dans l'onglet **Actions** du dépôt, une collecte « workflow_dispatch » apparaît aussitôt.
 
 Erreurs possibles : `401` = jeton mal copié (vérifier le mot `Bearer` et l'espace) ; `403` ou `404` = jeton sans la permission Actions *Read and write*, ou pas limité au bon dépôt ; `422` = corps de requête incorrect.
+
+## Bulletins et flux CAP
+
+À chaque collecte, `bulletins.py` rédige trois bulletins, affichés en mode Direct et joints aux alertes :
+- **grand public** : la couleur et ce qu'elle veut dire, en heure de Paris, sans jargon ;
+- **prévisionniste** : mesures et prévisions avec leurs incertitudes (vent solaire, choc, Kp, CME, Chambon, validation) ;
+- **exploitant** : courant estimé au poste le plus exposé (Cruas probable, avec la fourchette Monte-Carlo) et mesures envisageables selon le niveau, à valider avec l'exploitant.
+
+Chaque ouverture, aggravation ou fin d'épisode produit aussi un message **CAP 1.2** (Common Alerting Protocol, le format des systèmes d'alerte), dans `docs/cap/`, listé par le flux Atom `docs/cap.atom` (comme Meteoalarm). Statut « Exercise » : ce démonstrateur n'est pas un service officiel.
 
 ## Alertes
 

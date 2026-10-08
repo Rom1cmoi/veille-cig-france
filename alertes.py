@@ -127,9 +127,12 @@ def adresse_page():
     return f"https://{proprio.lower()}.github.io/{nom}/"
 
 
-def corps_message(liste, maintenant):
+def corps_message(liste, maintenant, bulletins=None):
     proprio = os.environ.get("GITHUB_REPOSITORY_OWNER")
     lignes = [f"**{x['titre']}**\n{x['texte']}\n" for x in liste]
+    if bulletins:
+        lignes.append(f"**Bulletin exploitant**\n{bulletins['exploitant']}\n")
+        lignes.append(f"**Bulletin grand public**\n{bulletins['public']}\n")
     lignes.append(f"Collecte du {maintenant:%d/%m/%Y à %H h %M} UTC · [ouvrir la page]({adresse_page()}) (mode Direct)")
     lignes.append("Seuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min).")
     if proprio:
@@ -138,8 +141,11 @@ def corps_message(liste, maintenant):
 
 
 # ---------------------------------------------------------------- 3. Gestion des épisodes
-def traiter(etat, maintenant, fichier, erreurs):
-    """Met à jour l'épisode, envoie ce qu'il faut. Renvoie un petit résumé pour la page (ou None)."""
+def traiter(etat, maintenant, fichier, erreurs, dossier_cap=None):
+    """Met à jour l'épisode, envoie ce qu'il faut. Renvoie un petit résumé pour la page (ou None).
+    dossier_cap : si donné, chaque ouverture, aggravation ou fin d'épisode y écrit aussi un message CAP."""
+    import cap                                                              # cap.py, à côté de ce fichier
+    bulletins = etat.get("bulletins")
     if os.environ.get("ALERTE_TEST") == "true":
         envoyer_test(maintenant, erreurs)                                   # puis traitement normal
     ep = json.loads(fichier.read_text()) if fichier and fichier.exists() else {}
@@ -154,18 +160,26 @@ def traiter(etat, maintenant, fichier, erreurs):
                       "max_prevu": 0, "max_mesure": 0}
                 titre = f"[{pire['niveau'].upper()}] {pire['titre']}"
                 print("ALERTE :", titre)
-                r = github("POST", "/issues", {"title": titre, "body": corps_message(sig, maintenant)})
+                r = github("POST", "/issues", {"title": titre, "body": corps_message(sig, maintenant, bulletins)})
                 if r:
                     ep["issue"], ep["lien"] = r["number"], r["html_url"]
+                if dossier_cap:
+                    ep["cap"] = [cap.ecrire(dossier_cap, lien, ep, sig, maintenant, "Alert", pire["niveau"], titre,
+                                            bulletins)]
                 ntfy(titre, "\n".join(x["texte"] for x in sig), pire["niveau"], ep["lien"])
             elif nouveaux:                                                   # nouveau signal pendant l'épisode
                 titre = f"[{pire['niveau'].upper()}] {pire['titre']}"
                 print("ALERTE (suite) :", titre)
                 if ep["issue"]:
-                    github("POST", f"/issues/{ep['issue']}/comments", {"body": corps_message(nouveaux, maintenant)})
+                    github("POST", f"/issues/{ep['issue']}/comments",
+                           {"body": corps_message(nouveaux, maintenant, bulletins)})
                     if GRAVITE[pire["niveau"]] > GRAVITE[ep["niveau"]]:      # aggravation : on change le titre
                         github("PATCH", f"/issues/{ep['issue']}", {"title": titre})
                 ntfy(titre, "\n".join(x["texte"] for x in nouveaux), pire["niveau"], ep["lien"])
+                if dossier_cap:
+                    niv = max([ep["niveau"], pire["niveau"]], key=GRAVITE.get)
+                    ep.setdefault("cap", []).append(cap.ecrire(dossier_cap, lien, ep, sig, maintenant, "Update", niv,
+                                                               titre, bulletins))
             ep["deja"] += [x["cle"] for x in nouveaux]
             ep["niveau"] = max([ep["niveau"]] + [x["niveau"] for x in sig], key=GRAVITE.get)
             ep["dernier_signal"] = iso(maintenant)
@@ -182,6 +196,9 @@ def traiter(etat, maintenant, fichier, erreurs):
                 if ep["issue"]:
                     github("POST", f"/issues/{ep['issue']}/comments", {"body": bilan})
                     github("PATCH", f"/issues/{ep['issue']}", {"state": "closed", "state_reason": "completed"})
+                if dossier_cap:
+                    cap.ecrire(dossier_cap, lien, ep, [], maintenant, "Cancel", ep["niveau"],
+                               "Fin de l'épisode : aucun signal depuis 3 h", bulletins)
                 ep = {}
     except Exception as e:                                                   # un envoi raté ne bloque pas la collecte
         erreurs.append(f"alerte : {e}")

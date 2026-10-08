@@ -22,6 +22,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import alertes                                                       # alertes.py, à côté de ce fichier
+import bulletins                                                     # bulletins.py, idem
 import validation                                                    # validation.py, idem
 
 ICI = Path(__file__).resolve().parent
@@ -486,7 +487,9 @@ def main():
     fichier_hist.write_text(json.dumps(hist, indent=0))
     etat["historique"] = [{"heure": k, **v} for k, v in list(hist.items())[-48:]]
     etat["validation"] = validation.tout(hist)
-    etat["alerte"] = alertes.traiter(etat, maintenant, None if demo else SORTIE / "alertes.json", erreurs)
+    etat["bulletins"] = bulletins.rediger(etat)
+    etat["alerte"] = alertes.traiter(etat, maintenant, None if demo else SORTIE / "alertes.json", erreurs,
+                                     dossier_cap=None if demo else SORTIE / "cap")
     etat["erreurs"] = erreurs
 
     if not demo:
