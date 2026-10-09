@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>veille-cig-france.20261009T081250Z.cancel</identifier>
+  <sender>rom1cmoi.github.io/veille-cig-france</sender>
+  <sent>2026-10-09T08:12:50-00:00</sent>
+  <status>Exercise</status>
+  <msgType>Cancel</msgType>
+  <scope>Public</scope>
+  <note>Démonstrateur étudiant (IPSA, ELIOS-SPACE), non officiel. Courants estimés par modèle, non validés contre mesure.</note>
+  <references>rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261009T051022Z.alert,2026-10-09T05:10:22-00:00</references>
+  <info>
+    <language>fr-FR</language>
+    <category>Met</category>
+    <category>Infra</category>
+    <event>Courants géomagnétiquement induits dans le réseau électrique</event>
+    <responseType>AllClear</responseType>
+    <urgency>Past</urgency>
+    <severity>Minor</severity>
+    <certainty>Observed</certainty>
+    <expires>2026-10-09T09:12:50-00:00</expires>
+    <senderName>Veille CIG France (démonstrateur)</senderName>
+    <headline>Fin de l'épisode : aucun signal depuis 3 h</headline>
+    <description>Vigilance jaune pour l'heure à venir. Activité géomagnétique faible à modérée : de faibles courants peuvent apparaître dans le réseau électrique, sans conséquence attendue pour les usagers. Une éruption solaire (éjection de masse coronale) devrait atteindre la Terre vendredi 9 octobre vers 22 h (heure de Paris), à environ 10 heures près. Effet attendu sur le réseau : jaune, selon l'orientation de son champ magnétique, qui ne sera connue qu'une heure avant. Une autre éruption devrait arriver dimanche 11 octobre vers 8 h (effet : de vert à jaune). Une autre éruption devrait arriver dimanche 11 octobre vers 22 h 14 (effet : jaune).
+
+Vent solaire à L1 (SOLAR1, mesure de 09/10 08 h 07 UTC) : V = 355 km/s, n = 9,8 cm⁻³, Bz = -5,6 nT, Pdyn = 2,5 nPa, couplage de Newell sur 2 h = 5244. dB/dt maximal attendu à Chambon pour l'heure qui commence : 4,4 nT/min en médiane, 11,4 au P90 (vigilance jaune dans le cas pessimiste). Arrivée sur Terre de ce vent : 09/10 09 h 07 UTC.
+Kp : observé 3,0 ; maximum prévu sur 24 h 6,0 (dB/dt P90 39,5 nT/min, vigilance jaune) ; sur 72 h 6,0.
+CME : choc attendu le 09/10 20 h 00 UTC ± 10 h (impact mineur). Kp WSA-ENLIL 3 / 4 / 4 pour un angle d'horloge de 90° / 135° / 180° ; dB/dt P90 plein sud 14,9 nT/min. (Simulation WSA-ENLIL/49002/1.)
+CME : choc attendu le 11/10 06 h 00 UTC ± 10 h (effleurement). Kp WSA-ENLIL 2 / 4 / 4 pour un angle d'horloge de 90° / 135° / 180° ; dB/dt P90 plein sud 14,9 nT/min. (Simulation WSA-ENLIL/49013/1.)
+CME : choc attendu le 11/10 20 h 14 UTC ± 10 h. Kp WSA-ENLIL 3 / 4 / 5 pour un angle d'horloge de 90° / 135° / 180° ; dB/dt P90 plein sud 24,2 nT/min. Magnétopause comprimée jusqu'à 6,4 RT. (Simulation WSA-ENLIL/49030/1.)
+Constat à Chambon-la-Forêt (provisoire, 24 min de retard) : dB/dt maximal 1,8 nT/min sur la dernière heure, axe 109°.
+Validation en direct : 67 h vérifiées, couverture du P90 100 %, rapport mesuré / prévu ×0,40.</description>
+    <instruction>Niveau jaune pour l'heure qui commence (cas pessimiste). Courant continu estimé au poste le plus exposé (vallée du Rhône, poste d'évacuation probable de Cruas) : 1,7 A par phase et par transformateur (fourchette 0,7 à 2,0 A selon les paramètres du poste). Seuils : 1 A jaune (début de saturation), 10 A orange, 75 A rouge.
+Mesuré sur la dernière heure : 1,8 nT/min à Chambon, soit au plus 0,3 A au même poste (direction la plus défavorable).
+CME attendue le 09/10 20 h 00 UTC ± 10 h : jusqu'à 2,2 A si son champ arrive plein sud.
+CME attendue le 11/10 06 h 00 UTC ± 10 h : jusqu'à 2,2 A si son champ arrive plein sud.
+Surveillance normale. Vérifier que les mesures de courant de neutre, si elles existent, sont disponibles et enregistrées.
+Courants estimés par le modèle du rapport (incertitude d'un facteur 3, non validés contre mesure) ; mesures à valider avec l'exploitant.</instruction>
+    <web>https://rom1cmoi.github.io/veille-cig-france/</web>
+    <parameter>
+      <valueName>awareness_level</valueName>
+      <value>1; green; Minor</value>
+    </parameter>
+    <area>
+      <areaDesc>France métropolitaine continentale</areaDesc>
+      <polygon>51.1,2.5 49.4,8.2 47.6,7.6 46.4,6.2 45.9,7.0 44.1,7.7 43.7,7.5 43.0,6.0 43.3,3.2 42.4,3.1 42.8,-1.8 43.4,-1.8 46.3,-1.3 47.3,-2.5 48.0,-4.8 48.7,-4.6 48.8,-1.6 49.7,-1.9 49.4,0.1 50.9,1.6 51.1,2.5</polygon>
+    </area>
+  </info>
+</alert>
