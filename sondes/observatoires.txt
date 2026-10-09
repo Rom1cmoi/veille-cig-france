@@ -1,0 +1,7 @@
+Sonde du 2026-10-09 09:22 UTC
+CLF : dernière minute valide 2026-10-09 08:59 UTC, retard 0:23:38.432845 ; Reported               XYZF                                         | | Data Type              Variation                                    |
+HAD : dernière minute valide None UTC, retard None ; Reported               XYZF                                         | | Data Type              Variation                                    |
+DOU : dernière minute valide None UTC, retard None ; Reported               XYZF                                         | | Data Type              Variation                                    |
+FUR : dernière minute valide 2026-10-09 09:19 UTC, retard 0:03:38.432845 ; Reported               XYZF                                         | | Data Type              Variation                                    |
+EBR : dernière minute valide 2026-10-08 23:59 UTC, retard 9:23:38.432845 ; Reported               XYZF                                         | | Data Type              Variation                                    |
+SPT : dernière minute valide 2026-10-09 08:35 UTC, retard 0:47:38.432845 ; Reported               XYZF                                         | | Data Type              Variation                                    |
