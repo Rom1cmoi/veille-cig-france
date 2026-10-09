@@ -95,6 +95,10 @@ GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 mi
 
 Erreurs possibles : `401` = jeton mal copié (vérifier le mot `Bearer` et l'espace) ; `403` ou `404` = jeton sans la permission Actions *Read and write*, ou pas limité au bon dépôt ; `422` = corps de requête incorrect.
 
+## Gazoducs
+
+En mode Gaz (bouton au-dessus de la carte), les 33 600 km du réseau de transport (NaTran, Teréga) sont colorés selon le potentiel tube-sol (PSP) induit, pour le même dB/dt que la carte électrique. Le calcul (dossier `calc` du projet, `gaz_reseau.py`) suit la méthode de Boteler (ligne de transmission à sources distribuées, schéma en pi, résolution nodale), avec le même sol EURHOM que pour le réseau électrique. Les paramètres des tubes ne sont pas publiés : cas de base DN 600, 12 mm, revêtement 10 µS/m², fourchette Monte-Carlo ×0,38 à ×1,7. Seuils provisoires : 2 V (jaune), 10 V (orange), 30 V (rouge), à calibrer avec les exploitants ; la protection cathodique tient le tube entre −0,85 et −1,2 V. Tracés : ODRÉ, Licence Ouverte (NaTran 2025, Teréga 2021).
+
 ## Bulletins et flux CAP
 
 À chaque collecte, `bulletins.py` rédige trois bulletins, affichés en mode Direct et joints aux alertes :

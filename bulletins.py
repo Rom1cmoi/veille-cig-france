@@ -19,6 +19,10 @@ except Exception:                                                           # re
 
 COEF_MAX, FOURCHETTE = 0.147, (0.40, 1.19)        # A par nT/min, poste le plus exposé ; facteurs Monte-Carlo
 SEUILS_A = (("rouge", 75.0), ("orange", 10.0), ("jaune", 1.0))
+# Gazoducs (calc/gaz_reseau.py) : potentiel tube-sol au point le plus exposé (Causses, au sud de Millau), en V par
+# nT/min à Chambon, cas de base ; fourchette Monte-Carlo sur les tubes ; seuils provisoires (V), à calibrer.
+COEF_GAZ, FOURCHETTE_GAZ = 0.37, (0.38, 1.7)
+SEUILS_GAZ = (("rouge", 30.0), ("orange", 10.0), ("jaune", 2.0))
 JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
         "novembre", "décembre"]
@@ -149,6 +153,13 @@ def rediger(etat):
                   f"exposé (vallée du Rhône, poste d'évacuation probable de Cruas) : {f(i, 1)} A par phase et par "
                   f"transformateur (fourchette {f(i * FOURCHETTE[0], 1)} à {f(i * FOURCHETTE[1], 1)} A selon les "
                   f"paramètres du poste). Seuils : 1 A jaune (début de saturation), 10 A orange, 75 A rouge.")
+    if l1.get("dbdt_p90") is not None:
+        v = l1["dbdt_p90"] * COEF_GAZ
+        ng = next((n for n, s in SEUILS_GAZ if v >= s), "vert")
+        ex.append(f"Gazoducs (NaTran, Teréga) : potentiel tube-sol jusqu'à {f(v, 1)} V au point le plus exposé "
+                  f"(Causses, au sud de Millau ; {f(v * FOURCHETTE_GAZ[0], 1)} à {f(v * FOURCHETTE_GAZ[1], 1)} V selon "
+                  f"les tubes), niveau {ng} (seuils provisoires 2 / 10 / 30 V ; la protection cathodique tient le "
+                  f"tube entre −0,85 et −1,2 V).")
     if clf.get("dbdt_max_1h") is not None:
         ex.append(f"Mesuré sur la dernière heure : {f(clf['dbdt_max_1h'], 1)} nT/min à Chambon, soit au plus "
                   f"{f(clf['dbdt_max_1h'] * COEF_MAX, 1)} A au même poste (direction la plus défavorable).")
