@@ -140,7 +140,7 @@ def calculer(mesures, ntap=None):
         if best > i_nat:
             i_nat, k_max, t_nat = best, k, t_best
     return {"t_fin": t_fin.strftime("%Y-%m-%dT%H:%M:%SZ"), "fenetre_min": FENETRE,
-            "I": I_max, "max": round(i_nat, 2), "poste_max": k_max, "lieu_max": F["lieux"][k_max] if k_max is not None else None,
+            "I": I_max, "max": round(i_nat, 1), "poste_max": k_max, "lieu_max": F["lieux"][k_max] if k_max is not None else None,
             "heure_max": t_nat.strftime("%Y-%m-%dT%H:%M:%SZ") if t_nat else None,
             "serie_max": [round(v, 2) for v in serie_nat],
             "part_mesuree": reel, "remplacants": remplace,
