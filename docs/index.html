@@ -32,12 +32,41 @@
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 40px;display:grid;gap:18px}
-header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+.titre{display:grid;gap:4px;max-width:70ch}
 h1{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.01em;margin:0}
 .sub{color:var(--muted);margin:0;max-width:62ch}
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.layout{display:grid;grid-template-columns:minmax(260px,320px) 1fr;gap:18px;align-items:start}
-@media (max-width:820px){.layout{grid-template-columns:1fr}}
+.layout{display:grid;grid-template-columns:minmax(330px,430px) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.etat,.carte,.details{display:grid;gap:14px;min-width:0;align-content:start}
+.details{gap:18px}
+/* sélecteur de public */
+.aud{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.aud-l{font-weight:600;font-size:13.5px;margin-right:2px}
+.aud button,.modes button{font:inherit;font-size:13.5px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.aud button[aria-pressed="true"],.modes button[aria-pressed="true"],.modes .livebtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface);font-weight:600}
+/* modes */
+.modes{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.modes .grp{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.grp-l{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-right:2px}
+.modes .hint{flex-basis:100%}
+.modes .livebtn{width:auto;margin:0;display:inline-flex;padding:6px 16px}
+/* filtre par public : un bloc data-aud="pre exp" n'apparaît que pour ces publics */
+body[data-aud="pub"] [data-aud]:not([data-aud~="pub"]),
+body[data-aud="pre"] [data-aud]:not([data-aud~="pre"]),
+body[data-aud="exp"] [data-aud]:not([data-aud~="exp"]){display:none!important}
+.watch{margin:2px 0 0;font-size:13.5px}
+.hyp{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px}
+.bull-h{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cme-row{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.cme-row:first-of-type{border-top:0}
+.cme-row .q{font-weight:600}
+.cme-d{grid-column:1/-1}
+.tile .watch-s{order:9;color:var(--ink);font-weight:500}
+.chips{display:flex;gap:4px}
+.chip{font:600 12px var(--mono);padding:2px 6px;border-radius:5px;border-left:4px solid var(--g);background:var(--bg)}
+.chip.l1{border-left-color:var(--y)}.chip.l2{border-left-color:var(--o)}.chip.l3{border-left-color:var(--r)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:16px}
 .panel h2{font-family:var(--display);font-weight:600;font-size:15px;margin:0}
 .field{display:grid;gap:6px}
@@ -85,7 +114,7 @@ td.mono{font-family:var(--mono);font-size:12.5px}
 .notes ul{margin:0;padding-left:18px;display:grid;gap:4px}
 .notes p{margin:0}
 .notes a{color:var(--accent)}
-.hidden{display:none!important}
+.hidden,.hidden-mode{display:none!important}
 .fc-out{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:4px;font-variant-numeric:tabular-nums}
 .fc-out b{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -120,7 +149,7 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
 .chain li{counter-increment:st;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;display:grid;gap:4px;align-content:start}
 .chain li::before{content:counter(st);font:600 12px var(--mono);color:var(--accent)}
 .chain b{font-size:13.5px}
-.livebtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font:600 13.5px var(--body);padding:9px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);cursor:pointer;margin-bottom:6px}
+.livebtn{display:flex;align-items:center;justify-content:center;gap:8px;font:600 13.5px var(--body);padding:9px;border:1px solid var(--accent);border-radius:999px;background:transparent;color:var(--accent);cursor:pointer}
 .livebtn[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
 .pulse{width:9px;height:9px;border-radius:50%;background:var(--r);box-shadow:0 0 0 0 var(--r)}
 @media (prefers-reduced-motion:no-preference){.pulse{animation:pulse 1.6s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(208,59,59,.6)}70%{box-shadow:0 0 0 7px rgba(208,59,59,0)}100%{box-shadow:0 0 0 0 rgba(208,59,59,0)}}}
@@ -128,7 +157,7 @@ details.how summary{font-family:var(--display);font-weight:600;font-size:15px;cu
 .banner{background:var(--accent-soft);border-radius:8px;padding:8px 12px;font-size:13px}
 .alert{border:2px solid var(--o);border-radius:8px;padding:10px 12px;font-weight:600}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.bull{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:8px}
+.bull{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px}
 .bull-tabs{display:flex;flex-wrap:wrap;gap:6px}
 .bull-tabs button{font:inherit;font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}
 .bull-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -161,41 +190,58 @@ details.valid summary{font-weight:600;cursor:pointer}
 </style>
 
 <div class="wrap">
-  <header>
-    <div>
-      <div class="eyebrow">Démonstrateur · réseau 400 kV · courants induits géomagnétiquement</div>
+  <header class="top">
+    <div class="titre">
+      <div class="eyebrow">Démonstrateur étudiant · IPSA × ELIOS-SPACE</div>
       <h1>Veille CIG France</h1>
+      <p class="sub">Les tempêtes solaires font circuler des courants dans le réseau électrique et les gazoducs. Cette page les estime en direct, à partir des satellites et de l'observatoire de Chambon-la-Forêt, et donne un niveau de vigilance.</p>
     </div>
-    <p class="sub">Partez du vent solaire ou du Kp prévu, d'une perturbation choisie, ou rejouez une tempête réelle : l'outil estime le courant continu induit au neutre de chaque poste et le niveau de vigilance.</p>
+    <div class="aud" role="group" aria-label="Je suis">
+      <span class="aud-l">Je suis</span>
+      <button type="button" data-a="pub" aria-pressed="true">Grand public</button>
+      <button type="button" data-a="pre" aria-pressed="false">Prévisionniste</button>
+      <button type="button" data-a="exp" aria-pressed="false">Exploitant</button>
+    </div>
   </header>
 
+  <nav class="modes" aria-label="Mode">
+    <button type="button" class="livebtn" id="m-live" aria-pressed="true"><span class="pulse" aria-hidden="true"></span>Direct</button>
+    <span class="grp"><span class="grp-l">Simuler</span>
+      <button type="button" id="m-prev" aria-pressed="false">Prévision</button>
+      <button type="button" id="m-scen" aria-pressed="false">Scénario</button></span>
+    <span class="grp"><span class="grp-l">Rejouer</span>
+      <button type="button" id="m-2024" aria-pressed="false">Mai 2024</button>
+      <button type="button" id="m-2003" aria-pressed="false">Oct. 2003</button></span>
+    <p class="hint" id="mode-hint"></p>
+  </nav>
+
   <div class="layout">
-    <aside class="panel" aria-label="Paramètres">
-      <div class="field">
-        <span class="legend-t" id="mode-l">Mode</span>
-        <button type="button" class="livebtn" id="m-live" aria-pressed="false"><span class="pulse" aria-hidden="true"></span>Direct : données satellites et Chambon</button>
-        <div class="seg" role="group" aria-labelledby="mode-l">
-          <button type="button" id="m-prev" aria-pressed="true">Prévision</button>
-          <button type="button" id="m-scen" aria-pressed="false">Scénario</button>
-          <button type="button" id="m-2024" aria-pressed="false">Mai 2024</button>
-          <button type="button" id="m-2003" aria-pressed="false">Oct. 2003</button>
-        </div>
-        <p class="hint" id="mode-hint">Direct : données réelles du moment. Prévision : à partir du Kp ou du vent solaire. Scénario : perturbation choisie. Rejeux : mesures réelles de 6 observatoires.</p>
-      </div>
-
-      <div id="live-fields" class="panel hidden" style="padding:0;border:0;gap:16px">
-        <div class="field">
-          <span class="legend-t">Sources en direct</span>
-          <ul class="src" id="sources"></ul>
-          <p class="hint">Vent solaire à L1 : NOAA SWPC (SOLAR-1, DSCOVR, ACE, IMAP). Kp prévu : NOAA, 3 jours. Champ au sol : Chambon-la-Forêt, INTERMAGNET (données provisoires). Mise à jour toutes les 5 minutes par le collecteur.</p>
-        </div>
-        <div class="field">
-          <span class="legend-t">Horizon affiché sur la carte</span>
-          <p class="hint">Cliquez une des trois tuiles (Veille, Pré-alerte, Constat). Les prévisions sont en cas pessimiste : P90, direction la plus défavorable pour chaque poste, période 20 min. Le constat utilise la direction et la période mesurées.</p>
+    <section class="etat" aria-label="Situation">
+      <div class="verdict" aria-live="polite">
+        <div class="badge" id="badge">—</div>
+        <div class="vtxt">
+          <p class="lead" id="lead">—</p>
+          <p class="watch hidden" id="watch"></p>
+          <p class="hint" id="public">—</p>
+          <div class="counts" id="counts" data-aud="pre exp"></div>
         </div>
       </div>
 
-      <div id="prev-fields" class="panel" style="padding:0;border:0;gap:16px">
+      <div class="live hidden" id="livebox" aria-live="polite">
+        <div class="banner hidden" id="live-banner"></div>
+        <div class="alert hidden" id="live-choc"></div>
+        <div class="tiles" role="group" aria-label="Horizon affiché sur la carte">
+          <button type="button" class="tile" id="tile-clf" aria-pressed="false"></button>
+          <button type="button" class="tile" id="tile-l1" aria-pressed="true"></button>
+          <button type="button" class="tile" id="tile-kp" aria-pressed="false"></button>
+        </div>
+        <p class="hint">Touchez une case pour afficher cet horizon sur la carte.</p>
+        <div class="cme" id="live-cme"></div>
+        <p class="hint" id="live-maj"></p>
+      </div>
+
+      <div class="panel sim">
+        <div id="prev-fields" class="panel" style="padding:0;border:0;gap:16px">
         <div class="field">
           <span class="legend-t" id="src-l">Donnée d'entrée</span>
           <div class="seg" role="group" aria-labelledby="src-l" style="grid-template-columns:1fr 1fr">
@@ -226,17 +272,8 @@ details.valid summary{font-weight:600;cursor:pointer}
           <span>Pessimiste (P90) : <b id="fc-p90">—</b> nT/min</span>
           <div class="frise" id="frise"></div>
         </div>
-        <div class="field">
-          <span class="legend-t" id="hyp-l">Carte affichée</span>
-          <div class="seg" role="group" aria-labelledby="hyp-l" style="grid-template-columns:1fr 1fr">
-            <button type="button" id="h-p90" aria-pressed="true">Pessimiste</button>
-            <button type="button" id="h-med" aria-pressed="false">Probable</button>
-          </div>
-          <p class="hint">Pessimiste : P90, direction la plus défavorable pour chaque poste, période 20 min. Probable : médiane, direction observée la plus fréquente (150°), période 20 min.</p>
-        </div>
       </div>
-
-      <div id="scen-fields" class="panel" style="padding:0;border:0;gap:16px">
+        <div id="scen-fields" class="panel" style="padding:0;border:0;gap:16px">
         <div class="field">
           <label for="dbdt">dB/dt de crête attendu à Chambon-la-Forêt</label>
           <div class="num"><input type="number" id="dbdt" min="1" max="3000" step="1" value="107"><span class="hint">nT/min</span></div>
@@ -260,54 +297,19 @@ details.valid summary{font-weight:600;cursor:pointer}
           <p class="hint">À dB/dt égal, une variation lente induit plus de courant (le sol la laisse pénétrer plus profond).</p>
         </div>
       </div>
-
-      <div class="field">
-        <span class="legend-t">Seuils de vigilance (A par phase)</span>
-        <div class="thr">
-          <div><label for="t1"><span class="dot" style="background:var(--y)"></span>Jaune</label><input id="t1" type="number" value="1" min="0" step="0.5"></div>
-          <div><label for="t2"><span class="dot" style="background:var(--o)"></span>Orange</label><input id="t2" type="number" value="10" min="0" step="1"></div>
-          <div><label for="t3"><span class="dot" style="background:var(--r)"></span>Rouge</label><input id="t3" type="number" value="75" min="0" step="1"></div>
-        </div>
-        <p class="hint">1 A : début de saturation (calcul T1). 75 A : seuil d'étude thermique NERC TPL-007-4. 10 A : borne proposée, à calibrer.</p>
-      </div>
-    </aside>
-
-    <section class="main">
-      <div class="verdict" aria-live="polite">
-        <div class="badge" id="badge">—</div>
-        <div>
-          <p class="lead" id="lead">—</p>
-          <p class="hint" id="public">—</p>
-          <div class="counts" id="counts"></div>
-        </div>
       </div>
 
-      <div class="live hidden" id="livebox" aria-live="polite">
-        <div class="banner hidden" id="live-banner"></div>
-        <div class="alert hidden" id="live-choc"></div>
-        <div class="bull" id="live-bull">
-          <div class="bull-tabs" role="tablist">
-            <button type="button" data-b="public" aria-pressed="true">Grand public</button>
-            <button type="button" data-b="previsionniste" aria-pressed="false">Prévisionniste</button>
-            <button type="button" data-b="exploitant" aria-pressed="false">Exploitant</button>
-          </div>
-          <div class="bull-txt" id="bull-txt"></div>
-          <p class="hint">Bulletin rédigé automatiquement à chaque collecte. Alertes aussi au format CAP 1.2 (statut « Exercise » : démonstrateur non officiel) : <a href="cap.atom" target="_blank" rel="noopener">flux cap.atom</a>.</p>
+      <div class="hyp" data-aud="pre exp">
+        <span class="legend-t" id="hyp-l">Carte</span>
+        <div class="seg" role="group" aria-labelledby="hyp-l" style="grid-template-columns:1fr 1fr">
+          <button type="button" id="h-med" aria-pressed="false">Probable</button>
+          <button type="button" id="h-p90" aria-pressed="true">Pessimiste</button>
         </div>
-        <div class="tiles">
-          <button type="button" class="tile" id="tile-kp" aria-pressed="false"></button>
-          <button type="button" class="tile" id="tile-l1" aria-pressed="true"></button>
-          <button type="button" class="tile" id="tile-clf" aria-pressed="false"></button>
-        </div>
-        <div class="cme" id="live-cme"></div>
-        <div class="charts">
-          <div><span class="hint">Pression dynamique du vent solaire à L1 (nPa), 6 h</span><svg id="ch-p" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="Pression dynamique à L1"></svg></div>
-          <div><span class="hint">dB/dt mesuré à Chambon-la-Forêt (nT/min), 6 h</span><svg id="ch-h" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="dB/dt à Chambon"></svg></div>
-        </div>
-        <details class="valid"><summary>Auto-validation : la prévision L1 de chaque heure comparée au dB/dt mesuré ensuite (toucher pour ouvrir)</summary><div id="valid"></div></details>
-        <p class="hint" id="live-maj"></p>
+        <p class="hint">Probable : prévision médiane, direction de perturbation la plus fréquente (150°). Pessimiste : 90<sup>e</sup> centile, direction la plus défavorable pour chaque poste. Les alertes sont émises sur le cas pessimiste.</p>
       </div>
+    </section>
 
+    <section class="carte" aria-label="Carte">
       <div class="player hidden" id="player">
         <div class="row">
           <button type="button" class="btn" id="play" aria-label="Lire la tempête minute par minute">▶ Lire</button>
@@ -318,7 +320,6 @@ details.valid summary{font-weight:600;cursor:pointer}
         <svg id="spark" viewBox="0 0 600 60" preserveAspectRatio="none" role="img" aria-label="dB/dt mesuré à Chambon-la-Forêt"></svg>
         <p class="hint">Courbe : dB/dt mesuré à Chambon-la-Forêt (nT/min). Fenêtres : 10 mai 2024, 16 h – 4 h UTC (choc de 17 h 07 compris) ; 30 octobre 2003, 19 h – 22 h UTC (panne de Malmö). La carte suit le courant calculé à chaque minute à partir des 6 observatoires ; le tableau donne la durée au-dessus du seuil orange.</p>
       </div>
-
       <div class="mapbox">
         <div class="netsw" role="group" aria-label="Réseau affiché">
           <button type="button" data-net="elec" aria-pressed="true">Électricité (400 kV)</button>
@@ -336,7 +337,31 @@ details.valid summary{font-weight:600;cursor:pointer}
         </div>
         <p class="hint hidden" id="gaz-sum"></p>
       </div>
+      <div class="bull" id="live-bull">
+        <div class="bull-h" id="bull-h">Bulletin</div>
+        <div class="bull-txt" id="bull-txt"></div>
+      </div>
+    </section>
+  </div>
 
+  <div class="details">
+    <div class="live-extra hidden" id="live-extra" data-aud="pre exp">
+      <div class="panel">
+        <h2>Mesures des 6 dernières heures</h2>
+        <div class="charts">
+          <div><span class="hint">Pression du vent solaire à L1 (nPa) : un saut brutal signale un choc</span><svg id="ch-p" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="Pression dynamique à L1"></svg></div>
+          <div><span class="hint">Variation du champ magnétique à Chambon-la-Forêt (nT/min)</span><svg id="ch-h" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="dB/dt à Chambon"></svg></div>
+        </div>
+        <div class="field" id="live-fields">
+          <span class="legend-t">Sources</span>
+          <ul class="src" id="sources"></ul>
+          <p class="hint">Vent solaire à L1 : NOAA SWPC. Kp prévu : NOAA, 3 jours. CME : NASA CCMC (DONKI, WSA-ENLIL). Champ au sol : Chambon-la-Forêt, INTERMAGNET (données provisoires). Mise à jour toutes les 5 minutes. Alertes aussi au format CAP 1.2 (statut « Exercise ») : <a href="cap.atom" target="_blank" rel="noopener">flux cap.atom</a>.</p>
+        </div>
+        <details class="valid"><summary>Fiabilité : chaque heure, la prévision comparée à la mesure</summary><div id="valid"></div></details>
+      </div>
+    </div>
+
+    <div data-aud="pre exp">
       <div class="cards">
         <div class="card">
           <h2>Par région (vue Météo-France)</h2>
@@ -349,7 +374,9 @@ details.valid summary{font-weight:600;cursor:pointer}
           <p class="hint">Poste 400 kV le plus proche de chaque site (moins de 15 km) : association probable, à confirmer avec RTE. Courant par phase, un transformateur.</p>
         </div>
       </div>
+    </div>
 
+    <div data-aud="exp">
       <div class="tablebox">
         <h2>Vue exploitant : les 12 postes les plus chargés</h2>
         <div class="tscroll">
@@ -360,10 +387,11 @@ details.valid summary{font-weight:600;cursor:pointer}
         </div>
         <p class="hint">Cas de base : un transformateur par poste, prise de terre 0,15 Ω. Fourchette : Monte-Carlo (300 tirages) sur la prise de terre, le nombre de transformateurs en parallèle (1 à 3) et les résistances d'enroulement ; le courant se partage entre transformateurs, d'où une borne basse plus faible. Enjeu : ☢ poste d'évacuation probable d'une centrale nucléaire, ⇄ interconnexion, ≈ à moins de 20 km de la mer (effet de côte non modélisé, incertitude plus forte). Réactif : Q ≈ K × I par phase, K = 0,3 à 1,5 Mvar/A selon le type de transformateur (modèle linéaire PowerWorld). Les noms de postes ne sont pas publiés dans les données ENTSO-E : ville la plus proche indiquée.</p>
       </div>
+    </div>
 
-      <details class="how">
-        <summary>Comment ça marche</summary>
-        <ol class="chain">
+    <details class="how">
+      <summary>En savoir plus : comment ça marche, ce que l'outil suppose</summary>
+      <ol class="chain">
           <li><b>Vent solaire à L1</b>Vitesse, densité et champ magnétique mesurés par DSCOVR/ACE, 1,5 million de km en amont : 20 à 60 min d'avance.</li>
           <li><b>dB/dt au sol</b>Relation ajustée sur 11 tempêtes à Chambon-la-Forêt (couplage de Newell, pression dynamique), ou relation Kp → dB/dt.</li>
           <li><b>Champ électrique</b>Loi de Faraday dans un sol en couches (modèle EURHOM) : E = Z(ω)·B/μ₀. Le sous-sol compte plus que la latitude.</li>
@@ -371,8 +399,6 @@ details.valid summary{font-weight:600;cursor:pointer}
           <li><b>Transformateurs</b>Saturation dès 1 à 3 A par phase : réactif (Q ≈ 0,3 à 1,5 Mvar par A), harmoniques, protections.</li>
           <li><b>Vigilance</b>Couleur du poste le plus chargé, avec la fourchette d'incertitude et les enjeux (centrales, interconnexions).</li>
         </ol>
-      </details>
-
       <div class="notes">
         <h2>Ce que l'outil suppose</h2>
         <ul>
@@ -384,9 +410,21 @@ details.valid summary{font-weight:600;cursor:pointer}
           <li>Incertitudes : fourchette Monte-Carlo sur les paramètres des postes. Le réseau 225 kV, non affiché, abaisse le maximum en 400 kV d'environ 10 % et porte lui aussi des courants de 10 A. Les durées au-delà de 10 A restent de quelques minutes : l'enjeu est le réactif et les harmoniques, pas l'échauffement.</li>
           <li>Contrôle : le rejeu de mai 2024 donne 44 A au neutre au maximum, l'ordre de grandeur publié pour la France par Kelly et al. (2017).</li>
         </ul>
-        <p class="hint">Démonstrateur de projet étudiant (IPSA, PMI météorologie de l'espace). Ne remplace pas les études de RTE.</p>
+        <p class="hint">Démonstrateur de projet étudiant (IPSA, PMI météorologie de l'espace). Ne remplace pas les études de RTE, de NaTran ou de Teréga.</p>
       </div>
-    </section>
+    </details>
+
+    <details class="how" data-aud="exp">
+      <summary>Réglages : seuils de vigilance électrique (A par phase)</summary>
+      <div class="field" style="margin-top:10px">
+        <div class="thr">
+          <div><label for="t1"><span class="dot" style="background:var(--y)"></span>Jaune</label><input id="t1" type="number" value="1" min="0" step="0.5"></div>
+          <div><label for="t2"><span class="dot" style="background:var(--o)"></span>Orange</label><input id="t2" type="number" value="10" min="0" step="1"></div>
+          <div><label for="t3"><span class="dot" style="background:var(--r)"></span>Rouge</label><input id="t3" type="number" value="75" min="0" step="1"></div>
+        </div>
+        <p class="hint">1 A : début de saturation (calcul T1). 10 A : borne proposée, à calibrer. 75 A : seuil d'étude thermique NERC TPL-007-4. Gazoducs : 2 / 10 / 30 V de potentiel tube-sol, seuils provisoires.</p>
+      </div>
+    </details>
   </div>
 </div>
 
@@ -434,7 +472,12 @@ details.valid summary{font-weight:600;cursor:pointer}
   let mode='prev', src='l1', hyp='p90', tview=-1, timer=null;
   const isReplay=()=>mode==='2024'||mode==='2003';
   let LIVE=null, liveH='l1', liveTimer=null;
-  const hm=t=>t?new Date(t).toISOString().slice(11,16)+' UTC':'—';
+  // heure de Paris, « 14 h 05 »
+  const hm=t=>t?new Date(t).toLocaleTimeString('fr-FR',{timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit'}).replace(':',' h '):'—';
+  const jourParis=t=>new Date(t).toLocaleDateString('fr-FR',{timeZone:'Europe/Paris',weekday:'short',day:'numeric',month:'numeric'});
+  let aud='pub';
+  try{const a=localStorage.getItem('veille-aud'); if(['pub','pre','exp'].includes(a)) aud=a;}catch(e){}
+  document.body.dataset.aud=aud;
   const ageMin=t=>{if(!t||!LIVE)return null;const ref=LIVE.demo?Date.parse(LIVE.genere):Date.now();return Math.round((ref-Date.parse(t))/6e4);};
   async function loadLive(){
     for(const f of ['etat_courant.json','etat_demo.json']){
@@ -443,17 +486,19 @@ details.valid summary{font-weight:600;cursor:pointer}
     }
     LIVE=null; renderLive(); if(mode==='live') render();
   }
-  function liveInput(){
+  function liveInput(h=hyp,H=liveH){
     if(!LIVE) return null;
-    const p20=D.periods.indexOf(20);
-    if(liveH==='kp'&&LIVE.kp&&LIVE.kp.pic_24h) return {v:LIVE.kp.pic_24h.dbdt_p90,p:p20,t:'worst'};
-    if(liveH==='l1'&&LIVE.l1) return {v:LIVE.l1.dbdt_p90,p:p20,t:'worst'};
-    if(liveH==='clf'&&LIVE.clf&&LIVE.clf.dbdt_max_1h!=null){
+    const p20=D.periods.indexOf(20), pess=h==='p90', t=pess?'worst':D.thetas.indexOf(150);
+    if(H==='kp'&&LIVE.kp&&LIVE.kp.pic_24h) return {v:pess?LIVE.kp.pic_24h.dbdt_p90:LIVE.kp.pic_24h.dbdt_med,p:p20,t};
+    if(H==='l1'&&LIVE.l1) return {v:pess?LIVE.l1.dbdt_p90:LIVE.l1.dbdt_med,p:p20,t};
+    if(H==='clf'&&LIVE.clf&&LIVE.clf.dbdt_max_1h!=null){
       const T=LIVE.clf.periode_min||20, p=D.periods.reduce((b,x,i)=>Math.abs(Math.log(x/T))<Math.abs(Math.log(D.periods[b]/T))?i:b,0);
       const t=LIVE.clf.theta==null?'worst':Math.round(LIVE.clf.theta/15)%12;
       return {v:LIVE.clf.dbdt_max_1h,p,t};}
     return null;
   }
+  const iMax=q=>q?Math.max(...D.nodes.map(n=>q.v*(q.t==='worst'?Math.max(...n.c[q.p]):n.c[q.p][q.t]))):null;
+  const VIG=['verte','jaune','orange','rouge'];
   function chart(id,serie,key,unit){
     const el=$(id); const pts=(serie||[]).filter(r=>r[key]!=null);
     if(pts.length<2){el.innerHTML=`<text x="4" y="38" font-size="11" fill="var(--muted)">pas de données</text>`;return;}
@@ -461,33 +506,31 @@ details.valid summary{font-weight:600;cursor:pointer}
     const xy=pts.map(r=>`${((Date.parse(r.t)-t0)/Math.max(1,t1-t0)*300).toFixed(1)},${(66-r[key]/mx*58).toFixed(1)}`).join(' ');
     el.innerHTML=`<polyline points="${xy}" fill="none" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`+
       `<text x="2" y="9" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">max ${fmt(mx,1)} ${unit}</text>`+
-      `<text x="298" y="9" font-size="10" text-anchor="end" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${hm(pts.at(-1).t).slice(0,5)}</text>`;
+      `<text x="298" y="9" font-size="10" text-anchor="end" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${hm(pts.at(-1).t)}</text>`;
   }
-  let bullSel='public';
   function renderBull(){
     const B=LIVE&&LIVE.bulletins, el=$('live-bull');
     el.classList.toggle('hidden',!B);
     if(!B)return;
-    el.querySelectorAll('[data-b]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.b===bullSel)));
-    $('bull-txt').textContent=B[bullSel]||'';
+    const k={pub:'public',pre:'previsionniste',exp:'exploitant'}[aud];
+    $('bull-h').textContent={pub:'Bulletin',pre:'Bulletin prévisionniste',exp:'Bulletin exploitant'}[aud];
+    $('bull-txt').textContent=B[k]||'';
   }
-  document.addEventListener('click',e=>{const b=e.target.closest('#live-bull [data-b]');if(b){bullSel=b.dataset.b;renderBull();}});
   function renderCme(C){
-    const el=$('live-cme'); const head='<span class="k">CME en route · coronographes et simulation WSA-ENLIL (NASA)</span>';
-    if(!C){el.innerHTML=head+`<p class="hint">${LIVE&&LIVE.demo?'Pas de simulation de CME dans la démonstration.':'Base DONKI indisponible pour l\'instant.'}</p>`;return;}
+    const el=$('live-cme'), head='<span class="k">Éruptions solaires (CME) en route</span>';
+    if(!C){el.innerHTML=head+`<p class="hint">${LIVE&&LIVE.demo?'Pas de simulation de CME dans la démonstration.':'Base de la NASA indisponible pour l\'instant.'}</p>`;return;}
     const A=C.attendues||[];
-    if(!A.length){el.innerHTML=head+`<p class="hint">Aucune CME attendue sur Terre d'après les dernières simulations (${C.n_simulations} sur 7 jours).</p>`;return;}
-    const cmax=Math.max(...D.nodes.flatMap(n=>n.c[D.periods.indexOf(20)].map(Math.abs)));
-    const jour=t=>new Date(t).toLocaleDateString('fr-FR',{weekday:'short',day:'2-digit',month:'2-digit',timeZone:'UTC'});
+    if(!A.length){el.innerHTML=head+`<p class="hint">Aucune éruption attendue sur Terre d'après les dernières simulations de la NASA.</p>`;return;}
+    const cprob=Math.max(...D.nodes.map(n=>n.c[pIdx][thIdx]));   // poste le plus exposé, direction 150° : niveau probable
     const dans=h=>h>=0?`dans ${h<96?Math.round(h)+' h':(h/24).toFixed(1).replace('.',',')+' j'}`:`il y a ${Math.round(-h)} h`;
     el.innerHTML=head+A.map(c=>{const v=c.cmes.length?Math.max(...c.cmes.map(x=>x.vitesse||0)):null;
-      const cas=[['90','champ non orienté sud'],['135','en partie sud'],['180','plein sud']].map(([a,lib])=>{const k=c.kp[a],p=c.dbdt_p90[a];
-        return k==null?'':`<div class="l${level(p*cmax)}"><span>${lib} (${a}°)</span><b>Kp ${k}</b><span>dB/dt P90 ${fmt(p,0)} nT/min</span></div>`;}).join('');
-      return `<div class="cme-item"><span class="cme-arr">Arrivée du choc : ${jour(c.arrivee)} vers ${hm(c.arrivee)} ± ${c.erreur_h} h (${dans(c.dans_h)})</span>
-        <span class="hint">${c.cmes.length?`CME à ${fmt(v,0)} km/s`:'Simulation toute récente, pas encore rattachée à une CME du catalogue DONKI'}${c.effleurement?' · effleurement prévu (bord de la CME)':''}${c.impact_mineur?' · impact mineur':''}${c.magnetopause_re?` · magnétopause comprimée jusqu'à ${fmt(c.magnetopause_re,1)} rayons terrestres${c.magnetopause_re<6.6?' (sous l\'orbite géostationnaire)':''}`:''}${c.duree_h?` · durée ${fmt(c.duree_h,0)} h`:''}</span>
-        <div class="cme-or">${cas}</div>
-        ${c.lien?`<span class="hint"><a href="${c.lien}" target="_blank" rel="noopener">Simulation ${c.simulation}</a></span>`:''}</div>`;}).join('')+
-      `<p class="hint">On sait prévoir <b>quand</b> une CME arrive (à ±10 h environ), pas <b>avec quelle force</b> : elle dépend de l'orientation de son champ magnétique, qu'on ne mesure qu'en passant à L1, 30 à 60 min avant l'impact. D'où les trois cas, avec le Kp estimé par la simulation pour chacun. Couleurs : vigilance du poste le plus exposé (cas pessimiste).</p>`;
+      const chips=[['90','si son champ n\'est pas orienté sud'],['135','s\'il est en partie sud'],['180','s\'il est plein sud']].map(([a,lib])=>{const k=c.kp[a];
+        return k==null?'':`<span class="chip l${level((c.dbdt_med||c.dbdt_p90)[a]*cprob)}" title="Kp ${k} ${lib}">Kp ${k}</span>`;}).join('');
+      const det=[v?`${fmt(v,0)} km/s`:'pas encore cataloguée',c.effleurement?'effleurement':'',c.impact_mineur?'impact mineur':''].filter(Boolean).join(' · ');
+      const exp=`${c.magnetopause_re?` · magnétopause à ${fmt(c.magnetopause_re,1)} rayons terrestres`:''}${c.lien?` · <a href="${c.lien}" target="_blank" rel="noopener">simulation</a>`:''}`;
+      return `<div class="cme-row"><div class="q">${jourParis(c.arrivee)} vers ${hm(c.arrivee)}</div><div class="chips">${chips}</div>
+        <div class="hint cme-d">± ${c.erreur_h} h · ${dans(c.dans_h)} · ${det}<span data-aud="pre exp">${exp}</span></div></div>`;}).join('')+
+      `<p class="hint">On sait prévoir <b>quand</b> une éruption arrive (à 10 h près), pas <b>avec quelle force</b> : cela dépend de l'orientation de son champ magnétique, connue seulement une heure avant. Les trois cases donnent le Kp attendu selon cette orientation, de la plus favorable à la plus défavorable, colorées selon le niveau probable.</p>`;
   }
   function renderLive(){
     const ban=$('live-banner'), choc=$('live-choc');
@@ -504,9 +547,13 @@ details.valid summary{font-weight:600;cursor:pointer}
     txt.forEach(x=>{const p=document.createElement('p');p.style.margin='0';p.textContent=x;choc.appendChild(p);});
     if(al&&al.lien&&!LIVE.demo){const a=document.createElement('a');a.href=al.lien;a.target='_blank';a.rel='noopener';a.textContent='Voir le journal de l’épisode';choc.appendChild(a);}
     const pk=kp&&kp.pic_24h;
-    $('tile-kp').innerHTML=`<span class="k">Veille · 24 h</span><span class="big">${pk?fmt(pk.dbdt_p90,0):'—'}<span class="s"> nT/min</span></span><span class="s">${pk?`Kp ${fmt(pk.kp,1)} ${pk.statut==='predicted'?'prévu':'observé'} vers ${hm(pk.t)} (médiane ${fmt(pk.dbdt_med,0)})`:'pas de prévision'}</span>`;
-    $('tile-l1').innerHTML=`<span class="k">Pré-alerte · L1</span><span class="big">${l1?fmt(l1.dbdt_p90,0):'—'}<span class="s"> nT/min</span></span><span class="s">${l1?`heure qui commence (médiane ${fmt(l1.dbdt_med,0)}) · V ${fmt(l1.V,0)} km/s, Bz ${fmt(l1.Bz,1)} nT · arrivée +${l1.delai_min} min`:'pas de données L1'}</span>`;
-    $('tile-clf').innerHTML=`<span class="k">Constat · Chambon</span><span class="big">${clf&&clf.dbdt_max_1h!=null?fmt(clf.dbdt_max_1h,0):'—'}<span class="s"> nT/min</span></span><span class="s">${clf?`max de la dernière heure, à ${hm(clf.heure_max)}${clf.theta!=null?` · axe ${fmt(clf.theta,0)}°`:''}${clf.periode_min?` · période ${fmt(clf.periode_min,0)} min`:''}`:'pas de données'}</span>`;
+    const nivTile=(H)=>{const iB=iMax(liveInput('med',H)), iW=iMax(liveInput('p90',H));
+      if(iB==null)return '<span class="big">—</span>';
+      const b=level(iB), w=level(iW);
+      return `<span class="big"><span class="dot" style="background:${COLORS[b]}"></span>${NAMES[b]}</span>`+(H!=='clf'&&w>b?`<span class="s watch-s">à surveiller : ${NAMES[w].toLowerCase()}</span>`:'');};
+    $('tile-clf').innerHTML=`<span class="k">Maintenant</span>${nivTile('clf')}<span class="s">mesuré à Chambon<span data-aud="pre exp">${clf&&clf.dbdt_max_1h!=null?` : ${fmt(clf.dbdt_max_1h,0)} nT/min`:''}</span></span><span class="s" data-aud="pre exp">${clf?`max à ${hm(clf.heure_max)}${clf.theta!=null?` · axe ${fmt(clf.theta,0)}°`:''}${clf.periode_min?` · période ${fmt(clf.periode_min,0)} min`:''}`:''}</span>`;
+    $('tile-l1').innerHTML=`<span class="k">Dans l'heure</span>${nivTile('l1')}<span class="s">d'après les satellites</span><span class="s" data-aud="pre exp">${l1?`dB/dt ${fmt(l1.dbdt_med,0)} (P90 ${fmt(l1.dbdt_p90,0)}) nT/min · V ${fmt(l1.V,0)} km/s, Bz ${fmt(l1.Bz,1)} nT · arrivée +${l1.delai_min} min`:'pas de données à L1'}</span>`;
+    $('tile-kp').innerHTML=`<span class="k">24 heures</span>${nivTile('kp')}<span class="s">${pk?`Kp ${fmt(pk.kp,1)} ${pk.statut==='predicted'?'prévu':'estimé'} (NOAA)`:'pas de prévision'}</span><span class="s" data-aud="pre exp">${pk?`dB/dt ${fmt(pk.dbdt_med,0)} (P90 ${fmt(pk.dbdt_p90,0)}) nT/min · ${jourParis(pk.t)} ${hm(pk.t)}`:''}</span>`;
     ['kp','l1','clf'].forEach(x=>$('tile-'+x).setAttribute('aria-pressed',String(x===liveH)));
     const row=(nom,t,lim)=>{const a=ageMin(t);const ok=a!=null&&a<=lim;return `<li><span>${nom}</span><span class="${ok?'ok':'ko'}">${a==null?'indisponible':(a<=0?'à l\'instant':'il y a '+a+' min')}</span></li>`;};
     $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',clf&&clf.derniere_mesure,60)+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
@@ -552,13 +599,13 @@ details.valid summary{font-weight:600;cursor:pointer}
   }
   const COLORS=['var(--g)','var(--y)','var(--o)','var(--r)'], NAMES=['Vert','Jaune','Orange','Rouge'];
   function level(i){const t=[+$('t1').value,+$('t2').value,+$('t3').value];return i>=t[2]?3:i>=t[1]?2:i>=t[0]?1:0;}
-  function currents(){
-    if(mode==='live'){const q=liveInput(); if(!q) return D.nodes.map(()=>0);
+  function currents(h=hyp){
+    if(mode==='live'){const q=liveInput(h); if(!q) return D.nodes.map(()=>0);
       return D.nodes.map(n=>q.v*(q.t==='worst'?Math.max(...n.c[q.p]):n.c[q.p][q.t]));}
     if(isReplay()){const E=A.events[mode];
       return tview<0?E.max:E.I.map(s=>s?s[tview]:0);}
     if(mode==='prev'){const f=forecast();
-      return hyp==='p90'?D.nodes.map(n=>f.p90*Math.max(...n.c[pIdx])):D.nodes.map(n=>f.med*n.c[pIdx][thIdx]);}
+      return h==='p90'?D.nodes.map(n=>f.p90*Math.max(...n.c[pIdx])):D.nodes.map(n=>f.med*n.c[pIdx][thIdx]);}
     const v=Math.max(0,+$('dbdt').value||0), p=+perSel.value, d=dirSel.value;
     return D.nodes.map(n=>v*(d==='worst'?Math.max(...n.c[p]):n.c[p][+d]));
   }
@@ -615,14 +662,22 @@ details.valid summary{font-weight:600;cursor:pointer}
     $('nucs').innerHTML=nl.slice(0,12).map(li).join('')+(nl.length>12?`<li><span class="hint">Autres : ${nl.slice(12).map(x=>x[0]).join(', ')}</span><span class="v">≤ ${fmt(nl[12][1])} A</span><span></span></li>`:'');
     circles.forEach((c,k)=>{c.setAttribute('fill',COLORS[L[k]]);c.setAttribute('r',(3+Math.min(9,Math.sqrt(I[k])*1.3)).toFixed(1));
       if(D.nodes[k].nuc){c.setAttribute('stroke','var(--ink)');c.setAttribute('stroke-width','2');}});
-    const nat=Math.max(...L), imax=Math.max(...I);
-    const b=$('badge'); b.textContent=NAMES[nat]; b.style.background=COLORS[nat];
     const top=I.map((v,k)=>[v,k]).sort((a,b)=>b[0]-a[0]);
-    $('lead').textContent=`Vigilance nationale ${NAMES[nat].toLowerCase()} · maximum ${fmt(imax)} A par phase (${D.nodes[top[0][1]].place})${isReplay()&&tview>=0?' · à '+clockOf(tview):''}${mode==='live'?' · '+({kp:'veille 24 h',l1:'pré-alerte L1',clf:'constat Chambon'})[liveH]:''}`;
+    // badge : prévision probable ; « à surveiller » : cas pessimiste, quand il est plus grave
+    const deux=(mode==='live'&&liveH!=='clf')||mode==='prev';
+    const IB=deux&&hyp!=='med'?currents('med'):I, IW=deux&&hyp!=='p90'?currents('p90'):I;
+    const nat=Math.max(...IB.map(level)), natW=Math.max(...IW.map(level)), imax=Math.max(...IB);
+    const kB=IB.indexOf(imax);
+    const b=$('badge'); b.textContent=NAMES[nat]; b.style.background=COLORS[nat];
+    const quand=mode==='live'?({clf:'maintenant',l1:'dans l\'heure',kp:'dans les 24 heures'})[liveH]:mode==='prev'?'prévision saisie':mode==='scen'?'scénario':`tempête de ${mode==='2024'?'mai 2024':'2003'}${tview>=0?' à '+clockOf(tview):' (maximum)'}`;
+    $('lead').textContent=aud==='pub'?`Vigilance ${VIG[nat]} pour le réseau électrique · ${quand}`
+      :`Vigilance ${VIG[nat]} · ${quand} · jusqu'à ${fmt(imax)} A par phase (${D.nodes[kB].place})`;
+    const w=$('watch'); w.classList.toggle('hidden',!(deux&&natW>nat));
+    w.innerHTML=deux&&natW>nat?`<span class="dot" style="background:${COLORS[natW]}"></span>À surveiller : ${NAMES[natW].toLowerCase()} dans le cas le plus défavorable${aud==='pub'?'':` (${fmt(Math.max(...IW))} A)`}.`:'';
     const hot=D.nodes.map((n,k)=>[n,k]).filter(([n,k])=>n.nuc&&L[k]>=2).map(([n,k])=>`${n.nuc} (${NAMES[L[k]].toLowerCase()})`);
     const regHot=Object.entries(rmax).filter(([r,v])=>level(v)>=2).sort((a,b)=>b[1]-a[1]).map(([r])=>REG[r]);
     $('public').textContent=PUBLIC[nat]+(regHot.length?` Régions concernées : ${regHot.join(', ')}.`:'')+(hot.length?` Postes de centrale nucléaire concernés : ${hot.join(', ')}.`:'');
-    $('counts').innerHTML=NAMES.map((n,k)=>`<span><span class="dot" style="background:${COLORS[k]}"></span>${n} : ${counts[k]} postes</span>`).join('');
+    $('counts').innerHTML=(deux?`<span class="hint">Carte, cas ${hyp==='p90'?'pessimiste':'probable'} :</span>`:'')+NAMES.map((n,k)=>`<span><span class="dot" style="background:${COLORS[k]}"></span>${n} : ${counts[k]} postes</span>`).join('');
     const enj=n=>[n.nuc?`☢ ${n.nuc}`:'',n.ic?'⇄':'',n.cote?'≈':''].filter(Boolean).join(' ')||'—';
     $('tbody').innerHTML=top.slice(0,12).map(([v,k])=>`<tr><td>${D.nodes[k].place}</td><td style="white-space:nowrap;text-align:left">${enj(D.nodes[k])}</td><td class="mono">${fmt(v)}</td><td class="mono">${fmt(D.nodes[k].lo*v)} – ${fmt(D.nodes[k].hi*v)}</td><td class="mono">${fmt(3*v)}</td><td class="mono">${fmt(0.3*v)} – ${fmt(1.5*v)}</td><td class="mono">${dur(k)}</td><td style="white-space:nowrap;text-align:left"><span class="dot" style="background:${COLORS[L[k]]}"></span>${NAMES[L[k]]}</td></tr>`).join('');
     window.__I=I;
@@ -632,7 +687,12 @@ details.valid summary{font-weight:600;cursor:pointer}
   // ---------------------------------------------------------------- interactions
   const stop=()=>{if(timer){clearInterval(timer);timer=null;}$('play').textContent='▶ Lire';};
   const setMode=m=>{stop();tview=-1;mode=m;$('player').classList.toggle('hidden',!isReplay());drawSpark();['live','prev','scen','2024','2003'].forEach(x=>$('m-'+x).setAttribute('aria-pressed',String(x===m)));$('scen-fields').classList.toggle('hidden',m!=='scen');$('prev-fields').classList.toggle('hidden',m!=='prev');
-    $('live-fields').classList.toggle('hidden',m!=='live');$('livebox').classList.toggle('hidden',m!=='live');
+    $('live-fields').classList.toggle('hidden',m!=='live');$('livebox').classList.toggle('hidden',m!=='live');$('live-bull').classList.toggle('hidden-mode',m!=='live');
+    $('live-extra').classList.toggle('hidden',m!=='live');
+    document.querySelector('.sim').classList.toggle('hidden',!(m==='prev'||m==='scen'));
+    document.querySelector('.hyp').classList.toggle('hidden-mode',!(m==='prev'||m==='live'));
+    $('mode-hint').textContent={live:'Situation réelle, mise à jour toutes les 5 minutes.',prev:'Entrez une prévision (vent solaire mesuré par les satellites, ou indice Kp) pour voir son effet.',
+      scen:'Choisissez l\'intensité d\'une perturbation pour voir son effet.',2024:'Tempête du 10 mai 2024, rejouée minute par minute avec les mesures de 6 observatoires.',2003:'Tempête du 30 octobre 2003 (dite d\'Halloween), rejouée minute par minute.'}[m];
     if(m==='live'){loadLive(); if(!liveTimer) liveTimer=setInterval(loadLive,60000);} else if(liveTimer){clearInterval(liveTimer);liveTimer=null;}
     render();};
   $('m-live').onclick=()=>setMode('live');
@@ -663,7 +723,12 @@ details.valid summary{font-weight:600;cursor:pointer}
     timer=setInterval(()=>{tview=Math.min(nE-1,tview+step); if(tview>=nE-1)stop(); render();},70); render();};
   $('tslider').oninput=e=>{stop();tview=+e.target.value;render();};
   $('tmax').onclick=()=>{stop();tview=-1;render();};
-  setMode('prev');
+  function setAud(a){aud=a;document.body.dataset.aud=a;try{localStorage.setItem('veille-aud',a);}catch(e){}
+    document.querySelectorAll('.aud [data-a]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.a===a)));
+    setHyp(a==='pub'?'med':'p90'); if(LIVE){renderLive();} renderBull();}
+  document.querySelectorAll('.aud [data-a]').forEach(b=>b.onclick=()=>setAud(b.dataset.a));
+  setMode('live');
+  setAud(aud);
 })();
 </script>
 

@@ -106,6 +106,8 @@ En mode Gaz (bouton au-dessus de la carte), les 33 600 km du réseau de transpor
 - **prévisionniste** : mesures et prévisions avec leurs incertitudes (vent solaire, choc, Kp, CME, Chambon, validation) ;
 - **exploitant** : courant estimé au poste le plus exposé (Cruas probable, avec la fourchette Monte-Carlo) et mesures envisageables selon le niveau, à valider avec l'exploitant.
 
+Comme le badge de la page, chaque bulletin annonce le **niveau probable** (dB/dt médian, direction 150°) et ajoute le **cas le plus défavorable** (P90, direction la plus défavorable) quand il est plus grave. Rejoué sur 2024, le cas défavorable aurait mis la France en jaune 71 % des heures, pour 3,5 % d'heures réellement au-dessus du seuil ; le niveau probable donne 3,3 %. Les alertes, elles, restent déclenchées sur le cas défavorable.
+
 Chaque ouverture, aggravation ou fin d'épisode produit aussi un message **CAP 1.2** (Common Alerting Protocol, le format des systèmes d'alerte), dans `docs/cap/`, listé par le flux Atom `docs/cap.atom` (comme Meteoalarm). Statut « Exercise » : ce démonstrateur n'est pas un service officiel.
 
 ## Alertes
