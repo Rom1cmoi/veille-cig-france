@@ -196,7 +196,13 @@ def rediger(etat):
                   f"plus exposé (Causses, au sud de Millau ; {f(v * FOURCHETTE_GAZ[0], 1)} à "
                   f"{f(v * FOURCHETTE_GAZ[1], 1)} V selon les tubes), niveau {ng} (seuils provisoires 2 / 10 / 30 V ; "
                   f"la protection cathodique tient le tube entre −0,85 et −1,2 V).")
-    if clf.get("dbdt_max_1h") is not None:
+    so = etat.get("sol") or {}
+    if so.get("max") is not None:
+        n_ok = sum(1 for v in (so.get("part_mesuree") or {}).values() if v >= 0.5)
+        ex.append(f"Mesuré sur la dernière heure (jusqu'à {utc(so['t_fin'])}) : courant induit calculé à partir de "
+                  f"{n_ok} magnétomètre{'s' if n_ok > 1 else ''} à jour sur 6, au plus {f(so['max'], 1)} A par phase ({so.get('lieu_max')}, "
+                  f"{utc(so['heure_max'])}), niveau {next((n for n, x in SEUILS_A if so['max'] >= x), 'vert')}.")
+    elif clf.get("dbdt_max_1h") is not None:
         ex.append(f"Mesuré sur la dernière heure : {f(clf['dbdt_max_1h'], 1)} nT/min à Chambon, soit au plus "
                   f"{f(clf['dbdt_max_1h'] * COEF_MAX, 1)} A au même poste (direction la plus défavorable).")
     if choc:

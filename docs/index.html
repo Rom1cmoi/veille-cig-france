@@ -194,7 +194,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     <div class="titre">
       <div class="eyebrow">Démonstrateur étudiant · IPSA × ELIOS-SPACE</div>
       <h1>Veille CIG France</h1>
-      <p class="sub">Les tempêtes solaires font circuler des courants dans le réseau électrique et les gazoducs. Cette page les estime en direct, à partir des satellites et de l'observatoire de Chambon-la-Forêt, et donne un niveau de vigilance.</p>
+      <p class="sub">Les tempêtes solaires font circuler des courants dans le réseau électrique et les gazoducs. Cette page les estime en direct, à partir des satellites et des magnétomètres au sol, et donne un niveau de vigilance.</p>
     </div>
     <div class="aud" role="group" aria-label="Je suis">
       <span class="aud-l">Je suis</span>
@@ -405,6 +405,7 @@ details.valid summary{font-weight:600;cursor:pointer}
           <li>Réseau : extraction non officielle de la carte ENTSO-E (mars 2022, GridKit / PyPSA-Eur), 281 lignes, localisations approchées.</li>
           <li>Sous-sol : modèle en couches EURHOM 1.0 (Ádám et al. 2012, projet EURISGIC).</li>
           <li>Mode scénario : oscillation de B de période et direction données, amplitude qui varie avec la latitude géomagnétique comme le facteur α de NERC (1 à Chambon). Mode rejeu : champ mesuré à 6 observatoires INTERMAGNET, interpolé (mai 2024 sur 12 h, octobre 2003 sur 3 h).</li>
+          <li>Direct, case « Maintenant » : même calcul que les rejeux (6 observatoires INTERMAGNET), appliqué aux 5 dernières heures sous forme de filtres causaux, recalculé toutes les 10 min. Un observatoire en retard est remplacé, minute par minute, par le plus proche qui a publié (Wingst et San Fernando servent de relais). Sur le 10 mai 2024, ces filtres donnent un maximum national 0,8 fois celui des rejeux (même séries lissées sur 5 min, corrélation 0,97) : l'écart vient des variations de 1 à 2 min.</li>
           <li>Circuit : ligne 0,029 Ω/km par phase, un transformateur par poste (0,5 Ω par enroulement), prise de terre 0,15 Ω. Calcul nodal de Lehtinen et Pirjola.</li>
           <li>Mode prévision : relations ajustées sur 11 journées de tempête (2000-2024) à Chambon. Kp : log₁₀(dB/dt) = a + b·Kp. Vent solaire : couplage de Newell (2007), pression dynamique et saut de pression, avec uniquement les données L1 disponibles au moment de la prévision. Validation croisée par tempête : erreur typique ×2,1, alerte P90 détectant 87 % des heures au-delà de 30 nT/min (60 % de fausses alertes).</li>
           <li>Incertitudes : fourchette Monte-Carlo sur les paramètres des postes. Le réseau 225 kV, non affiché, abaisse le maximum en 400 kV d'environ 10 % et porte lui aussi des courants de 10 A. Les durées au-delà de 10 A restent de quelques minutes : l'enjeu est le réactif et les harmoniques, pas l'échauffement.</li>
@@ -498,6 +499,8 @@ details.valid summary{font-weight:600;cursor:pointer}
     return null;
   }
   const iMax=q=>q?Math.max(...D.nodes.map(n=>q.v*(q.t==='worst'?Math.max(...n.c[q.p]):n.c[q.p][q.t]))):null;
+  // « Maintenant » : courant calculé par le collecteur à partir de 6 magnétomètres (sol.py), s'il est disponible
+  const solI=(H=liveH)=>H==='clf'&&LIVE&&LIVE.sol&&Array.isArray(LIVE.sol.I)&&LIVE.sol.I.length===D.nodes.length?LIVE.sol.I:null;
   const VIG=['verte','jaune','orange','rouge'];
   function chart(id,serie,key,unit){
     const el=$(id); const pts=(serie||[]).filter(r=>r[key]!=null);
@@ -546,17 +549,20 @@ details.valid summary{font-weight:600;cursor:pointer}
     choc.classList.toggle('hidden',!txt.length); choc.innerHTML='';
     txt.forEach(x=>{const p=document.createElement('p');p.style.margin='0';p.textContent=x;choc.appendChild(p);});
     if(al&&al.lien&&!LIVE.demo){const a=document.createElement('a');a.href=al.lien;a.target='_blank';a.rel='noopener';a.textContent='Voir le journal de l’épisode';choc.appendChild(a);}
-    const pk=kp&&kp.pic_24h;
-    const nivTile=(H)=>{const iB=iMax(liveInput('med',H)), iW=iMax(liveInput('p90',H));
+    const pk=kp&&kp.pic_24h, so=solI('clf')?LIVE.sol:null;
+    const nMes=so?Object.values(so.part_mesuree||{}).filter(x=>x>=0.5).length:0;
+    const nivTile=(H)=>{const S=solI(H), iB=S?Math.max(...S):iMax(liveInput('med',H)), iW=S?iB:iMax(liveInput('p90',H));
       if(iB==null)return '<span class="big">—</span>';
       const b=level(iB), w=level(iW);
       return `<span class="big"><span class="dot" style="background:${COLORS[b]}"></span>${NAMES[b]}</span>`+(H!=='clf'&&w>b?`<span class="s watch-s">à surveiller : ${NAMES[w].toLowerCase()}</span>`:'');};
-    $('tile-clf').innerHTML=`<span class="k">Maintenant</span>${nivTile('clf')}<span class="s">mesuré à Chambon<span data-aud="pre exp">${clf&&clf.dbdt_max_1h!=null?` : ${fmt(clf.dbdt_max_1h,0)} nT/min`:''}</span></span><span class="s" data-aud="pre exp">${clf?`max à ${hm(clf.heure_max)}${clf.theta!=null?` · axe ${fmt(clf.theta,0)}°`:''}${clf.periode_min?` · période ${fmt(clf.periode_min,0)} min`:''}`:''}</span>`;
+    $('tile-clf').innerHTML=`<span class="k">Maintenant</span>${nivTile('clf')}<span class="s">${so?'mesuré par les magnétomètres':'mesuré à Chambon'}<span data-aud="pre exp">${clf&&clf.dbdt_max_1h!=null?` · Chambon ${fmt(clf.dbdt_max_1h,0)} nT/min`:''}</span></span><span class="s" data-aud="pre exp">${so?`${fmt(so.max,1)} A au plus (${so.lieu_max}) à ${hm(so.heure_max)} · ${nMes}/6 observatoires à jour`:(clf?`max à ${hm(clf.heure_max)}${clf.theta!=null?` · axe ${fmt(clf.theta,0)}°`:''}${clf.periode_min?` · période ${fmt(clf.periode_min,0)} min`:''}`:'')}</span>`;
     $('tile-l1').innerHTML=`<span class="k">Dans l'heure</span>${nivTile('l1')}<span class="s">d'après les satellites</span><span class="s" data-aud="pre exp">${l1?`dB/dt ${fmt(l1.dbdt_med,0)} (P90 ${fmt(l1.dbdt_p90,0)}) nT/min · V ${fmt(l1.V,0)} km/s, Bz ${fmt(l1.Bz,1)} nT · arrivée +${l1.delai_min} min`:'pas de données à L1'}</span>`;
     $('tile-kp').innerHTML=`<span class="k">24 heures</span>${nivTile('kp')}<span class="s">${pk?`Kp ${fmt(pk.kp,1)} ${pk.statut==='predicted'?'prévu':'estimé'} (NOAA)`:'pas de prévision'}</span><span class="s" data-aud="pre exp">${pk?`dB/dt ${fmt(pk.dbdt_med,0)} (P90 ${fmt(pk.dbdt_p90,0)}) nT/min · ${jourParis(pk.t)} ${hm(pk.t)}`:''}</span>`;
     ['kp','l1','clf'].forEach(x=>$('tile-'+x).setAttribute('aria-pressed',String(x===liveH)));
     const row=(nom,t,lim)=>{const a=ageMin(t);const ok=a!=null&&a<=lim;return `<li><span>${nom}</span><span class="${ok?'ok':'ko'}">${a==null?'indisponible':(a<=0?'à l\'instant':'il y a '+a+' min')}</span></li>`;};
     $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',clf&&clf.derniere_mesure,60)+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
+    if(LIVE.sol&&LIVE.sol.part_mesuree){const P=LIVE.sol.part_mesuree, R=LIVE.sol.remplacants||{};
+      $('sources').innerHTML+=`<li><span>Magnétomètres voisins (dernière heure)</span><span>${Object.entries(P).filter(([o])=>o!=='CLF').map(([o,v])=>`<span class="${v>=0.5?'ok':'ko'}" title="${v>=0.5?'mesuré':'remplacé par '+(R[o]||'?')}">${o}</span>`).join(' ')}</span></li>`;}
     renderCme(LIVE.cme);
     renderBull();
     chart('ch-p',l1&&l1.serie,'P','nPa'); chart('ch-h',clf&&clf.serie,'h','nT/min');
@@ -600,7 +606,8 @@ details.valid summary{font-weight:600;cursor:pointer}
   const COLORS=['var(--g)','var(--y)','var(--o)','var(--r)'], NAMES=['Vert','Jaune','Orange','Rouge'];
   function level(i){const t=[+$('t1').value,+$('t2').value,+$('t3').value];return i>=t[2]?3:i>=t[1]?2:i>=t[0]?1:0;}
   function currents(h=hyp){
-    if(mode==='live'){const q=liveInput(h); if(!q) return D.nodes.map(()=>0);
+    if(mode==='live'){const S=solI(); if(S) return S.slice();
+      const q=liveInput(h); if(!q) return D.nodes.map(()=>0);
       return D.nodes.map(n=>q.v*(q.t==='worst'?Math.max(...n.c[q.p]):n.c[q.p][q.t]));}
     if(isReplay()){const E=A.events[mode];
       return tview<0?E.max:E.I.map(s=>s?s[tview]:0);}

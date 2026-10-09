@@ -29,6 +29,7 @@ Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 | `demo/` | Les données qui ont servi à fabriquer la démonstration (`python collecteur.py --demo`). |
 | `validation.py` | Bilan de la prévision L1 en conditions réelles (mêmes indicateurs que le rapport). |
 | `bulletins.py` | Bulletins grand public, prévisionniste et exploitant. |
+| `sol.py` + `filtres_sol.json` | Courant induit « maintenant » dans chaque poste, d'après 6 magnétomètres (voir plus bas). |
 | `cap.py` | Messages d'alerte au format CAP 1.2 et flux Atom. |
 | `alertes.py` | Décide s'il faut prévenir et envoie les alertes (issue GitHub, ntfy). |
 | `.github/workflows/collecte.yml` | La tâche planifiée de GitHub : lance le collecteur toutes les 5 minutes. |
@@ -95,6 +96,14 @@ GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 mi
 
 Erreurs possibles : `401` = jeton mal copié (vérifier le mot `Bearer` et l'espace) ; `403` ou `404` = jeton sans la permission Actions *Read and write*, ou pas limité au bon dépôt ; `422` = corps de requête incorrect.
 
+## « Maintenant » : 6 magnétomètres
+
+La case « Maintenant » utilise le même calcul que les rejeux de mai 2024 et d'octobre 2003. Les champs mesurés à Hartland, Dourbes, Chambon-la-Forêt, Fürstenfeldbruck, Ebre et San Pablo-Toledo sont pondérés sur chaque tronçon de ligne, puis on passe par le sol EURHOM, les lignes 400 kV et la loi des nœuds. Toute cette chaîne est linéaire : elle se réduit à un filtre par poste, par observatoire et par composante (X, Y), long de 4 h, préparé une fois pour toutes (`calc/filtres_sol.py` dans le dossier du projet, résultat dans `filtres_sol.json`). Le collecteur (`sol.py`) applique ces filtres aux 5 dernières heures de mesures toutes les 10 min, en Python standard (moins d'une seconde).
+
+Les filtres sont **causaux** : ils n'utilisent que le passé, ce qui permet de les appliquer en direct. Le calcul des rejeux, lui, travaille par FFT sur toute la tempête. Sur le 10 mai 2024, les deux suivent les mêmes variations (corrélation 0,97 sur des séries lissées sur 5 min), mais le maximum national est 0,8 fois plus faible avec les filtres. L'écart vient des variations de 1 à 2 min, que les deux méthodes ne traitent pas de la même façon.
+
+Plusieurs observatoires publient avec des heures, voire des jours de retard. Pour chaque minute manquante, on prend la variation de l'observatoire disponible le plus proche ; Wingst (WNG) et San Fernando (SFS) servent de relais. La page indique quels observatoires étaient à jour, et `journal/sol_AAAA-MM.csv` le garde à chaque calcul. Il faut savoir qu'**il manque alors surtout le nord-ouest** (Hartland, Dourbes) : sur le 10 mai 2024, les remplacer par Chambon fait passer le maximum national de 11,8 à 8,8 A et le déplace de Brest à la vallée du Rhône.
+
 ## Gazoducs
 
 En mode Gaz (bouton au-dessus de la carte), les 33 600 km du réseau de transport (NaTran, Teréga) sont colorés selon le potentiel tube-sol (PSP) induit, pour le même dB/dt que la carte électrique. Le calcul (dossier `calc` du projet, `gaz_reseau.py`) suit la méthode de Boteler (ligne de transmission à sources distribuées, schéma en pi, résolution nodale), avec le même sol EURHOM que pour le réseau électrique. Les paramètres des tubes ne sont pas publiés : cas de base DN 600, 12 mm, revêtement 10 µS/m², fourchette Monte-Carlo ×0,38 à ×1,7. Seuils provisoires : 2 V (jaune), 10 V (orange), 30 V (rouge), à calibrer avec les exploitants ; la protection cathodique tient le tube entre −0,85 et −1,2 V. Tracés : ODRÉ, Licence Ouverte (NaTran 2025, Teréga 2021).
@@ -144,6 +153,7 @@ Chaque collecte laisse une trace dans le dossier `journal/` :
 |---|---|
 | `journal/collectes_AAAA-MM.csv` | Une ligne par collecte : ce que l'outil disait à cet instant (vent solaire, choc, dB/dt prévus, Kp, Chambon, alerte). |
 | `journal/l1/l1_AAAA-MM-JJ.csv` | Les mesures brutes à la minute du satellite actif à L1. La NOAA ne les garde en ligne que quelques jours, et OMNI (utilisé dans le rapport) est une série retraitée : ce sont ces données temps réel, avec leur bruit, qu'il faut garder pour juger l'outil. |
+| `journal/sol_AAAA-MM.csv` | Toutes les 10 min : courant maximal calculé sur la dernière heure d'après les magnétomètres, poste et heure du maximum, part de minutes réellement mesurées par observatoire. |
 | `docs/historique.json` | Une ligne par heure : prévision L1 émise en début d'heure, puis dB/dt maximal mesuré à Chambon. Rien n'est effacé : c'est le jeu de validation. |
 
 `validation.py` calcule sur cet historique les mêmes indicateurs que le chapitre 4 du rapport (corrélation, RMSE, biais, couverture du P90, POD et FAR de l'alerte à 30 nT/min). Le bilan s'affiche dans le bloc « Auto-validation » du mode Direct, à côté des valeurs du rapport. Pour l'afficher dans un terminal : `python validation.py`.

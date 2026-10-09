@@ -4,7 +4,8 @@ Collecteur temps réel de Veille CIG France.
 Toutes les 5 minutes (GitHub Actions), ce script :
   1. lit le vent solaire mesuré à L1 (NOAA SWPC, flux RTSW à la minute : SOLAR-1, DSCOVR, ACE, IMAP) ;
   2. lit le Kp observé et prévu à 3 jours (NOAA SWPC) ;
-  3. lit le magnétomètre de Chambon-la-Forêt en quasi temps réel (INTERMAGNET, serveur BGS) ;
+  3. lit le magnétomètre de Chambon-la-Forêt en quasi temps réel (INTERMAGNET, serveur BGS), et toutes les 10 min
+     5 autres observatoires voisins pour calculer le courant induit dans chaque poste sur la dernière heure (sol.py) ;
   4. applique les modèles du rapport (chapitre 4) : vent solaire -> dB/dt et Kp -> dB/dt ;
   5. écrit docs/etat_courant.json (lu par la page) et tient docs/historique.json
      (prévision de chaque heure comparée au dB/dt mesuré ensuite : auto-validation).
@@ -23,6 +24,7 @@ from pathlib import Path
 
 import alertes                                                       # alertes.py, à côté de ce fichier
 import bulletins                                                     # bulletins.py, idem
+import sol                                                           # sol.py, idem
 import validation                                                    # validation.py, idem
 
 ICI = Path(__file__).resolve().parent
@@ -463,7 +465,7 @@ def main():
                 erreurs_lecture.append(f"{cle} : {e}")
 
     erreurs = [] if demo else erreurs_lecture
-    etat = {"genere": iso(maintenant), "demo": demo, "l1": None, "kp": None, "clf": None, "cme": None}
+    etat = {"genere": iso(maintenant), "demo": demo, "l1": None, "kp": None, "clf": None, "cme": None, "sol": None}
     for cle, besoins, fonction in (("l1", ("mag", "vent"), lambda: analyse_l1(sources["mag"], sources["vent"])),
                                    ("kp", ("kp",), lambda: analyse_kp(sources["kp"], maintenant)),
                                    ("clf", ("clf",), lambda: analyse_clf(lire_iaga(sources["clf"]), maintenant))):
@@ -480,6 +482,18 @@ def main():
             etat["cme"] = analyse_cme(simulations, maintenant)
         except Exception as e:
             erreurs.append(f"cme : {e}")
+
+    if demo:                                                            # calculé une fois (avant le choc : calme)
+        etat["sol"] = json.loads((ICI / "demo" / "sol.json").read_text())
+    else:                                                               # courant induit d'après 6 magnétomètres
+        try:
+            avant = json.loads((SORTIE / "etat_courant.json").read_text()).get("sol")
+        except Exception:
+            avant = None
+        try:
+            etat["sol"] = sol.analyse_sol(sources.get("clf"), maintenant, avant, lire_url)
+        except Exception as e:
+            erreurs.append(f"sol : {e}")
 
     fichier_hist = SORTIE / ("historique_demo.json" if demo else "historique.json")
     hist = json.loads(fichier_hist.read_text()) if fichier_hist.exists() else {}
@@ -499,6 +513,13 @@ def main():
             if simulations:
                 archiver_cme(simulations)
             journaliser(etat, maintenant)
+            so = etat.get("sol") or {}
+            if so.get("calcule") == iso(maintenant):                       # nouveau calcul (toutes les 10 min)
+                part = so.get("part_mesuree") or {}
+                ajouter_csv(JOURNAL / f"sol_{maintenant:%Y-%m}.csv",
+                            ["t", "t_fin", "I_max", "lieu_max", "heure_max", *[f"mesure_{o}" for o in part]],
+                            [[iso(maintenant), so["t_fin"], so["max"], so.get("lieu_max"), so.get("heure_max"),
+                              *part.values()]])
         except Exception as e:                                              # l'archive ne doit jamais bloquer la page
             erreurs.append(f"journal : {e}")
 
