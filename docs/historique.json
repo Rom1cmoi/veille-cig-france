@@ -614,7 +614,7 @@
 "2026-10-10T18:00:00Z": {
 "prevu_med": 37.2,
 "prevu_p90": 97.0,
-"observe": null,
+"observe": 11.4,
 "emise_min": 0
 },
 "2026-10-10T19:00:00Z": {
