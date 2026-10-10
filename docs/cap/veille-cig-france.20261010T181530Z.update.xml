@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>veille-cig-france.20261010T181530Z.update</identifier>
+  <sender>rom1cmoi.github.io/veille-cig-france</sender>
+  <sent>2026-10-10T18:15:30-00:00</sent>
+  <status>Exercise</status>
+  <msgType>Update</msgType>
+  <scope>Public</scope>
+  <note>Démonstrateur étudiant (IPSA, ELIOS-SPACE), non officiel. Courants estimés par modèle, non validés contre mesure.</note>
+  <references>rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261010T144024Z.alert,2026-10-10T14:40:24-00:00 rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261010T145023Z.update,2026-10-10T14:50:23-00:00 rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261010T180052Z.update,2026-10-10T18:00:52-00:00</references>
+  <info>
+    <language>fr-FR</language>
+    <category>Met</category>
+    <category>Infra</category>
+    <event>Courants géomagnétiquement induits dans le réseau électrique</event>
+    <responseType>Prepare</responseType>
+    <urgency>Expected</urgency>
+    <severity>Extreme</severity>
+    <certainty>Likely</certainty>
+    <expires>2026-10-10T21:15:30-00:00</expires>
+    <senderName>Veille CIG France (démonstrateur)</senderName>
+    <headline>Choc détecté à L1, arrivée sur Terre vers 18 h 38 UTC</headline>
+    <description>Vigilance jaune pour l'heure à venir. Activité géomagnétique faible à modérée : de faibles courants peuvent apparaître dans le réseau électrique, sans conséquence attendue pour les usagers.
+Dans le cas le plus défavorable, la vigilance pourrait passer en orange.
+Les satellites ont mesuré un choc dans le vent solaire : il atteindra la Terre vers 20 h 38 (heure de Paris).
+Une éruption solaire (éjection de masse coronale) devrait atteindre la Terre dimanche 11 octobre vers 8 h (heure de Paris), à environ 10 heures près. Effet attendu sur le réseau : vert, selon l'orientation de son champ magnétique, qui ne sera connue qu'une heure avant.
+Une autre éruption devrait arriver dimanche 11 octobre vers 22 h 14 (effet : de vert à jaune).
+
+Vent solaire à L1 (SOLAR1, mesure de 10/10 18 h 10 UTC) : V = 833 km/s, n = 16,5 cm⁻³, Bz = -9,3 nT, Pdyn = 29,4 nPa, couplage de Newell sur 2 h = 37993. dB/dt maximal attendu à Chambon pour l'heure qui commence : 33,5 nT/min en médiane, 87,3 au P90 (vigilance jaune, orange dans le cas défavorable). Arrivée sur Terre de ce vent : 10/10 18 h 38 UTC.
+Choc détecté à L1 à 10/10 18 h 10 UTC (saut de √Pdyn 0,81 nPa^½, de vitesse 42 km/s) ; arrivée estimée 10/10 18 h 38 UTC.
+Kp : observé 5,7 ; maximum prévu sur 24 h 5,7 (dB/dt 12,4 nT/min en médiane, 33,6 au P90 ; vigilance jaune) ; sur 72 h 5,7.
+CME : choc attendu le 11/10 06 h 00 UTC ± 10 h (effleurement). Kp WSA-ENLIL 2 / 4 / 4 pour un angle d'horloge de 90° / 135° / 180° ; dB/dt plein sud 5,5 nT/min en médiane, 14,9 au P90. (Simulation WSA-ENLIL/49013/1.)
+CME : choc attendu le 11/10 20 h 14 UTC ± 10 h. Kp WSA-ENLIL 3 / 4 / 5 pour un angle d'horloge de 90° / 135° / 180° ; dB/dt plein sud 8,9 nT/min en médiane, 24,2 au P90. Magnétopause comprimée jusqu'à 6,4 RT. (Simulation WSA-ENLIL/49030/1.)
+Constat à Chambon-la-Forêt (provisoire, 22 min de retard) : dB/dt maximal 18,9 nT/min sur la dernière heure, axe 124°, période 41 min.
+Validation en direct : 102 h vérifiées, couverture du P90 100 %, rapport mesuré / prévu ×0,40.</description>
+    <instruction>Heure qui commence : niveau jaune probable, orange dans le cas défavorable. Courant continu estimé au poste le plus exposé : 4,1 A par phase et par transformateur en cas probable (sud-est de Toulouse), jusqu'à 12,8 A dans le cas défavorable (vallée du Rhône, poste d'évacuation probable de Cruas ; fourchette 5,1 à 15,3 A selon les paramètres du poste). Seuils : 1 A jaune (début de saturation), 10 A orange, 75 A rouge.
+Gazoducs (NaTran, Teréga), cas défavorable : potentiel tube-sol jusqu'à 32,3 V au point le plus exposé (Causses, au sud de Millau ; 12,3 à 54,9 V selon les tubes), niveau rouge (seuils provisoires 2 / 10 / 30 V ; la protection cathodique tient le tube entre −0,85 et −1,2 V).
+Mesuré sur la dernière heure (jusqu'à 10/10 17 h 54 UTC) : courant induit calculé à partir de 3 magnétomètres à jour sur 6, au plus 6,0 A par phase (50 km de Toulouse, 10/10 17 h 51 UTC), niveau jaune.
+Choc attendu 10/10 18 h 38 UTC : pic bref possible à l'arrivée.
+CME attendue le 11/10 06 h 00 UTC ± 10 h : si son champ arrive plein sud, 0,7 A probable, jusqu'à 2,2 A dans le cas défavorable.
+CME attendue le 11/10 20 h 14 UTC ± 10 h : si son champ arrive plein sud, 1,1 A probable, jusqu'à 3,6 A dans le cas défavorable.
+Surveillance normale. Vérifier que les mesures de courant de neutre, si elles existent, sont disponibles et enregistrées. Pour les jours à venir : niveau jaune probable, se tenir prêt au niveau orange.
+Courants estimés par le modèle du rapport (incertitude d'un facteur 3, non validés contre mesure) ; mesures à valider avec l'exploitant.</instruction>
+    <web>https://rom1cmoi.github.io/veille-cig-france/</web>
+    <parameter>
+      <valueName>awareness_level</valueName>
+      <value>4; red; Extreme</value>
+    </parameter>
+    <area>
+      <areaDesc>France métropolitaine continentale</areaDesc>
+      <polygon>51.1,2.5 49.4,8.2 47.6,7.6 46.4,6.2 45.9,7.0 44.1,7.7 43.7,7.5 43.0,6.0 43.3,3.2 42.4,3.1 42.8,-1.8 43.4,-1.8 46.3,-1.3 47.3,-2.5 48.0,-4.8 48.7,-4.6 48.8,-1.6 49.7,-1.9 49.4,0.1 50.9,1.6 51.1,2.5</polygon>
+    </area>
+  </info>
+</alert>

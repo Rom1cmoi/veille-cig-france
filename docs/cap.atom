@@ -3,8 +3,14 @@
   <title>Veille CIG France : alertes CAP (démonstrateur)</title>
   <id>https://rom1cmoi.github.io/veille-cig-france/cap.atom</id>
   <link rel="self" href="https://rom1cmoi.github.io/veille-cig-france/cap.atom"/>
-  <updated>2026-10-10T18:00:52Z</updated>
+  <updated>2026-10-10T18:15:30Z</updated>
   <author><name>Veille CIG France</name></author>
+  <entry>
+    <id>https://rom1cmoi.github.io/veille-cig-france/cap/veille-cig-france.20261010T181530Z.update.xml</id>
+    <title>Choc détecté à L1, arrivée sur Terre vers 18 h 38 UTC (Update)</title>
+    <updated>2026-10-10T18:15:30Z</updated>
+    <link rel="alternate" type="application/cap+xml" href="https://rom1cmoi.github.io/veille-cig-france/cap/veille-cig-france.20261010T181530Z.update.xml"/>
+  </entry>
   <entry>
     <id>https://rom1cmoi.github.io/veille-cig-france/cap/veille-cig-france.20261010T180052Z.update.xml</id>
     <title>Choc détecté à L1, arrivée sur Terre vers 17 h 37 UTC (Update)</title>
