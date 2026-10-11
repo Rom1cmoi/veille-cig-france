@@ -19,7 +19,8 @@
   "choc 2026-10-11T11:35:00Z",
   "choc 2026-10-11T12:35:00Z",
   "choc 2026-10-11T13:25:00Z",
-  "choc 2026-10-11T13:55:00Z"
+  "choc 2026-10-11T13:55:00Z",
+  "choc 2026-10-11T14:10:00Z"
  ],
  "max_prevu": 14.6,
  "max_mesure": 7.9,
@@ -39,7 +40,8 @@
   "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T114024Z.update,2026-10-11T11:40:24-00:00",
   "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T124023Z.update,2026-10-11T12:40:23-00:00",
   "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T133041Z.update,2026-10-11T13:30:41-00:00",
-  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T140052Z.update,2026-10-11T14:00:52-00:00"
+  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T140052Z.update,2026-10-11T14:00:52-00:00",
+  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T141526Z.update,2026-10-11T14:15:26-00:00"
  ],
- "dernier_signal": "2026-10-11T14:00:52Z"
+ "dernier_signal": "2026-10-11T14:15:26Z"
 }
