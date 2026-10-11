@@ -1,15 +1,18 @@
 {
  "debut": "2026-10-10T23:15:26Z",
- "niveau": "choc",
+ "niveau": "orange",
  "issue": 4,
  "lien": "https://github.com/Rom1cmoi/veille-cig-france/issues/4",
  "deja": [
-  "choc 2026-10-10T23:10:00Z"
+  "choc 2026-10-10T23:10:00Z",
+  "choc 2026-10-11T00:15:00Z",
+  "l1 orange"
  ],
- "max_prevu": 56.7,
+ "max_prevu": 80.1,
  "max_mesure": 9.6,
  "cap": [
-  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261010T231526Z.alert,2026-10-10T23:15:26-00:00"
+  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261010T231526Z.alert,2026-10-10T23:15:26-00:00",
+  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261011T002024Z.update,2026-10-11T00:20:24-00:00"
  ],
- "dernier_signal": "2026-10-11T00:10:24Z"
+ "dernier_signal": "2026-10-11T00:20:24Z"
 }
