@@ -28,6 +28,7 @@ SEUILS_A = (("rouge", 75.0), ("orange", 10.0), ("jaune", 1.0))
 # Gazoducs (calc/gaz_reseau.py) : potentiel tube-sol au point le plus exposé (Causses, au sud de Millau), en V par
 # nT/min à Chambon, cas de base ; fourchette Monte-Carlo sur les tubes ; seuils provisoires (V), à calibrer.
 COEF_GAZ, FOURCHETTE_GAZ = 0.37, (0.38, 1.7)
+COEF_GAZ_PROB = 0.31                              # idem, direction 150° (cas probable), même région
 SEUILS_GAZ = (("rouge", 30.0), ("orange", 10.0), ("jaune", 2.0))
 JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
@@ -190,12 +191,13 @@ def rediger(etat):
                   f"(sud-est de Toulouse), jusqu'à {f(iw, 1)} A dans le cas défavorable (vallée du Rhône, poste "
                   f"d'évacuation probable de Cruas ; fourchette {f(iw * FOURCHETTE[0], 1)} à {f(iw * FOURCHETTE[1], 1)} A selon les "
                   f"paramètres du poste). Seuils : 1 A jaune (début de saturation), 10 A orange, 75 A rouge.")
-        v = l1["dbdt_p90"] * COEF_GAZ
-        ng = next((n for n, s in SEUILS_GAZ if v >= s), "vert")
-        ex.append(f"Gazoducs (NaTran, Teréga), cas défavorable : potentiel tube-sol jusqu'à {f(v, 1)} V au point le "
-                  f"plus exposé (Causses, au sud de Millau ; {f(v * FOURCHETTE_GAZ[0], 1)} à "
-                  f"{f(v * FOURCHETTE_GAZ[1], 1)} V selon les tubes), niveau {ng} (seuils provisoires 2 / 10 / 30 V ; "
-                  f"la protection cathodique tient le tube entre −0,85 et −1,2 V).")
+        vp, v = (l1.get("dbdt_med") or 0) * COEF_GAZ_PROB, l1["dbdt_p90"] * COEF_GAZ
+        gp, ng = (next((n for n, x in SEUILS_GAZ if val >= x), "vert") for val in (vp, v))
+        niv_g = f"niveau {gp}" + (f" probable, {ng} dans le cas défavorable" if plus_grave(ng, gp) else "")
+        ex.append(f"Gazoducs (NaTran, Teréga) : potentiel tube-sol de {f(vp, 1)} V en cas probable, jusqu'à "
+                  f"{f(v, 1)} V dans le cas défavorable, au point le plus exposé (Causses, au sud de Millau ; "
+                  f"{f(v * FOURCHETTE_GAZ[0], 1)} à {f(v * FOURCHETTE_GAZ[1], 1)} V selon les tubes) : {niv_g} "
+                  f"(seuils provisoires 2 / 10 / 30 V ; la protection cathodique tient le tube entre −0,85 et −1,2 V).")
     so = etat.get("sol") or {}
     if so.get("max") is not None:
         n_ok = sum(1 for v in (so.get("part_mesuree") or {}).values() if v >= 0.5)
