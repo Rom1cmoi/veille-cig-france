@@ -209,8 +209,8 @@ details.valid summary{font-weight:600;cursor:pointer}
   <nav class="modes" aria-label="Mode">
     <button type="button" class="livebtn" id="m-live" aria-pressed="true"><span class="pulse" aria-hidden="true"></span>Direct</button>
     <span class="grp"><span class="grp-l">Simuler</span>
-      <button type="button" id="m-prev" aria-pressed="false">Prévision</button>
-      <button type="button" id="m-scen" aria-pressed="false">Scénario</button></span>
+      <button type="button" id="m-prev" aria-pressed="false">Depuis l'espace</button>
+      <button type="button" id="m-scen" aria-pressed="false">Perturbation au sol</button></span>
     <span class="grp"><span class="grp-l">Rejouer</span>
       <button type="button" id="m-2024" aria-pressed="false">Mai 2024</button>
       <button type="button" id="m-2003" aria-pressed="false">Oct. 2003</button>
@@ -409,10 +409,10 @@ details.valid summary{font-weight:600;cursor:pointer}
         <ul>
           <li>Réseau : extraction non officielle de la carte ENTSO-E (mars 2022, GridKit / PyPSA-Eur), 281 lignes, localisations approchées.</li>
           <li>Sous-sol : modèle en couches EURHOM 1.0 (Ádám et al. 2012, projet EURISGIC).</li>
-          <li>Mode scénario : oscillation de B de période et direction données, amplitude qui varie avec la latitude géomagnétique comme le facteur α de NERC (1 à Chambon). Mode rejeu : champ mesuré à 6 observatoires INTERMAGNET, interpolé (mai 2024 sur 12 h, octobre 2003 sur 3 h, octobre 2026 sur 12 h avec Wingst et San Fernando à la place de Hartland et Dourbes, qui n'ont pas publié).</li>
+          <li>Mode « perturbation au sol » : oscillation de B de période et direction données, amplitude qui varie avec la latitude géomagnétique comme le facteur α de NERC (1 à Chambon). Mode rejeu : champ mesuré à 6 observatoires INTERMAGNET, interpolé (mai 2024 sur 12 h, octobre 2003 sur 3 h, octobre 2026 sur 12 h avec Wingst et San Fernando à la place de Hartland et Dourbes, qui n'ont pas publié).</li>
           <li>Direct, case « Maintenant » : même calcul que les rejeux (6 observatoires INTERMAGNET), appliqué aux 5 dernières heures sous forme de filtres causaux, recalculé toutes les 10 min. Un observatoire en retard est remplacé, minute par minute, par le plus proche qui a publié (Wingst et San Fernando servent de relais). Sur le 10 mai 2024, ces filtres donnent un maximum national 0,8 fois celui des rejeux (même séries lissées sur 5 min, corrélation 0,97) : l'écart vient des variations de 1 à 2 min.</li>
           <li>Circuit : ligne 0,029 Ω/km par phase, un transformateur par poste (0,5 Ω par enroulement), prise de terre 0,15 Ω. Calcul nodal de Lehtinen et Pirjola.</li>
-          <li>Mode prévision : relations ajustées sur 11 journées de tempête (2000-2024) à Chambon. Kp : log₁₀(dB/dt) = a + b·Kp. Vent solaire : couplage de Newell (2007), pression dynamique et saut de pression, avec uniquement les données L1 disponibles au moment de la prévision. Validation croisée par tempête : erreur typique ×2,1, alerte P90 détectant 87 % des heures au-delà de 30 nT/min (60 % de fausses alertes).</li>
+          <li>Mode « depuis l'espace » : relations ajustées sur 11 journées de tempête (2000-2024) à Chambon. Kp : log₁₀(dB/dt) = a + b·Kp. Vent solaire : couplage de Newell (2007), pression dynamique et saut de pression, avec uniquement les données L1 disponibles au moment de la prévision. Validation croisée par tempête : erreur typique ×2,1, alerte P90 détectant 87 % des heures au-delà de 30 nT/min (60 % de fausses alertes).</li>
           <li>Incertitudes : fourchette Monte-Carlo sur les paramètres des postes. Le réseau 225 kV, non affiché, abaisse le maximum en 400 kV d'environ 10 % et porte lui aussi des courants de 10 A. Les durées au-delà de 10 A restent de quelques minutes : l'enjeu est le réactif et les harmoniques, pas l'échauffement.</li>
           <li>Contrôle : le rejeu de mai 2024 donne 44 A au neutre au maximum, l'ordre de grandeur publié pour la France par Kelly et al. (2017).</li>
         </ul>
@@ -695,7 +695,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     const nat=Math.max(...IB.map(level)), natW=Math.max(...IW.map(level)), imax=Math.max(...IB);
     const kB=IB.indexOf(imax);
     const b=$('badge'); b.textContent=NAMES[nat]; b.style.background=COLORS[nat];
-    const quand=mode==='live'?({clf:'maintenant',l1:'dans l\'heure',kp:'dans les 24 heures'})[liveH]:mode==='prev'?'prévision saisie':mode==='scen'?'scénario':`tempête ${({'2024':'de mai 2024','2003':'de 2003','2026':'d\'octobre 2026'})[mode]}${tview>=0?' à '+clockOf(tview):' (maximum)'}`;
+    const quand=mode==='live'?({clf:'maintenant',l1:'dans l\'heure',kp:'dans les 24 heures'})[liveH]:mode==='prev'?'depuis l\'espace':mode==='scen'?'perturbation au sol':`tempête ${({'2024':'de mai 2024','2003':'de 2003','2026':'d\'octobre 2026'})[mode]}${tview>=0?' à '+clockOf(tview):' (maximum)'}`;
     $('lead').textContent=aud==='pub'?`Vigilance ${VIG[nat]} pour le réseau électrique · ${quand}`
       :`Vigilance ${VIG[nat]} · ${quand} · jusqu'à ${fmt(imax)} A par phase (${D.nodes[kB].place})`;
     const w=$('watch'); w.classList.toggle('hidden',!(deux&&natW>nat));
@@ -717,8 +717,8 @@ details.valid summary{font-weight:600;cursor:pointer}
     $('live-extra').classList.toggle('hidden',m!=='live');
     document.querySelector('.sim').classList.toggle('hidden',!(m==='prev'||m==='scen'));
     document.querySelector('.hyp').classList.toggle('hidden-mode',!(m==='prev'||m==='live'));
-    $('mode-hint').textContent={live:'Situation réelle, mise à jour toutes les 5 minutes.',prev:'Entrez une prévision (vent solaire mesuré par les satellites, ou indice Kp) pour voir son effet.',
-      scen:'Choisissez l\'intensité d\'une perturbation pour voir son effet.',2024:'Tempête du 10 mai 2024, rejouée minute par minute avec les mesures de 6 observatoires.',2003:'Tempête du 30 octobre 2003 (dite d\'Halloween), rejouée minute par minute.',2026:'Tempête des 10 et 11 octobre 2026, suivie en direct par ce service, rejouée minute par minute.'}[m];
+    $('mode-hint').textContent={live:'Situation réelle, mise à jour toutes les 5 minutes.',prev:'Depuis l\'espace : entrez ce que mesurent les satellites (vent solaire) ou un indice Kp prévu ; l\'outil en déduit la perturbation au sol, avec son incertitude, puis les courants.',
+      scen:'Perturbation au sol : choisissez directement le dB/dt à Chambon, sa période et sa direction, pour tester le réseau (sans modèle de prévision).',2024:'Tempête du 10 mai 2024, rejouée minute par minute avec les mesures de 6 observatoires.',2003:'Tempête du 30 octobre 2003 (dite d\'Halloween), rejouée minute par minute.',2026:'Tempête des 10 et 11 octobre 2026, suivie en direct par ce service, rejouée minute par minute.'}[m];
     if(m==='live'){loadLive(); if(!liveTimer) liveTimer=setInterval(loadLive,60000);} else if(liveTimer){clearInterval(liveTimer);liveTimer=null;}
     render();};
   $('m-live').onclick=()=>setMode('live');
