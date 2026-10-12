@@ -58,6 +58,15 @@ SEUIL_CHOC_V = 20.0                    # ... confirmé par un saut de vitesse (k
 # Domaine d'ajustement du modèle L1 (231 heures d'orage, calc/t3_heures.csv) : on n'extrapole pas au-delà.
 # Sans cette borne, une pression de 200 nPa (bruit de mesure le 10/10/2026) donnait 1 200 nT/min au P90.
 MAX_RACINE_P, MAX_SAUT, MAX_NEWELL = 7.1, 3.8, 1.3e5
+# Calibrage par temps calme. Ajusté sur des jours d'orage, le modèle L1 surestime d'un facteur 2 quand il prévoit
+# peu : en 2024, sous 5 nT/min prévus (92 % des heures), on mesure 0,5 fois la prévision, très régulièrement ; à
+# partir de 10 nT/min prévus, le rapport revient autour de 1 mais change d'une tempête à l'autre (de ×0,4 à ×1,8),
+# donc on n'y touche pas. On multiplie donc la médiane prévue par 0,5 sous 4 nT/min, puis par un facteur qui remonte
+# progressivement (linéaire en log) jusqu'à 1 à 10 nT/min. Bornes et facteur ajustés sur l'année 2024 rejouée
+# (8215 h : écart type de l'erreur 0,372 -> 0,227 dex), contrôlés sur le direct d'octobre 2026 (138 h : 0,429 -> 0,347).
+# Au-dessus de 10 nT/min la prévision est inchangée : le P90 n'est modifié que sous 26 nT/min, et aucun seuil
+# d'alerte (68 nT/min) ni le seuil de 30 nT/min des scores ne peut être touché.
+CALIB_FACTEUR, CALIB_BAS, CALIB_HAUT = 0.5, 4.0, 10.0
 
 
 # ---------------------------------------------------------------- petites fonctions utilitaires
@@ -129,6 +138,16 @@ def mediane_glissante(serie, demi=2):
             for i in range(len(t))}
 
 
+def calibrer(dbdt):
+    """Médiane prévue brute -> médiane calibrée (voir CALIB_FACTEUR) : ×0,5 sous 4 nT/min, ×1 au-dessus de 10."""
+    if dbdt <= CALIB_BAS:
+        return dbdt * CALIB_FACTEUR
+    if dbdt >= CALIB_HAUT:
+        return dbdt
+    x = math.log10(dbdt / CALIB_BAS) / math.log10(CALIB_HAUT / CALIB_BAS)   # 0 à 4 nT/min, 1 à 10 nT/min
+    return dbdt * CALIB_FACTEUR ** (1 - x)
+
+
 def analyse_l1(mag, vent):
     m = minutes_actives(mag, ["by_gsm", "bz_gsm"])
     w = minutes_actives(vent, ["proton_speed", "proton_density"])
@@ -180,7 +199,9 @@ def analyse_l1(mag, vent):
         "Bz": arrondi(bz[t_fin], 1), "By": arrondi(by[t_fin], 1), "P": arrondi(P[t_fin], 2),
         "newell_2h": arrondi(phi_moy, 0), "delai_min": round(delai),
         "arrivee": iso(t_fin + timedelta(minutes=delai)), "choc": choc,
-        "dbdt_med": arrondi(10 ** mu, 1), "dbdt_p90": arrondi(10 ** (mu + Z90 * SIGMA_L1), 1),
+        "dbdt_med": arrondi(calibrer(10 ** mu), 1),
+        "dbdt_p90": arrondi(calibrer(10 ** mu) * 10 ** (Z90 * SIGMA_L1), 1),
+        "dbdt_med_brut": arrondi(10 ** mu, 1),                              # avant calibrage, pour la traçabilité
         "hors_domaine": hors_domaine,                                       # entrées bornées au domaine d'ajustement
         "serie": serie[::5],                                                # une valeur toutes les 5 min
     }
@@ -374,7 +395,8 @@ def mettre_a_jour_historique(hist, maintenant, l1, clf_h):
     # GitHub retarde souvent ses lancements de 10 à 20 min : on accepte la première collecte
     # des 30 premières minutes de l'heure, et on note avec quel retard la prévision a été émise.
     if l1 and cle not in hist and maintenant - heure < timedelta(minutes=30):
-        hist[cle] = {"prevu_med": l1["dbdt_med"], "prevu_p90": l1["dbdt_p90"], "observe": None,
+        hist[cle] = {"prevu_med": l1["dbdt_med"], "prevu_p90": l1["dbdt_p90"],
+                     "prevu_med_brut": l1.get("dbdt_med_brut"), "observe": None,
                      "emise_min": int((maintenant - heure).total_seconds() // 60)}
     for k, ligne in hist.items():
         debut = date(k)
@@ -515,6 +537,12 @@ def main():
 
     fichier_hist = SORTIE / ("historique_demo.json" if demo else "historique.json")
     hist = json.loads(fichier_hist.read_text()) if fichier_hist.exists() else {}
+    for ligne in hist.values():                       # heures prévues avant le calibrage (12/10/2026) : on garde la
+        if "prevu_med_brut" not in ligne and ligne.get("prevu_med"):    # prévision brute et on lui applique le même
+            ligne["prevu_med_brut"] = ligne["prevu_med"]                # calibrage, pour une validation homogène
+            ligne["prevu_med"] = arrondi(calibrer(ligne["prevu_med_brut"]), 1)
+            ligne["prevu_p90"] = arrondi(calibrer(ligne["prevu_med_brut"]) * 10 ** (Z90 * SIGMA_L1), 1)
+            ligne["calibre_apres_coup"] = True
     hist = mettre_a_jour_historique(hist, maintenant, etat["l1"], clf_h)
     fichier_hist.write_text(json.dumps(hist, indent=0))
     etat["historique"] = [{"heure": k, **v} for k, v in list(hist.items())[-48:]]

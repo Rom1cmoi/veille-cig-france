@@ -96,6 +96,26 @@ GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 mi
 
 Erreurs possibles : `401` = jeton mal copié (vérifier le mot `Bearer` et l'espace) ; `403` ou `404` = jeton sans la permission Actions *Read and write*, ou pas limité au bon dépôt ; `422` = corps de requête incorrect.
 
+## Calibrage de la prévision L1 par temps calme
+
+Le modèle « vent solaire → dB/dt » du rapport (chapitre 4) a été ajusté sur des jours de tempête. Par temps calme, il surestime d'un facteur 2, de façon très régulière : sur l'année 2024 rejouée, quand il prévoit moins de 5 nT/min (92 % des heures), on mesure 0,5 fois la prévision. Au-dessus de 10 nT/min, le rapport revient autour de 1, mais il change d'une tempête à l'autre (de ×0,4 à ×1,8) : cet écart-là ne peut pas être corrigé par un simple facteur.
+
+Depuis le 12 octobre 2026, le collecteur corrige donc seulement les faibles prévisions (fonction `calibrer` de `collecteur.py`) :
+
+| Médiane prévue brute | Correction |
+|---|---|
+| ≤ 4 nT/min | × 0,5 |
+| 4 à 10 nT/min | facteur qui remonte progressivement (linéaire en log) de 0,5 à 1 |
+| ≥ 10 nT/min | aucune |
+
+- **Pourquoi une transition progressive :** avec une coupure nette, une prévision brute de 9,9 aurait affiché 5 et une de 10,1 aurait affiché 10,1.
+- **Pourquoi les alertes ne peuvent pas changer :** au-dessus de 10 nT/min prévus, rien n'est modifié, donc le P90 ne change que sous 26 nT/min. Le seuil orange (68 nT/min) et le seuil de 30 nT/min des scores sont hors d'atteinte. Le rejeu de 2024 relancé le confirme : mêmes épisodes, mêmes préavis.
+- **Ajustement et contrôle :** bornes et facteur ajustés sur 2024 (erreur typique 0,372 → 0,227 dex, rapport mesuré/prévu ×0,51 → ×0,99), contrôlés sur les 138 heures du direct d'octobre 2026, qui n'ont pas servi à l'ajustement (0,429 → 0,347 dex, ×0,53 → ×0,97).
+- **Effet visible :** le « à surveiller : jaune » s'affiche 10 % des heures au lieu de 68 % (jaune réellement mesuré : 3 %).
+- **Coût :** parmi les heures où le jaune a été mesuré, le P90 en annonçait 96 % avant, 80 % après.
+- **Traçabilité :** la prévision brute reste enregistrée (`dbdt_med_brut`, `prevu_med_brut`). Les heures de `docs/historique.json` antérieures au calibrage ont été recalculées avec le même calibrage (`calibre_apres_coup`), pour que la validation en direct compare des prévisions homogènes.
+- La prévision par l'indice Kp n'est pas modifiée.
+
 ## « Maintenant » : 6 magnétomètres
 
 La case « Maintenant » utilise le même calcul que les rejeux de mai 2024 et d'octobre 2003. Les champs mesurés à Hartland, Dourbes, Chambon-la-Forêt, Fürstenfeldbruck, Ebre et San Pablo-Toledo sont pondérés sur chaque tronçon de ligne, puis on passe par le sol EURHOM, les lignes 400 kV et la loi des nœuds. Toute cette chaîne est linéaire : elle se réduit à un filtre par poste, par observatoire et par composante (X, Y), long de 4 h, préparé une fois pour toutes (`calc/filtres_sol.py` dans le dossier du projet, résultat dans `filtres_sol.json`). Le collecteur (`sol.py`) applique ces filtres aux 5 dernières heures de mesures toutes les 10 min, en Python standard (moins d'une seconde).

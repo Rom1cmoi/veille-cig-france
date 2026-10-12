@@ -1,10 +1,10 @@
 {
  "horaire": {
   "n": 8215,
-  "r": 0.62,
-  "rmse": 0.372,
-  "biais_facteur": 0.51,
-  "couverture_p90": 0.99,
+  "r": 0.65,
+  "rmse": 0.227,
+  "biais_facteur": 0.99,
+  "couverture_p90": 0.96,
   "n_obs_30": 29,
   "n_annonces_30": 71,
   "pod": 0.69,
@@ -16,10 +16,10 @@
   "far_68": 0.86,
   "strate calme (< 10 nT/min)": {
    "n": 8045,
-   "r": 0.53,
-   "rmse": 0.372,
-   "biais_facteur": 0.5,
-   "couverture_p90": 1.0,
+   "r": 0.55,
+   "rmse": 0.218,
+   "biais_facteur": 0.97,
+   "couverture_p90": 0.97,
    "n_obs_30": 0,
    "n_annonces_30": 8,
    "pod": null,
@@ -28,10 +28,10 @@
   },
   "strate actif (10-30)": {
    "n": 141,
-   "r": 0.32,
-   "rmse": 0.359,
-   "biais_facteur": 1.74,
-   "couverture_p90": 0.76,
+   "r": 0.3,
+   "rmse": 0.494,
+   "biais_facteur": 2.17,
+   "couverture_p90": 0.61,
    "n_obs_30": 0,
    "n_annonces_30": 43,
    "pod": null,
@@ -40,9 +40,9 @@
   },
   "strate orageux (>= 30)": {
    "n": 29,
-   "r": 0.27,
-   "rmse": 0.463,
-   "biais_facteur": 2.14,
+   "r": 0.23,
+   "rmse": 0.507,
+   "biais_facteur": 2.24,
    "couverture_p90": 0.59,
    "n_obs_30": 29,
    "n_annonces_30": 20,
@@ -2026,6 +2026,16 @@
     "kp_observe": 1.667
    },
    {
+    "cme": "2024-04-18T06:48:00-CME-001",
+    "arrivee_prevue": "2024-04-21T14:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
     "cme": "2024-04-18T02:48:00-CME-001",
     "arrivee_prevue": "2024-04-21T14:00Z",
     "kp_prevu": [
@@ -2037,16 +2047,6 @@
    },
    {
     "cme": "2024-04-17T21:12:00-CME-001",
-    "arrivee_prevue": "2024-04-21T14:00Z",
-    "kp_prevu": [
-     2,
-     4
-    ],
-    "effleurement": true,
-    "kp_observe": 4.0
-   },
-   {
-    "cme": "2024-04-18T06:48:00-CME-001",
     "arrivee_prevue": "2024-04-21T14:00Z",
     "kp_prevu": [
      2,
@@ -2086,7 +2086,7 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-05-03T21:28:00-CME-001",
+    "cme": "2024-05-03T21:17:00-CME-001",
     "arrivee_prevue": "2024-05-06T19:00Z",
     "kp_prevu": [
      3,
@@ -2096,7 +2096,7 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-05-03T21:17:00-CME-001",
+    "cme": "2024-05-03T21:28:00-CME-001",
     "arrivee_prevue": "2024-05-06T19:00Z",
     "kp_prevu": [
      3,
@@ -2116,7 +2116,7 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-05-05T08:09:00-CME-001",
+    "cme": "2024-05-05T06:38:00-CME-001",
     "arrivee_prevue": "2024-05-07T23:00Z",
     "kp_prevu": [
      3,
@@ -2136,7 +2136,7 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-05-05T06:38:00-CME-001",
+    "cme": "2024-05-05T08:09:00-CME-001",
     "arrivee_prevue": "2024-05-07T23:00Z",
     "kp_prevu": [
      3,
@@ -2396,7 +2396,7 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-08-05T05:48:00-CME-001",
+    "cme": "2024-08-05T03:12:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
      3,
@@ -2406,7 +2406,7 @@
     "kp_observe": 2.0
    },
    {
-    "cme": "2024-08-05T03:12:00-CME-001",
+    "cme": "2024-08-05T16:00:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
      3,
@@ -2426,7 +2426,7 @@
     "kp_observe": 2.0
    },
    {
-    "cme": "2024-08-05T16:00:00-CME-001",
+    "cme": "2024-08-05T05:48:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
      3,
@@ -2784,7 +2784,7 @@
    {
     "debut": "2024-06-07T14:54:00Z",
     "max": 30.4,
-    "p90_L1_heure_avant": 25.8,
+    "p90_L1_heure_avant": 25.6,
     "donnees_L1": 13,
     "kp": 6.333
    },
@@ -2820,24 +2820,24 @@
   "calibrage": [
    {
     "prevu_med": "0-3",
-    "n": 3752,
-    "mesure_sur_prevu": 0.52,
-    "couverture_p90": 0.99,
+    "n": 7556,
+    "mesure_sur_prevu": 0.99,
+    "couverture_p90": 0.96,
     "part_obs_30": 0.0
    },
    {
     "prevu_med": "3-5",
-    "n": 3785,
-    "mesure_sur_prevu": 0.47,
-    "couverture_p90": 0.99,
+    "n": 402,
+    "mesure_sur_prevu": 1.02,
+    "couverture_p90": 0.94,
     "part_obs_30": 0.0
    },
    {
     "prevu_med": "5-10",
-    "n": 583,
-    "mesure_sur_prevu": 0.71,
-    "couverture_p90": 0.97,
-    "part_obs_30": 0.007
+    "n": 162,
+    "mesure_sur_prevu": 0.99,
+    "couverture_p90": 0.93,
+    "part_obs_30": 0.025
    },
    {
     "prevu_med": "10-20",
