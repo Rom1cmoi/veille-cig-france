@@ -812,7 +812,7 @@
 "2026-10-12T03:00:00Z": {
 "prevu_med": 2.4,
 "prevu_p90": 6.3,
-"observe": null,
+"observe": 0.6,
 "emise_min": 0
 },
 "2026-10-12T04:00:00Z": {
