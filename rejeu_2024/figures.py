@@ -61,7 +61,7 @@ for e in bilan["episodes"]["liste"]:
 a.text(1.0, 1.03, "▬ veille CME orange   ▼ choc détecté à L1", transform=a.transAxes, ha="right", fontsize=7.5, color=INK2)
 a.set_ylabel("dB/dt max. du jour\nà Chambon (nT/min)")
 a.xaxis.set_major_formatter(mdates.DateFormatter("%b"))
-a.set_title("(a) 2024 : 47 épisodes d'alerte rejoués", loc="left", fontsize=9, color=INK)
+a.set_title(f"(a) 2024 : {bilan['episodes']['nombre']} épisodes d'alerte rejoués", loc="left", fontsize=9, color=INK)
 
 t0, t1 = datetime(2024, 5, 10, 12, tzinfo=timezone.utc), datetime(2024, 5, 11, 12, tzinfo=timezone.utc)
 T = [t for t in sorted(h) if t0 <= t <= t1]
@@ -70,9 +70,10 @@ C = [(date(c["t"]), float(c["dbdt_p90"])) for c in col if c["dbdt_p90"] and t0 <
 b.step([c[0] for c in C], [c[1] for c in C], where="post", color=ORANGE, lw=1.1, label="P90 prévu à L1 (heure qui commence)")
 b.axhline(68, color=ORANGE, lw=0.6, ls=":")
 b.set_yscale("log"); b.set_ylim(0.5, 4000)
-choc = datetime(2024, 5, 10, 16, 30, tzinfo=timezone.utc)
+ep = next(e for e in bilan["episodes"]["liste"] if e["debut"] <= "2024-05-10T17" <= e["fin"])
+choc, pre = date(ep["signaux"]["choc"]), date(ep["signaux"]["l1"])            # lus dans le bilan, pas écrits en dur
 pic = datetime(2024, 5, 10, 17, 7, tzinfo=timezone.utc)
-for x, txt, ha in ((choc, "16 h 30 : choc détecté,\npré-alerte orange ", "right"), (pic, " 17 h 07 : pic\n 107 nT/min", "left")):
+for x, txt, ha in ((choc, f"choc : {choc:%H} h {choc:%M}\npré-alerte : {pre:%H} h {pre:%M} ", "right"), (pic, " 17 h 07 : pic\n 107 nT/min", "left")):
     b.axvline(x, color=INK2, lw=0.6, ls=":")
     b.text(x, 1500, txt, ha=ha, va="center", fontsize=7.2, color=INK)
 b.xaxis.set_major_locator(mdates.HourLocator(byhour=[0, 6, 12, 18]))

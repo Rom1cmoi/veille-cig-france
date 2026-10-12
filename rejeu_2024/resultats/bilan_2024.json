@@ -1,82 +1,69 @@
 {
  "horaire": {
   "n": 8215,
-  "r": 0.63,
-  "rmse": 0.376,
+  "r": 0.62,
+  "rmse": 0.372,
   "biais_facteur": 0.51,
   "couverture_p90": 0.99,
   "n_obs_30": 29,
-  "n_annonces_30": 82,
-  "pod": 0.76,
-  "far": 0.73,
+  "n_annonces_30": 71,
+  "pod": 0.69,
+  "far": 0.72,
   "mesure_max": 107.0,
   "n_obs_68": 3,
-  "n_annonces_68": 23,
+  "n_annonces_68": 21,
   "pod_68": 1.0,
-  "far_68": 0.87,
+  "far_68": 0.86,
   "strate calme (< 10 nT/min)": {
    "n": 8045,
    "r": 0.53,
-   "rmse": 0.377,
-   "biais_facteur": 0.49,
+   "rmse": 0.372,
+   "biais_facteur": 0.5,
    "couverture_p90": 1.0,
    "n_obs_30": 0,
-   "n_annonces_30": 12,
+   "n_annonces_30": 8,
    "pod": null,
    "far": 1.0,
    "mesure_max": 9.9
   },
   "strate actif (10-30)": {
    "n": 141,
-   "r": 0.34,
-   "rmse": 0.341,
-   "biais_facteur": 1.64,
-   "couverture_p90": 0.78,
+   "r": 0.32,
+   "rmse": 0.359,
+   "biais_facteur": 1.74,
+   "couverture_p90": 0.76,
    "n_obs_30": 0,
-   "n_annonces_30": 48,
+   "n_annonces_30": 43,
    "pod": null,
    "far": 1.0,
    "mesure_max": 29.5
   },
   "strate orageux (>= 30)": {
    "n": 29,
-   "r": 0.32,
-   "rmse": 0.444,
-   "biais_facteur": 1.78,
-   "couverture_p90": 0.62,
+   "r": 0.27,
+   "rmse": 0.463,
+   "biais_facteur": 2.14,
+   "couverture_p90": 0.59,
    "n_obs_30": 29,
-   "n_annonces_30": 22,
-   "pod": 0.76,
+   "n_annonces_30": 20,
+   "pod": 0.69,
    "far": 0.0,
    "mesure_max": 107.0
   }
  },
  "episodes": {
-  "nombre": 47,
-  "duree_mediane_h": 4.5,
+  "nombre": 43,
+  "duree_mediane_h": 4.4,
   "par_ouverture": {
-   "choc": 29,
-   "cme": 18
+   "cme": 20,
+   "choc": 23
   },
   "par_issue": {
-   "< 30 nT/min": 41,
+   "< 30 nT/min": 37,
    "30 à 68 nT/min": 5,
    "orange observé": 1
   },
   "liste": [
-   {
-    "debut": "2024-01-03T04:35:00Z",
-    "fin": "2024-01-03T08:30:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 30 UTC",
-    "ouvert_par": [
-     "choc"
-    ],
-    "signaux": {
-     "choc": "2024-01-03T04:35:00Z"
-    },
-    "mesure_max": 5.4,
-    "issue": "< 30 nT/min"
-   },
    {
     "debut": "2024-01-20T15:15:00Z",
     "fin": "2024-01-20T19:35:00Z",
@@ -105,42 +92,67 @@
    },
    {
     "debut": "2024-02-11T00:25:00Z",
-    "fin": "2024-02-13T20:15:00Z",
+    "fin": "2024-02-11T03:25:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 01 h 20 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-02-11T00:25:00Z",
-     "cme": "2024-02-11T03:30:00Z"
+     "choc": "2024-02-11T00:25:00Z"
     },
     "mesure_max": 23.82,
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-02-24T16:25:00Z",
+    "debut": "2024-02-11T03:30:00Z",
+    "fin": "2024-02-13T20:15:00Z",
+    "titre": "[ORANGE] Veille orange : CME attendue le 13/02 vers 05 h 17 UTC",
+    "ouvert_par": [
+     "cme"
+    ],
+    "signaux": {
+     "cme": "2024-02-11T03:30:00Z"
+    },
+    "mesure_max": 9.03,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-02-24T16:30:00Z",
     "fin": "2024-02-24T20:20:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 20 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-02-24T16:25:00Z"
+     "choc": "2024-02-24T16:30:00Z"
     },
     "mesure_max": 8.01,
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-03-03T08:30:00Z",
-    "fin": "2024-03-03T13:25:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 09 h 25 UTC",
+    "debut": "2024-03-03T09:35:00Z",
+    "fin": "2024-03-03T13:30:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 25 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-03-03T08:30:00Z"
+     "choc": "2024-03-03T09:35:00Z"
     },
     "mesure_max": 5.79,
+    "issue": "< 30 nT/min"
+   },
+   {
+    "debut": "2024-03-21T02:05:00Z",
+    "fin": "2024-03-21T05:05:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 03 h 00 UTC",
+    "ouvert_par": [
+     "choc"
+    ],
+    "signaux": {
+     "choc": "2024-03-21T02:05:00Z"
+    },
+    "mesure_max": 9.99,
     "issue": "< 30 nT/min"
    },
    {
@@ -152,14 +164,15 @@
     ],
     "signaux": {
      "cme": "2024-03-23T16:30:00Z",
-     "choc": "2024-03-24T14:10:00Z"
+     "choc": "2024-03-24T14:10:00Z",
+     "l1": "2024-03-24T15:15:00Z"
     },
     "mesure_max": 63.45,
     "issue": "30 à 68 nT/min"
    },
    {
     "debut": "2024-04-30T11:20:00Z",
-    "fin": "2024-04-30T15:15:00Z",
+    "fin": "2024-04-30T15:20:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 12 h 15 UTC",
     "ouvert_par": [
      "choc"
@@ -172,7 +185,7 @@
    },
    {
     "debut": "2024-05-02T13:15:00Z",
-    "fin": "2024-05-02T17:25:00Z",
+    "fin": "2024-05-02T17:10:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 14 h 10 UTC",
     "ouvert_par": [
      "choc"
@@ -192,42 +205,42 @@
     ],
     "signaux": {
      "cme": "2024-05-08T16:45:00Z",
-     "choc": "2024-05-10T13:40:00Z",
-     "l1": "2024-05-10T16:30:00Z",
+     "choc": "2024-05-10T16:30:00Z",
+     "l1": "2024-05-10T16:35:00Z",
      "clf": "2024-05-10T17:25:00Z"
     },
     "mesure_max": 106.95,
     "issue": "orange observé"
    },
    {
-    "debut": "2024-05-16T05:10:00Z",
-    "fin": "2024-05-16T09:10:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 53 UTC",
+    "debut": "2024-05-16T05:15:00Z",
+    "fin": "2024-05-16T08:35:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 52 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-05-16T05:10:00Z"
+     "choc": "2024-05-16T05:15:00Z"
     },
     "mesure_max": 9.7,
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-05-16T09:20:00Z",
+    "debut": "2024-05-16T09:25:00Z",
     "fin": "2024-05-16T12:55:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 06 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-05-16T09:20:00Z"
+     "choc": "2024-05-16T09:25:00Z"
     },
     "mesure_max": 11.79,
     "issue": "< 30 nT/min"
    },
    {
     "debut": "2024-05-23T21:30:00Z",
-    "fin": "2024-05-24T01:50:00Z",
+    "fin": "2024-05-24T00:35:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 22 h 25 UTC",
     "ouvert_par": [
      "choc"
@@ -278,21 +291,21 @@
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-06-10T16:30:00Z",
+    "debut": "2024-06-10T16:35:00Z",
     "fin": "2024-06-10T20:45:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 25 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-06-10T16:30:00Z"
+     "choc": "2024-06-10T16:35:00Z"
     },
     "mesure_max": 10.88,
     "issue": "< 30 nT/min"
    },
    {
     "debut": "2024-06-15T10:45:00Z",
-    "fin": "2024-06-15T14:45:00Z",
+    "fin": "2024-06-15T13:45:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 11 h 35 UTC",
     "ouvert_par": [
      "choc"
@@ -317,27 +330,27 @@
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-07-23T19:45:00Z",
-    "fin": "2024-07-24T01:05:00Z",
+    "debut": "2024-07-23T19:50:00Z",
+    "fin": "2024-07-23T23:55:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 20 h 40 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-07-23T19:45:00Z"
+     "choc": "2024-07-23T19:50:00Z"
     },
     "mesure_max": 3.98,
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-07-26T22:30:00Z",
+    "debut": "2024-07-26T22:35:00Z",
     "fin": "2024-07-27T02:40:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 23 h 10 UTC",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 23 h 06 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-07-26T22:30:00Z"
+     "choc": "2024-07-26T22:35:00Z"
     },
     "mesure_max": 2.18,
     "issue": "< 30 nT/min"
@@ -354,32 +367,6 @@
      "choc": "2024-07-29T22:55:00Z"
     },
     "mesure_max": 14.48,
-    "issue": "< 30 nT/min"
-   },
-   {
-    "debut": "2024-07-30T11:00:00Z",
-    "fin": "2024-07-30T14:00:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 11 h 43 UTC",
-    "ouvert_par": [
-     "choc"
-    ],
-    "signaux": {
-     "choc": "2024-07-30T11:00:00Z"
-    },
-    "mesure_max": 6.17,
-    "issue": "< 30 nT/min"
-   },
-   {
-    "debut": "2024-08-04T21:35:00Z",
-    "fin": "2024-08-05T01:30:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 22 h 30 UTC",
-    "ouvert_par": [
-     "choc"
-    ],
-    "signaux": {
-     "choc": "2024-08-04T21:35:00Z"
-    },
-    "mesure_max": 13.72,
     "issue": "< 30 nT/min"
    },
    {
@@ -404,33 +391,33 @@
     ],
     "signaux": {
      "choc": "2024-08-17T13:40:00Z",
-     "l1": "2024-08-17T16:40:00Z"
+     "l1": "2024-08-17T16:45:00Z"
     },
     "mesure_max": 49.64,
     "issue": "30 à 68 nT/min"
    },
    {
-    "debut": "2024-08-27T07:15:00Z",
+    "debut": "2024-08-27T07:35:00Z",
     "fin": "2024-08-27T11:10:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 10 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-08-27T07:15:00Z"
+     "choc": "2024-08-27T07:35:00Z"
     },
     "mesure_max": 3.7,
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-08-30T07:55:00Z",
-    "fin": "2024-08-30T11:50:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 50 UTC",
+    "debut": "2024-08-30T07:50:00Z",
+    "fin": "2024-08-30T11:45:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 08 h 45 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-08-30T07:55:00Z"
+     "choc": "2024-08-30T07:50:00Z"
     },
     "mesure_max": 6.94,
     "issue": "< 30 nT/min"
@@ -457,7 +444,7 @@
     ],
     "signaux": {
      "cme": "2024-09-10T12:20:00Z",
-     "choc": "2024-09-12T02:35:00Z"
+     "choc": "2024-09-12T02:50:00Z"
     },
     "mesure_max": 26.02,
     "issue": "< 30 nT/min"
@@ -471,15 +458,15 @@
     ],
     "signaux": {
      "cme": "2024-09-14T18:20:00Z",
-     "choc": "2024-09-16T23:00:00Z"
+     "choc": "2024-09-16T23:05:00Z"
     },
     "mesure_max": 21.01,
     "issue": "< 30 nT/min"
    },
    {
     "debut": "2024-09-17T07:05:00Z",
-    "fin": "2024-09-17T11:00:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 41 UTC",
+    "fin": "2024-09-17T10:05:00Z",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 40 UTC",
     "ouvert_par": [
      "choc"
     ],
@@ -531,7 +518,7 @@
    },
    {
     "debut": "2024-10-06T06:55:00Z",
-    "fin": "2024-10-06T10:50:00Z",
+    "fin": "2024-10-06T09:55:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 07 h 49 UTC",
     "ouvert_par": [
      "choc"
@@ -565,23 +552,10 @@
     "signaux": {
      "cme": "2024-10-09T13:05:00Z",
      "choc": "2024-10-10T14:55:00Z",
-     "l1": "2024-10-10T15:15:00Z"
+     "l1": "2024-10-10T15:25:00Z"
     },
     "mesure_max": 60.18,
     "issue": "30 à 68 nT/min"
-   },
-   {
-    "debut": "2024-10-11T09:50:00Z",
-    "fin": "2024-10-11T13:45:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 18 UTC",
-    "ouvert_par": [
-     "choc"
-    ],
-    "signaux": {
-     "choc": "2024-10-11T09:50:00Z"
-    },
-    "mesure_max": 21.65,
-    "issue": "< 30 nT/min"
    },
    {
     "debut": "2024-10-24T17:05:00Z",
@@ -597,22 +571,22 @@
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-10-26T15:40:00Z",
+    "debut": "2024-10-26T18:20:00Z",
     "fin": "2024-10-28T08:55:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 16 h 34 UTC",
+    "titre": "[ORANGE] Veille orange : CME attendue le 27/10 vers 15 h 51 UTC",
     "ouvert_par": [
-     "choc"
+     "cme"
     ],
     "signaux": {
-     "choc": "2024-10-26T15:40:00Z",
-     "cme": "2024-10-26T18:20:00Z"
+     "cme": "2024-10-26T18:20:00Z",
+     "choc": "2024-10-28T04:00:00Z"
     },
     "mesure_max": 16.34,
     "issue": "< 30 nT/min"
    },
    {
     "debut": "2024-11-03T16:40:00Z",
-    "fin": "2024-11-03T21:10:00Z",
+    "fin": "2024-11-03T21:05:00Z",
     "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 17 h 26 UTC",
     "ouvert_par": [
      "choc"
@@ -637,44 +611,18 @@
     "issue": "< 30 nT/min"
    },
    {
-    "debut": "2024-12-16T03:10:00Z",
-    "fin": "2024-12-16T07:00:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 03 h 55 UTC",
-    "ouvert_par": [
-     "choc"
-    ],
-    "signaux": {
-     "choc": "2024-12-16T03:10:00Z"
-    },
-    "mesure_max": 3.48,
-    "issue": "< 30 nT/min"
-   },
-   {
-    "debut": "2024-12-17T04:20:00Z",
+    "debut": "2024-12-17T04:25:00Z",
     "fin": "2024-12-17T08:50:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 12 UTC",
+    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 05 h 15 UTC",
     "ouvert_par": [
      "choc"
     ],
     "signaux": {
-     "choc": "2024-12-17T04:20:00Z",
-     "l1": "2024-12-17T05:15:00Z"
+     "choc": "2024-12-17T04:25:00Z",
+     "l1": "2024-12-17T05:20:00Z"
     },
     "mesure_max": 35.8,
     "issue": "30 à 68 nT/min"
-   },
-   {
-    "debut": "2024-12-17T10:35:00Z",
-    "fin": "2024-12-17T14:05:00Z",
-    "titre": "[CHOC] Choc détecté à L1, arrivée sur Terre vers 10 h 40 UTC",
-    "ouvert_par": [
-     "choc"
-    ],
-    "signaux": {
-     "choc": "2024-12-17T10:35:00Z"
-    },
-    "mesure_max": 20.6,
-    "issue": "< 30 nT/min"
    },
    {
     "debut": "2024-12-29T15:25:00Z",
@@ -685,7 +633,7 @@
     ],
     "signaux": {
      "cme": "2024-12-29T15:25:00Z",
-     "choc": "2024-12-31T15:30:00Z"
+     "choc": "2024-12-31T16:05:00Z"
     },
     "mesure_max": 12.16,
     "issue": "< 30 nT/min"
@@ -702,8 +650,8 @@
     "cme"
    ],
    "preavis_cme_min": 2902,
-   "preavis_choc_min": 207,
-   "preavis_l1_min": 37
+   "preavis_choc_min": 37,
+   "preavis_l1_min": 32
   },
   {
    "debut": "2024-05-10T22:36:00Z",
@@ -714,8 +662,8 @@
     "cme"
    ],
    "preavis_cme_min": 3231,
-   "preavis_choc_min": 536,
-   "preavis_l1_min": 366,
+   "preavis_choc_min": 366,
+   "preavis_l1_min": 361,
    "preavis_clf_min": 311
   },
   {
@@ -727,8 +675,8 @@
     "cme"
    ],
    "preavis_cme_min": 3815,
-   "preavis_choc_min": 1120,
-   "preavis_l1_min": 950,
+   "preavis_choc_min": 950,
+   "preavis_l1_min": 945,
    "preavis_clf_min": 895
   }
  ],
@@ -753,7 +701,8 @@
     "cme"
    ],
    "preavis_cme_min": 2132,
-   "preavis_choc_min": 832
+   "preavis_choc_min": 832,
+   "preavis_l1_min": 767
   },
   {
    "debut": "2024-05-10T17:07:00Z",
@@ -764,8 +713,8 @@
     "cme"
    ],
    "preavis_cme_min": 2902,
-   "preavis_choc_min": 207,
-   "preavis_l1_min": 37
+   "preavis_choc_min": 37,
+   "preavis_l1_min": 32
   },
   {
    "debut": "2024-05-11T06:13:00Z",
@@ -776,8 +725,8 @@
     "cme"
    ],
    "preavis_cme_min": 3688,
-   "preavis_choc_min": 993,
-   "preavis_l1_min": 823,
+   "preavis_choc_min": 823,
+   "preavis_l1_min": 818,
    "preavis_clf_min": 768
   },
   {
@@ -789,8 +738,8 @@
     "cme"
    ],
    "preavis_cme_min": 4418,
-   "preavis_choc_min": 1723,
-   "preavis_l1_min": 1553,
+   "preavis_choc_min": 1553,
+   "preavis_l1_min": 1548,
    "preavis_clf_min": 1498
   },
   {
@@ -822,7 +771,7 @@
     "choc"
    ],
    "preavis_choc_min": 227,
-   "preavis_l1_min": 47
+   "preavis_l1_min": 42
   },
   {
    "debut": "2024-09-04T10:35:00Z",
@@ -843,8 +792,7 @@
     "cme"
    ],
    "preavis_cme_min": 1571,
-   "preavis_choc_min": 21,
-   "preavis_l1_min": 1
+   "preavis_choc_min": 21
   },
   {
    "debut": "2024-10-10T22:35:00Z",
@@ -856,18 +804,17 @@
    ],
    "preavis_cme_min": 2010,
    "preavis_choc_min": 460,
-   "preavis_l1_min": 440
+   "preavis_l1_min": 430
   },
   {
    "debut": "2024-12-17T05:17:00Z",
    "max": 35.8,
    "annonce": true,
-   "preavis_min": 57,
+   "preavis_min": 52,
    "ouvert_par": [
     "choc"
    ],
-   "preavis_choc_min": 57,
-   "preavis_l1_min": 2
+   "preavis_choc_min": 52
   },
   {
    "debut": "2024-12-17T15:12:00Z",
@@ -880,10 +827,10 @@
   "avec_donnees_L1": 27,
   "detectes": 5,
   "pod": 0.19,
-  "detections": 53,
-  "fausses_detections": 27,
-  "far": 0.51,
-  "fausses_par_mois": 2.2,
+  "detections": 43,
+  "fausses_detections": 21,
+  "far": 0.49,
+  "fausses_par_mois": 1.8,
   "manques": [
    "2024-01-02T00:20:00Z",
    "2024-01-22T16:01:00Z",
@@ -891,7 +838,6 @@
    "2024-02-01T05:18:00Z",
    "2024-02-10T08:24:00Z",
    "2024-03-18T19:30:00Z",
-   "2024-03-21T01:50:00Z",
    "2024-03-30T12:20:00Z",
    "2024-04-04T03:07:00Z",
    "2024-04-15T17:27:00Z",
@@ -904,38 +850,33 @@
    "2024-07-05T03:11:00Z",
    "2024-07-15T21:46:00Z",
    "2024-07-31T13:46:00Z",
+   "2024-08-04T21:25:00Z",
    "2024-08-12T07:44:00Z",
    "2024-09-16T04:54:00Z",
    "2024-09-28T07:00:00Z"
   ],
   "fausses": [
    "2024-02-11T00:20:00Z",
+   "2024-03-03T09:25:00Z",
    "2024-05-02T13:10:00Z",
-   "2024-05-10T13:35:00Z",
    "2024-05-10T18:55:00Z",
    "2024-05-10T21:40:00Z",
    "2024-05-10T23:50:00Z",
    "2024-05-11T02:50:00Z",
-   "2024-05-11T18:00:00Z",
+   "2024-05-11T18:05:00Z",
    "2024-05-11T23:00:00Z",
    "2024-05-16T09:15:00Z",
    "2024-05-23T21:25:00Z",
    "2024-05-27T00:30:00Z",
-   "2024-07-23T21:05:00Z",
    "2024-07-26T22:25:00Z",
    "2024-07-29T22:45:00Z",
-   "2024-07-30T10:55:00Z",
-   "2024-08-30T07:50:00Z",
+   "2024-08-30T07:45:00Z",
    "2024-09-12T08:20:00Z",
    "2024-09-12T11:15:00Z",
    "2024-09-17T07:00:00Z",
-   "2024-09-23T23:30:00Z",
    "2024-10-10T22:45:00Z",
    "2024-10-11T05:35:00Z",
-   "2024-10-11T09:45:00Z",
-   "2024-10-28T04:55:00Z",
-   "2024-12-16T03:00:00Z",
-   "2024-12-17T10:05:00Z"
+   "2024-10-28T04:55:00Z"
   ]
  },
  "cme": {
@@ -2085,16 +2026,6 @@
     "kp_observe": 1.667
    },
    {
-    "cme": "2024-04-18T06:48:00-CME-001",
-    "arrivee_prevue": "2024-04-21T14:00Z",
-    "kp_prevu": [
-     2,
-     4
-    ],
-    "effleurement": true,
-    "kp_observe": 4.0
-   },
-   {
     "cme": "2024-04-18T02:48:00-CME-001",
     "arrivee_prevue": "2024-04-21T14:00Z",
     "kp_prevu": [
@@ -2106,6 +2037,16 @@
    },
    {
     "cme": "2024-04-17T21:12:00-CME-001",
+    "arrivee_prevue": "2024-04-21T14:00Z",
+    "kp_prevu": [
+     2,
+     4
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-04-18T06:48:00-CME-001",
     "arrivee_prevue": "2024-04-21T14:00Z",
     "kp_prevu": [
      2,
@@ -2145,16 +2086,6 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-05-03T21:17:00-CME-001",
-    "arrivee_prevue": "2024-05-06T19:00Z",
-    "kp_prevu": [
-     3,
-     5
-    ],
-    "effleurement": true,
-    "kp_observe": 4.0
-   },
-   {
     "cme": "2024-05-03T21:28:00-CME-001",
     "arrivee_prevue": "2024-05-06T19:00Z",
     "kp_prevu": [
@@ -2165,7 +2096,17 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-05-05T08:09:00-CME-001",
+    "cme": "2024-05-03T21:17:00-CME-001",
+    "arrivee_prevue": "2024-05-06T19:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 4.0
+   },
+   {
+    "cme": "2024-05-05T03:38:00-CME-001",
     "arrivee_prevue": "2024-05-07T23:00Z",
     "kp_prevu": [
      3,
@@ -2175,7 +2116,7 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-05-05T03:38:00-CME-001",
+    "cme": "2024-05-05T08:09:00-CME-001",
     "arrivee_prevue": "2024-05-07T23:00Z",
     "kp_prevu": [
      3,
@@ -2225,16 +2166,6 @@
     "kp_observe": 6.0
    },
    {
-    "cme": "2024-05-10T21:28:00-CME-001",
-    "arrivee_prevue": "2024-05-13T12:23Z",
-    "kp_prevu": [
-     3,
-     5
-    ],
-    "effleurement": false,
-    "kp_observe": 6.0
-   },
-   {
     "cme": "2024-05-10T23:13:00-CME-001",
     "arrivee_prevue": "2024-05-13T07:34Z",
     "kp_prevu": [
@@ -2243,6 +2174,16 @@
     ],
     "effleurement": false,
     "kp_observe": 6.333
+   },
+   {
+    "cme": "2024-05-10T21:28:00-CME-001",
+    "arrivee_prevue": "2024-05-13T12:23Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": false,
+    "kp_observe": 6.0
    },
    {
     "cme": "2024-05-11T03:12:00-CME-002",
@@ -2455,16 +2396,6 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-08-05T16:00:00-CME-001",
-    "arrivee_prevue": "2024-08-08T16:00Z",
-    "kp_prevu": [
-     3,
-     5
-    ],
-    "effleurement": true,
-    "kp_observe": 2.0
-   },
-   {
     "cme": "2024-08-05T05:48:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
@@ -2495,7 +2426,17 @@
     "kp_observe": 2.0
    },
    {
-    "cme": "2024-08-09T12:53:00-CME-001",
+    "cme": "2024-08-05T16:00:00-CME-001",
+    "arrivee_prevue": "2024-08-08T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-08-09T08:24:00-CME-001",
     "arrivee_prevue": "2024-08-12T16:00Z",
     "kp_prevu": [
      3,
@@ -2505,7 +2446,7 @@
     "kp_observe": 8.0
    },
    {
-    "cme": "2024-08-09T08:24:00-CME-001",
+    "cme": "2024-08-09T12:53:00-CME-001",
     "arrivee_prevue": "2024-08-12T16:00Z",
     "kp_prevu": [
      3,
@@ -2843,35 +2784,35 @@
    {
     "debut": "2024-06-07T14:54:00Z",
     "max": 30.4,
-    "p90_L1_heure_avant": 26.2,
+    "p90_L1_heure_avant": 25.8,
     "donnees_L1": 13,
     "kp": 6.333
    },
    {
     "debut": "2024-08-11T15:14:00Z",
     "max": 31.2,
-    "p90_L1_heure_avant": 27.3,
+    "p90_L1_heure_avant": 27.4,
     "donnees_L1": 13,
     "kp": 4.333
    },
    {
     "debut": "2024-08-12T03:02:00Z",
     "max": 30.7,
-    "p90_L1_heure_avant": 48.8,
+    "p90_L1_heure_avant": 42.4,
     "donnees_L1": 13,
     "kp": 7.0
    },
    {
     "debut": "2024-08-12T08:47:00Z",
     "max": 47.4,
-    "p90_L1_heure_avant": 37.4,
+    "p90_L1_heure_avant": 34.9,
     "donnees_L1": 13,
     "kp": 7.0
    },
    {
     "debut": "2024-12-17T15:12:00Z",
     "max": 32.6,
-    "p90_L1_heure_avant": 28.3,
+    "p90_L1_heure_avant": 30.6,
     "donnees_L1": 13,
     "kp": 4.0
    }
@@ -2879,44 +2820,44 @@
   "calibrage": [
    {
     "prevu_med": "0-3",
-    "n": 3584,
+    "n": 3752,
     "mesure_sur_prevu": 0.52,
     "couverture_p90": 0.99,
     "part_obs_30": 0.0
    },
    {
     "prevu_med": "3-5",
-    "n": 3915,
+    "n": 3785,
     "mesure_sur_prevu": 0.47,
     "couverture_p90": 0.99,
     "part_obs_30": 0.0
    },
    {
     "prevu_med": "5-10",
-    "n": 605,
-    "mesure_sur_prevu": 0.66,
-    "couverture_p90": 0.98,
-    "part_obs_30": 0.005
+    "n": 583,
+    "mesure_sur_prevu": 0.71,
+    "couverture_p90": 0.97,
+    "part_obs_30": 0.007
    },
    {
     "prevu_med": "10-20",
-    "n": 79,
-    "mesure_sur_prevu": 1.13,
+    "n": 68,
+    "mesure_sur_prevu": 1.23,
     "couverture_p90": 0.91,
-    "part_obs_30": 0.101
+    "part_obs_30": 0.147
    },
    {
     "prevu_med": "20-+",
-    "n": 32,
-    "mesure_sur_prevu": 0.81,
-    "couverture_p90": 0.97,
-    "part_obs_30": 0.531
+    "n": 27,
+    "mesure_sur_prevu": 0.9,
+    "couverture_p90": 0.96,
+    "part_obs_30": 0.519
    }
   ],
   "chocs_detectes_reponse": [
    8.0,
+   10.0,
    10.2,
-   13.7,
    29.4,
    35.8
   ],
@@ -2938,32 +2879,26 @@
    7.6,
    9.4,
    9.8,
-   10.0,
    10.7,
    10.7,
+   13.7,
    14.2,
    47.4
   ],
   "fausses_detections_reponse": [
    0.7,
-   1.3,
    2.2,
    3.3,
-   3.5,
    4.2,
-   5.7,
-   6.2,
+   5.8,
    6.9,
    7.7,
    7.9,
-   10.4,
    11.8,
    14.3,
    14.5,
    17.7,
    19.1,
-   21.5,
-   21.6,
    23.8,
    23.8,
    26.0,
@@ -2983,6 +2918,11 @@
     "debut": "2024-01-29T08:45:00Z",
     "kp_observe": 2.333,
     "mesure_max": 3.8
+   },
+   {
+    "debut": "2024-02-11T03:30:00Z",
+    "kp_observe": 3.667,
+    "mesure_max": 9.03
    },
    {
     "debut": "2024-03-23T16:30:00Z",
@@ -3060,6 +3000,11 @@
     "mesure_max": 1.81
    },
    {
+    "debut": "2024-10-26T18:20:00Z",
+    "kp_observe": 4.667,
+    "mesure_max": 16.34
+   },
+   {
     "debut": "2024-12-29T15:25:00Z",
     "kp_observe": 4.0,
     "mesure_max": 12.16
@@ -3068,15 +3013,15 @@
   "fausses_cme_effleurement": 65,
   "preavis_L1_30": [
    27,
-   832,
-   37,
-   823,
-   1553,
-   47,
+   767,
+   32,
+   818,
+   1548,
+   42,
    40,
-   1,
-   440,
-   2
+   21,
+   430,
+   52
   ]
  }
 }
