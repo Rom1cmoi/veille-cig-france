@@ -1114,7 +1114,7 @@
 "2026-10-12T07:00:00Z": {
 "prevu_med": 1.4,
 "prevu_p90": 3.8,
-"observe": null,
+"observe": 2.0,
 "emise_min": 0,
 "prevu_med_brut": 2.9,
 "calibre_apres_coup": true
