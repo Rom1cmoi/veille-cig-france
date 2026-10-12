@@ -1118,5 +1118,12 @@
 "emise_min": 0,
 "prevu_med_brut": 2.9,
 "calibre_apres_coup": true
+},
+"2026-10-12T08:00:00Z": {
+"prevu_med": 1.1,
+"prevu_p90": 2.8,
+"prevu_med_brut": 2.1,
+"observe": null,
+"emise_min": 2
 }
 }
