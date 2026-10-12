@@ -1,0 +1,33 @@
+# Télécharge une fois les magnétomètres de la tempête des 10-11 octobre 2026 (voir rejeu_oct2026/).
+name: rejeu-oct2026-donnees
+
+on:
+  push:
+    paths:
+      - "rejeu_oct2026/telecharger.py"
+      - ".github/workflows/rejeu_oct2026.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  telechargement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Téléchargement
+        run: python rejeu_oct2026/telecharger.py
+      - name: Enregistrement
+        run: |
+          git config user.name "veille-cig-robot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rejeu_oct2026/donnees
+          git commit -m "Rejeu octobre 2026 : magnetometres telecharges" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push origin HEAD:main && break; sleep 5; done
