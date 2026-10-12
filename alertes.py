@@ -154,6 +154,14 @@ def traiter(etat, maintenant, fichier, erreurs, dossier_cap=None):
     try:
         if sig:
             nouveaux = [x for x in sig if x["cle"] not in ep.get("deja", [])]
+            # Pendant un épisode, un nouveau choc qui n'aggrave pas le niveau n'envoie rien : il est noté et repris
+            # dans le bilan de fin. (Le 11/10/2026, 19 messages « choc » en une journée, presque tous du bruit.)
+            muets = [x for x in nouveaux if ep and x["cle"].startswith("choc ")
+                     and GRAVITE[x["niveau"]] <= GRAVITE[ep["niveau"]]]
+            if muets:
+                ep["chocs_muets"] = ep.get("chocs_muets", 0) + len(muets)
+                ep["deja"] += [x["cle"] for x in muets]
+                nouveaux = [x for x in nouveaux if x not in muets]
             pire = max(nouveaux or sig, key=lambda x: GRAVITE[x["niveau"]])
             if not ep:                                                       # ouverture d'un épisode
                 ep = {"debut": iso(maintenant), "niveau": pire["niveau"], "issue": None, "lien": lien, "deja": [],
@@ -191,7 +199,9 @@ def traiter(etat, maintenant, fichier, erreurs, dossier_cap=None):
             if not sig and maintenant - lire_date(ep["dernier_signal"]) >= FIN_EPISODE:
                 bilan = (f"Fin de l'épisode : aucun signal depuis 3 h.\n\nDébut : {ep['debut']} · niveau maximal : "
                          f"{ep['niveau']} · dB/dt prévu maximal (P90, L1) : {ep['max_prevu']} nT/min · dB/dt mesuré "
-                         f"maximal à Chambon : {ep['max_mesure']} nT/min.")
+                         f"maximal à Chambon : {ep['max_mesure']} nT/min."
+                         + (f" Autres chocs détectés pendant l'épisode, sans aggravation : {ep['chocs_muets']}."
+                            if ep.get("chocs_muets") else ""))
                 print("FIN D'ÉPISODE :", bilan)
                 if ep["issue"]:
                     github("POST", f"/issues/{ep['issue']}/comments", {"body": bilan})

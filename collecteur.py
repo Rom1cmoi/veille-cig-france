@@ -55,6 +55,9 @@ Z90 = 1.2816                           # quantile 90 % de la loi normale
 SEUIL_CHOC = 0.6                       # saut de sqrt(P) sur 10 min (nPa^0.5) qui signale un choc
 SEUIL_CHOC_V = 20.0                    # ... confirmé par un saut de vitesse (km/s), critère usuel des catalogues
                                        # de chocs : une pointe de densité isolée (bruit) ne fait pas sauter V
+# Domaine d'ajustement du modèle L1 (231 heures d'orage, calc/t3_heures.csv) : on n'extrapole pas au-delà.
+# Sans cette borne, une pression de 200 nPa (bruit de mesure le 10/10/2026) donnait 1 200 nT/min au P90.
+MAX_RACINE_P, MAX_SAUT, MAX_NEWELL = 7.1, 3.8, 1.3e5
 
 
 # ---------------------------------------------------------------- petites fonctions utilitaires
@@ -113,6 +116,19 @@ def newell(V, by, bz):
     return V ** (4 / 3) * bt ** (2 / 3) * abs(math.sin(theta / 2)) ** (8 / 3)
 
 
+def mediane_glissante(serie, demi=2):
+    """Médiane sur 5 minutes centrées (2 avant, 2 après ; moins aux bords).
+
+    Le plasma de SOLAR-1 donne des minutes isolées fausses, où vitesse et densité sautent ensemble (par exemple
+    n = 560 cm⁻³ entre deux minutes à 100, ou +27 km/s et ×1,8 en densité toutes les 3 minutes le 11/10/2026).
+    Sans filtre, chacune passait pour un choc. La médiane efface une minute isolée mais garde un vrai saut, qui
+    dure : après un choc, le vent reste rapide et dense.
+    """
+    t = sorted(serie)
+    return {t[i]: sorted(serie[x] for x in t[max(0, i - demi):i + demi + 1])[len(t[max(0, i - demi):i + demi + 1]) // 2]
+            for i in range(len(t))}
+
+
 def analyse_l1(mag, vent):
     m = minutes_actives(mag, ["by_gsm", "bz_gsm"])
     w = minutes_actives(vent, ["proton_speed", "proton_density"])
@@ -120,8 +136,8 @@ def analyse_l1(mag, vent):
     if not communes:
         raise ValueError("pas de minute commune champ magnétique / plasma")
     t_fin = communes[-1]
-    V = {t: w[t]["proton_speed"] for t in communes}
-    n = {t: w[t]["proton_density"] for t in communes}
+    V = mediane_glissante({t: w[t]["proton_speed"] for t in communes})
+    n = mediane_glissante({t: w[t]["proton_density"] for t in communes})
     by = {t: m[t]["by_gsm"] for t in communes}
     bz = {t: m[t]["bz_gsm"] for t in communes}
     P = {t: 2e-6 * n[t] * V[t] ** 2 for t in communes}                    # pression dynamique (nPa)
@@ -143,8 +159,9 @@ def analyse_l1(mag, vent):
             sauts.append((v - sqP5[avant[-1]], t, dV))
     saut, t_saut, saut_V = max(sauts) if sauts else (0.0, None, 0.0)
     phi_moy = max(100.0, moyenne(fen2h))
-    mu = (COEF_L1[0] + COEF_L1[1] * math.log10(phi_moy) + COEF_L1[2] * max(0.0, saut)
-          + COEF_L1[3] * moyenne(fen1h))
+    hors_domaine = phi_moy > MAX_NEWELL or saut > MAX_SAUT or moyenne(fen1h) > MAX_RACINE_P
+    mu = (COEF_L1[0] + COEF_L1[1] * math.log10(min(phi_moy, MAX_NEWELL)) + COEF_L1[2] * min(max(0.0, saut), MAX_SAUT)
+          + COEF_L1[3] * min(moyenne(fen1h), MAX_RACINE_P))
 
     # Délai L1 -> Terre (1,4 million de km jusqu'au choc d'étrave), vitesse moyenne des 30 dernières minutes
     V30 = moyenne([v for t, v in V.items() if t > t_fin - timedelta(minutes=30)])
@@ -164,6 +181,7 @@ def analyse_l1(mag, vent):
         "newell_2h": arrondi(phi_moy, 0), "delai_min": round(delai),
         "arrivee": iso(t_fin + timedelta(minutes=delai)), "choc": choc,
         "dbdt_med": arrondi(10 ** mu, 1), "dbdt_p90": arrondi(10 ** (mu + Z90 * SIGMA_L1), 1),
+        "hors_domaine": hors_domaine,                                       # entrées bornées au domaine d'ajustement
         "serie": serie[::5],                                                # une valeur toutes les 5 min
     }
 

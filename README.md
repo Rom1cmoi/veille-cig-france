@@ -145,6 +145,8 @@ Le collecteur prévient tout seul quand il se passe quelque chose (fichier `aler
 
 Sur ton ordinateur (`en_continu.py`), rien n'est envoyé : les alertes sont seulement affichées dans le terminal.
 
+**Contre le bruit des satellites.** Le plasma de SOLAR-1 donne des minutes isolées fausses (densité ×2 à ×6, vitesse qui saute en même temps). Le collecteur passe donc vitesse et densité dans une médiane glissante de 5 minutes, qui efface une minute isolée mais garde un vrai choc ; et il borne les entrées du modèle L1 au domaine où il a été ajusté (√P ≤ 7,1 nPa^½, saut ≤ 3,8, Newell ≤ 1,3·10⁵). Pendant un épisode, un nouveau choc qui n'aggrave pas le niveau n'envoie plus de message : il est compté dans le bilan de fin. Rejouée avec ces règles, la tempête du 10-11 octobre 2026 donne 2 épisodes et 4 messages au lieu de 5 épisodes et 38 messages.
+
 ## Journal et validation sur la durée
 
 Chaque collecte laisse une trace dans le dossier `journal/` :
