@@ -197,7 +197,7 @@ $('fin').onclick=()=>{
   if(vides||susVides){$('manque').hidden=false;$('manque').textContent=`Il manque ${vides?vides+' tâche'+(vides>1?'s':''):''}${vides&&susVides?' et ':''}${susVides?susVides+' affirmation'+(susVides>1?'s':''):''}.`;return;}
   $('manque').hidden=true;
   const r={v:1,p,a:val('appareil')||'',s:Math.round((Date.now()-debut)/1000),
-    t:Object.fromEntries(visibles.map(t=>[t.id,[val(t.id)==='x'?-1:(+val(t.id)===t.bonne?1:0),val(t.id+'-ef')||'']])),
+    t:Object.fromEntries(visibles.map(t=>[t.id,[val(t.id)==='x'?-1:(+val(t.id)===t.bonne?1:0),val(t.id+'-ef')||'',val(t.id)]])),   // [juste ?, facilité, réponse choisie]
     sus:SUS.map((_,i)=>+val('sus'+i)),g:$('q-gene').value.slice(0,400),c:$('q-change').value.slice(0,400)};
   const code='VCIG1.'+btoa(unescape(encodeURIComponent(JSON.stringify(r))));
   $('code').textContent=code;$('resultat').hidden=false;$('resultat').scrollIntoView({behavior:'smooth',block:'start'});
@@ -220,6 +220,10 @@ $('agreger').onclick=()=>{
   h+=`<tr><td>Score SUS moyen (sur 100)</td>${groupes.map(([,g])=>`<td class="n">${moy(g.map(r=>susScore(r.sus))).toFixed(0)}</td>`).join('')}</tr>`;
   h+=`<tr><td>Durée médiane (min)</td>${groupes.map(([,g])=>{const d=g.map(r=>r.s).sort((a,b)=>a-b);return `<td class="n">${(d[Math.floor(d.length/2)]/60).toFixed(1)}</td>`;}).join('')}</tr>`;
   h+='</tbody></table></div>';
+  // réponses fausses les plus choisies (codes envoyés après le 13/10/2026, qui gardent la réponse choisie)
+  const fautes=TACHES.map((t,k)=>{const c={};R.forEach(r=>{const x=r.t[t.id];if(x&&x[0]===0&&x[2]!==undefined)c[x[2]]=(c[x[2]]||0)+1;});
+    const l=Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([i,n])=>`« ${esc(t.o[+i])} » (${n})`);return l.length?`<li>T${k+1} : ${l.join(', ')}</li>`:'';}).join('');
+  if(fautes) h+=`<p><b>Réponses fausses choisies</b></p><ul>${fautes}</ul>`;
   const com=R.filter(r=>r.g||r.c).map(r=>`<li><b>${PROF[r.p]}</b> · ${r.g?'Gêne : '+esc(r.g):''}${r.g&&r.c?' · ':''}${r.c?'À changer : '+esc(r.c):''}</li>`).join('');
   $('bilan').innerHTML=h+(com?`<p><b>Commentaires</b></p><ul>${com}</ul>`:'')+`<p class="only">SUS : 68 = moyenne des sites et logiciels évalués avec ce questionnaire ; au-dessus de 80, très bon.</p>`;
 };
