@@ -1,0 +1,227 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"></head><body>
+<title>Test Veille CIG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mise en page : une colonne de lecture, une carte par tâche, comme une fiche de test qu'on remplit */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#1b2328; --muted:#5b6870; --line:#d8dee2;
+  --accent:#1f6f8b; --accent-ink:#ffffff; --ok:#1e8a3a; --warn:#b26a00;
+  --g:#1aa33c; --y:#f2b01e; --o:#ec835a; --r:#d03b3b;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12171a; --surface:#1a2125; --ink:#e7ecef; --muted:#9aa7ae; --line:#2e383e;
+  --accent:#5fb3d0; --accent-ink:#0d1316; --ok:#5ccf7a; --warn:#e3a94a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171a; --surface:#1a2125; --ink:#e7ecef; --muted:#9aa7ae; --line:#2e383e;
+  --accent:#5fb3d0; --accent-ink:#0d1316; --ok:#5ccf7a; --warn:#e3a94a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);padding-inline:16px;padding-block:24px 48px;margin:0}
+.wrap{max-width:720px;margin:0 auto;display:grid;gap:16px}
+header{display:grid;gap:6px}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:26px;line-height:1.2;margin:0;text-wrap:balance;font-weight:600}
+h2{font-size:17px;margin:0;font-weight:600;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--muted);max-width:62ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:12px;min-width:0}
+.card>*{min-width:0}
+.k{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.steps{margin:0;padding-left:20px;display:grid;gap:4px}
+.steps b{font-weight:600}
+.site{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:10px 14px;border-radius:8px;width:max-content;max-width:100%}
+.site:focus-visible,button:focus-visible,label:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.quote{border-left:3px solid var(--accent);padding:6px 12px;background:color-mix(in srgb,var(--accent) 7%,transparent);border-radius:0 6px 6px 0}
+.opts{display:grid;gap:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:9px 11px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.opt input{margin-top:3px;accent-color:var(--accent)}
+.effort{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.chip{border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;color:var(--ink)}
+.chip:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.only{font:500 11px/1.4 var(--mono);color:var(--muted)}
+.sus{display:grid;gap:10px}
+.susrow{display:grid;gap:6px;padding-block:8px;border-top:1px solid var(--line)}
+.susrow:first-child{border-top:0}
+.scale{display:grid;grid-template-columns:auto repeat(5,1fr) auto;gap:4px;align-items:center;font-size:12px;color:var(--muted)}
+.scale label{display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;padding:6px 0;cursor:pointer;font:500 13px var(--mono);color:var(--ink)}
+.scale label:has(input:checked){background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+textarea{width:100%;min-height:72px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+button{font:600 15px var(--sans);border:0;border-radius:8px;padding:11px 16px;cursor:pointer;background:var(--accent);color:var(--accent-ink)}
+button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.code{font:13px/1.5 var(--mono);word-break:break-all;background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:10px;user-select:all}
+.warn{color:var(--warn);font-size:14px}
+.prog{font:500 12px var(--mono);color:var(--muted)}
+details.admin{display:block;overflow:hidden}
+details.admin>*+*{margin-top:12px}
+details.admin summary{cursor:pointer;color:var(--muted);font-size:13px}
+.wrap>*{min-width:0}
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;white-space:nowrap}
+td.n{font-family:var(--mono);text-align:right}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:baseline}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">PMI IPSA × ELIOS-SPACE · test de prise en main</span>
+    <h1>Test de la page Veille CIG France</h1>
+    <p class="lead">Veille CIG France estime l'effet des tempêtes solaires sur le réseau électrique français. On teste la page, pas vous : si vous ne trouvez pas une réponse, c'est la page qui est en défaut, et c'est exactement ce qu'on veut savoir. Comptez 8 à 10 minutes, c'est anonyme.</p>
+  </header>
+
+  <section class="card" aria-labelledby="h-depart">
+    <span class="k">Avant de commencer</span>
+    <h2 id="h-depart">Ouvrez le site dans un autre onglet</h2>
+    <a class="site" href="https://rom1cmoi.github.io/veille-cig-france/" target="_blank" rel="noopener">Ouvrir Veille CIG France ↗</a>
+    <p class="only">Si le lien ne s'ouvre pas : rom1cmoi.github.io/veille-cig-france</p>
+    <div class="opts" role="radiogroup" aria-label="Votre profil">
+      <p><b>Vous êtes plutôt…</b></p>
+      <label class="opt"><input type="radio" name="profil" id="p-pub" value="pub"><span>Non scientifique (aucune formation en physique ou en ingénierie)</span></label>
+      <label class="opt"><input type="radio" name="profil" id="p-sci" value="sci"><span>Étudiant ou diplômé scientifique / ingénieur</span></label>
+      <label class="opt"><input type="radio" name="profil" id="p-ene" value="ene"><span>Professionnel de l'énergie ou de la météorologie</span></label>
+    </div>
+    <div class="effort" role="radiogroup" aria-label="Appareil">
+      <span>Vous faites le test sur :</span>
+      <label class="chip"><input type="radio" name="appareil" id="a-tel" value="tel">téléphone</label>
+      <label class="chip"><input type="radio" name="appareil" id="a-ord" value="ord">ordinateur</label>
+      <label class="chip"><input type="radio" name="appareil" id="a-tab" value="tab">tablette</label>
+    </div>
+  </section>
+
+  <div id="taches"></div>
+
+  <section class="card" aria-labelledby="h-sus">
+    <span class="k">Votre avis sur la page</span>
+    <h2 id="h-sus">Dix affirmations, de 1 (pas du tout d'accord) à 5 (tout à fait d'accord)</h2>
+    <p class="only">Questionnaire SUS (System Usability Scale, Brooke 1996), adaptation française.</p>
+    <div class="sus" id="sus"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-libre">
+    <span class="k">Pour finir</span>
+    <h2 id="h-libre">Deux questions libres (facultatives)</h2>
+    <label for="q-gene">Qu'est-ce qui vous a gêné ou surpris ?</label>
+    <textarea id="q-gene"></textarea>
+    <label for="q-change">Si vous ne deviez changer qu'une chose, laquelle ?</label>
+    <textarea id="q-change"></textarea>
+    <div class="row"><button type="button" id="fin">Terminer le test</button><span class="warn" id="manque" hidden></span></div>
+  </section>
+
+  <section class="card" id="resultat" hidden aria-live="polite">
+    <span class="k">Merci !</span>
+    <h2>Envoyez ce code à Romain</h2>
+    <p>Il contient vos réponses, sans aucune information personnelle. Copiez-le et collez-le dans un message (SMS, mail, messagerie).</p>
+    <div class="code" id="code"></div>
+    <div class="row"><button type="button" id="copier">Copier le code</button><span class="prog" id="copie-ok"></span></div>
+  </section>
+
+  <details class="admin card">
+    <summary>Espace Romain : rassembler les résultats</summary>
+    <p class="only">Collez ici les codes reçus, un par ligne. Rien n'est envoyé nulle part : le calcul se fait dans cette page.</p>
+    <textarea id="codes" aria-label="Codes reçus"></textarea>
+    <div class="row"><button type="button" class="ghost" id="agreger">Calculer</button></div>
+    <div id="bilan"></div>
+  </details>
+</div>
+
+<script>
+// ------------------------------------------------------------------ les tâches
+// « bonne » : réponse attendue, vérifiée sur la page en ligne le 12/10/2026 (rejeux et mode « depuis l'espace » : déterministes)
+const TACHES=[
+ {id:'t1',pour:'tous',etapes:['En haut, à « Je suis », choisissez <b>Grand public</b>.','Dans « Rejouer », cliquez <b>Mai 2024</b>.'],
+  q:'Quel niveau de vigilance la page donne-t-elle pour cette tempête ?',
+  o:['Vert','Jaune','Orange','Rouge'],bonne:2},
+ {id:'t2',pour:'tous',etapes:['Restez sur le même écran (Grand public, Mai 2024).'],
+  q:'D\'après la page, que doivent faire les habitants ?',
+  o:['Rien de particulier : ce sont les gestionnaires du réseau qui agissent','Débrancher leurs appareils électriques','Éviter de sortir de chez eux','Se préparer à une coupure de courant de plusieurs jours'],bonne:0},
+ {id:'t3',pour:'tous',etapes:['Toujours le même écran.'],
+  q:'Quelles régions sont les plus concernées ?',
+  o:['Bretagne et Normandie','Île-de-France','Provence et Occitanie','Toute la France, de la même façon'],bonne:0},
+ {id:'t4',pour:'tous',etapes:['Pas besoin du site pour celle-ci.'],
+  citation:'Vigilance verte · À surveiller : jaune dans le cas le plus défavorable.',
+  q:'Que veut dire ce message ?',
+  o:['Le plus probable est le vert, mais le jaune reste possible','C\'est vert maintenant et ce sera jaune plus tard, c\'est sûr','Une partie de la France est en vert, l\'autre en jaune','La page se contredit'],bonne:0},
+ {id:'t5',pour:'tous',etapes:['Pas besoin du site pour celle-ci.'],
+  citation:'Une éruption solaire devrait atteindre la Terre dimanche vers 22 h, à environ 10 heures près.',
+  q:'Quand peut-elle arriver ?',
+  o:['Entre 21 h et 23 h dimanche','Entre dimanche midi et lundi 8 h','Exactement à 22 h','On ne sait pas du tout'],bonne:1},
+ {id:'t6',pour:'sci ene',etapes:['À « Je suis », choisissez <b>Exploitant</b>.','Dans « Rejouer », cliquez <b>Oct. 2003</b>.'],
+  q:'Quel poste est le plus chargé, et avec quel courant ?',
+  o:['À 39 km de Valence (centrale de Cruas), 13,9 A','À 30 km de Brest, 14,5 A','À 50 km de Toulouse, 5,2 A','Le tableau n\'indique pas de poste'],bonne:0},
+ {id:'t7',pour:'sci ene',etapes:['À « Je suis », choisissez <b>Prévisionniste</b>.','Dans « Simuler », cliquez <b>Depuis l\'espace</b>, puis choisissez <b>Kp prévu</b> et entrez <b>8</b>.'],
+  q:'Quel niveau la page annonce-t-elle ?',
+  o:['Jaune, avec orange à surveiller','Orange, avec rouge à surveiller','Rouge','Vert, avec jaune à surveiller'],bonne:0},
+];
+const EFFORT=[['f','facilement'],['e','avec un peu d\'effort'],['n','je n\'ai pas trouvé']];
+const SUS=['Je pense que j\'aimerais utiliser cette page régulièrement.','J\'ai trouvé cette page inutilement complexe.','J\'ai trouvé cette page facile à utiliser.','Je pense que j\'aurais besoin de l\'aide d\'une personne expérimentée pour utiliser cette page.','J\'ai trouvé que les différentes fonctions de cette page étaient bien intégrées.','J\'ai trouvé qu\'il y avait trop d\'incohérences dans cette page.','J\'imagine que la plupart des gens apprendraient à utiliser cette page très rapidement.','J\'ai trouvé cette page très lourde à utiliser.','Je me suis senti(e) très en confiance en utilisant cette page.','J\'ai dû apprendre beaucoup de choses avant de pouvoir utiliser cette page.'];
+const $=id=>document.getElementById(id), debut=Date.now();
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ordre des réponses mélangé une fois par participant (évite que la bonne soit toujours au même endroit)
+function melange(n){const a=[...Array(n).keys()];for(let i=n-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const ORDRE={};TACHES.forEach(t=>ORDRE[t.id]=melange(t.o.length));
+
+$('taches').innerHTML=TACHES.map((t,k)=>`
+ <section class="card tache" data-pour="${t.pour}" aria-labelledby="h-${t.id}">
+  <span class="k">Tâche ${k+1}${t.pour!=='tous'?' · profils scientifiques et énergie':''}</span>
+  <ol class="steps">${t.etapes.map(e=>`<li>${e}</li>`).join('')}</ol>
+  ${t.citation?`<p class="quote">« ${esc(t.citation)} »</p>`:''}
+  <h2 id="h-${t.id}">${esc(t.q)}</h2>
+  <div class="opts" role="radiogroup" aria-labelledby="h-${t.id}">
+   ${ORDRE[t.id].map(i=>`<label class="opt"><input type="radio" name="${t.id}" id="${t.id}-${i}" value="${i}"><span>${esc(t.o[i])}</span></label>`).join('')}
+   <label class="opt"><input type="radio" name="${t.id}" id="${t.id}-x" value="x"><span>Je ne sais pas / je n'ai pas trouvé</span></label>
+  </div>
+  ${t.etapes[0].startsWith('Pas besoin')?'':`<div class="effort" role="radiogroup" aria-label="Facilité"><span>Vous avez trouvé :</span>${EFFORT.map(([v,l])=>`<label class="chip"><input type="radio" name="${t.id}-ef" id="${t.id}-ef-${v}" value="${v}">${l}</label>`).join('')}</div>`}
+ </section>`).join('');
+
+$('sus').innerHTML=SUS.map((s,i)=>`<div class="susrow"><span>${i+1}. ${esc(s)}</span>
+ <div class="scale" role="radiogroup" aria-label="Affirmation ${i+1}"><span>pas d'accord</span>${[1,2,3,4,5].map(v=>`<label><input type="radio" name="sus${i}" id="sus${i}-${v}" value="${v}">${v}</label>`).join('')}<span>d'accord</span></div></div>`).join('');
+
+// les tâches 6 et 7 ne s'affichent que pour les profils scientifiques et énergie
+function filtrer(){const p=(document.querySelector('input[name=profil]:checked')||{}).value;
+  document.querySelectorAll('.tache').forEach(el=>{el.hidden=!(el.dataset.pour==='tous'||(p&&el.dataset.pour.split(' ').includes(p)));});}
+document.querySelectorAll('input[name=profil]').forEach(r=>r.addEventListener('change',filtrer));filtrer();
+
+const val=n=>(document.querySelector(`input[name="${n}"]:checked`)||{}).value;
+$('fin').onclick=()=>{
+  const p=val('profil'); if(!p){$('manque').hidden=false;$('manque').textContent='Indiquez votre profil en haut de la page.';return;}
+  const visibles=TACHES.filter(t=>t.pour==='tous'||t.pour.split(' ').includes(p));
+  const vides=visibles.filter(t=>!val(t.id)).length, susVides=SUS.filter((_,i)=>!val('sus'+i)).length;
+  if(vides||susVides){$('manque').hidden=false;$('manque').textContent=`Il manque ${vides?vides+' tâche'+(vides>1?'s':''):''}${vides&&susVides?' et ':''}${susVides?susVides+' affirmation'+(susVides>1?'s':''):''}.`;return;}
+  $('manque').hidden=true;
+  const r={v:1,p,a:val('appareil')||'',s:Math.round((Date.now()-debut)/1000),
+    t:Object.fromEntries(visibles.map(t=>[t.id,[val(t.id)==='x'?-1:(+val(t.id)===t.bonne?1:0),val(t.id+'-ef')||'']])),
+    sus:SUS.map((_,i)=>+val('sus'+i)),g:$('q-gene').value.slice(0,400),c:$('q-change').value.slice(0,400)};
+  const code='VCIG1.'+btoa(unescape(encodeURIComponent(JSON.stringify(r))));
+  $('code').textContent=code;$('resultat').hidden=false;$('resultat').scrollIntoView({behavior:'smooth',block:'start'});
+};
+$('copier').onclick=()=>{const t=$('code').textContent;
+  navigator.clipboard.writeText(t).then(()=>$('copie-ok').textContent='Copié.').catch(()=>{const s=getSelection(),g=document.createRange();g.selectNodeContents($('code'));s.removeAllRanges();s.addRange(g);$('copie-ok').textContent='Sélectionné : copiez avec Ctrl+C ou un appui long.';});};
+
+// ------------------------------------------------------------------ agrégation (espace Romain)
+const susScore=a=>a.reduce((s,v,i)=>s+(i%2===0?v-1:5-v),0)*2.5;     // score SUS sur 100
+$('agreger').onclick=()=>{
+  const R=[];$('codes').value.split(/\s+/).filter(x=>x.startsWith('VCIG1.')).forEach(x=>{try{R.push(JSON.parse(decodeURIComponent(escape(atob(x.slice(6))))));}catch(e){}});
+  if(!R.length){$('bilan').innerHTML='<p class="warn">Aucun code valide.</p>';return;}
+  const PROF={pub:'Non scientifiques',sci:'Scientifiques',ene:'Énergie / météo'}, groupes=[['tous',R],...Object.keys(PROF).map(k=>[k,R.filter(r=>r.p===k)])].filter(([,g])=>g.length);
+  const cell=(g,id)=>{const x=g.filter(r=>r.t[id]);if(!x.length)return '<td class="n">—</td>';const ok=x.filter(r=>r.t[id][0]===1).length;return `<td class="n">${Math.round(100*ok/x.length)} % <span class="only">(${ok}/${x.length})</span></td>`;};
+  const moy=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:NaN;
+  let h='<div class="tscroll"><table><thead><tr><th></th>'+groupes.map(([k,g])=>`<th>${k==='tous'?'Tous':PROF[k]} (${g.length})</th>`).join('')+'</tr></thead><tbody>';
+  TACHES.forEach((t,k)=>{h+=`<tr><td>T${k+1} réponses justes</td>${groupes.map(([,g])=>cell(g,t.id)).join('')}</tr>`;});
+  h+=`<tr><td>T1 à T5, non scientifiques (cible EP-15 : 80 %)</td>${groupes.map(([k,g])=>{if(k!=='pub'&&k!=='tous')return '<td class="n">—</td>';const x=R.filter(r=>r.p==='pub');const n=x.length*5,ok=x.reduce((s,r)=>s+['t1','t2','t3','t4','t5'].filter(i=>r.t[i]&&r.t[i][0]===1).length,0);return `<td class="n">${n?Math.round(100*ok/n)+' %':'—'}</td>`;}).join('')}</tr>`;
+  h+=`<tr><td>Trouvé « facilement »</td>${groupes.map(([,g])=>{const e=g.flatMap(r=>Object.values(r.t).map(v=>v[1]).filter(Boolean));return `<td class="n">${e.length?Math.round(100*e.filter(v=>v==='f').length/e.length)+' %':'—'}</td>`;}).join('')}</tr>`;
+  h+=`<tr><td>Score SUS moyen (sur 100)</td>${groupes.map(([,g])=>`<td class="n">${moy(g.map(r=>susScore(r.sus))).toFixed(0)}</td>`).join('')}</tr>`;
+  h+=`<tr><td>Durée médiane (min)</td>${groupes.map(([,g])=>{const d=g.map(r=>r.s).sort((a,b)=>a-b);return `<td class="n">${(d[Math.floor(d.length/2)]/60).toFixed(1)}</td>`;}).join('')}</tr>`;
+  h+='</tbody></table></div>';
+  const com=R.filter(r=>r.g||r.c).map(r=>`<li><b>${PROF[r.p]}</b> · ${r.g?'Gêne : '+esc(r.g):''}${r.g&&r.c?' · ':''}${r.c?'À changer : '+esc(r.c):''}</li>`).join('');
+  $('bilan').innerHTML=h+(com?`<p><b>Commentaires</b></p><ul>${com}</ul>`:'')+`<p class="only">SUS : 68 = moyenne des sites et logiciels évalués avec ce questionnaire ; au-dessus de 80, très bon.</p>`;
+};
+</script>
+</body></html>
