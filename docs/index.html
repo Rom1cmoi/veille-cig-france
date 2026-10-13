@@ -627,7 +627,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     return D.nodes.map(n=>v*(d==='worst'?Math.max(...n.c[p]):n.c[p][+d]));
   }
   const fmt=(x,d=1)=>x.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
-  const PUBLIC=["Aucun effet attendu sur le réseau électrique.","Effets possibles sur les grands transformateurs, sans conséquence attendue pour les usagers.","Contraintes sur le réseau : les exploitants prennent des mesures préventives.","Risque d'endommagement de transformateurs et de coupures localisées : suivre les consignes des autorités."];
+  const PUBLIC=["Aucun effet attendu sur le réseau électrique.","Effets possibles sur les grands transformateurs, sans conséquence attendue pour les usagers.","Contraintes sur le réseau : les gestionnaires prennent des mesures préventives. Aucune action n'est demandée au public.","Risque d'endommagement de transformateurs et de coupures localisées : suivre les consignes des autorités."];
   const clockOf=t=>{const E=A.events[mode],[d,hm]=E.t0.split(' '),[H,M]=hm.split(':').map(Number),m=H*60+M+t;return `${String(Math.floor(m/60)%24).padStart(2,'0')}:${String(m%60).padStart(2,'0')} UTC`;};
   // Les trois tempêtes rejouées, côte à côte (Kp : maximum planétaire, GFZ / NOAA)
   const REJEUX={'2003':{nom:'30 oct. 2003',kp:'9'},'2024':{nom:'10 mai 2024',kp:'9'},'2026':{nom:'10 oct. 2026',kp:'7'}};
