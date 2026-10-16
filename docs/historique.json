@@ -1774,7 +1774,7 @@
 "prevu_med": 1.5,
 "prevu_p90": 4.0,
 "prevu_med_brut": 3.0,
-"observe": null,
+"observe": 1.5,
 "emise_min": 0
 },
 "2026-10-16T06:00:00Z": {
