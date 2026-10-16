@@ -14,12 +14,12 @@ permissions:
 jobs:
   sonde:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - run: python sondes/tempetes.py
+      - run: python sondes/disponibilite.py
       - name: Enregistrement
         run: |
           git config user.name "veille-cig-robot"
