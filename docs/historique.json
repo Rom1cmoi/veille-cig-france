@@ -2012,7 +2012,7 @@
 "prevu_med": 2.0,
 "prevu_p90": 5.2,
 "prevu_med_brut": 4.0,
-"observe": null,
+"observe": 1.4,
 "emise_min": 0
 },
 "2026-10-17T16:00:00Z": {
