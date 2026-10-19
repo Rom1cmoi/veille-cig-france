@@ -139,6 +139,10 @@ Comme le badge de la page, chaque bulletin annonce le **niveau probable** (dB/dt
 
 Chaque ouverture, aggravation ou fin d'épisode produit aussi un message **CAP 1.2** (Common Alerting Protocol, le format des systèmes d'alerte), dans `docs/cap/`, listé par le flux Atom `docs/cap.atom` (comme Meteoalarm). Statut « Exercise » : ce démonstrateur n'est pas un service officiel.
 
+## La page selon le profil
+
+« Je suis » adapte la page à son lecteur. Le **grand public** voit le niveau, quelques tirets (ce qu'il doit faire, l'effet sur le réseau, les régions concernées, l'éruption solaire à venir), la carte, et un court lexique (tempête solaire, courant induit, vigilance, Kp). Le reste (horizons séparés, détail des éruptions, comparaison des tempêtes rejouées) est replié, et les simulations sont réservées aux profils techniques. En direct, sa couleur est la pire entre la mesure actuelle et la prévision de l'heure qui vient : une seule couleur, qui ne contredit pas la case « Maintenant ». Version du 19/10/2026, après les retours du test utilisateurs (« trop de texte », « le Kp, pas compris »). Prévisionniste et exploitant gardent toute la page.
+
 ## Alertes
 
 Le collecteur prévient tout seul quand il se passe quelque chose (fichier `alertes.py`).

@@ -57,6 +57,16 @@ body[data-aud="pub"] [data-aud]:not([data-aud~="pub"]),
 body[data-aud="pre"] [data-aud]:not([data-aud~="pre"]),
 body[data-aud="exp"] [data-aud]:not([data-aud~="exp"]){display:none!important}
 .watch{margin:2px 0 0;font-size:13.5px}
+/* grand public : l'essentiel en tirets, le détail replié */
+.ess{margin:6px 0 0;padding-left:18px;display:grid;gap:3px;font-size:14px}
+.ess b{font-weight:600}
+details.repli>summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--accent)}
+details.repli[open]>summary{margin-bottom:10px}
+details.repli>div{display:grid;gap:12px}
+body:not([data-aud="pub"]) details.repli>summary{display:none}
+dl.mots{margin:10px 0 0;display:grid;gap:8px;font-size:14px}
+dl.mots dt{font-weight:600}
+dl.mots dd{margin:0;color:var(--muted)}
 .hyp{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px}
 .bull-h{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .cme-row{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
@@ -208,7 +218,7 @@ details.valid summary{font-weight:600;cursor:pointer}
 
   <nav class="modes" aria-label="Mode">
     <button type="button" class="livebtn" id="m-live" aria-pressed="true"><span class="pulse" aria-hidden="true"></span>Direct</button>
-    <span class="grp"><span class="grp-l">Simuler</span>
+    <span class="grp" data-aud="pre exp"><span class="grp-l">Simuler</span>
       <button type="button" id="m-prev" aria-pressed="false">Depuis l'espace</button>
       <button type="button" id="m-scen" aria-pressed="false">Perturbation au sol</button></span>
     <span class="grp"><span class="grp-l">Rejouer</span>
@@ -225,7 +235,8 @@ details.valid summary{font-weight:600;cursor:pointer}
         <div class="vtxt">
           <p class="lead" id="lead">—</p>
           <p class="watch hidden" id="watch"></p>
-          <p class="hint" id="public">—</p>
+          <p class="hint" id="public" data-aud="pre exp">—</p>
+          <ul class="ess" id="essentiel" data-aud="pub"></ul>
           <div class="counts" id="counts" data-aud="pre exp"></div>
         </div>
       </div>
@@ -233,14 +244,16 @@ details.valid summary{font-weight:600;cursor:pointer}
       <div class="live hidden" id="livebox" aria-live="polite">
         <div class="banner hidden" id="live-banner"></div>
         <div class="alert hidden" id="live-choc"></div>
+        <details class="repli" id="live-det"><summary>Le détail : maintenant, dans l'heure, 24 heures, éruptions solaires</summary><div>
         <div class="tiles" role="group" aria-label="Horizon affiché sur la carte">
           <button type="button" class="tile" id="tile-clf" aria-pressed="false"></button>
           <button type="button" class="tile" id="tile-l1" aria-pressed="true"></button>
           <button type="button" class="tile" id="tile-kp" aria-pressed="false"></button>
         </div>
-        <p class="hint">Touchez une case pour afficher cet horizon sur la carte.</p>
+        <p class="hint" data-aud="pre exp">Touchez une case pour afficher cet horizon sur la carte.</p>
         <div class="cme" id="live-cme"></div>
         <p class="hint" id="live-maj"></p>
+        </div></details>
       </div>
 
       <div class="panel sim">
@@ -321,9 +334,11 @@ details.valid summary{font-weight:600;cursor:pointer}
           <input type="range" id="tslider" min="0" max="719" value="0" aria-label="Minute de la tempête">
           <button type="button" class="btn ghost" id="tmax">Maximum de la fenêtre</button>
         </div>
+        <details class="repli" id="rej-det"><summary>Comparer les tempêtes et voir la mesure</summary><div>
         <div class="tscroll"><table class="cmp" id="cmp"></table></div>
         <svg id="spark" viewBox="0 0 600 60" preserveAspectRatio="none" role="img" aria-label="dB/dt mesuré à Chambon-la-Forêt"></svg>
         <p class="hint">Courbe : dB/dt mesuré à Chambon-la-Forêt (nT/min). Fenêtres : 10 mai 2024, 16 h – 4 h UTC (choc de 17 h 07 compris) ; 30 octobre 2003, 19 h – 22 h UTC (panne de Malmö) ; 10 octobre 2026, 14 h – 2 h UTC (début brusque à 15 h 14). En octobre 2026, Hartland et Dourbes n'ont pas publié : le calcul utilise Wingst et San Fernando à leur place, et le nord-ouest est moins bien décrit. La carte suit le courant calculé à chaque minute à partir des 6 observatoires ; le tableau donne la durée au-dessus du seuil orange.</p>
+        </div></details>
       </div>
       <div class="mapbox">
         <div class="netsw" role="group" aria-label="Réseau affiché">
@@ -338,11 +353,11 @@ details.valid summary{font-weight:600;cursor:pointer}
           <span><span class="dot" style="background:var(--o)"></span>Orange</span>
           <span><span class="dot" style="background:var(--r)"></span>Rouge</span>
           <span id="leg-nuc"><span class="dot" style="background:transparent;border:2px solid var(--ink)"></span>Centrale nucléaire (poste probable)</span>
-          <span id="leg-txt">Taille du point : courant induit · Traits : lignes 400 kV · Pointillés : régions</span>
+          <span id="leg-txt" data-aud="pre exp">Taille du point : courant induit · Traits : lignes 400 kV · Pointillés : régions</span>
         </div>
-        <p class="hint hidden" id="gaz-sum"></p>
+        <p class="hint hidden" id="gaz-sum" data-aud="pre exp"></p>
       </div>
-      <div class="bull" id="live-bull">
+      <div class="bull" id="live-bull" data-aud="pre exp">
         <div class="bull-h" id="bull-h">Bulletin</div>
         <div class="bull-txt" id="bull-txt"></div>
       </div>
@@ -393,6 +408,16 @@ details.valid summary{font-weight:600;cursor:pointer}
         <p class="hint">Cas de base : un transformateur par poste, prise de terre 0,15 Ω. Fourchette : Monte-Carlo (300 tirages) sur la prise de terre, le nombre de transformateurs en parallèle (1 à 3) et les résistances d'enroulement ; le courant se partage entre transformateurs, d'où une borne basse plus faible. Enjeu : ☢ poste d'évacuation probable d'une centrale nucléaire, ⇄ interconnexion, ≈ à moins de 20 km de la mer (effet de côte non modélisé, incertitude plus forte). Réactif : Q ≈ K × I par phase, K = 0,3 à 1,5 Mvar/A selon le type de transformateur (modèle linéaire PowerWorld). Les noms de postes ne sont pas publiés dans les données ENTSO-E : ville la plus proche indiquée.</p>
       </div>
     </div>
+
+    <details class="how">
+      <summary>Les mots de la page</summary>
+      <dl class="mots">
+        <dt>Tempête solaire</dt><dd>Le Soleil projette un nuage de matière (éruption, ou CME) qui met 1 à 4 jours à atteindre la Terre et secoue son champ magnétique.</dd>
+        <dt>Courant induit</dt><dd>Ces secousses font circuler un courant faible et lent dans les très longues lignes électriques et les gazoducs. Il peut gêner les gros transformateurs, pas les appareils de la maison.</dd>
+        <dt>Vigilance</dt><dd>Vert : rien à signaler. Jaune : effets possibles sur le réseau, sans conséquence pour les usagers. Orange : les gestionnaires prennent des précautions. Rouge : coupures localisées possibles.</dd>
+        <dt>Kp</dt><dd>Indice de 0 à 9 qui mesure l'agitation magnétique de la Terre sur 3 heures. À partir de 5, on parle de tempête ; 9 est le maximum (mai 2024, octobre 2003).</dd>
+      </dl>
+    </details>
 
     <details class="how">
       <summary>En savoir plus : comment ça marche, ce que l'outil suppose</summary>
@@ -552,7 +577,8 @@ details.valid summary{font-weight:600;cursor:pointer}
     ban.textContent=LIVE.demo?`Démonstration : rejeu du 10 mai 2024 à ${hm(LIVE.genere)}, comme si c'était maintenant. Instants à L1 reconstitués à partir d'OMNI ; Kp « prévu » = Kp observé ensuite.`:`Attention : dernière mise à jour il y a ${ageMin(LIVE.genere)} min, le collecteur ne tourne peut-être plus.`;
     const l1=LIVE.l1, kp=LIVE.kp, clf=LIVE.clf;
     const al=LIVE.alerte, txt=[];
-    if(l1&&l1.choc) txt.push(`Choc interplanétaire détecté à L1 à ${hm(l1.choc.vu_a_L1)} : arrivée estimée sur Terre vers ${hm(l1.choc.arrivee_estimee)}.`);
+    if(l1&&l1.choc) txt.push(aud==='pub'?`Les satellites ont détecté une perturbation venue du Soleil : elle atteindra la Terre vers ${hm(l1.choc.arrivee_estimee)}.`
+      :`Choc interplanétaire détecté à L1 à ${hm(l1.choc.vu_a_L1)} : arrivée estimée sur Terre vers ${hm(l1.choc.arrivee_estimee)}.`);
     if(al) txt.push(`Alerte ${al.niveau}${al.confiance?' '+al.confiance:''} en cours depuis ${hm(al.depuis)}${al.signaux&&al.signaux.length?'':' (signal retombé : fermeture après 3 h de calme)'}.`);
     choc.classList.toggle('hidden',!txt.length); choc.innerHTML='';
     txt.forEach(x=>{const p=document.createElement('p');p.style.margin='0';p.textContent=x;choc.appendChild(p);});
@@ -615,16 +641,35 @@ details.valid summary{font-weight:600;cursor:pointer}
   }
   const COLORS=['var(--g)','var(--y)','var(--o)','var(--r)'], NAMES=['Vert','Jaune','Orange','Rouge'];
   function level(i){const t=[+$('t1').value,+$('t2').value,+$('t3').value];return i>=t[2]?3:i>=t[1]?2:i>=t[0]?1:0;}
+  function liveCurrents(h,H){
+    const S=solI(H); if(S) return S.slice();
+    const q=liveInput(h,H); if(!q) return D.nodes.map(()=>0);
+    return D.nodes.map(n=>q.v*(q.t==='worst'?Math.max(...n.c[q.p]):n.c[q.p][q.t]));
+  }
   function currents(h=hyp){
-    if(mode==='live'){const S=solI(); if(S) return S.slice();
-      const q=liveInput(h); if(!q) return D.nodes.map(()=>0);
-      return D.nodes.map(n=>q.v*(q.t==='worst'?Math.max(...n.c[q.p]):n.c[q.p][q.t]));}
+    // grand public : une seule couleur, la pire entre la mesure actuelle et la prévision de l'heure qui vient
+    if(mode==='live'&&aud==='pub'){const a=liveCurrents(h,'clf'), b=liveCurrents(h,'l1');return a.map((v,k)=>Math.max(v,b[k]));}
+    if(mode==='live') return liveCurrents(h,liveH);
     if(isReplay()){const E=A.events[mode];
       return tview<0?E.max:E.I.map(s=>s?s[tview]:0);}
     if(mode==='prev'){const f=forecast();
       return h==='p90'?D.nodes.map(n=>f.p90*Math.max(...n.c[pIdx])):D.nodes.map(n=>f.med*n.c[pIdx][thIdx]);}
     const v=Math.max(0,+$('dbdt').value||0), p=+perSel.value, d=dirSel.value;
     return D.nodes.map(n=>v*(d==='worst'?Math.max(...n.c[p]):n.c[p][+d]));
+  }
+  // grand public : l'essentiel en quelques tirets (niveau dans le badge, au-dessus)
+  const POUR_VOUS=['aucune action n\'est demandée.','aucune action n\'est demandée.','aucune action n\'est demandée.','suivre les consignes des autorités.'];
+  const RESEAU=['aucun effet attendu.','effets possibles sur de gros transformateurs, sans conséquence pour les usagers.','les gestionnaires prennent des mesures préventives.','risque de coupures de courant localisées.'];
+  function essentiel(nat,regs){
+    const li=(t,x)=>`<li><b>${t} :</b> ${x}</li>`;
+    let h=li('Pour vous',POUR_VOUS[nat])+li('Réseau électrique',RESEAU[nat]);
+    if(regs.length) h+=li('Régions concernées',regs.join(', '));
+    const C=mode==='live'&&LIVE&&LIVE.cme&&(LIVE.cme.attendues||[]).filter(c=>c.dans_h>-(c.erreur_h||12)).sort((a,b)=>a.dans_h-b.dans_h)[0];
+    if(C){const cprob=Math.max(...D.nodes.map(n=>n.c[pIdx][thIdx])), m=C.dbdt_med||C.dbdt_p90||{};
+      const lo=level((m['90']||0)*cprob), hi=level((m['180']||0)*cprob), t=Date.parse(C.arrivee), e=(C.erreur_h||10)*36e5;
+      const q=d=>`${jourParis(d)} à ${hm(d).replace(' h 00',' h')}`;
+      h+=li('À venir',`une éruption solaire peut atteindre la Terre entre ${q(t-e)} et ${q(t+e)} ; effet attendu : ${lo===hi?NAMES[lo].toLowerCase():NAMES[lo].toLowerCase()+' à '+NAMES[hi].toLowerCase()+' (on le saura une heure avant)'}.`);}
+    return h;
   }
   const fmt=(x,d=1)=>x.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
   const PUBLIC=["Aucun effet attendu sur le réseau électrique.","Effets possibles sur les grands transformateurs, sans conséquence attendue pour les usagers.","Contraintes sur le réseau : les gestionnaires prennent des mesures préventives. Aucune action n'est demandée au public.","Risque d'endommagement de transformateurs et de coupures localisées : suivre les consignes des autorités."];
@@ -693,18 +738,19 @@ details.valid summary{font-weight:600;cursor:pointer}
       if(D.nodes[k].nuc){c.setAttribute('stroke','var(--ink)');c.setAttribute('stroke-width','2');}});
     const top=I.map((v,k)=>[v,k]).sort((a,b)=>b[0]-a[0]);
     // badge : prévision probable ; « à surveiller » : cas pessimiste, quand il est plus grave
-    const deux=(mode==='live'&&liveH!=='clf')||mode==='prev';
+    const deux=(mode==='live'&&(liveH!=='clf'||aud==='pub'))||mode==='prev';
     const IB=deux&&hyp!=='med'?currents('med'):I, IW=deux&&hyp!=='p90'?currents('p90'):I;
     const nat=Math.max(...IB.map(level)), natW=Math.max(...IW.map(level)), imax=Math.max(...IB);
     const kB=IB.indexOf(imax);
     const b=$('badge'); b.textContent=NAMES[nat]; b.style.background=COLORS[nat];
-    const quand=mode==='live'?({clf:'maintenant',l1:'dans l\'heure',kp:'dans les 24 heures'})[liveH]:mode==='prev'?'depuis l\'espace':mode==='scen'?'perturbation au sol':`tempête ${({'2024':'de mai 2024','2003':'de 2003','2026':'d\'octobre 2026'})[mode]}${tview>=0?' à '+clockOf(tview):' (maximum)'}`;
+    const quand=mode==='live'?(aud==='pub'?'maintenant et dans l\'heure':({clf:'maintenant',l1:'dans l\'heure',kp:'dans les 24 heures'})[liveH]):mode==='prev'?'depuis l\'espace':mode==='scen'?'perturbation au sol':`tempête ${({'2024':'de mai 2024','2003':'de 2003','2026':'d\'octobre 2026'})[mode]}${tview>=0?' à '+clockOf(tview):' (maximum)'}`;
     $('lead').textContent=aud==='pub'?`Vigilance ${VIG[nat]} pour le réseau électrique · ${quand}`
       :`Vigilance ${VIG[nat]} · ${quand} · jusqu'à ${fmt(imax)} A par phase (${D.nodes[kB].place})`;
     const w=$('watch'); w.classList.toggle('hidden',!(deux&&natW>nat));
     w.innerHTML=deux&&natW>nat?`<span class="dot" style="background:${COLORS[natW]}"></span>À surveiller : ${NAMES[natW].toLowerCase()} dans le cas le plus défavorable${aud==='pub'?'':` (${fmt(Math.max(...IW))} A)`}.`:'';
     const hot=D.nodes.map((n,k)=>[n,k]).filter(([n,k])=>n.nuc&&L[k]>=2).map(([n,k])=>`${n.nuc} (${NAMES[L[k]].toLowerCase()})`);
     const regHot=Object.entries(rmax).filter(([r,v])=>level(v)>=2).sort((a,b)=>b[1]-a[1]).map(([r])=>REG[r]);
+    $('essentiel').innerHTML=essentiel(nat,regHot);
     $('public').textContent=PUBLIC[nat]+(regHot.length?` Régions concernées : ${regHot.join(', ')}.`:'')+(hot.length?` Postes de centrale nucléaire concernés : ${hot.join(', ')}.`:'');
     $('counts').innerHTML=(deux?`<span class="hint">Carte, cas ${hyp==='p90'?'pessimiste':'probable'} :</span>`:'')+NAMES.map((n,k)=>`<span><span class="dot" style="background:${COLORS[k]}"></span>${n} : ${counts[k]} postes</span>`).join('');
     const enj=n=>[n.nuc?`☢ ${n.nuc}`:'',n.ic?'⇄':'',n.cote?'≈':''].filter(Boolean).join(' ')||'—';
@@ -753,6 +799,8 @@ details.valid summary{font-weight:600;cursor:pointer}
   $('tslider').oninput=e=>{stop();tview=+e.target.value;render();};
   $('tmax').onclick=()=>{stop();tview=-1;render();};
   function setAud(a){aud=a;document.body.dataset.aud=a;try{localStorage.setItem('veille-aud',a);}catch(e){}
+    ['live-det','rej-det'].forEach(id=>$(id).open=a!=='pub');
+    if(a==='pub'&&(mode==='prev'||mode==='scen')) setMode('live');
     document.querySelectorAll('.aud [data-a]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.a===a)));
     setHyp(a==='pub'?'med':'p90'); if(LIVE){renderLive();} renderBull();}
   document.querySelectorAll('.aud [data-a]').forEach(b=>b.onclick=()=>setAud(b.dataset.a));
