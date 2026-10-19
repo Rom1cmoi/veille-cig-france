@@ -3,9 +3,9 @@
 "t": "2024-01-20T15:15:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 22/01 vers 08 h 25 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 22/01 vers 08 h 25 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 22/01 vers 08 h 25 UTC**\nCME (1088 km/s), arrivée du choc estimée le 22/01 vers 08 h 25 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/28651/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/28651/-1\n\nCollecte du 20/01/2024 à 15 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 22/01 vers 08 h 25 UTC**\nCME (1088 km/s), arrivée du choc estimée le 22/01 vers 08 h 25 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/28651/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/28651/-1\n\nCollecte du 20/01/2024 à 15 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-01-20T19:35:00Z",
@@ -27,9 +27,9 @@
 "t": "2024-01-29T08:45:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 30/01 vers 11 h 21 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 30/01 vers 11 h 21 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 30/01 vers 11 h 21 UTC**\nCME (1888 km/s), arrivée du choc estimée le 30/01 vers 11 h 21 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/28850/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/28850/-1\n\nCollecte du 29/01/2024 à 08 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 30/01 vers 11 h 21 UTC**\nCME (1888 km/s), arrivée du choc estimée le 30/01 vers 11 h 21 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/28850/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/28850/-1\n\nCollecte du 29/01/2024 à 08 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-01-29T16:55:00Z",
@@ -75,9 +75,9 @@
 "t": "2024-02-11T03:30:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 13/02 vers 05 h 17 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 13/02 vers 05 h 17 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 13/02 vers 05 h 17 UTC**\nCME (989 km/s), arrivée du choc estimée le 13/02 vers 05 h 17 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/29139/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/29139/-1\n\nCollecte du 11/02/2024 à 03 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 13/02 vers 05 h 17 UTC**\nCME (989 km/s), arrivée du choc estimée le 13/02 vers 05 h 17 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/29139/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/29139/-1\n\nCollecte du 11/02/2024 à 03 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-02-13T20:15:00Z",
@@ -171,9 +171,9 @@
 "t": "2024-03-23T16:30:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 24/03 vers 17 h 55 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 24/03 vers 17 h 55 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 24/03 vers 17 h 55 UTC**\nCME (1613 km/s), arrivée du choc estimée le 24/03 vers 17 h 55 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/29739/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/29739/-1\n\nCollecte du 23/03/2024 à 16 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 24/03 vers 17 h 55 UTC**\nCME (1613 km/s), arrivée du choc estimée le 24/03 vers 17 h 55 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/29739/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/29739/-1\n\nCollecte du 23/03/2024 à 16 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-03-24T15:15:00Z",
@@ -181,7 +181,7 @@
 "chemin": "/issues/8/comments",
 "titre": null,
 "etat": null,
-"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 27.9 nT/min, P90 72.7 nT/min (V = 775.0 km/s, Bz = -26.3 nT, arrivée vers 15 h 43 UTC).\n\nCollecte du 24/03/2024 à 15 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Pré-alerte orange possible : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 27.9 nT/min, P90 72.7 nT/min (V = 775.0 km/s, Bz = -26.3 nT, arrivée vers 15 h 43 UTC).\n\nCollecte du 24/03/2024 à 15 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-03-25T08:55:00Z",
@@ -251,9 +251,9 @@
 "t": "2024-05-08T16:45:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 10/05 vers 12 h 12 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 10/05 vers 12 h 12 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/05 vers 12 h 12 UTC**\nCME (1156 km/s), arrivée du choc estimée le 10/05 vers 12 h 12 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30576/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30576/-1\n\nCollecte du 08/05/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/05 vers 12 h 12 UTC**\nCME (1156 km/s), arrivée du choc estimée le 10/05 vers 12 h 12 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30576/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30576/-1\n\nCollecte du 08/05/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-08T18:25:00Z",
@@ -261,7 +261,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/05 vers 12 h 14 UTC**\nCME (870 km/s), arrivée du choc estimée le 10/05 vers 12 h 14 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30591/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30591/-1\n\nCollecte du 08/05/2024 à 18 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/05 vers 12 h 14 UTC**\nCME (870 km/s), arrivée du choc estimée le 10/05 vers 12 h 14 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30591/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30591/-1\n\nCollecte du 08/05/2024 à 18 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-09T16:45:00Z",
@@ -269,7 +269,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 11/05 vers 05 h 02 UTC**\nCME (1330 km/s), arrivée du choc estimée le 11/05 vers 05 h 02 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30626/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30626/-1\n\nCollecte du 09/05/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 11/05 vers 05 h 02 UTC**\nCME (1330 km/s), arrivée du choc estimée le 11/05 vers 05 h 02 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30626/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30626/-1\n\nCollecte du 09/05/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-09T19:35:00Z",
@@ -277,7 +277,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/05 vers 23 h 46 UTC**\nCME (1130 km/s), arrivée du choc estimée le 10/05 vers 23 h 46 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30644/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30644/-1\n\nCollecte du 09/05/2024 à 19 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/05 vers 23 h 46 UTC**\nCME (1130 km/s), arrivée du choc estimée le 10/05 vers 23 h 46 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30644/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30644/-1\n\nCollecte du 09/05/2024 à 19 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-09T20:30:00Z",
@@ -285,7 +285,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/05 vers 13 h 03 UTC**\nCME (1330 km/s), arrivée du choc estimée le 10/05 vers 13 h 03 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/30651/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30651/-1\n\nCollecte du 09/05/2024 à 20 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/05 vers 13 h 03 UTC**\nCME (1330 km/s), arrivée du choc estimée le 10/05 vers 13 h 03 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/30651/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30651/-1\n\nCollecte du 09/05/2024 à 20 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-10T02:00:00Z",
@@ -293,7 +293,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/05 vers 19 h 02 UTC**\nCME (1236 km/s), arrivée du choc estimée le 10/05 vers 19 h 02 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30669/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30669/-1\n\nCollecte du 10/05/2024 à 02 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/05 vers 19 h 02 UTC**\nCME (1236 km/s), arrivée du choc estimée le 10/05 vers 19 h 02 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/30669/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30669/-1\n\nCollecte du 10/05/2024 à 02 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-10T14:40:00Z",
@@ -301,7 +301,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 12/05 vers 01 h 55 UTC**\nCME (1332 km/s), arrivée du choc estimée le 12/05 vers 01 h 55 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/30683/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30683/-1\n\nCollecte du 10/05/2024 à 14 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 12/05 vers 01 h 55 UTC**\nCME (1332 km/s), arrivée du choc estimée le 12/05 vers 01 h 55 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/30683/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/30683/-1\n\nCollecte du 10/05/2024 à 14 h 40 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-10T16:35:00Z",
@@ -309,7 +309,7 @@
 "chemin": "/issues/11/comments",
 "titre": null,
 "etat": null,
-"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 31.9 nT/min, P90 83.2 nT/min (V = 581.0 km/s, Bz = 1.5 nT, arrivée vers 17 h 12 UTC).\n\nCollecte du 10/05/2024 à 16 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Pré-alerte orange possible : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 31.9 nT/min, P90 83.2 nT/min (V = 581.0 km/s, Bz = 1.5 nT, arrivée vers 17 h 12 UTC).\n\nCollecte du 10/05/2024 à 16 h 35 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-10T17:25:00Z",
@@ -318,6 +318,22 @@
 "titre": null,
 "etat": null,
 "texte": "**Constat orange : 107.0 nT/min à Chambon**\ndB/dt mesuré à Chambon-la-Forêt : 107.0 nT/min à 17 h 07 UTC (données provisoires, 15 min de retard).\n\nCollecte du 10/05/2024 à 17 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+},
+{
+"t": "2024-05-10T17:25:00Z",
+"methode": "PATCH",
+"chemin": "/issues/11",
+"titre": "[ORANGE] Constat orange : 107.0 nT/min à Chambon",
+"etat": null,
+"texte": ""
+},
+{
+"t": "2024-05-10T18:05:00Z",
+"methode": "POST",
+"chemin": "/issues/11/comments",
+"titre": null,
+"etat": null,
+"texte": "**Pré-alerte orange probable : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 90.0 nT/min, P90 234.9 nT/min (V = 702.0 km/s, Bz = -9.1 nT, arrivée vers 18 h 36 UTC).\n\nCollecte du 10/05/2024 à 18 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-05-12T16:55:00Z",
@@ -435,9 +451,9 @@
 "t": "2024-06-08T05:10:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 09/06 vers 23 h 19 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 09/06 vers 23 h 19 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 09/06 vers 23 h 19 UTC**\nCME (1376 km/s), arrivée du choc estimée le 09/06 vers 23 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/31361/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/31361/-1\n\nCollecte du 08/06/2024 à 05 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 09/06 vers 23 h 19 UTC**\nCME (1376 km/s), arrivée du choc estimée le 09/06 vers 23 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/31361/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/31361/-1\n\nCollecte du 08/06/2024 à 05 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-06-08T16:50:00Z",
@@ -459,9 +475,9 @@
 "t": "2024-06-08T19:15:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 09/06 vers 22 h 07 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 09/06 vers 22 h 07 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 09/06 vers 22 h 07 UTC**\nCME (1528 km/s), arrivée du choc estimée le 09/06 vers 22 h 07 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/31370/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/31370/-1\n\nCollecte du 08/06/2024 à 19 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 09/06 vers 22 h 07 UTC**\nCME (1528 km/s), arrivée du choc estimée le 09/06 vers 22 h 07 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/31370/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/31370/-1\n\nCollecte du 08/06/2024 à 19 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-06-10T13:05:00Z",
@@ -531,9 +547,9 @@
 "t": "2024-07-21T23:30:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 23/07 vers 16 h 36 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 23/07 vers 16 h 36 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 23/07 vers 16 h 36 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 23/07 vers 16 h 36 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32095/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32095/-1\n\nCollecte du 21/07/2024 à 23 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 23/07 vers 16 h 36 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 23/07 vers 16 h 36 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32095/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32095/-1\n\nCollecte du 21/07/2024 à 23 h 30 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-07-22T14:25:00Z",
@@ -603,9 +619,9 @@
 "t": "2024-07-27T20:25:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 29/07 vers 13 h 38 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 29/07 vers 13 h 38 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 29/07 vers 13 h 38 UTC**\nCME (803 km/s), arrivée du choc estimée le 29/07 vers 13 h 38 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32250/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32250/-1\n\nCollecte du 27/07/2024 à 20 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 29/07 vers 13 h 38 UTC**\nCME (803 km/s), arrivée du choc estimée le 29/07 vers 13 h 38 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32250/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32250/-1\n\nCollecte du 27/07/2024 à 20 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-07-28T14:05:00Z",
@@ -613,7 +629,7 @@
 "chemin": "/issues/23/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 30/07 vers 12 h 03 UTC**\nCME (920 km/s), arrivée du choc estimée le 30/07 vers 12 h 03 UTC (±10 h). Kp estimé 5 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32274/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32274/-1\n\nCollecte du 28/07/2024 à 14 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 30/07 vers 12 h 03 UTC**\nCME (920 km/s), arrivée du choc estimée le 30/07 vers 12 h 03 UTC (±10 h). Kp estimé 5 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32274/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32274/-1\n\nCollecte du 28/07/2024 à 14 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-07-30T04:35:00Z",
@@ -635,9 +651,9 @@
 "t": "2024-08-07T19:45:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 09/08 vers 19 h 19 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 09/08 vers 19 h 19 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 09/08 vers 19 h 19 UTC**\nCME (925 km/s), arrivée du choc estimée le 09/08 vers 19 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32603/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32603/-1\n\nCollecte du 07/08/2024 à 19 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 09/08 vers 19 h 19 UTC**\nCME (925 km/s), arrivée du choc estimée le 09/08 vers 19 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32603/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32603/-1\n\nCollecte du 07/08/2024 à 19 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-08-07T20:15:00Z",
@@ -645,7 +661,7 @@
 "chemin": "/issues/24/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 09/08 vers 17 h 19 UTC**\nCME (925 km/s), arrivée du choc estimée le 09/08 vers 17 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32604/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32604/-1\n\nCollecte du 07/08/2024 à 20 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 09/08 vers 17 h 19 UTC**\nCME (925 km/s), arrivée du choc estimée le 09/08 vers 17 h 19 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/32604/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/32604/-1\n\nCollecte du 07/08/2024 à 20 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-08-10T08:15:00Z",
@@ -677,13 +693,13 @@
 "chemin": "/issues/25/comments",
 "titre": null,
 "etat": null,
-"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 32.2 nT/min, P90 83.9 nT/min (V = 452.0 km/s, Bz = 20.5 nT, arrivée vers 17 h 33 UTC).\n\nCollecte du 17/08/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Pré-alerte orange possible : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 32.2 nT/min, P90 83.9 nT/min (V = 452.0 km/s, Bz = 20.5 nT, arrivée vers 17 h 33 UTC).\n\nCollecte du 17/08/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-08-17T16:45:00Z",
 "methode": "PATCH",
 "chemin": "/issues/25",
-"titre": "[ORANGE] Pré-alerte orange : vent solaire à L1",
+"titre": "[ORANGE POSSIBLE] Pré-alerte orange possible : vent solaire à L1",
 "etat": null,
 "texte": ""
 },
@@ -779,9 +795,9 @@
 "t": "2024-09-10T12:20:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 12/09 vers 16 h 57 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 12/09 vers 16 h 57 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 12/09 vers 16 h 57 UTC**\nCME (755 km/s), arrivée du choc estimée le 12/09 vers 16 h 57 UTC (±10 h). Kp estimé 5 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33300/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33300/-1\n\nCollecte du 10/09/2024 à 12 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 12/09 vers 16 h 57 UTC**\nCME (755 km/s), arrivée du choc estimée le 12/09 vers 16 h 57 UTC (±10 h). Kp estimé 5 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33300/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33300/-1\n\nCollecte du 10/09/2024 à 12 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-09-13T07:55:00Z",
@@ -803,9 +819,9 @@
 "t": "2024-09-14T18:20:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 16/09 vers 04 h 43 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 16/09 vers 04 h 43 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 16/09 vers 04 h 43 UTC**\nCME (1470 km/s), arrivée du choc estimée le 16/09 vers 04 h 43 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33438/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33438/-1\n\nCollecte du 14/09/2024 à 18 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 16/09 vers 04 h 43 UTC**\nCME (1470 km/s), arrivée du choc estimée le 16/09 vers 04 h 43 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33438/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33438/-1\n\nCollecte du 14/09/2024 à 18 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-09-17T06:35:00Z",
@@ -851,9 +867,9 @@
 "t": "2024-09-23T11:50:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 24/09 vers 18 h 55 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 24/09 vers 18 h 55 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 24/09 vers 18 h 55 UTC**\nCME (1381 km/s), arrivée du choc estimée le 24/09 vers 18 h 55 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33533/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33533/-1\n\nCollecte du 23/09/2024 à 11 h 50 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 24/09 vers 18 h 55 UTC**\nCME (1381 km/s), arrivée du choc estimée le 24/09 vers 18 h 55 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33533/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33533/-1\n\nCollecte du 23/09/2024 à 11 h 50 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-09-25T09:55:00Z",
@@ -875,9 +891,9 @@
 "t": "2024-10-02T17:00:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 04/10 vers 00 h 37 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 04/10 vers 00 h 37 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 04/10 vers 00 h 37 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 04/10 vers 00 h 37 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33682/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33682/-1\n\nCollecte du 02/10/2024 à 17 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 04/10 vers 00 h 37 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 04/10 vers 00 h 37 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33682/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33682/-1\n\nCollecte du 02/10/2024 à 17 h 00 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-03T03:45:00Z",
@@ -899,9 +915,9 @@
 "t": "2024-10-03T17:10:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 05/10 vers 21 h 49 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 05/10 vers 21 h 49 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 05/10 vers 21 h 49 UTC**\nCME (863 km/s), arrivée du choc estimée le 05/10 vers 21 h 49 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33709/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33709/-1\n\nCollecte du 03/10/2024 à 17 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 05/10 vers 21 h 49 UTC**\nCME (863 km/s), arrivée du choc estimée le 05/10 vers 21 h 49 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/33709/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33709/-1\n\nCollecte du 03/10/2024 à 17 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-04T15:40:00Z",
@@ -947,9 +963,9 @@
 "t": "2024-10-08T00:10:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 09/10 vers 18 h 09 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 09/10 vers 18 h 09 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 09/10 vers 18 h 09 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 09/10 vers 18 h 09 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33837/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33837/-1\n\nCollecte du 08/10/2024 à 00 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 09/10 vers 18 h 09 UTC**\nCME (pas encore cataloguée), arrivée du choc estimée le 09/10 vers 18 h 09 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33837/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33837/-1\n\nCollecte du 08/10/2024 à 00 h 10 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-08T15:10:00Z",
@@ -971,9 +987,9 @@
 "t": "2024-10-09T13:05:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 10/10 vers 14 h 55 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 10/10 vers 14 h 55 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/10 vers 14 h 55 UTC**\nCME (1509 km/s), arrivée du choc estimée le 10/10 vers 14 h 55 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33879/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33879/-1\n\nCollecte du 09/10/2024 à 13 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/10 vers 14 h 55 UTC**\nCME (1509 km/s), arrivée du choc estimée le 10/10 vers 14 h 55 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33879/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33879/-1\n\nCollecte du 09/10/2024 à 13 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-10T15:25:00Z",
@@ -981,7 +997,7 @@
 "chemin": "/issues/37/comments",
 "titre": null,
 "etat": null,
-"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 26.2 nT/min, P90 68.2 nT/min (V = 769.0 km/s, Bz = 0.4 nT, arrivée vers 15 h 53 UTC).\n\nCollecte du 10/10/2024 à 15 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Pré-alerte orange possible : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 26.2 nT/min, P90 68.2 nT/min (V = 769.0 km/s, Bz = 0.4 nT, arrivée vers 15 h 53 UTC).\n\nCollecte du 10/10/2024 à 15 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-10T18:55:00Z",
@@ -989,7 +1005,7 @@
 "chemin": "/issues/37/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 10/10 vers 16 h 19 UTC**\nCME (1473 km/s), arrivée du choc estimée le 10/10 vers 16 h 19 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33939/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33939/-1\n\nCollecte du 10/10/2024 à 18 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 10/10 vers 16 h 19 UTC**\nCME (1473 km/s), arrivée du choc estimée le 10/10 vers 16 h 19 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/33939/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/33939/-1\n\nCollecte du 10/10/2024 à 18 h 55 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-11T09:35:00Z",
@@ -1011,9 +1027,9 @@
 "t": "2024-10-24T17:05:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 25/10 vers 10 h 44 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 25/10 vers 10 h 44 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 25/10 vers 10 h 44 UTC**\nCME (2006 km/s), arrivée du choc estimée le 25/10 vers 10 h 44 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/34158/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/34158/-1\n\nCollecte du 24/10/2024 à 17 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 25/10 vers 10 h 44 UTC**\nCME (2006 km/s), arrivée du choc estimée le 25/10 vers 10 h 44 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/34158/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/34158/-1\n\nCollecte du 24/10/2024 à 17 h 05 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-26T01:40:00Z",
@@ -1035,9 +1051,9 @@
 "t": "2024-10-26T18:20:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 27/10 vers 15 h 51 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 27/10 vers 15 h 51 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 27/10 vers 15 h 51 UTC**\nCME (1677 km/s), arrivée du choc estimée le 27/10 vers 15 h 51 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/34225/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/34225/-1\n\nCollecte du 26/10/2024 à 18 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 27/10 vers 15 h 51 UTC**\nCME (1677 km/s), arrivée du choc estimée le 27/10 vers 15 h 51 UTC (±10 h). Kp estimé 8 si le champ n'est pas orienté sud, jusqu'à 9 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 171.3 nT/min. Simulation WSA-ENLIL/34225/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/34225/-1\n\nCollecte du 26/10/2024 à 18 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-10-28T08:55:00Z",
@@ -1117,13 +1133,13 @@
 "chemin": "/issues/42/comments",
 "titre": null,
 "etat": null,
-"texte": "**Pré-alerte orange : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 27.3 nT/min, P90 71.1 nT/min (V = 550.0 km/s, Bz = 17.2 nT, arrivée vers 05 h 57 UTC).\n\nCollecte du 17/12/2024 à 05 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Pré-alerte orange possible : vent solaire à L1**\ndB/dt attendu dans l'heure à Chambon : 27.3 nT/min, P90 71.1 nT/min (V = 550.0 km/s, Bz = 17.2 nT, arrivée vers 05 h 57 UTC).\n\nCollecte du 17/12/2024 à 05 h 20 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-12-17T05:20:00Z",
 "methode": "PATCH",
 "chemin": "/issues/42",
-"titre": "[ORANGE] Pré-alerte orange : vent solaire à L1",
+"titre": "[ORANGE POSSIBLE] Pré-alerte orange possible : vent solaire à L1",
 "etat": null,
 "texte": ""
 },
@@ -1147,9 +1163,9 @@
 "t": "2024-12-29T15:25:00Z",
 "methode": "POST",
 "chemin": "/issues",
-"titre": "[ORANGE] Veille orange : CME attendue le 31/12 vers 13 h 14 UTC",
+"titre": "[ORANGE POSSIBLE] Veille orange possible : CME attendue le 31/12 vers 13 h 14 UTC",
 "etat": null,
-"texte": "**Veille orange : CME attendue le 31/12 vers 13 h 14 UTC**\nCME (860 km/s), arrivée du choc estimée le 31/12 vers 13 h 14 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36055/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36055/-1\n\nCollecte du 29/12/2024 à 15 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 31/12 vers 13 h 14 UTC**\nCME (860 km/s), arrivée du choc estimée le 31/12 vers 13 h 14 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36055/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36055/-1\n\nCollecte du 29/12/2024 à 15 h 25 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-12-29T22:15:00Z",
@@ -1157,7 +1173,7 @@
 "chemin": "/issues/43/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 31/12 vers 22 h 30 UTC**\nCME (917 km/s), arrivée du choc estimée le 31/12 vers 22 h 30 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36090/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36090/-1\n\nCollecte du 29/12/2024 à 22 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 31/12 vers 22 h 30 UTC**\nCME (917 km/s), arrivée du choc estimée le 31/12 vers 22 h 30 UTC (±10 h). Kp estimé 6 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36090/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36090/-1\n\nCollecte du 29/12/2024 à 22 h 15 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 },
 {
 "t": "2024-12-30T16:45:00Z",
@@ -1165,6 +1181,6 @@
 "chemin": "/issues/43/comments",
 "titre": null,
 "etat": null,
-"texte": "**Veille orange : CME attendue le 31/12 vers 10 h 28 UTC**\nCME (881 km/s), arrivée du choc estimée le 31/12 vers 10 h 28 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36117/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36117/-1\n\nCollecte du 30/12/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
+"texte": "**Veille orange possible : CME attendue le 31/12 vers 10 h 28 UTC**\nCME (881 km/s), arrivée du choc estimée le 31/12 vers 10 h 28 UTC (±10 h). Kp estimé 7 si le champ n'est pas orienté sud, jusqu'à 8 s'il l'est franchement (orientation connue seulement à L1, 30 à 60 min avant). Cas défavorable : dB/dt P90 105.0 nT/min. Simulation WSA-ENLIL/36117/1 : https://ccmc.gsfc.nasa.gov/DONKI/view/WSA-ENLIL/36117/-1\n\nCollecte du 30/12/2024 à 16 h 45 UTC · [ouvrir la page](https://rom1cmoi.github.io/veille-cig-france/) (mode Direct)\nSeuils : orange = 10 A par phase au poste le plus exposé (68 nT/min à Chambon), rouge = 75 A (509 nT/min)."
 }
 ]

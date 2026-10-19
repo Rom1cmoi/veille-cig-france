@@ -24,7 +24,16 @@ SEUIL_ORANGE = 68.0
 SEUIL_ROUGE = 509.0
 FIN_EPISODE = timedelta(hours=3)
 GRAVITE = {"choc": 1, "orange": 2, "rouge": 3}
-PRIORITE_NTFY = {"choc": 4, "orange": 4, "rouge": 5}                        # 5 = urgent (sonne même en silencieux)
+# Priorité ntfy : 3 = normale, 4 = haute, 5 = urgente (sonne même en silencieux). Un choc sans niveau orange
+# prévu n'est qu'une information (en 2024, 21 des chocs détectés étaient du bruit) : priorité normale.
+PRIORITE_NTFY = {"choc": 3, "orange": 4, "rouge": 5}
+
+# Deux degrés de confiance pour une même couleur (prévisions seulement ; un constat à Chambon est certain) :
+#   « probable » : la prévision médiane atteint déjà le seuil ;
+#   « possible » : seul le cas défavorable (P90) l'atteint.
+# Le « possible » part toujours (c'est lui qui donne le préavis), mais avec une priorité ntfy plus basse et
+# « POSSIBLE » dans le titre. Le passage de « possible » à « probable » envoie un nouveau message.
+# Rejeu de 2024 : les pré-alertes L1 passées à « probable » ont toutes été suivies d'au moins 30 nT/min.
 
 
 def iso(t):
@@ -46,6 +55,21 @@ def niveau(dbdt):
     return "rouge" if dbdt >= SEUIL_ROUGE else "orange" if dbdt >= SEUIL_ORANGE else None
 
 
+def confiance(med, p90):
+    """« probable » si la médiane atteint le même niveau que le P90, sinon « possible »."""
+    return "probable" if niveau(med) == niveau(p90) else "possible"
+
+
+def rang(x):
+    """Gravité d'un signal : la couleur d'abord, puis la confiance (orange possible < orange probable < rouge possible)."""
+    return GRAVITE[x["niveau"]] + (0 if x.get("confiance") == "possible" else 0.5)
+
+
+def etiquette(x):
+    """Préfixe du titre : [ORANGE] ou [ORANGE POSSIBLE]."""
+    return f"[{x['niveau'].upper()}{' POSSIBLE' if x.get('confiance') == 'possible' else ''}]"
+
+
 # ---------------------------------------------------------------- 1. Quels signaux dans l'état actuel ?
 def signaux(etat, maintenant=None):
     """Liste des raisons de prévenir. Chaque signal a une clé : on ne prévient qu'une fois par clé et par épisode.
@@ -55,19 +79,23 @@ def signaux(etat, maintenant=None):
     s = []
     if l1 and l1.get("choc"):
         c = l1["choc"]
-        s.append({"cle": "choc " + c["vu_a_L1"], "niveau": niveau(l1["dbdt_p90"]) or "choc",
+        n = niveau(l1["dbdt_p90"])
+        s.append({"cle": "choc " + c["vu_a_L1"], "niveau": n or "choc",
+                  "confiance": confiance(l1["dbdt_med"], l1["dbdt_p90"]) if n else None,
                   "titre": f"Choc détecté à L1, arrivée sur Terre vers {hm(c['arrivee_estimee'])}",
                   "texte": f"Saut de pression et de vitesse (+{c.get('saut_V', '?')} km/s) vu à L1 à {hm(c['vu_a_L1'])}. "
                            f"dB/dt attendu dans l'heure à Chambon : {l1['dbdt_med']} nT/min (P90 {l1['dbdt_p90']})."})
     if l1 and niveau(l1["dbdt_p90"]):
-        n = niveau(l1["dbdt_p90"])
-        s.append({"cle": "l1 " + n, "niveau": n, "titre": f"Pré-alerte {n} : vent solaire à L1",
+        n, cf = niveau(l1["dbdt_p90"]), confiance(l1["dbdt_med"], l1["dbdt_p90"])
+        s.append({"cle": f"l1 {n} {cf}", "niveau": n, "confiance": cf,
+                  "titre": f"Pré-alerte {n} {cf} : vent solaire à L1",
                   "texte": f"dB/dt attendu dans l'heure à Chambon : {l1['dbdt_med']} nT/min, P90 {l1['dbdt_p90']} nT/min "
                            f"(V = {l1['V']} km/s, Bz = {l1['Bz']} nT, arrivée vers {hm(l1['arrivee'])})."})
     pic = kp and kp.get("pic_24h")
     if pic and niveau(pic["dbdt_p90"]):
-        n = niveau(pic["dbdt_p90"])
-        s.append({"cle": "kp " + n, "niveau": n, "titre": f"Veille {n} : Kp {pic['kp']} prévu par la NOAA",
+        n, cf = niveau(pic["dbdt_p90"]), confiance(pic["dbdt_med"], pic["dbdt_p90"])
+        s.append({"cle": f"kp {n} {cf}", "niveau": n, "confiance": cf,
+                  "titre": f"Veille {n} {cf} : Kp {pic['kp']} prévu par la NOAA",
                   "texte": f"Kp {pic['kp']} prévu pour le créneau du {pic['t'][8:10]}/{pic['t'][5:7]} à {hm(pic['t'])}. "
                            f"dB/dt attendu : {pic['dbdt_med']} nT/min, P90 {pic['dbdt_p90']} nT/min."})
     if clf and niveau(clf.get("dbdt_max_1h")):
@@ -86,7 +114,8 @@ def signaux(etat, maintenant=None):
         vit = f"{max((x.get('vitesse') or 0) for x in c['cmes']):.0f} km/s" if c["cmes"] else "pas encore cataloguée"
         ids = "+".join(x.get("id") or "?" for x in c["cmes"]) or c["arrivee"][:13]  # une seule alerte par CME et niveau,
         s.append({"cle": f"cme {ids} {n}", "niveau": n,                       # même si ENLIL la recalcule
-                  "titre": f"Veille {n} : CME attendue le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers {hm(c['arrivee'])}",
+                  "confiance": "possible",                                     # orientation du champ inconnue
+                  "titre": f"Veille {n} possible : CME attendue le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers {hm(c['arrivee'])}",
                   "texte": f"CME ({vit}), arrivée du choc estimée le {c['arrivee'][8:10]}/{c['arrivee'][5:7]} vers "
                            f"{hm(c['arrivee'])} (±{c['erreur_h']} h){', effleurement' if c['effleurement'] else ''}. "
                            f"Kp estimé {kp.get('90')} si le champ n'est pas orienté sud, jusqu'à {kp.get('180')} s'il l'est "
@@ -109,12 +138,12 @@ def github(methode, chemin, donnees):
         return json.loads(r.read())
 
 
-def ntfy(titre, texte, niv, lien):
-    """Notification push. Envoyée en JSON pour que les accents passent sans souci."""
+def ntfy(titre, texte, niv, lien, possible=False):
+    """Notification push. Envoyée en JSON pour que les accents passent sans souci. Un cran plus bas si « possible »."""
     sujet = os.environ.get("NTFY_TOPIC")
     if not sujet:
         return
-    corps = {"topic": sujet, "title": titre, "message": texte, "priority": PRIORITE_NTFY.get(niv, 3),
+    corps = {"topic": sujet, "title": titre, "message": texte, "priority": PRIORITE_NTFY.get(niv, 3) - possible,
              "tags": ["warning" if niv != "rouge" else "rotating_light"], "click": lien}
     req = urllib.request.Request("https://ntfy.sh/", data=json.dumps(corps).encode(), method="POST",
                                  headers={"Content-Type": "application/json", "User-Agent": "veille-cig-france"})
@@ -162,11 +191,14 @@ def traiter(etat, maintenant, fichier, erreurs, dossier_cap=None):
                 ep["chocs_muets"] = ep.get("chocs_muets", 0) + len(muets)
                 ep["deja"] += [x["cle"] for x in muets]
                 nouveaux = [x for x in nouveaux if x not in muets]
-            pire = max(nouveaux or sig, key=lambda x: GRAVITE[x["niveau"]])
+            # Une prévision déjà annoncée « probable » qui redescend à « possible » n'envoie rien.
+            nouveaux = [x for x in nouveaux if not (x["cle"].endswith(" possible") and
+                                                    x["cle"][:-8] + "probable" in ep.get("deja", []))]
+            pire = max(nouveaux or sig, key=rang)
             if not ep:                                                       # ouverture d'un épisode
                 ep = {"debut": iso(maintenant), "niveau": pire["niveau"], "issue": None, "lien": lien, "deja": [],
-                      "max_prevu": 0, "max_mesure": 0}
-                titre = f"[{pire['niveau'].upper()}] {pire['titre']}"
+                      "max_prevu": 0, "max_mesure": 0, "rang": rang(pire)}
+                titre = f"{etiquette(pire)} {pire['titre']}"
                 print("ALERTE :", titre)
                 r = github("POST", "/issues", {"title": titre, "body": corps_message(sig, maintenant, bulletins)})
                 if r:
@@ -174,22 +206,25 @@ def traiter(etat, maintenant, fichier, erreurs, dossier_cap=None):
                 if dossier_cap:
                     ep["cap"] = [cap.ecrire(dossier_cap, lien, ep, sig, maintenant, "Alert", pire["niveau"], titre,
                                             bulletins)]
-                ntfy(titre, "\n".join(x["texte"] for x in sig), pire["niveau"], ep["lien"])
+                ntfy(titre, "\n".join(x["texte"] for x in sig), pire["niveau"], ep["lien"],
+                     pire.get("confiance") == "possible")
             elif nouveaux:                                                   # nouveau signal pendant l'épisode
-                titre = f"[{pire['niveau'].upper()}] {pire['titre']}"
+                titre = f"{etiquette(pire)} {pire['titre']}"
                 print("ALERTE (suite) :", titre)
                 if ep["issue"]:
                     github("POST", f"/issues/{ep['issue']}/comments",
                            {"body": corps_message(nouveaux, maintenant, bulletins)})
-                    if GRAVITE[pire["niveau"]] > GRAVITE[ep["niveau"]]:      # aggravation : on change le titre
+                    if rang(pire) > ep.get("rang", GRAVITE[ep["niveau"]] + 0.5):   # aggravation : on change le titre
                         github("PATCH", f"/issues/{ep['issue']}", {"title": titre})
-                ntfy(titre, "\n".join(x["texte"] for x in nouveaux), pire["niveau"], ep["lien"])
+                ntfy(titre, "\n".join(x["texte"] for x in nouveaux), pire["niveau"], ep["lien"],
+                     pire.get("confiance") == "possible")
                 if dossier_cap:
                     niv = max([ep["niveau"], pire["niveau"]], key=GRAVITE.get)
                     ep.setdefault("cap", []).append(cap.ecrire(dossier_cap, lien, ep, sig, maintenant, "Update", niv,
                                                                titre, bulletins))
             ep["deja"] += [x["cle"] for x in nouveaux]
             ep["niveau"] = max([ep["niveau"]] + [x["niveau"] for x in sig], key=GRAVITE.get)
+            ep["rang"] = max([ep.get("rang", GRAVITE[ep["niveau"]] + 0.5)] + [rang(x) for x in sig])
             ep["dernier_signal"] = iso(maintenant)
 
         if ep:                                                               # suivi des maxima pendant l'épisode
@@ -217,7 +252,9 @@ def traiter(etat, maintenant, fichier, erreurs, dossier_cap=None):
         fichier.write_text(json.dumps(ep, ensure_ascii=False, indent=1))
     if not ep:
         return None
-    return {"niveau": ep["niveau"], "depuis": ep["debut"], "lien": ep["lien"],
+    possible = ep.get("rang", 0) == GRAVITE[ep["niveau"]] and ep["niveau"] != "choc"
+    return {"niveau": ep["niveau"], "confiance": "possible" if possible else None,
+            "depuis": ep["debut"], "lien": ep["lien"],
             "signaux": [x["titre"] for x in sig]}
 
 

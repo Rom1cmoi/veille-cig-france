@@ -37,8 +37,11 @@ def caracteriser(sig):
     types = {s["cle"].split()[0] for s in sig}
     if "clf" in types:
         return "Immediate", "Observed", "Monitor"
-    if "l1" in types or "choc" in types:
+    prevus = [s for s in sig if s["cle"].split()[0] in ("l1", "choc")]
+    if any(s.get("confiance") != "possible" for s in prevus):
         return "Expected", "Likely", "Prepare"
+    if prevus:                                                                # seul le cas défavorable atteint le seuil
+        return "Expected", "Possible", "Prepare"
     return "Future", "Possible", "Prepare"                                    # CME, Kp prévu
 
 
@@ -51,7 +54,7 @@ def ecrire(dossier, page, ep, sig, maintenant, type_msg, niveau, titre, bulletin
     sent = heure_cap(maintenant)
     refs = " ".join(ep.get("cap", []))
     b = bulletins or {}
-    titre_cap = re.sub(r"^\[[A-Z]+\] ", "", titre)                         # la gravité est déjà codée à part
+    titre_cap = re.sub(r"^\[[A-Z ]+\] ", "", titre)                         # la gravité est déjà codée à part
     if type_msg == "Cancel":
         urgence, certitude, reponse = "Past", "Observed", "AllClear"
     else:

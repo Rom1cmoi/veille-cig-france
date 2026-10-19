@@ -152,6 +152,15 @@ Le collecteur prévient tout seul quand il se passe quelque chose (fichier `aler
 | Veille, Pré-alerte ou Constat orange | dB/dt (P90 prévu, ou mesuré) ≥ 68 nT/min, soit 10 A par phase au poste le plus exposé |
 | Rouge | dB/dt ≥ 509 nT/min, soit 75 A |
 
+**Possible ou probable ?** Une prévision (choc, pré-alerte L1, veille Kp) est dite **probable** quand la prévision médiane atteint déjà le seuil, **possible** quand seul le cas défavorable (P90) l'atteint. Une veille CME est toujours « possible » : l'orientation de son champ, qui fait sa force, n'est connue qu'à L1. Un constat à Chambon est mesuré, donc certain. Rien n'est supprimé : le « possible » part toujours, car c'est lui qui donne le préavis, mais avec « POSSIBLE » dans le titre et une notification ntfy de priorité normale au lieu de haute. Le passage à « probable » envoie un nouveau message.
+
+| Rejoué sur | Notifications | dont prioritaires | Vraies alertes perdues |
+|---|---|---|---|
+| 2024 (année entière) | 61 | 2, toutes deux pour la tempête de mai (constat orange, pré-alerte probable) | aucune : mêmes épisodes, mêmes préavis |
+| 10-11 octobre 2026 | 3 | 1 (pré-alerte probable, à tort : la médiane elle-même surestimait) | aucune |
+
+En mai 2024, la pré-alerte « possible » est partie 32 min avant le premier dépassement de l'orange ; le « probable » n'est arrivé qu'après (18 h 05). Garder les deux degrés est donc nécessaire : le premier donne le préavis, le second la confiance. Le message CAP suit la même logique (certitude « Possible » ou « Likely »).
+
 **Comment ?** Un épisode s'ouvre au premier signal : une *issue* GitHub est créée dans le dépôt (onglet **Issues**), et GitHub t'envoie une notification (e-mail, appli GitHub). Chaque nouveau signal ou aggravation ajoute un commentaire, donc une nouvelle notification. Après 3 h sans signal, l'épisode se ferme avec un bilan (dB/dt prévu et mesuré maximaux). L'onglet Issues devient ainsi le journal des épisodes.
 
 **Tester :** onglet **Actions** → **collecte** → **Run workflow** → coche **Envoyer une alerte de test** → **Run workflow**. Une issue « [TEST] » est créée puis fermée aussitôt.
