@@ -12,7 +12,7 @@
 :root{
   --bg:#F2F4F6; --surface:#FFFFFF; --ink:#16202A; --muted:#5B6875; --line:#D5DBE1;
   --accent:#1F6F8B; --accent-soft:#E3EEF2; --grid:#9AA6B2; --land:#E6EAEE; --land-fr:#DCE3E9;
-  --g:#0ca30c; --y:#fab219; --o:#ec835a; --r:#d03b3b;
+  --g:#0ca30c; --y:#f7c600; --o:#e8590c; --r:#b91c1c;
   --display:"Archivo","Arial Narrow",Arial,sans-serif;
   --body:"Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -742,7 +742,7 @@ details.valid summary{font-weight:600;cursor:pointer}
     const IB=deux&&hyp!=='med'?currents('med'):I, IW=deux&&hyp!=='p90'?currents('p90'):I;
     const nat=Math.max(...IB.map(level)), natW=Math.max(...IW.map(level)), imax=Math.max(...IB);
     const kB=IB.indexOf(imax);
-    const b=$('badge'); b.textContent=NAMES[nat]; b.style.background=COLORS[nat];
+    const b=$('badge'); b.textContent=NAMES[nat]; b.style.background=COLORS[nat]; b.style.color=nat===3?'#fff':'#16202A';
     const quand=mode==='live'?(aud==='pub'?'maintenant et dans l\'heure':({clf:'maintenant',l1:'dans l\'heure',kp:'dans les 24 heures'})[liveH]):mode==='prev'?'depuis l\'espace':mode==='scen'?'perturbation au sol':`tempête ${({'2024':'de mai 2024','2003':'de 2003','2026':'d\'octobre 2026'})[mode]}${tview>=0?' à '+clockOf(tview):' (maximum)'}`;
     $('lead').textContent=aud==='pub'?`Vigilance ${VIG[nat]} pour le réseau électrique · ${quand}`
       :`Vigilance ${VIG[nat]} · ${quand} · jusqu'à ${fmt(imax)} A par phase (${D.nodes[kB].place})`;
