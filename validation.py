@@ -19,7 +19,7 @@ import math
 from pathlib import Path
 
 SEUIL_ALERTE = 30.0                     # nT/min, seuil utilisé dans le rapport
-RAPPORT = {"r": 0.79, "rmse": 0.325, "couverture_p90": 0.94, "pod": 0.87, "far": 0.60}   # validation croisée, 11 orages
+RAPPORT = {"r": 0.75, "rmse": 0.304, "couverture_p90": 0.90, "pod": 0.78, "far": 0.70}   # validation croisée, 41 tempêtes
 
 
 def bilan(hist, retard_max=None):

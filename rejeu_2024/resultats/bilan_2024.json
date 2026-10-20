@@ -1,52 +1,52 @@
 {
  "horaire": {
   "n": 8215,
-  "r": 0.65,
-  "rmse": 0.227,
-  "biais_facteur": 0.99,
-  "couverture_p90": 0.96,
+  "r": 0.66,
+  "rmse": 0.224,
+  "biais_facteur": 1.05,
+  "couverture_p90": 0.95,
   "n_obs_30": 29,
-  "n_annonces_30": 71,
-  "pod": 0.69,
-  "far": 0.72,
+  "n_annonces_30": 49,
+  "pod": 0.66,
+  "far": 0.61,
   "mesure_max": 107.0,
   "n_obs_68": 3,
-  "n_annonces_68": 21,
-  "pod_68": 1.0,
-  "far_68": 0.86,
+  "n_annonces_68": 15,
+  "pod_68": 0.67,
+  "far_68": 0.87,
   "strate calme (< 10 nT/min)": {
    "n": 8045,
-   "r": 0.55,
-   "rmse": 0.218,
-   "biais_facteur": 0.97,
-   "couverture_p90": 0.97,
+   "r": 0.56,
+   "rmse": 0.213,
+   "biais_facteur": 1.03,
+   "couverture_p90": 0.96,
    "n_obs_30": 0,
-   "n_annonces_30": 8,
+   "n_annonces_30": 1,
    "pod": null,
    "far": 1.0,
    "mesure_max": 9.9
   },
   "strate actif (10-30)": {
    "n": 141,
-   "r": 0.3,
-   "rmse": 0.494,
-   "biais_facteur": 2.17,
-   "couverture_p90": 0.61,
+   "r": 0.32,
+   "rmse": 0.521,
+   "biais_facteur": 2.45,
+   "couverture_p90": 0.53,
    "n_obs_30": 0,
-   "n_annonces_30": 43,
+   "n_annonces_30": 29,
    "pod": null,
    "far": 1.0,
    "mesure_max": 29.5
   },
   "strate orageux (>= 30)": {
    "n": 29,
-   "r": 0.23,
-   "rmse": 0.507,
-   "biais_facteur": 2.24,
-   "couverture_p90": 0.59,
+   "r": 0.25,
+   "rmse": 0.54,
+   "biais_facteur": 2.54,
+   "couverture_p90": 0.52,
    "n_obs_30": 29,
-   "n_annonces_30": 20,
-   "pod": 0.69,
+   "n_annonces_30": 19,
+   "pod": 0.66,
    "far": 0.0,
    "mesure_max": 107.0
   }
@@ -164,8 +164,7 @@
     ],
     "signaux": {
      "cme": "2024-03-23T16:30:00Z",
-     "choc": "2024-03-24T14:10:00Z",
-     "l1": "2024-03-24T15:15:00Z"
+     "choc": "2024-03-24T14:10:00Z"
     },
     "mesure_max": 63.45,
     "issue": "30 à 68 nT/min"
@@ -552,7 +551,7 @@
     "signaux": {
      "cme": "2024-10-09T13:05:00Z",
      "choc": "2024-10-10T14:55:00Z",
-     "l1": "2024-10-10T15:25:00Z"
+     "l1": "2024-10-10T15:30:00Z"
     },
     "mesure_max": 60.18,
     "issue": "30 à 68 nT/min"
@@ -618,8 +617,7 @@
      "choc"
     ],
     "signaux": {
-     "choc": "2024-12-17T04:25:00Z",
-     "l1": "2024-12-17T05:20:00Z"
+     "choc": "2024-12-17T04:25:00Z"
     },
     "mesure_max": 35.8,
     "issue": "30 à 68 nT/min"
@@ -701,8 +699,7 @@
     "cme"
    ],
    "preavis_cme_min": 2132,
-   "preavis_choc_min": 832,
-   "preavis_l1_min": 767
+   "preavis_choc_min": 832
   },
   {
    "debut": "2024-05-10T17:07:00Z",
@@ -804,7 +801,7 @@
    ],
    "preavis_cme_min": 2010,
    "preavis_choc_min": 460,
-   "preavis_l1_min": 430
+   "preavis_l1_min": 425
   },
   {
    "debut": "2024-12-17T05:17:00Z",
@@ -2036,7 +2033,7 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-04-18T02:48:00-CME-001",
+    "cme": "2024-04-17T21:12:00-CME-001",
     "arrivee_prevue": "2024-04-21T14:00Z",
     "kp_prevu": [
      2,
@@ -2046,7 +2043,7 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-04-17T21:12:00-CME-001",
+    "cme": "2024-04-18T02:48:00-CME-001",
     "arrivee_prevue": "2024-04-21T14:00Z",
     "kp_prevu": [
      2,
@@ -2086,7 +2083,7 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-05-03T21:28:00-CME-001",
+    "cme": "2024-05-03T21:17:00-CME-001",
     "arrivee_prevue": "2024-05-06T19:00Z",
     "kp_prevu": [
      3,
@@ -2096,7 +2093,7 @@
     "kp_observe": 4.0
    },
    {
-    "cme": "2024-05-03T21:17:00-CME-001",
+    "cme": "2024-05-03T21:28:00-CME-001",
     "arrivee_prevue": "2024-05-06T19:00Z",
     "kp_prevu": [
      3,
@@ -2116,7 +2113,7 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-05-05T02:09:00-CME-001",
+    "cme": "2024-05-05T03:38:00-CME-001",
     "arrivee_prevue": "2024-05-07T23:00Z",
     "kp_prevu": [
      3,
@@ -2126,7 +2123,7 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-05-05T03:38:00-CME-001",
+    "cme": "2024-05-05T02:09:00-CME-001",
     "arrivee_prevue": "2024-05-07T23:00Z",
     "kp_prevu": [
      3,
@@ -2396,16 +2393,6 @@
     "kp_observe": 2.667
    },
    {
-    "cme": "2024-08-05T16:00:00-CME-001",
-    "arrivee_prevue": "2024-08-08T16:00Z",
-    "kp_prevu": [
-     3,
-     5
-    ],
-    "effleurement": true,
-    "kp_observe": 2.0
-   },
-   {
     "cme": "2024-08-04T23:12:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
@@ -2416,7 +2403,7 @@
     "kp_observe": 2.0
    },
    {
-    "cme": "2024-08-05T03:12:00-CME-001",
+    "cme": "2024-08-05T16:00:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
      3,
@@ -2427,6 +2414,16 @@
    },
    {
     "cme": "2024-08-05T05:48:00-CME-001",
+    "arrivee_prevue": "2024-08-08T16:00Z",
+    "kp_prevu": [
+     3,
+     5
+    ],
+    "effleurement": true,
+    "kp_observe": 2.0
+   },
+   {
+    "cme": "2024-08-05T03:12:00-CME-001",
     "arrivee_prevue": "2024-08-08T16:00Z",
     "kp_prevu": [
      3,
@@ -2784,35 +2781,35 @@
    {
     "debut": "2024-06-07T14:54:00Z",
     "max": 30.4,
-    "p90_L1_heure_avant": 25.6,
+    "p90_L1_heure_avant": 20.6,
     "donnees_L1": 13,
     "kp": 6.333
    },
    {
     "debut": "2024-08-11T15:14:00Z",
     "max": 31.2,
-    "p90_L1_heure_avant": 27.4,
+    "p90_L1_heure_avant": 23.9,
     "donnees_L1": 13,
     "kp": 4.333
    },
    {
     "debut": "2024-08-12T03:02:00Z",
     "max": 30.7,
-    "p90_L1_heure_avant": 42.4,
+    "p90_L1_heure_avant": 34.8,
     "donnees_L1": 13,
     "kp": 7.0
    },
    {
     "debut": "2024-08-12T08:47:00Z",
     "max": 47.4,
-    "p90_L1_heure_avant": 34.9,
+    "p90_L1_heure_avant": 29.7,
     "donnees_L1": 13,
     "kp": 7.0
    },
    {
     "debut": "2024-12-17T15:12:00Z",
     "max": 32.6,
-    "p90_L1_heure_avant": 30.6,
+    "p90_L1_heure_avant": 27.4,
     "donnees_L1": 13,
     "kp": 4.0
    }
@@ -2820,38 +2817,38 @@
   "calibrage": [
    {
     "prevu_med": "0-3",
-    "n": 7556,
-    "mesure_sur_prevu": 0.99,
-    "couverture_p90": 0.96,
+    "n": 7734,
+    "mesure_sur_prevu": 1.04,
+    "couverture_p90": 0.95,
     "part_obs_30": 0.0
    },
    {
     "prevu_med": "3-5",
-    "n": 402,
-    "mesure_sur_prevu": 1.02,
-    "couverture_p90": 0.94,
+    "n": 286,
+    "mesure_sur_prevu": 1.25,
+    "couverture_p90": 0.89,
     "part_obs_30": 0.0
    },
    {
     "prevu_med": "5-10",
-    "n": 162,
-    "mesure_sur_prevu": 0.99,
-    "couverture_p90": 0.93,
-    "part_obs_30": 0.025
+    "n": 119,
+    "mesure_sur_prevu": 1.25,
+    "couverture_p90": 0.87,
+    "part_obs_30": 0.059
    },
    {
     "prevu_med": "10-20",
-    "n": 68,
-    "mesure_sur_prevu": 1.23,
-    "couverture_p90": 0.91,
-    "part_obs_30": 0.147
+    "n": 54,
+    "mesure_sur_prevu": 1.31,
+    "couverture_p90": 0.89,
+    "part_obs_30": 0.148
    },
    {
     "prevu_med": "20-+",
-    "n": 27,
-    "mesure_sur_prevu": 0.9,
-    "couverture_p90": 0.96,
-    "part_obs_30": 0.519
+    "n": 22,
+    "mesure_sur_prevu": 1.02,
+    "couverture_p90": 0.91,
+    "part_obs_30": 0.591
    }
   ],
   "chocs_detectes_reponse": [
@@ -3013,14 +3010,14 @@
   "fausses_cme_effleurement": 65,
   "preavis_L1_30": [
    27,
-   767,
+   832,
    32,
    818,
    1548,
    42,
    40,
    21,
-   430,
+   425,
    52
   ]
  }

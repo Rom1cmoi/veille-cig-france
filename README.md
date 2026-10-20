@@ -96,9 +96,32 @@ GitHub retarde les tâches planifiées des comptes gratuits : en pratique, 18 mi
 
 Erreurs possibles : `401` = jeton mal copié (vérifier le mot `Bearer` et l'espace) ; `403` ou `404` = jeton sans la permission Actions *Read and write*, ou pas limité au bon dépôt ; `422` = corps de requête incorrect.
 
+## Réajustement du modèle L1 sur 41 tempêtes (20/10/2026)
+
+Le modèle « vent solaire → dB/dt maximal de l'heure à Chambon » avait été ajusté sur 11 jours de tempête. Avant de le changer, on l'a **vérifié sur un échantillon presque quatre fois plus grand** : les 46 tempêtes de Kp 8- ou plus depuis 2000 (catalogue GFZ), dont 41 ont leurs données (vent solaire OMNI à la minute sur au moins 70 % de la tempête, Chambon complet ; octobre 2003 et mai 2024 gardées avec leurs heures disponibles). Données : `sondes/reajustement.py` → `reajustement/donnees/`.
+
+| | Modèle d'origine | Réajusté (en service) |
+|---|---|---|
+| Ajusté sur | 11 jours de tempête | 41 tempêtes, 1 846 heures |
+| Coefficients c0 ; c1 ; c2 ; c3 | −0,724 ; 0,294 ; 0,267 ; 0,126 | −0,598 ; 0,252 ; 0,286 ; 0,123 |
+| Erreur typique (validation croisée, une tempête laissée de côté) | 0,325 dex (×2,1) | 0,304 dex (×2,0) |
+| Sur les 31 tempêtes que l'ancien modèle n'avait jamais vues | erreur ×1,98, biais ×0,88, P90 couvre 94 % | erreur ×1,97, biais ×0,96, P90 couvre 92 % |
+| Année 2024 rejouée : heures annoncées ≥ 30 nT/min | 71 | 49 |
+| 2024 : fausses alertes à 30 nT/min / heures ≥ 30 annoncées | 72 % / 69 % | 61 % / 66 % |
+| 2024 : épisodes, dépassements de l'orange annoncés, préavis | 43 ; 3 sur 3 ; 32 min | identiques |
+| Tempête du 10-11/10/2026 (jamais vue) : surestimation, heures P90 ≥ orange | ×1,75 ; 3 h | ×1,6 ; 2 h |
+
+Ce que la vérification apprend :
+- l'ancien modèle **tenait** hors de son échantillon : le changement est un affinage, pas une correction ;
+- l'erreur varie peu d'une tempête à l'autre (×0,6 à ×1,6 en moyenne par tempête) : elle vient surtout d'une heure à l'autre ;
+- quand le modèle prévoit plus de 30 nT/min, la mesure vaut en moyenne la moitié (régression vers la moyenne d'une prévision bruitée ; une correction de pente ne change rien, pente 0,99) : la fausse alerte d'octobre 2026 n'est pas un cas isolé ;
+- sur les 41 tempêtes, 6 des 17 heures au-delà de l'orange n'étaient annoncées par aucun des deux modèles : seule la mesure à Chambon (« Constat ») les rattrape.
+
+Inchangés : la relation Kp → dB/dt (réajustée sur les mêmes tempêtes, elle donnerait un P90 plus bas aux grands Kp : 103 au lieu de 137 nT/min à Kp 9 ; à revoir après le test utilisateurs, dont une tâche en dépend), les bornes d'entrée du modèle et le calibrage par temps calme (toujours juste avec le nouveau modèle : biais ×1,03 sous 10 nT/min en 2024).
+
 ## Calibrage de la prévision L1 par temps calme
 
-Le modèle « vent solaire → dB/dt » du rapport (chapitre 4) a été ajusté sur des jours de tempête. Par temps calme, il surestime d'un facteur 2, de façon très régulière : sur l'année 2024 rejouée, quand il prévoit moins de 5 nT/min (92 % des heures), on mesure 0,5 fois la prévision. Au-dessus de 10 nT/min, le rapport revient autour de 1, mais il change d'une tempête à l'autre (de ×0,4 à ×1,8) : cet écart-là ne peut pas être corrigé par un simple facteur.
+Le modèle « vent solaire → dB/dt » du rapport (chapitre 4) a été ajusté sur des jours de tempête. Par temps calme, il surestime d'un facteur 2, de façon très régulière : sur l'année 2024 rejouée, quand il prévoit moins de 5 nT/min (92 % des heures), on mesure 0,5 fois la prévision. Au-dessus de 10 nT/min, le rapport revient autour de 1, mais il change d'une heure à l'autre et d'une tempête à l'autre (de ×0,6 à ×1,6 en moyenne par tempête, sur 41 tempêtes) : cet écart-là ne peut pas être corrigé par un simple facteur.
 
 Depuis le 12 octobre 2026, le collecteur corrige donc seulement les faibles prévisions (fonction `calibrer` de `collecteur.py`) :
 
@@ -160,7 +183,7 @@ Le collecteur prévient tout seul quand il se passe quelque chose (fichier `aler
 
 | Rejoué sur | Notifications | dont prioritaires | Vraies alertes perdues |
 |---|---|---|---|
-| 2024 (année entière) | 61 | 2, toutes deux pour la tempête de mai (constat orange, pré-alerte probable) | aucune : mêmes épisodes, mêmes préavis |
+| 2024 (année entière) | 59 (61 avec le modèle d'origine) | 2, toutes deux pour la tempête de mai (constat orange, pré-alerte probable) | aucune : mêmes épisodes, mêmes préavis |
 | 10-11 octobre 2026 | 3 | 1 (pré-alerte probable, à tort : la médiane elle-même surestimait) | aucune |
 
 En mai 2024, la pré-alerte « possible » est partie 32 min avant le premier dépassement de l'orange ; le « probable » n'est arrivé qu'après (18 h 05). Garder les deux degrés est donc nécessaire : le premier donne le préavis, le second la confiance. Le message CAP suit la même logique (certitude « Possible » ou « Likely »).

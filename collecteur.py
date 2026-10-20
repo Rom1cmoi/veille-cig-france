@@ -46,8 +46,11 @@ URL_CLF = ("https://imag-data.bgs.ac.uk/GIN_V1/GINServices?Request=GetData&forma
 # ---------------------------------------------------------------- modèles du rapport (chapitre 4)
 # Vent solaire (version « opérationnelle » : seules les données disponibles à l'instant de la prévision)
 # log10(max dB/dt sur l'heure) = c0 + c1 log10(Newell moyen 2 h) + c2 saut de sqrt(P) sur 10 min + c3 sqrt(P) moyen 1 h
-COEF_L1 = [-0.7237, 0.2942, 0.2668, 0.1258]
-SIGMA_L1 = 0.3249                      # écart type en validation croisée (dex)
+# Réajusté le 20/10/2026 sur 41 tempêtes de Kp >= 8- (2000-2026, 1 846 heures), après vérification : le modèle d'origine
+# (11 jours de tempête : -0,7237 ; 0,2942 ; 0,2668 ; 0,1258 ; sigma 0,3249) tenait sur les 31 tempêtes qu'il n'avait
+# jamais vues (erreur ×1,98, biais ×0,88). Même méthode, validation croisée en laissant une tempête de côté.
+COEF_L1 = [-0.5984, 0.2518, 0.2859, 0.1228]
+SIGMA_L1 = 0.3040                      # écart type en validation croisée (dex), 41 tempêtes
 # Kp : log10(max dB/dt sur 3 h) = a + b Kp
 KP_A, KP_B, KP_SIGMA = -0.1123, 0.2124, 0.2642
 SIGMA_KP_PREVU = 1.0                   # incertitude supposée d'un Kp prévu (± 1 point)
