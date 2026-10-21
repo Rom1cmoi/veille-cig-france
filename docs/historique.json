@@ -2572,7 +2572,7 @@
 "prevu_med": 2.3,
 "prevu_p90": 5.6,
 "prevu_med_brut": 4.3,
-"observe": null,
+"observe": 2.5,
 "emise_min": 0
 },
 "2026-10-21T00:00:00Z": {
