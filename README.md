@@ -147,6 +147,24 @@ Les filtres sont **causaux** : ils n'utilisent que le passé, ce qui permet de l
 
 Plusieurs observatoires publient avec des heures, voire des jours de retard. Pour chaque minute manquante, on prend la variation de l'observatoire disponible le plus proche ; Wingst (WNG) et San Fernando (SFS) servent de relais. La page indique quels observatoires étaient à jour, et `journal/sol_AAAA-MM.csv` le garde à chaque calcul. Il faut savoir qu'**il manque alors surtout le nord-ouest** (Hartland, Dourbes) : sur le 10 mai 2024, les remplacer par Chambon fait passer le maximum national de 11,8 à 8,8 A et le déplace de Brest à la vallée du Rhône.
 
+## Lecture ap30 pour l'exploitant
+
+En plus du Kp (qui reste l'entrée des prévisions), le profil **Exploitant** affiche l'indice **ap30** du GFZ (et Hp30) : comme le Kp, une mesure de l'agitation magnétique de la planète, mais par demi-heure et sans plafond à 9 (Yamazaki et al., 2024 ; GFZ Potsdam, CC BY 4.0). Le collecteur lit les 24 dernières heures toutes les 10 min (`hpo.py`) ; le GFZ publie chaque demi-heure avec 30 à 60 min de retard.
+
+Pour que ce chiffre parle, il est relié à Chambon sur les **46 tempêtes de Kp 8- ou plus depuis 2000** (4 421 demi-heures, données `sondes/hpo.py`) :
+
+| ap30 (Hp30) | dB/dt maximal de la demi-heure à Chambon, médiane (P90) | ≥ jaune (6,8 nT/min) | ≥ orange (68 nT/min) |
+|---|---|---|---|
+| < 27 (< 4) | 1,7 (3,7) nT/min | 1 % | 0 % |
+| 27–47 (4 à 5-) | 3,7 (7,7) | 15 % | 0 % |
+| 48–79 (5 à 6-) | 5,7 (12) | 39 % | 0 % |
+| 80–131 (6 à 7-) | 7,7 (17) | 61 % | 0 % |
+| 132–206 (7 à 8-) | 13 (30) | 85 % | 1 % |
+| 207–299 (8 à 9) | 19 (48) | 97 % | 4 % |
+| ≥ 300 (> 9) | 34 (68) | 100 % | 10 % |
+
+L'ap30 explique mieux le dB/dt d'une demi-heure que le Kp de la fenêtre de 3 h qui la contient (erreur ×1,7 au lieu de ×1,9 en validation croisée par tempête, r = 0,87 au lieu de 0,80). Mais c'est un indice planétaire, mesuré après coup : il **situe** la tempête, il ne la prévoit pas, et **l'orange ne se lit pas sur l'ap30 seul** (au mieux une demi-heure sur dix au-delà de 300). Le niveau du service reste celui des magnétomètres et du modèle L1.
+
 ## Gazoducs
 
 En mode Gaz (bouton au-dessus de la carte), les 33 600 km du réseau de transport (NaTran, Teréga) sont colorés selon le potentiel tube-sol (PSP) induit, pour le même dB/dt que la carte électrique. Le calcul (dossier `calc` du projet, `gaz_reseau.py`) suit la méthode de Boteler (ligne de transmission à sources distribuées, schéma en pi, résolution nodale), avec le même sol EURHOM que pour le réseau électrique. Les paramètres des tubes ne sont pas publiés : cas de base DN 600, 12 mm, revêtement 10 µS/m², fourchette Monte-Carlo ×0,38 à ×1,7. Seuils provisoires : 2 V (jaune), 10 V (orange), 30 V (rouge), à calibrer avec les exploitants ; la protection cathodique tient le tube entre −0,85 et −1,2 V. Tracés : ODRÉ, Licence Ouverte (NaTran 2025, Teréga 2021).

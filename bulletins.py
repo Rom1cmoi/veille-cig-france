@@ -207,6 +207,15 @@ def rediger(etat):
     elif clf.get("dbdt_max_1h") is not None:
         ex.append(f"Mesuré sur la dernière heure : {f(clf['dbdt_max_1h'], 1)} nT/min à Chambon, soit au plus "
                   f"{f(clf['dbdt_max_1h'] * COEF_MAX, 1)} A au même poste (direction la plus défavorable).")
+    hp = etat.get("hpo") or {}
+    if hp.get("dernier"):                                              # outil de lecture, pas une prévision
+        d, c = hp["dernier"], hp["classe"]
+        pc = lambda v: str(v).replace(".", ",")
+        nt = lambda v: f(v, 0 if v >= 10 else 1)
+        ex.append(f"Indice ap30 (GFZ) : {f(d['ap30'])} (Hp30 {f(d['Hp30'], 1)}) sur la demi-heure de {utc(d['t'])}. "
+                  f"Sur les tempêtes depuis 2000, une demi-heure de cette classe donne à Chambon {nt(c['dbdt_med'])} "
+                  f"nT/min en médiane (jusqu'à {nt(c['dbdt_p90'])} au P90) ; {pc(c['pct_jaune'])} % dépassent le seuil "
+                  f"jaune, {pc(c['pct_orange'])} % l'orange.")
     if choc:
         ex.append(f"Choc attendu {utc(choc['arrivee_estimee'])} : pic bref possible à l'arrivée.")
     for c in attendues[:2]:

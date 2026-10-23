@@ -24,6 +24,7 @@ from pathlib import Path
 
 import alertes                                                       # alertes.py, à côté de ce fichier
 import bulletins                                                     # bulletins.py, idem
+import hpo                                                           # hpo.py (ap30 du GFZ), idem
 import sol                                                           # sol.py, idem
 import validation                                                    # validation.py, idem
 
@@ -508,7 +509,8 @@ def main():
                 erreurs_lecture.append(f"{cle} : {e}")
 
     erreurs = [] if demo else erreurs_lecture
-    etat = {"genere": iso(maintenant), "demo": demo, "l1": None, "kp": None, "clf": None, "cme": None, "sol": None}
+    etat = {"genere": iso(maintenant), "demo": demo, "l1": None, "kp": None, "clf": None, "cme": None, "sol": None,
+            "hpo": None}
     for cle, besoins, fonction in (("l1", ("mag", "vent"), lambda: analyse_l1(sources["mag"], sources["vent"])),
                                    ("kp", ("kp",), lambda: analyse_kp(sources["kp"], maintenant)),
                                    ("clf", ("clf",), lambda: analyse_clf(lire_iaga(sources["clf"]), maintenant))):
@@ -537,6 +539,14 @@ def main():
             etat["sol"] = sol.analyse_sol(sources.get("clf"), maintenant, avant, lire_url)
         except Exception as e:
             erreurs.append(f"sol : {e}")
+        try:                                                            # ap30 du GFZ : outil de lecture (exploitant)
+            avant_hpo = json.loads((SORTIE / "etat_courant.json").read_text()).get("hpo")
+        except Exception:
+            avant_hpo = None
+        try:
+            etat["hpo"] = hpo.analyse_hpo(maintenant, avant_hpo, lire_url)
+        except Exception as e:
+            erreurs.append(f"ap30 : {e}")
 
     fichier_hist = SORTIE / ("historique_demo.json" if demo else "historique.json")
     hist = json.loads(fichier_hist.read_text()) if fichier_hist.exists() else {}
