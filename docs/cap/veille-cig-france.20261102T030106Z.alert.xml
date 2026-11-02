@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>veille-cig-france.20261102T030106Z.alert</identifier>
+  <sender>rom1cmoi.github.io/veille-cig-france</sender>
+  <sent>2026-11-02T03:01:06-00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <note>Démonstrateur étudiant (IPSA, ELIOS-SPACE), non officiel. Courants estimés par modèle, non validés contre mesure.</note>
+  <info>
+    <language>fr-FR</language>
+    <category>Met</category>
+    <category>Infra</category>
+    <event>Courants géomagnétiquement induits dans le réseau électrique</event>
+    <responseType>Prepare</responseType>
+    <urgency>Expected</urgency>
+    <severity>Minor</severity>
+    <certainty>Likely</certainty>
+    <expires>2026-11-02T06:01:06-00:00</expires>
+    <senderName>Veille CIG France (démonstrateur)</senderName>
+    <headline>Choc détecté à L1, arrivée sur Terre vers 03 h 35 UTC</headline>
+    <description>Vigilance verte pour l'heure à venir. Aucun effet attendu sur le réseau électrique.
+Les satellites ont mesuré un choc dans le vent solaire : il atteindra la Terre vers 4 h 35 (heure de Paris).
+Une éruption solaire (éjection de masse coronale) devrait atteindre la Terre jeudi 5 novembre vers 6 h (heure de Paris), à environ 10 heures près. Effet attendu sur le réseau : vert, selon l'orientation de son champ magnétique, qui ne sera connue qu'une heure avant.
+
+Vent solaire à L1 (SOLAR1, mesure de 02/11 02 h 56 UTC) : V = 467 km/s, n = 4,4 cm⁻³, Bz = -1,2 nT, Pdyn = 1,3 nPa, couplage de Newell sur 2 h = 4686. dB/dt maximal attendu à Chambon pour l'heure qui commence : 2,5 nT/min en médiane, 6,1 au P90 (vigilance verte). Arrivée sur Terre de ce vent : 02/11 03 h 46 UTC.
+Choc détecté à L1 à 02/11 02 h 45 UTC (saut de √Pdyn 0,60 nPa^½, de vitesse 25 km/s) ; arrivée estimée 02/11 03 h 35 UTC.
+Kp : observé 3,0 ; maximum prévu sur 24 h 3,0 (dB/dt 3,3 nT/min en médiane, 9,1 au P90 ; vigilance verte, jaune dans le cas défavorable) ; sur 72 h 3,0.
+CME : choc attendu le 05/11 05 h 00 UTC ± 10 h (effleurement). Kp WSA-ENLIL 3 / 4 / 4 pour un angle d'horloge de 90° / 135° / 180° ; dB/dt plein sud 5,5 nT/min en médiane, 14,9 au P90. (Simulation WSA-ENLIL/49360/1.)
+Validation en direct : 362 h vérifiées, couverture du P90 93 %, rapport mesuré / prévu ×1,08.</description>
+    <instruction>Heure qui commence : niveau vert. Courant continu estimé au poste le plus exposé : 0,3 A par phase et par transformateur en cas probable (sud-est de Toulouse), jusqu'à 0,9 A dans le cas défavorable (vallée du Rhône, poste d'évacuation probable de Cruas ; fourchette 0,4 à 1,1 A selon les paramètres du poste). Seuils : 1 A jaune (début de saturation), 10 A orange, 75 A rouge.
+Gazoducs (NaTran, Teréga) : potentiel tube-sol de 0,8 V en cas probable, jusqu'à 2,3 V dans le cas défavorable, au point le plus exposé (Causses, au sud de Millau ; 0,9 à 3,8 V selon les tubes) : niveau vert probable, jaune dans le cas défavorable (seuils provisoires 2 / 10 / 30 V ; la protection cathodique tient le tube entre −0,85 et −1,2 V).
+Mesuré sur la dernière heure (jusqu'à 02/11 02 h 54 UTC) : courant induit calculé à partir de 2 magnétomètres à jour sur 6, au plus 0,2 A par phase (39 km de Valence (centrale de Cruas), 02/11 01 h 57 UTC), niveau vert.
+Indice ap30 (GFZ) : 3 (Hp30 0,7) sur la demi-heure de 02/11 02 h 00 UTC. Sur les tempêtes depuis 2000, une demi-heure de cette classe donne à Chambon 1,7 nT/min en médiane (jusqu'à 3,7 au P90) ; 1 % dépassent le seuil jaune, 0 % l'orange.
+Choc attendu 02/11 03 h 35 UTC : pic bref possible à l'arrivée.
+CME attendue le 05/11 05 h 00 UTC ± 10 h : si son champ arrive plein sud, 0,7 A probable, jusqu'à 2,2 A dans le cas défavorable.
+Aucune mesure particulière. Pour les jours à venir : niveau vert probable, se tenir prêt au niveau jaune.
+Courants estimés par le modèle du rapport (incertitude d'un facteur 3, non validés contre mesure) ; mesures à valider avec l'exploitant.</instruction>
+    <web>https://rom1cmoi.github.io/veille-cig-france/</web>
+    <parameter>
+      <valueName>awareness_level</valueName>
+      <value>2; yellow; Moderate</value>
+    </parameter>
+    <area>
+      <areaDesc>France métropolitaine continentale</areaDesc>
+      <polygon>51.1,2.5 49.4,8.2 47.6,7.6 46.4,6.2 45.9,7.0 44.1,7.7 43.7,7.5 43.0,6.0 43.3,3.2 42.4,3.1 42.8,-1.8 43.4,-1.8 46.3,-1.3 47.3,-2.5 48.0,-4.8 48.7,-4.6 48.8,-1.6 49.7,-1.9 49.4,0.1 50.9,1.6 51.1,2.5</polygon>
+    </area>
+  </info>
+</alert>
