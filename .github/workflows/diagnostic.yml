@@ -1,0 +1,29 @@
+# Diagnostic ponctuel de la disponibilité des observatoires (diagnostic/observatoires.py).
+name: diagnostic-observatoires
+
+on:
+  push:
+    paths:
+      - "diagnostic/observatoires.py"
+      - ".github/workflows/diagnostic.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - run: python diagnostic/observatoires.py
+      - name: Enregistrement
+        run: |
+          git config user.name "veille-cig-robot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostic
+          git commit -m "Diagnostic des observatoires" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push origin HEAD:main && break; sleep 5; done
