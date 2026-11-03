@@ -25,6 +25,7 @@ from pathlib import Path
 import alertes                                                       # alertes.py, à côté de ce fichier
 import bulletins                                                     # bulletins.py, idem
 import hpo                                                           # hpo.py (ap30 du GFZ), idem
+import sante                                                         # sante.py (sources en panne), idem
 import sol                                                           # sol.py, idem
 import validation                                                    # validation.py, idem
 
@@ -43,6 +44,14 @@ CME_ERREUR_H = 10                      # erreur typique sur l'heure d'arrivée d
 URL_CLF = ("https://imag-data.bgs.ac.uk/GIN_V1/GINServices?Request=GetData&format=iaga2002"
            "&observatoryIagaCode=CLF&samplesPerDay=minute&dataStartDate={debut}&dataDuration=1"
            "&publicationState=best-avail&orientation=native")
+# Constat de secours : si Chambon n'a rien publié depuis plus d'une heure, on prend l'observatoire à jour le plus proche,
+# Dourbes (300 km au nord), puis Fürstenfeldbruck et Wingst. Plus au nord, ils mesurent en général un dB/dt un peu plus
+# fort que Chambon : l'erreur va dans le sens prudent. Le constat de secours ne sert pas à valider la prévision, qui est
+# ajustée sur Chambon.
+SECOURS_CLF = ["DOU", "FUR", "WNG"]
+NOMS_OBS = {"CLF": "Chambon-la-Forêt", "DOU": "Dourbes (Belgique)", "FUR": "Fürstenfeldbruck (Allemagne)",
+            "WNG": "Wingst (Allemagne)"}
+SECOURS_APRES_MIN = 60
 
 # ---------------------------------------------------------------- modèles du rapport (chapitre 4)
 # Vent solaire (version « opérationnelle » : seules les données disponibles à l'instant de la prévision)
@@ -391,6 +400,28 @@ def analyse_clf(mesures, maintenant):
     }
 
 
+def constat_de_secours(clf, maintenant, debut, erreurs):
+    """Chambon absent ou en retard : constat sur l'observatoire de SECOURS_CLF le plus à jour (le premier à moins
+    d'une heure de retard, sinon le moins en retard). Renvoie None si aucun ne fait mieux que Chambon."""
+    meilleur = None
+    for o in SECOURS_CLF:
+        try:
+            texte = lire_url(URL_CLF.format(debut=debut).replace("observatoryIagaCode=CLF", f"observatoryIagaCode={o}"))
+            r = analyse_clf(lire_iaga(texte), maintenant)
+        except Exception:
+            continue
+        r["observatoire"] = o
+        if meilleur is None or r["retard_min"] < meilleur["retard_min"]:
+            meilleur = r
+        if r["retard_min"] <= SECOURS_APRES_MIN:
+            break
+    if meilleur is None or (clf and clf["retard_min"] <= meilleur["retard_min"]):
+        return None
+    meilleur["remplace"] = {"observatoire": "CLF", "derniere_mesure": clf["derniere_mesure"] if clf else None}
+    erreurs.append(f"Chambon indisponible : constat de secours à {NOMS_OBS[meilleur['observatoire']]}")
+    return meilleur
+
+
 # ---------------------------------------------------------------- 4. auto-validation
 def mettre_a_jour_historique(hist, maintenant, l1, clf_h):
     """Une ligne par heure : prévision émise au début de l'heure, puis dB/dt maximal mesuré pendant l'heure."""
@@ -520,7 +551,13 @@ def main():
             etat[cle] = fonction()
         except Exception as e:
             erreurs.append(f"{cle} : {e}")
+    if etat["clf"]:
+        etat["clf"]["observatoire"] = "CLF"
+    if not demo and (not etat["clf"] or etat["clf"]["retard_min"] > SECOURS_APRES_MIN):
+        etat["clf"] = constat_de_secours(etat["clf"], maintenant, debut, erreurs) or etat["clf"]
     clf_h = etat["clf"].pop("_h") if etat["clf"] else None
+    if etat["clf"] and etat["clf"]["observatoire"] != "CLF":
+        clf_h = None                                                    # pas de validation sur un autre observatoire
     simulations = None if demo else lire_donki(maintenant, erreurs)       # pas de CME dans la démonstration
     if simulations is not None:
         try:
@@ -563,6 +600,12 @@ def main():
     etat["bulletins"] = bulletins.rediger(etat)
     etat["alerte"] = alertes.traiter(etat, maintenant, None if demo else SORTIE / "alertes.json", erreurs,
                                      dossier_cap=None if demo else SORTIE / "cap")
+    if not demo:                                                        # sources en panne depuis trop longtemps
+        try:
+            donki = json.loads((SORTIE / "donki.json").read_text()) if (SORTIE / "donki.json").exists() else None
+            etat["sources_en_panne"] = sante.verifier(etat, maintenant, SORTIE / "sources.json", erreurs, donki)
+        except Exception as e:
+            erreurs.append(f"surveillance des sources : {e}")
     etat["erreurs"] = erreurs
 
     if not demo:

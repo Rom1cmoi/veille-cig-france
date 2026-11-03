@@ -55,6 +55,14 @@ def paris(t, avec_jour=True):
     return f"{JOURS[p.weekday()]} {p.day} {MOIS[p.month - 1]} vers {h}" if avec_jour else f"vers {h}"
 
 
+def alertes_nom(clf):
+    """Lieu du constat : Chambon-la-Forêt, ou l'observatoire de secours qui le remplace."""
+    o = clf.get("observatoire") or "CLF"
+    return {"CLF": "Chambon-la-Forêt", "DOU": "Dourbes (Belgique, Chambon indisponible)",
+            "FUR": "Fürstenfeldbruck (Allemagne, Chambon indisponible)",
+            "WNG": "Wingst (Allemagne, Chambon indisponible)"}.get(o, o)
+
+
 def utc(t):
     return f"{t[8:10]}/{t[5:7]} {t[11:13]} h {t[14:16]} UTC"
 
@@ -173,7 +181,8 @@ def rediger(etat):
                    f"dB/dt plein sud {f(m.get('180'), 1)} nT/min en médiane, {f(p.get('180'), 1)} au P90.{mp} "
                    f"(Simulation {c['simulation']}.)")
     if clf:
-        pre.append(f"Constat à Chambon-la-Forêt (provisoire, {clf.get('retard_min')} min de retard) : dB/dt maximal "
+        lieu = alertes_nom(clf)
+        pre.append(f"Constat à {lieu}, données provisoires avec {clf.get('retard_min')} min de retard : dB/dt maximal "
                    f"{f(clf.get('dbdt_max_1h'), 1)} nT/min sur la dernière heure, axe {f(clf.get('theta'))}°"
                    f"{', période ' + f(clf.get('periode_min')) + ' min' if clf.get('periode_min') else ''}.")
     v = (etat.get("validation") or {}).get("toutes") or {}
@@ -205,7 +214,7 @@ def rediger(etat):
                   f"{n_ok} magnétomètre{'s' if n_ok > 1 else ''} à jour sur 6, au plus {f(so['max'], 1)} A par phase ({so.get('lieu_max')}, "
                   f"{utc(so['heure_max'])}), niveau {next((n for n, x in SEUILS_A if so['max'] >= x), 'vert')}.")
     elif clf.get("dbdt_max_1h") is not None:
-        ex.append(f"Mesuré sur la dernière heure : {f(clf['dbdt_max_1h'], 1)} nT/min à Chambon, soit au plus "
+        ex.append(f"Mesuré sur la dernière heure : {f(clf['dbdt_max_1h'], 1)} nT/min à {alertes_nom(clf)}, soit au plus "
                   f"{f(clf['dbdt_max_1h'] * COEF_MAX, 1)} A au même poste (direction la plus défavorable).")
     hp = etat.get("hpo") or {}
     if hp.get("dernier"):                                              # outil de lecture, pas une prévision

@@ -221,6 +221,13 @@ Sur ton ordinateur (`en_continu.py`), rien n'est envoyé : les alertes sont seul
 
 **Contre le bruit des satellites.** Le plasma de SOLAR-1 donne des minutes isolées fausses (densité ×2 à ×6, vitesse qui saute en même temps). Le collecteur passe donc vitesse et densité dans une médiane glissante de 5 minutes, qui efface une minute isolée mais garde un vrai choc ; et il borne les entrées du modèle L1 au domaine où il a été ajusté (√P ≤ 7,1 nPa^½, saut ≤ 3,8, Newell ≤ 1,3·10⁵). Pendant un épisode, un nouveau choc qui n'aggrave pas le niveau n'envoie plus de message : il est compté dans le bilan de fin. Rejouée avec ces règles, la tempête du 10-11 octobre 2026 donne 2 épisodes et 4 messages au lieu de 5 épisodes et 38 messages.
 
+## Sources en panne et constat de secours
+
+Du 21/10/2026 au 03/11/2026, le serveur INTERMAGNET du BGS n'a plus publié Chambon-la-Forêt (ni San Pablo-Toledo, San Fernando, Ebre ; Hartland depuis le 24/10), et personne ne l'a vu pendant 13 jours. Diagnostic : `diagnostic/observatoires.py` (même requête pour chaque observatoire : Dourbes, Fürstenfeldbruck et Wingst répondaient, les autres non). Deux protections depuis :
+
+- **Alerte « source en panne »** (`sante.py`) : à chaque collecte, l'instant de la dernière donnée valide de chaque source est noté dans `docs/sources.json`. Au-delà du délai, une issue « [SOURCE] … » s'ouvre (donc un e-mail), une seule fois, et se ferme quand la source revient. Délais : vent solaire 1 h, Chambon 6 h, ap30 6 h, Kp 12 h, CME 24 h, magnétomètres voisins 24 h avec moins de 3 sur 6 à jour. Ces issues ne comptent pas comme des épisodes de tempête.
+- **Constat de secours** : si Chambon n'a rien publié depuis plus d'une heure, le constat se fait sur l'observatoire à jour le plus proche (Dourbes, puis Fürstenfeldbruck, puis Wingst), signalé sur la page, dans les bulletins et dans le titre des alertes. Ces observatoires, plus au nord, mesurent en général un dB/dt un peu plus fort : l'erreur va dans le sens prudent. La validation horaire de la prévision, ajustée sur Chambon, est suspendue pendant ce temps.
+
 ## Journal et validation sur la durée
 
 Chaque collecte laisse une trace dans le dossier `journal/` :

@@ -379,7 +379,7 @@ details.valid summary{font-weight:600;cursor:pointer}
         <h2>Mesures des 6 dernières heures</h2>
         <div class="charts">
           <div><span class="hint">Pression du vent solaire à L1 (nPa) : un saut brutal signale un choc</span><svg id="ch-p" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="Pression dynamique à L1"></svg></div>
-          <div><span class="hint">Variation du champ magnétique à Chambon-la-Forêt (nT/min)</span><svg id="ch-h" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="dB/dt à Chambon"></svg></div>
+          <div><span class="hint" id="ch-h-l">Variation du champ magnétique à Chambon-la-Forêt (nT/min)</span><svg id="ch-h" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="dB/dt à Chambon"></svg></div>
         </div>
         <div class="field" id="live-fields">
           <span class="legend-t">Sources</span>
@@ -614,12 +614,15 @@ details.valid summary{font-weight:600;cursor:pointer}
       if(iB==null)return '<span class="big">—</span>';
       const b=level(iB), w=level(iW);
       return `<span class="big"><span class="dot" style="background:${COLORS[b]}"></span>${NAMES[b]}</span>`+(H!=='clf'&&w>b?`<span class="s watch-s">à surveiller : ${NAMES[w].toLowerCase()}</span>`:'');};
-    $('tile-clf').innerHTML=`<span class="k">Maintenant</span>${nivTile('clf')}<span class="s">${so?'mesuré par les magnétomètres':'mesuré à Chambon'}<span data-aud="pre exp">${clf&&clf.dbdt_max_1h!=null?` · Chambon ${fmt(clf.dbdt_max_1h,0)} nT/min`:''}</span></span><span class="s" data-aud="pre exp">${so?`${fmt(so.max,1)} A au plus à ${hm(so.heure_max)}, ${so.lieu_max} · ${nMes}/6 observatoires à jour`:(clf?`max à ${hm(clf.heure_max)}${clf.theta!=null?` · axe ${fmt(clf.theta,0)}°`:''}${clf.periode_min?` · période ${fmt(clf.periode_min,0)} min`:''}`:'')}</span>`;
+    $('tile-clf').innerHTML=`<span class="k">Maintenant</span>${nivTile('clf')}<span class="s">${so?'mesuré par les magnétomètres':(clf&&clf.observatoire&&clf.observatoire!=='CLF'?'mesuré à '+({DOU:'Dourbes',FUR:'Fürstenfeldbruck',WNG:'Wingst'}[clf.observatoire]||clf.observatoire)+' (secours)':'mesuré à Chambon')}<span data-aud="pre exp">${clf&&clf.dbdt_max_1h!=null?` · Chambon ${fmt(clf.dbdt_max_1h,0)} nT/min`:''}</span></span><span class="s" data-aud="pre exp">${so?`${fmt(so.max,1)} A au plus à ${hm(so.heure_max)}, ${so.lieu_max} · ${nMes}/6 observatoires à jour`:(clf?`max à ${hm(clf.heure_max)}${clf.theta!=null?` · axe ${fmt(clf.theta,0)}°`:''}${clf.periode_min?` · période ${fmt(clf.periode_min,0)} min`:''}`:'')}</span>`;
     $('tile-l1').innerHTML=`<span class="k">Dans l'heure</span>${nivTile('l1')}<span class="s">d'après les satellites</span><span class="s" data-aud="pre exp">${l1?`dB/dt ${fmt(l1.dbdt_med,0)} (P90 ${fmt(l1.dbdt_p90,0)}) nT/min · V ${fmt(l1.V,0)} km/s, Bz ${fmt(l1.Bz,1)} nT · arrivée +${l1.delai_min} min`:'pas de données à L1'}</span>`;
     $('tile-kp').innerHTML=`<span class="k">24 heures</span>${nivTile('kp')}<span class="s">${pk?`Kp ${fmt(pk.kp,1)} ${pk.statut==='predicted'?'prévu':'estimé'} (NOAA)`:'pas de prévision'}</span><span class="s" data-aud="pre exp">${pk?`dB/dt ${fmt(pk.dbdt_med,0)} (P90 ${fmt(pk.dbdt_p90,0)}) nT/min · ${jourParis(pk.t)} ${hm(pk.t)}`:''}</span>`;
     ['kp','l1','clf'].forEach(x=>$('tile-'+x).setAttribute('aria-pressed',String(x===liveH)));
     const row=(nom,t,lim)=>{const a=ageMin(t);const ok=a!=null&&a<=lim;return `<li><span>${nom}</span><span class="${ok?'ok':'ko'}">${a==null?'indisponible':(a<=0?'à l\'instant':'il y a '+a+' min')}</span></li>`;};
-    $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',clf&&clf.derniere_mesure,60)+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
+    const NOMS_OBS={CLF:'Chambon-la-Forêt',DOU:'Dourbes (Belgique)',FUR:'Fürstenfeldbruck (Allemagne)',WNG:'Wingst (Allemagne)'};
+    const secours=clf&&clf.observatoire&&clf.observatoire!=='CLF'?NOMS_OBS[clf.observatoire]||clf.observatoire:null;
+    $('ch-h-l').textContent=`Variation du champ magnétique à ${secours||'Chambon-la-Forêt'} (nT/min)${secours?' : constat de secours, Chambon indisponible':''}`;
+    $('sources').innerHTML=row(`Vent solaire L1 ${l1&&l1.source?'('+l1.source+')':''}`,l1&&l1.derniere_mesure,15)+row('Chambon-la-Forêt',secours?(clf.remplace||{}).derniere_mesure:(clf&&clf.derniere_mesure),60)+(secours?row(`Constat de secours : ${secours}`,clf.derniere_mesure,60):'')+row('Kp observé (NOAA)',kp&&kp.observe&&kp.observe.t,360);
     if(LIVE.sol&&LIVE.sol.part_mesuree){const P=LIVE.sol.part_mesuree, R=LIVE.sol.remplacants||{};
       $('sources').innerHTML+=`<li><span>Magnétomètres voisins (dernière heure)</span><span>${Object.entries(P).filter(([o])=>o!=='CLF').map(([o,v])=>`<span class="${v>=0.5?'ok':'ko'}" title="${v>=0.5?'mesuré':'remplacé par '+(R[o]||'?')}">${o}</span>`).join(' ')}</span></li>`;}
     renderCme(LIVE.cme);

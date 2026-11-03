@@ -49,6 +49,14 @@ def hm(s):
     return f"{s[11:13]} h {s[14:16]} UTC" if s else "?"
 
 
+def nom_constat(clf):
+    """(lieu du constat, précision « secours ») : Chambon, ou l'observatoire qui le remplace."""
+    noms = {"CLF": "Chambon-la-Forêt", "DOU": "Dourbes (Belgique)", "FUR": "Fürstenfeldbruck (Allemagne)",
+            "WNG": "Wingst (Allemagne)"}
+    o = clf.get("observatoire") or "CLF"
+    return noms.get(o, o), ("" if o == "CLF" else " ; Chambon n'a rien publié récemment, constat de secours")
+
+
 def niveau(dbdt):
     if dbdt is None:
         return None
@@ -100,9 +108,10 @@ def signaux(etat, maintenant=None):
                            f"dB/dt attendu : {pic['dbdt_med']} nT/min, P90 {pic['dbdt_p90']} nT/min."})
     if clf and niveau(clf.get("dbdt_max_1h")):
         n = niveau(clf["dbdt_max_1h"])
-        s.append({"cle": "clf " + n, "niveau": n, "titre": f"Constat {n} : {clf['dbdt_max_1h']} nT/min à Chambon",
-                  "texte": f"dB/dt mesuré à Chambon-la-Forêt : {clf['dbdt_max_1h']} nT/min à {hm(clf['heure_max'])} "
-                           f"(données provisoires, {clf['retard_min']} min de retard)."})
+        lieu, secours = nom_constat(clf)
+        s.append({"cle": "clf " + n, "niveau": n, "titre": f"Constat {n} : {clf['dbdt_max_1h']} nT/min à {lieu.split(' (')[0]}",
+                  "texte": f"dB/dt mesuré à {lieu} : {clf['dbdt_max_1h']} nT/min à {hm(clf['heure_max'])} "
+                           f"(données provisoires, {clf['retard_min']} min de retard){secours}."})
     # CME en route : on prévient si, dans le cas où le champ arrive plein sud (Kp ENLIL à 180°), le dB/dt P90
     # atteint l'orange. Le signal reste actif jusqu'à 12 h après l'heure d'arrivée prévue (erreur typique ±10 h).
     for c in (etat.get("cme") or {}).get("attendues", []):
