@@ -21,15 +21,15 @@ def lire(url):
 
 
 maintenant = datetime.now(timezone.utc)
-debut = (maintenant - timedelta(days=15)).strftime("%Y-%m-%d")
+debut = (maintenant - timedelta(days=17)).strftime("%Y-%m-%d")
 out = [f"Diagnostic du {maintenant:%Y-%m-%d %H:%M} UTC, depuis le {debut}"]
 for o in ("CLF", "HAD", "DOU", "FUR", "EBR", "SPT", "WNG", "SFS"):
     for p in ("best-avail", "adj-or-rep"):
-        t = lire(URL.format(o=o, d=debut, n=16, p=p))
+        t = lire(URL.format(o=o, d=debut, n=18, p=p))
         if t.startswith("ERREUR"):
             out.append(f"{o} {p} : {t[:200]}")
             continue
-        par_jour, der = {}, None
+        par_jour, der, reprise = {}, None, None
         for l in t.splitlines():
             x = l.split()
             if len(x) >= 6 and len(x[0]) == 10 and x[0][4] == "-":
@@ -39,9 +39,12 @@ for o in ("CLF", "HAD", "DOU", "FUR", "EBR", "SPT", "WNG", "SFS"):
                     continue
                 if abs(a) < 88888 and abs(b) < 88888:
                     par_jour[x[0]] = par_jour.get(x[0], 0) + 1
-                    der = x[0] + " " + x[1][:5]
+                    t = x[0] + " " + x[1][:5]
+                    if der and t > "2026-10-25" and der < "2026-10-25" and not reprise:
+                        reprise = t                                  # première minute après le trou
+                    der = t
         entete = [l.strip() for l in t.splitlines()[:20] if "Data Type" in l or "Publication" in l]
-        out.append(f"{o} {p} : dernière minute valide {der} | {entete} | " +
+        out.append(f"{o} {p} : reprise après le trou {reprise} | dernière minute valide {der} | {entete} | " +
                    ", ".join(f"{j[5:]}:{n}" for j, n in sorted(par_jour.items())))
         print(out[-1], flush=True)
 open("diagnostic/observatoires.txt", "w").write("\n".join(out) + "\n")
