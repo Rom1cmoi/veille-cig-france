@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "diagnostic/observatoires.py"
+      - "diagnostic/acces.py"
       - ".github/workflows/diagnostic.yml"
   workflow_dispatch:
 
@@ -19,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - run: python diagnostic/observatoires.py
+      - run: python diagnostic/acces.py
       - name: Enregistrement
         run: |
           git config user.name "veille-cig-robot"
