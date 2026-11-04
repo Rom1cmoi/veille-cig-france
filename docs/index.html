@@ -522,12 +522,17 @@ details.valid summary{font-weight:600;cursor:pointer}
   try{const a=localStorage.getItem('veille-aud'); if(['pub','pre','exp'].includes(a)) aud=a;}catch(e){}
   document.body.dataset.aud=aud;
   const ageMin=t=>{if(!t||!LIVE)return null;const ref=LIVE.demo?Date.parse(LIVE.genere):Date.now();return Math.round((ref-Date.parse(t))/6e4);};
+  // Données : la copie publiée avec le site (GitHub Pages). Si elle a plus de 15 min, on lit aussi la copie du dépôt,
+  // à jour dès la fin de chaque collecte : la publication du site peut prendre du retard (4/11/2026, 30 min) sans que le
+  // collecteur soit arrêté. On garde la plus récente des deux.
+  const BRUT='https://raw.githubusercontent.com/Rom1cmoi/veille-cig-france/main/docs/';
+  async function lireJson(u){try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null;}catch(e){return null;}}
   async function loadLive(){
-    for(const f of ['etat_courant.json','etat_demo.json']){
-      try{const r=await fetch(f+'?t='+Date.now(),{cache:'no-store'}); if(!r.ok) continue;
-        LIVE=await r.json(); renderLive(); if(mode==='live') render(); return;}catch(e){}
-    }
-    LIVE=null; renderLive(); if(mode==='live') render();
+    const age=x=>x&&x.genere?(Date.now()-Date.parse(x.genere))/6e4:1e9;
+    let e=await lireJson('etat_courant.json');
+    if(age(e)>15){const r=await lireJson(BRUT+'etat_courant.json'); if(r&&age(r)<age(e)) e=r;}
+    if(!e) e=await lireJson('etat_demo.json');
+    LIVE=e; renderLive(); if(mode==='live') render();
   }
   function liveInput(h=hyp,H=liveH){
     if(!LIVE) return null;
