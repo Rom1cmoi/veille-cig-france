@@ -8,7 +8,8 @@ import urllib.request
 import urllib.robotparser
 
 UA = "veille-cig-france (projet etudiant IPSA)"
-PAGES = ["https://www.poleterresolide.fr/bcmt-champ-magnetique-terrestre/", "https://www.bcmt.fr/bcmt-datamap.html"]
+PAGES = []
+BASE = "https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1"          # vue dans la console du navigateur
 out = []
 
 
@@ -50,6 +51,7 @@ for p in PAGES:
         for m in re.findall(r"https?://[A-Za-z0-9._/\-:]+", t):
             if re.search(r"sensorthings|frost|v1\.[01]|sta|api|datastream", m, re.I):
                 candidats.add(m.rstrip("/\"'),;"))
+candidats.add(BASE)
 out.append("== adresses candidates ==\n" + "\n".join(sorted(candidats)[:80]))
 # interroge les candidats qui ressemblent à une racine SensorThings
 for c in sorted(candidats):
@@ -65,5 +67,11 @@ for c in sorted(candidats):
     out.append(f"Things : {t[:3000]}")
     t = lire(base + "/Datastreams?$filter=" + urllib.parse.quote("substringof('CLF',name)") + "&$top=40&$select=name,phenomenonTime,unitOfMeasurement,%40iot.id")
     out.append(f"Datastreams CLF : {t[:3000]}")
+    t = lire(base + "/Datastreams?$top=20&$select=name,phenomenonTime,%40iot.id")
+    out.append(f"Datastreams (20 premiers) : {t[:3000]}")
+    ids = re.findall(r'"@iot.id"\s*:\s*"?([0-9A-Za-z_\-]+)', t)
+    for i in ids[:2]:
+        t2 = lire(base + f"/Datastreams({i})/Observations?$top=3&$orderby=phenomenonTime%20desc&$select=phenomenonTime,result")
+        out.append(f"Observations récentes du datastream {i} : {t2[:800]}")
 open("diagnostic/bcmt_api.txt", "w").write("\n".join(out) + "\n")
 print("\n".join(out)[:4000])
