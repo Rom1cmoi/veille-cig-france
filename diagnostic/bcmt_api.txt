@@ -1,8 +1,10 @@
-robots.txt interdit : https://www.poleterresolide.fr/bcmt-champ-magnetique-terrestre/
-== https://www.poleterresolide.fr/bcmt-champ-magnetique-terrestre/ : 0 caractères
-scripts / iframes : 
-échec https://www.bcmt.fr/bcmt-datamap.html : <urlopen error timed out>
-== https://www.bcmt.fr/bcmt-datamap.html : 0 caractères
-scripts / iframes : 
 == adresses candidates ==
-
+https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1
+échec https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1 : HTTP Error 404: Not Found
+API https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1 : 
+échec https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1/Things?$top=100&$select=name,description,%40iot.id : HTTP Error 404: Not Found
+Things : 
+échec https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1/Datastreams?$filter=substringof%28%27CLF%27%2Cname%29&$top=40&$select=name,phenomenonTime,unitOfMeasurement,%40iot.id : HTTP Error 404: Not Found
+Datastreams CLF : 
+échec https://catalogue-terresolide.ipgp.fr/FROST-Server/v1.1/Datastreams?$top=20&$select=name,phenomenonTime,%40iot.id : HTTP Error 404: Not Found
+Datastreams (20 premiers) : 
