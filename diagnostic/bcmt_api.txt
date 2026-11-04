@@ -1,0 +1,8 @@
+robots.txt interdit : https://www.poleterresolide.fr/bcmt-champ-magnetique-terrestre/
+== https://www.poleterresolide.fr/bcmt-champ-magnetique-terrestre/ : 0 caractères
+scripts / iframes : 
+échec https://www.bcmt.fr/bcmt-datamap.html : <urlopen error timed out>
+== https://www.bcmt.fr/bcmt-datamap.html : 0 caractères
+scripts / iframes : 
+== adresses candidates ==
+
