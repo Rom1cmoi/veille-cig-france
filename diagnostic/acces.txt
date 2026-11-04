@@ -1,0 +1,85 @@
+Diagnostic d'accès du 2026-11-04 16:01 UTC
+== GetDataLagTime (21 jours, plain) ==
+IAGA | Cadence         | Sample                                 | Lag
+code |                 | date                                   | time
+-----+-----------------+----------------------------------------+-----------------------
+CLF  | minute          | 2026-10-15T00:00:03Z                   | 1263000
+CLF  | minute          | 2026-10-15T00:01:03Z                   | 1323000
+CLF  | minute          | 2026-10-15T00:02:03Z                   | 1383000
+CLF  | minute          | 2026-10-15T00:03:05Z                   | 1445000
+CLF  | minute          | 2026-10-15T00:04:02Z                   | 1502000
+CLF  | minute          | 2026-10-15T00:05:05Z                   | 1565000
+CLF  | minute          | 2026-10-15T00:06:02Z                   | 1022000
+CLF  | minute          | 2026-10-15T00:07:04Z                   | 1084000
+CLF  | minute          | 2026-10-15T00:08:05Z                   | 1145000
+CLF  | minute          | 2026-10-15T00:09:02Z                   | 1202000
+CLF  | minute          | 2026-10-15T00:10:05Z                   | 1265000
+CLF  | minute          | 2026-10-15T00:11:03Z                   | 1323000
+CLF  | minute          | 2026-10-15T00:12:05Z                   | 1385000
+CLF  | minute          | 2026-10-15T00:13:02Z                   | 1442000
+CLF  | minute          | 2026-10-15T00:14:06Z                   | 1506000
+CLF  | minute          | 2026-10-15T00:15:02Z                   | 1562000
+CLF  | minute          | 2026-10-15T00:16:06Z                   | 1626000
+CLF  | minute          | 2026-10-15T00:17:02Z                   | 1682000
+CLF  | minute          | 2026-10-15T00:18:03Z                   | 1743000
+CLF  | minute          | 2026-10-15T00:19:06Z                   | 1806000
+CLF  | minute          | 2026-10-15T00:20:02Z                   | 1862000
+CLF  | minute          | 2026-10-15T00:21:04Z                   | 1924000
+CLF  | minute          | 2026-10-15T00:22:02Z                   | 1982000
+CLF  | minute          | 2026-10-15T00:23:03Z                   | 2043000
+CLF  | minute          | 2026-10-15T00:24:05Z                   | 2105000
+CLF  | minute          | 2026-10-15T00:25:02Z                   | 2162000
+CLF  | minute          | 2026-10-15T00:26:04Z                   | 1624000
+CLF  | minute          | 2026-10-15T00:27:02Z                   | 1682000
+CLF  | minute          | 2026-10-15T00:28:05Z                   | 1745000
+CLF  | minute          | 2026-10-15T00:29:02Z                   | 1802000
+CLF  | minute          | 2026-10-15T00:30:05Z                   | 1865000
+CLF  | minute          | 2026-10-15T00:31:02Z                   | 1922000
+CLF  | minute          | 2026-10-15T00:32:05Z                   | 1985000
+CLF  | minute          | 2026-10-15T00:33:02Z                   | 2042000
+CLF  | minute          | 2026-10-15T00:34:04Z                   | 2104000
+CLF  | minute          | 2026-10-15T00:35:02Z                   | 2162000
+CLF  | minute          | 2026-10-15T00:36:04Z                   | 2224000
+CLF  | minute          | 2026-10
+== GetCapabilities : clés de premier niveau == ['ObservatoryList', 'PublicationStateList', 'PublicationStateAliasList']
+CLF : bargoHours": 24}, {"IagaCode": "CKI", "Name": "Cocos-Keeling Islands, Australia", "Latitude": -12.188, "Longitude": 96.834, "Elevation": 3, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "CLF", "Name": "Chambon la Foret, France", "Latitude": 48.025, "Longitude": 2.26, "Elevation": 145, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "CMO", "Name": "College, USA", "Latitude": 64.87, "Longitude": 212.14, "Elevation": 197, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "CNB", "Name": "Canberra, Australia", "Latitude": -35.32, "Longitude": 149.36, "Elevation": 859, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "CNH", "Name": "Changchun, China (no longer IMO)", "Latitude": 44.08, "Longitude": 124.86, "Elevation": 187, "PlotEmbargoHours": 0, "D
+HAD : EmbargoHours": 0}, {"IagaCode": "GZH", "Name": "Guangzhou, China (no longer IMO)", "Latitude": 23.97, "Longitude": 112.45, "Elevation": 14, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "HAD", "Name": "Hartland, United Kingdom", "Latitude": 51.0, "Longitude": 355.52, "Elevation": 95, "PlotEmbargoHours": 0, "DataEmbargoHours": 240}, {"IagaCode": "HBK", "Name": "Hartebeesthoek, South Africa", "Latitude": -25.88, "Longitude": 27.71, "Elevation": 1555, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "HER", "Name": "Hermanus, South Africa", "Latitude": -34.43, "Longitude": 19.23, "Elevation": 26, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "HLP", "Name": "Hel Observatory, Poland", "Latitude": 54.603, "Longitude": 18.811, "Elevation": 1, "PlotEmbargoHour
+DOU :  0}, {"IagaCode": "DMC", "Name": "Dome Concordia, Antarctica (no longer IMO)", "Latitude": -75.25, "Longitude": 124.167, "Elevation": 3250, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "DOU", "Name": "Dourbes, Belgium", "Latitude": 50.1, "Longitude": 4.6, "Elevation": 225, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "DRV", "Name": "Dumont d'Urville, French Southern Territories (no longer IMO)", "Latitude": -66.67, "Longitude": 140.01, "Elevation": 30, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "DUR", "Name": "Duronia, Italy", "Latitude": 41.65, "Longitude": 14.47, "Elevation": 920, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "EBR", "Name": "Ebro, Spain", "Latitude": 40.957, "Longitude": 0.333, "Elevation": 532, "PlotEmbargoHou
+FUR : argoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "FRN", "Name": "Fresno, USA", "Latitude": 37.09, "Longitude": 240.28, "Elevation": 331, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "FUR", "Name": "Furstenfeldenbruck, Germany", "Latitude": 48.17, "Longitude": 11.28, "Elevation": 572, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "GAN", "Name": "Gan Int. Airpt, Addu Atoll, Maldives", "Latitude": -0.695, "Longitude": 73.154, "Elevation": 2, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "GCK", "Name": "Grocka, Serbia", "Latitude": 44.633, "Longitude": 20.767, "Elevation": 231, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "GDH", "Name": "Qeqertarsuaq (Godhavn), Greenland", "Latitude": 69.252, "Longitude": 306.467, "Elevation": 24, "P
+EBR : goHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "DUR", "Name": "Duronia, Italy", "Latitude": 41.65, "Longitude": 14.47, "Elevation": 920, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "EBR", "Name": "Ebro, Spain", "Latitude": 40.957, "Longitude": 0.333, "Elevation": 532, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "ESK", "Name": "Eskdalemuir, United Kingdom", "Latitude": 55.314, "Longitude": 356.794, "Elevation": 245, "PlotEmbargoHours": 0, "DataEmbargoHours": 240}, {"IagaCode": "EYR", "Name": "Eyrewell, New Zealand", "Latitude": -43.474, "Longitude": 172.393, "Elevation": 102, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "FCC", "Name": "Fort Churchill, Canada", "Latitude": 58.759, "Longitude": 265.912, "Elevation": 15, "PlotEmbargoHours": 24,
+SPT : , "DataEmbargoHours": 0}, {"IagaCode": "SPG", "Name": "Saint Petersburg, Russia", "Latitude": 60.542, "Longitude": 29.716, "Elevation": 46, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "SPT", "Name": "San Pablo-Toledo, Spain", "Latitude": 39.55, "Longitude": 355.65, "Elevation": 922, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "STJ", "Name": "St John's, Canada", "Latitude": 47.595, "Longitude": 307.323, "Elevation": 100, "PlotEmbargoHours": 24, "DataEmbargoHours": 24}, {"IagaCode": "STT", "Name": "Sao Teotonio, Portugal", "Latitude": 37.547, "Longitude": 351.272, "Elevation": 115, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "SUA", "Name": "Surlari, Romania", "Latitude": 44.68, "Longitude": 26.25, "Elevation": 84, "PlotEmbargoHours": 0, "DataEm
+WNG : ataEmbargoHours": 0}, {"IagaCode": "WMQ", "Name": "Urumqi, China (no longer IMO)", "Latitude": 43.81, "Longitude": 87.71, "Elevation": 908, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "WNG", "Name": "Wingst, Germany", "Latitude": 53.725, "Longitude": 9.053, "Elevation": 66, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "YAK", "Name": "Yakutsk, Russia", "Latitude": 61.96, "Longitude": 129.66, "Elevation": 100, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "YKC", "Name": "Yellowknife, Canada", "Latitude": 62.48, "Longitude": 245.518, "Elevation": 198, "PlotEmbargoHours": 24, "DataEmbargoHours": 24}], "PublicationStateList": ["adjusted", "definitive", "adj-or-rep", "quasi-def", "reported", "test"], "PublicationStateAliasList": ["Best available", "De
+SFS : ": 0, "DataEmbargoHours": 0}, {"IagaCode": "SBL", "Name": "Sable Island, Canada", "Latitude": 43.932, "Longitude": 299.99, "Elevation": 5, "PlotEmbargoHours": 0, "DataEmbargoHours": 24}, {"IagaCode": "SFS", "Name": "San Fernando, Spain", "Latitude": 36.667, "Longitude": 354.055, "Elevation": 111, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "SHE", "Name": "Saint Helena, Saint Helena", "Latitude": -15.961, "Longitude": 354.253, "Elevation": 586, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "SHU", "Name": "Shumagin, USA", "Latitude": 55.35, "Longitude": 199.54, "Elevation": 80, "PlotEmbargoHours": 0, "DataEmbargoHours": 0}, {"IagaCode": "SIT", "Name": "Sitka, USA", "Latitude": 57.06, "Longitude": 224.67, "Elevation": 24, "PlotEmbargoHours": 0, "DataEmbargoHours"
+== GetData depuis le 2026-11-03, 2 jours ==
+CLF best-avail minute :   940 minutes valides, dernière 2026-11-04 15:39, type ['Variation']
+CLF best-avail Minute :   940 minutes valides, dernière 2026-11-04 15:39, type ['Variation']
+CLF adjusted   minute :     0 minutes valides, dernière None, type ['Provisional']
+CLF reported   minute :   940 minutes valides, dernière 2026-11-04 15:39, type ['Variation']
+HAD best-avail minute :     0 minutes valides, dernière None, type ['Variation']
+HAD best-avail Minute :     0 minutes valides, dernière None, type ['Variation']
+HAD adjusted   minute :     0 minutes valides, dernière None, type ['Provisional']
+HAD reported   minute :     0 minutes valides, dernière None, type ['Variation']
+DOU best-avail minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Provisional']
+DOU best-avail Minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Provisional']
+DOU adjusted   minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Provisional']
+DOU reported   minute :     0 minutes valides, dernière None, type ['Variation']
+FUR best-avail minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Variation']
+FUR best-avail Minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Variation']
+FUR adjusted   minute :     0 minutes valides, dernière None, type ['Provisional']
+FUR reported   minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Variation']
+EBR best-avail minute :   948 minutes valides, dernière 2026-11-04 15:47, type ['Variation']
+EBR best-avail Minute :   948 minutes valides, dernière 2026-11-04 15:47, type ['Variation']
+EBR adjusted   minute :     0 minutes valides, dernière None, type ['Provisional']
+EBR reported   minute :   948 minutes valides, dernière 2026-11-04 15:47, type ['Variation']
+SPT best-avail minute :     0 minutes valides, dernière None, type ['Variation']
+SPT best-avail Minute :     0 minutes valides, dernière None, type ['Variation']
+SPT adjusted   minute :     0 minutes valides, dernière None, type ['Provisional']
+SPT reported   minute :     0 minutes valides, dernière None, type ['Variation']
+WNG best-avail minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Provisional']
+WNG best-avail Minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Provisional']
+WNG adjusted   minute :  2400 minutes valides, dernière 2026-11-04 15:59, type ['Provisional']
+WNG reported   minute :     0 minutes valides, dernière None, type ['Variation']
+SFS best-avail minute :     0 minutes valides, dernière None, type ['Variation']
+SFS best-avail Minute :     0 minutes valides, dernière None, type ['Variation']
+SFS adjusted   minute :     0 minutes valides, dernière None, type ['Provisional']
+SFS reported   minute :     0 minutes valides, dernière None, type ['Variation']
