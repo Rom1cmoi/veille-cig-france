@@ -5577,5 +5577,12 @@
 "prevu_med_brut": 4.9,
 "observe": null,
 "emise_min": 0
+},
+"2026-11-07T21:00:00Z": {
+"prevu_med": 2.6,
+"prevu_p90": 6.5,
+"prevu_med_brut": 4.7,
+"observe": null,
+"emise_min": 0
 }
 }
