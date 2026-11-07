@@ -1,1 +1,16 @@
-{}
+{
+ "debut": "2026-11-07T01:45:28Z",
+ "niveau": "choc",
+ "issue": 12,
+ "lien": "https://github.com/Rom1cmoi/veille-cig-france/issues/12",
+ "deja": [
+  "choc 2026-11-07T01:40:00Z"
+ ],
+ "max_prevu": 9.7,
+ "max_mesure": 1.3,
+ "rang": 1.5,
+ "cap": [
+  "rom1cmoi.github.io/veille-cig-france,veille-cig-france.20261107T014528Z.alert,2026-11-07T01:45:28-00:00"
+ ],
+ "dernier_signal": "2026-11-07T01:45:28Z"
+}
