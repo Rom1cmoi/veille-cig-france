@@ -1,14 +1,14 @@
 {
  "clf": {
-  "derniere": "2026-11-07T06:19:00Z",
+  "derniere": "2026-11-07T06:29:00Z",
   "issue": null
  },
  "magnetometres": {
-  "derniere": "2026-11-07T06:45:27Z",
+  "derniere": "2026-11-07T06:50:23Z",
   "issue": null
  },
  "l1": {
-  "derniere": "2026-11-07T06:40:00Z",
+  "derniere": "2026-11-07T06:46:00Z",
   "issue": null
  },
  "kp": {
@@ -16,7 +16,7 @@
   "issue": null
  },
  "cme": {
-  "derniere": "2026-11-07T06:15:28Z",
+  "derniere": "2026-11-07T06:50:23Z",
   "issue": null
  },
  "ap30": {
