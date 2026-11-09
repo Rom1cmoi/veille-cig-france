@@ -5925,7 +5925,7 @@
 "prevu_med": 1.4,
 "prevu_p90": 3.4,
 "prevu_med_brut": 2.8,
-"observe": null,
+"observe": 2.4,
 "emise_min": 0
 },
 "2026-11-09T23:00:00Z": {
