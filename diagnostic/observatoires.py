@@ -21,11 +21,12 @@ def lire(url):
 
 
 maintenant = datetime.now(timezone.utc)
-debut = (maintenant - timedelta(days=17)).strftime("%Y-%m-%d")
+debut = "2026-10-18"                                  # avant la panne de Chambon (21/10)
+n_jours = (maintenant.date() - datetime(2026, 10, 18).date()).days + 1
 out = [f"Diagnostic du {maintenant:%Y-%m-%d %H:%M} UTC, depuis le {debut}"]
 for o in ("CLF", "HAD", "DOU", "FUR", "EBR", "SPT", "WNG", "SFS"):
     for p in ("best-avail", "adj-or-rep"):
-        t = lire(URL.format(o=o, d=debut, n=18, p=p))
+        t = lire(URL.format(o=o, d=debut, n=n_jours, p=p))
         if t.startswith("ERREUR"):
             out.append(f"{o} {p} : {t[:200]}")
             continue
