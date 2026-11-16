@@ -15,7 +15,7 @@ Chaque heure, la prévision est aussi comparée au dB/dt mesuré ensuite : l'out
 
 ```
 NOAA (L1, Kp) ─┐
-               ├─> collecteur.py ──> docs/etat_courant.json ──> docs/index.html (la page)
+               ├─> collecteur.py ──> docs/etat_courant.json ──> docs/cig.html (la page)
 Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 ```
 
@@ -24,7 +24,9 @@ Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 | Fichier | Rôle |
 |---|---|
 | `collecteur.py` | Lit les trois sources, calcule les dB/dt prévus et mesurés, écrit `docs/etat_courant.json` et `docs/historique.json`. Bibliothèque Python standard uniquement : rien à installer. |
-| `docs/index.html` | La page Veille CIG France complète (tous les modes + le mode Direct). |
+| `docs/index.html` | Page d'accueil du site commun : deux onglets, Télécoms et CIG France, chacun affichant sa page dans un cadre. |
+| `docs/cig.html` | La page Veille CIG France complète (tous les modes + le mode Direct). S'ouvre seule ou par `…/#cig`. |
+| `docs/telecom.html` | La page Veille SWx Télécoms (autre membre du groupe), données NOAA lues directement par le navigateur. |
 | `docs/etat_demo.json` | Une démonstration : le 10 mai 2024 à 16 h 35 UTC, quand le choc est déjà mesuré à L1 mais pas encore arrivé. La page l'affiche si le vrai fichier n'existe pas encore. |
 | `demo/` | Les données qui ont servi à fabriquer la démonstration (`python collecteur.py --demo`). |
 | `validation.py` | Bilan de la prévision L1 en conditions réelles (mêmes indicateurs que le rapport). |
@@ -253,4 +255,4 @@ Les données de Chambon ne sont pas archivées : les données définitives se r�
 
 ## Mettre à jour la page
 
-La page `docs/index.html` est produite par les scripts du projet (`build_outil.py`). Si tu modifies l'outil, régénère-la et remplace ce fichier. Les coefficients des modèles de prévision sont en haut de `collecteur.py`.
+La page `docs/cig.html` est produite par les scripts du projet (`build_outil.py`). Si tu modifies l'outil, régénère-la et remplace ce fichier. Les coefficients des modèles de prévision sont en haut de `collecteur.py`.

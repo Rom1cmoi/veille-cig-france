@@ -162,7 +162,7 @@ def ntfy(titre, texte, niv, lien, possible=False):
 def adresse_page():
     depot = os.environ.get("GITHUB_REPOSITORY", "Rom1cmoi/veille-cig-france")
     proprio, nom = depot.split("/")
-    return f"https://{proprio.lower()}.github.io/{nom}/"
+    return f"https://{proprio.lower()}.github.io/{nom}/#cig"                # le site a deux onglets : on ouvre CIG France
 
 
 def corps_message(liste, maintenant, bulletins=None):
