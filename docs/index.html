@@ -27,20 +27,22 @@ iframe[hidden]{display:none}
 <header>
   <h1>Veille météo spatiale France</h1>
   <nav role="tablist" aria-label="Parties du site">
-    <button role="tab" id="t-telecom" data-v="telecom" aria-selected="true">Télécoms</button>
+    <button role="tab" id="t-soleil" data-v="soleil" aria-selected="true">Soleil</button>
+    <button role="tab" id="t-telecom" data-v="telecom" aria-selected="false">Télécoms</button>
     <button role="tab" id="t-cig" data-v="cig" aria-selected="false">CIG France</button>
   </nav>
-  <span class="open">Ouvrir seule : <a href="telecom.html">Télécoms</a> · <a href="cig.html">CIG France</a></span>
+  <span class="open">Ouvrir seule : <a href="soleil.html">Soleil</a> · <a href="telecom.html">Télécoms</a> · <a href="cig.html">CIG France</a></span>
 </header>
 <main>
+  <iframe id="f-soleil" title="État du Soleil" data-src="soleil.html" hidden></iframe>
   <iframe id="f-telecom" title="Veille SWx Télécoms" data-src="telecom.html" hidden></iframe>
   <iframe id="f-cig" title="Veille CIG France" data-src="cig.html" hidden></iframe>
 </main>
 <script>
 (function(){
-  var views = ["telecom","cig"];
+  var views = ["soleil","telecom","cig"];
   function show(v){
-    if (views.indexOf(v) < 0) v = "telecom";
+    if (views.indexOf(v) < 0) v = "soleil";
     views.forEach(function(k){
       var f = document.getElementById("f-" + k), b = document.getElementById("t-" + k);
       var on = k === v;

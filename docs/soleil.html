@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>État du Soleil</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#FBF7EF;--card:#fff;--ink:#1D2630;--mut:#6B7280;--line:#EDE3CC;--sun:#F59E0B;--blue:#2563EB;--green:#16A34A;--red:#DC2626;--r:18px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif}
+.w{max-width:1180px;margin:0 auto;padding:32px 20px 70px}
+h1{font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.04;margin:0 0 14px;font-weight:700;letter-spacing:-.02em}
+h1 span{color:var(--sun)}
+h2{font-size:1.35rem;margin:56px 0 16px;letter-spacing:-.01em}
+.lead{color:var(--mut);max-width:48ch;margin:0 0 22px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.disk{aspect-ratio:1;max-width:520px;width:100%;margin:0 auto;border-radius:50%;overflow:hidden;background:#000;box-shadow:0 0 0 8px #fff,0 0 90px rgba(245,158,11,.55)}
+.disk img{width:100%;height:100%;object-fit:cover;display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+button{font:inherit;font-weight:500;border:0;border-radius:999px;padding:8px 16px;background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 1px 0 var(--line),0 0 0 1px var(--line);transition:transform .15s}
+button:hover{transform:translateY(-1px)}
+button.on{background:var(--sun);color:#1D2630;box-shadow:none}
+.mode button.on{background:var(--blue);color:#fff}
+.ctl{display:flex;align-items:center;gap:12px;margin-top:6px}
+.ctl input{flex:1;accent-color:var(--blue)}
+.stamp{font-size:.85rem;color:var(--mut);margin-top:8px;min-height:1.4em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.card small{color:var(--mut);display:block;font-weight:500}
+.card[data-l]{border-left:5px solid var(--line)}
+.card[data-l=ok]{border-left-color:var(--green)}
+.card[data-l=warn]{border-left-color:var(--sun)}
+.card[data-l=bad]{border-left-color:var(--red)}
+.val{display:block;font-size:2rem;line-height:1.2;margin-top:4px;font-weight:700}
+.val u{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--mut);margin-left:5px}
+.bdg{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 10px;border-radius:999px;margin-top:6px}
+.bdg.ok{background:#DCFCE7;color:#166534}
+.bdg.warn{background:#FEF3C7;color:#92400E}
+.bdg.bad{background:#FEE2E2;color:#991B1B}
+.meta{display:block;font-size:.78rem;color:var(--mut);margin-top:8px}
+.meta.old{color:#B45309}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+svg{width:100%;height:auto;display:block}
+.lgd{display:flex;flex-wrap:wrap;margin-top:2px}
+.lg{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--mut);margin:8px 16px 0 0}
+.lg i{width:18px;height:3px;border-radius:2px;display:inline-block}
+.lg i.sq{height:11px;width:11px;border-radius:3px}
+.lg i.ds{background:none!important;height:0;border-top:2px dashed}
+.list{margin:0;padding:0;list-style:none}
+.list li{padding:10px 0;border-top:1px solid var(--line);font-size:.92rem}
+.list li:first-child{border-top:0}
+.list time{color:var(--mut);font-size:.8rem;display:block}
+.list b{display:inline;font-size:1rem}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{padding:9px 8px 9px 0;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:.78rem;color:var(--mut);font-weight:600;border-top:0}
+.k td:nth-child(2){text-align:right;font-weight:600;white-space:nowrap}
+.k td:nth-child(3){color:var(--mut);font-size:.8rem;text-align:right}
+.scroll{overflow-x:auto}
+.src{font-size:.82rem;min-width:760px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+p.n{color:var(--mut);font-size:.85rem;margin:10px 0 0}
+</style>
+</head>
+<body>
+<div class="w">
+
+<section class="hero">
+  <div>
+    <h1>Le Soleil,<br><span>en direct</span></h1>
+    <p class="lead">Image réelle du Soleil prise par le satellite SDO de la NASA, avec les mesures du jour : éruptions, vent solaire, alertes et cycle d’activité.</p>
+    <div class="pills mode" id="mode">
+      <button data-m="live" class="on">Direct</button>
+      <button data-m="h24">Dernières 24 h</button>
+    </div>
+    <div class="pills" id="ch"></div>
+    <div class="ctl" id="ctl" hidden>
+      <button id="play">▶ Lecture</button>
+      <input id="sl" type="range" min="0" max="24" value="24">
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </div>
+  <div class="disk"><img id="sun" alt="Soleil" onerror="stamp('Image indisponible pour le moment.')"></div>
+</section>
+
+<section id="s-meas" hidden>
+  <h2>Mesures actuelles</h2>
+  <div class="grid" id="meas"></div>
+  <p class="n" id="upd"></p>
+</section>
+
+<section id="s-leg">
+  <h2>Légende des couleurs</h2>
+  <div class="card scroll">
+    <table class="src" style="min-width:640px">
+      <tr><th>Mesure</th><th><span class="dot" style="background:var(--green)"></span>Nominal</th><th><span class="dot" style="background:var(--sun)"></span>Élevé</th><th><span class="dot" style="background:var(--red)"></span>Inhabituel</th><th>Référence du seuil</th></tr>
+      <tr><td>Rayons X (classe)</td><td>&lt; M1</td><td>M1 à &lt; X1</td><td>≥ X1</td><td>Échelle NOAA des perturbations radio (R1 = M1, R3 = X1)</td></tr>
+      <tr><td>Vitesse du vent solaire</td><td>&lt; 500 km/s</td><td>500 à 699 km/s</td><td>≥ 700 km/s</td><td>Repère indicatif (non officiel) : vent lent ≈ 400, rapide ≈ 700 km/s</td></tr>
+      <tr><td>Densité du vent</td><td>&lt; 10 p/cm³</td><td>10 à 19 p/cm³</td><td>≥ 20 p/cm³</td><td>Repère indicatif (non officiel)</td></tr>
+      <tr><td>Champ magnétique Bz</td><td>&gt; −5 nT</td><td>−5 à −10 nT</td><td>≤ −10 nT</td><td>Repère indicatif (non officiel) : Bz négatif prolongé favorable aux orages</td></tr>
+      <tr><td>Taches solaires, F10.7</td><td>Faible : &lt; 1/3</td><td>Modéré : 1/3 à 2/3</td><td>Fort : &gt; 2/3</td><td>Position de la valeur dans la plage mensuelle observée depuis déc. 2008 (calcul sur les données affichées)</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="s-24" hidden>
+  <h2>Dernières 24 heures</h2>
+  <div class="two" id="c24"></div>
+</section>
+
+<section id="s-cy" hidden>
+  <h2>Cycle solaire</h2>
+  <div id="cy"></div>
+</section>
+
+<section id="s-al" hidden>
+  <h2>Alertes et éruptions</h2>
+  <div class="two" id="alfl"></div>
+</section>
+
+<h2>Comportement du Soleil</h2>
+<div class="two">
+  <div class="card"><small>Ce qu’on surveille</small>
+    <ul class="list">
+      <li><b>Régions actives</b> : zones de champ magnétique intense (taches) d’où partent les éruptions.</li>
+      <li><b>Éruptions</b> : classées A, B, C, M, X selon le flux de rayons X ; chaque lettre vaut dix fois la précédente.</li>
+      <li><b>CME</b> : nuages de plasma qui mettent 1 à 3 jours pour atteindre la Terre.</li>
+      <li><b>Vent solaire</b> : flux continu, lent (~400 km/s) ou rapide (~700 km/s) lorsqu’il sort d’un trou coronal.</li>
+    </ul></div>
+  <div class="card"><small>Constantes du Soleil (valeurs de référence, fixes)</small>
+    <table class="k">
+      <tr><td>Rayon</td><td>695 700 km</td><td>UAI 2015, rés. B3</td></tr>
+      <tr><td>Masse</td><td>1,989 × 10³⁰ kg</td><td>NASA Sun Fact Sheet</td></tr>
+      <tr><td>Âge</td><td>≈ 4,6 milliards d’années</td><td>NASA</td></tr>
+      <tr><td>Température de surface</td><td>5 772 K</td><td>UAI 2015, rés. B3</td></tr>
+      <tr><td>Température du cœur</td><td>≈ 15 millions K</td><td>NASA</td></tr>
+      <tr><td>Irradiance solaire totale</td><td>≈ 1 361 W/m²</td><td>UAI 2015, rés. B3</td></tr>
+      <tr><td>Distance moyenne à la Terre</td><td>149,6 millions km</td><td>UAI 2012, rés. B2</td></tr>
+      <tr><td>Temps de trajet de la lumière</td><td>8 min 20 s</td><td>Calculé (distance / c)</td></tr>
+      <tr><td>Rotation (équateur / pôles)</td><td>≈ 25 j / ≈ 35 j</td><td>NASA</td></tr>
+      <tr><td>Cycle d’activité</td><td>≈ 11 ans</td><td>NASA / NOAA</td></tr>
+    </table></div>
+</div>
+
+<h2>Sources et actualisation</h2>
+<div class="card scroll">
+  <table class="src">
+    <tr><th>Information</th><th>Fournisseur</th><th>Jeu de données</th><th>Cadence de la source</th><th>Interrogation par cette page</th></tr>
+    <tr><td>Image du Soleil (Direct)</td><td>NASA / SDO (AIA, HMI)</td><td>sdo.gsfc.nasa.gov/assets/img/latest/</td><td>1 image par canal toutes les 15 min (images quasi temps réel, NRT)</td><td>Toutes les 5 min</td></tr>
+    <tr><td>Images des dernières 24 h</td><td>Helioviewer (projet ESA / NASA), données SDO</td><td>api.helioviewer.org, takeScreenshot</td><td>Une image par heure demandée ; le service renvoie l’image disponible la plus proche</td><td>À l’ouverture du mode</td></tr>
+    <tr><td>Rayons X</td><td>NOAA SWPC, satellite GOES</td><td>/json/goes/primary/xrays-6-hour.json</td><td>Moyennes d’1 min</td><td>Toutes les 60 s</td></tr>
+    <tr><td>Vitesse et densité du vent solaire</td><td>NOAA SWPC, mesures au point L1 (le satellite d’origine est indiqué sur la carte)</td><td>/json/rtsw/rtsw_wind_1m.json</td><td>1 min</td><td>Toutes les 60 s</td></tr>
+    <tr><td>Champ magnétique Bz</td><td>NOAA SWPC, mesures au point L1</td><td>/json/rtsw/rtsw_mag_1m.json</td><td>1 min</td><td>Toutes les 60 s</td></tr>
+    <tr><td>Taches solaires, F10.7, cycle</td><td>NOAA SWPC</td><td>/json/solar-cycle/observed-solar-cycle-indices.json et predicted-solar-cycle.json</td><td>Valeurs mensuelles ; le lissé du dernier mois n’existe pas encore</td><td>Au chargement</td></tr>
+    <tr><td>Alertes</td><td>NOAA SWPC</td><td>/products/alerts.json</td><td>À chaque émission d’une alerte</td><td>Toutes les 5 min</td></tr>
+    <tr><td>Éruptions des 7 derniers jours</td><td>NOAA SWPC, satellite GOES</td><td>/json/goes/primary/xray-flares-7-day.json</td><td>Au fil des éruptions détectées</td><td>Toutes les 5 min</td></tr>
+    <tr><td>Début du cycle 25 (déc. 2019)</td><td>NASA / NOAA</td><td>Repère fixe sur le graphique</td><td>Fixe</td><td>—</td></tr>
+  </table>
+</div>
+<p class="n">Règle de la page : une mesure qui ne peut pas être récupérée chez la source n’est pas affichée (la carte disparaît). Aucune valeur n’est estimée ni remplacée.</p>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const $=s=>document.querySelector(s), N="https://services.swpc.noaa.gov";
+const J=u=>fetch(N+u,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()});
+const T=s=>Date.parse(/(Z|[+-]\d\d:?\d\d)$/.test(s)?s:String(s).replace(" ","T")+"Z");
+const hhmm=t=>new Date(t).toISOString().slice(11,16);
+const ago=t=>{const m=Math.max(0,Math.round((Date.now()-t)/6e4));return m<1?"à l’instant":m<90?"il y a "+m+" min":"il y a "+Math.round(m/60)+" h"};
+function stamp(t){$("#stamp").textContent=t}
+
+/* ---------- Image du Soleil ---------- */
+const CH={"193":["Couronne (193 Å)","0193","SDO,AIA,AIA,193"],"171":["Boucles (171 Å)","0171","SDO,AIA,AIA,171"],"304":["Chromosphère (304 Å)","0304","SDO,AIA,AIA,304"],"HMI":["Taches (visible)","HMIIC","SDO,HMI,HMI,continuum"]};
+let ch="193",mode="live",frames=[],tmr=null;
+const hv=(d,l)=>`https://api.helioviewer.org/v2/takeScreenshot/?date=${d.toISOString().slice(0,19)}Z&imageScale=2.4&layers=${encodeURIComponent("["+l+",1,100]")}&x0=0&y0=0&width=900&height=900&display=true&watermark=false`;
+function live(){
+  const u=`https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_${CH[ch][1]}.jpg`, base="SDO / NASA · "+CH[ch][0]+" · image renouvelée toutes les 15 min";
+  $("#sun").src=u+"?t="+Math.floor(Date.now()/6e4);stamp(base);
+  fetch(u,{method:"HEAD",cache:"no-store"}).then(r=>{const lm=r.headers.get("last-modified");
+    if(lm&&mode==="live")stamp(base+" · fichier mis en ligne à "+new Date(lm).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})+" (heure locale), "+ago(Date.parse(lm)))}).catch(()=>{});
+}
+function loadH24(){
+  clearInterval(tmr);tmr=null;$("#play").textContent="▶ Lecture";
+  const t0=new Date();t0.setMinutes(0,0,0);
+  frames=[];for(let i=24;i>=0;i--)frames.push(new Date(t0-i*36e5));
+  let ok=0;frames.forEach((d,i)=>{const im=new Image();im.onload=()=>{ok++;stamp(`Chargement ${ok}/25…`);if(ok===25)stamp("25 images, une par heure, "+CH[ch][0]+" · Helioviewer (données SDO).")};im.src=hv(d,CH[ch][2]);frames[i]={d,src:im.src}});
+  $("#sl").value=24;show(24)
+}
+function show(i){const f=frames[i];if(!f)return;$("#sun").src=f.src;stamp(f.d.toLocaleString("fr-FR",{dateStyle:"short",timeStyle:"short"})+" (heure locale) · "+CH[ch][0])}
+document.getElementById("ch").innerHTML=Object.keys(CH).map(k=>`<button data-c="${k}" class="${k===ch?"on":""}">${CH[k][0]}</button>`).join("");
+$("#ch").onclick=e=>{const c=e.target.dataset.c;if(!c)return;ch=c;document.querySelectorAll("#ch button").forEach(b=>b.classList.toggle("on",b.dataset.c===c));mode==="live"?live():loadH24()};
+$("#mode").onclick=e=>{const m=e.target.dataset.m;if(!m)return;mode=m;document.querySelectorAll("#mode button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));$("#ctl").hidden=m==="live";clearInterval(tmr);tmr=null;m==="live"?live():loadH24()};
+$("#sl").oninput=e=>show(+e.target.value);
+$("#play").onclick=()=>{if(tmr){clearInterval(tmr);tmr=null;$("#play").textContent="▶ Lecture";return}$("#play").textContent="❚❚ Pause";let i=0;tmr=setInterval(()=>{show(i);$("#sl").value=i;i=(i+1)%25},350)};
+live();setInterval(()=>{if(mode==="live")live()},300000);
+
+/* ---------- Cartes dynamiques (une carte sans donnée est retirée) ---------- */
+const LK=["ok","warn","bad"],LV=["Nominal","Élevé","Inhabituel"],LR=["Faible","Modéré","Fort"];
+const BC={ok:"#16A34A",warn:"#F59E0B",bad:"#DC2626"};
+function sync(c){const k=$("#"+c);k.parentElement.hidden=!k.children.length}
+function put(c,id,ord,html,lv){let e=document.getElementById(id);if(!e){e=document.createElement("div");e.id=id;e.className="card";$("#"+c).appendChild(e)}
+  e.style.order=ord;e.innerHTML=html;if(lv)e.dataset.l=lv;else delete e.dataset.l;sync(c)}
+function drop(c,id){const e=document.getElementById(id);if(e)e.remove();sync(c)}
+function mcard(id,ord,label,val,unit,lv,labels,meta,old){
+  put("meas",id,ord,`<small>${label}</small><span class="val">${val}<u>${unit}</u></span><span class="bdg ${LK[lv]}">${(labels||LV)[lv]}</span><span class="meta${old?" old":""}">${meta}${old?" · donnée ancienne":""}</span>`,LK[lv]);
+}
+const cls=f=>{const L=[[1e-4,"X"],[1e-5,"M"],[1e-6,"C"],[1e-7,"B"]];for(const[t,c]of L)if(f>=t)return c+(f/t).toFixed(1);return"A"+(f/1e-8).toFixed(1)};
+const lvX=f=>f>=1e-4?2:f>=1e-5?1:0;
+const lvS=v=>v>=700?2:v>=500?1:0, lvD=v=>v>=20?2:v>=10?1:0, lvB=v=>v<=-10?2:v<=-5?1:0, lvR=r=>r<1/3?0:r<2/3?1:2;
+const fr=v=>v.toLocaleString("fr-FR");
+
+/* ---------- Graphiques SVG avec axes, grille, bandes de seuil et légende ---------- */
+function nice(lo,hi,n){const r=(hi-lo)||1,s0=r/n,p=Math.pow(10,Math.floor(Math.log10(s0))),f=s0/p,s=(f<1.5?1:f<3?2:f<7?5:10)*p,a=Math.floor(lo/s)*s,b=Math.ceil(hi/s)*s,t=[];for(let v=a;v<=b+s/2;v+=s)t.push(+v.toFixed(10));return t}
+function chart(o){
+  const W=640,H=270,L=58,R=14,Tp=12,B=48,pw=W-L-R,ph=H-Tp-B,yt=nice(o.ymin,o.ymax,5),y0=yt[0],y1=yt[yt.length-1];
+  const X=t=>L+(t-o.x0)/(o.x1-o.x0||1)*pw,Y=v=>Tp+ph-(v-y0)/(y1-y0||1)*ph,tx='font-size="11" fill="#6B7280"';
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.title}">`;
+  (o.bands||[]).forEach(b=>{const a=Math.max(b[0],y0),c=Math.min(b[1],y1);if(c>a)s+=`<rect x="${L}" y="${Y(c).toFixed(1)}" width="${pw}" height="${(Y(a)-Y(c)).toFixed(1)}" fill="${BC[b[2]]}" opacity=".13"/>`});
+  yt.forEach(v=>{s+=`<line x1="${L}" x2="${W-R}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="#EDE3CC"/><text x="${L-8}" y="${(Y(v)+4).toFixed(1)}" text-anchor="end" ${tx}>${fr(v)}</text>`});
+  o.xt.forEach(k=>{const x=X(k[0]).toFixed(1);s+=`<line x1="${x}" x2="${x}" y1="${Tp}" y2="${Tp+ph}" stroke="#EDE3CC"/><text x="${x}" y="${Tp+ph+16}" text-anchor="middle" ${tx}>${k[1]}</text>`});
+  s+=`<line x1="${L}" x2="${L}" y1="${Tp}" y2="${Tp+ph}" stroke="#9CA3AF"/><line x1="${L}" x2="${W-R}" y1="${Tp+ph}" y2="${Tp+ph}" stroke="#9CA3AF"/>`;
+  s+=`<text x="${L+pw/2}" y="${H-6}" text-anchor="middle" ${tx}>${o.xtitle}</text><text transform="translate(13 ${Tp+ph/2}) rotate(-90)" text-anchor="middle" ${tx}>${o.ytitle}</text>`;
+  (o.vl||[]).forEach(v=>{if(v.t>=o.x0&&v.t<=o.x1)s+=`<line x1="${X(v.t).toFixed(1)}" x2="${X(v.t).toFixed(1)}" y1="${Tp}" y2="${Tp+ph}" stroke="${v.c}" stroke-width="1.5" stroke-dasharray="5 4"/>`});
+  o.series.forEach(se=>{if(se.pts.length<2)return;s+=`<polyline fill="none" stroke="${se.color}" stroke-width="${se.w||2}" stroke-opacity="${se.op||1}" stroke-linejoin="round" ${se.dash?'stroke-dasharray="6 5"':""} points="${se.pts.map(p=>X(p[0]).toFixed(1)+","+Y(p[1]).toFixed(1)).join(" ")}"/>`});
+  const hp=o.series[0].pts,hw=Math.max(pw/(hp.length||1),3);
+  hp.forEach(p=>{s+=`<rect x="${(X(p[0])-hw/2).toFixed(1)}" y="${Tp}" width="${hw.toFixed(1)}" height="${ph}" fill="transparent"><title>${o.fmt(p)}</title></rect>`});
+  s+="</svg>";
+  let g=o.series.map(se=>`<span class="lg"><i class="${se.dash?"ds":""}" style="${se.dash?"border-color":"background"}:${se.color}"></i>${se.name}</span>`).join("");
+  g+=(o.vl||[]).map(v=>`<span class="lg"><i class="ds" style="border-color:${v.c}"></i>${v.name}</span>`).join("");
+  g+=(o.bands||[]).map((b,i)=>`<span class="lg"><i class="sq" style="background:${BC[b[2]]};opacity:.55"></i>${o.bn[i]}</span>`).join("");
+  return s+`<div class="lgd">${g}</div>`;
+}
+function ticks24(x0,x1){const a=[],st=4*36e5;for(let t=Math.ceil(x0/st)*st;t<=x1;t+=st)a.push([t,String(new Date(t).getUTCHours()).padStart(2,"0")+" h"]);return a}
+function bin(a,ms){const m=new Map();a.forEach(p=>{const k=Math.floor(p[0]/ms),o=m.get(k)||[0,0];o[0]+=p[1];o[1]++;m.set(k,o)});return[...m].sort((x,y)=>x[0]-y[0]).map(([k,o])=>[k*ms+ms/2,o[0]/o[1]])}
+function last24(a){if(!a.length)return[];const e=a[a.length-1][0];return a.filter(p=>p[0]>=e-864e5)}
+
+/* ---------- Mesures NOAA SWPC (rafraîchies toutes les 60 s) ---------- */
+function loadXr(){
+  J("/json/goes/primary/xrays-6-hour.json").then(d=>{
+    const r=d.filter(x=>x.energy==="0.1-0.8nm"&&x.flux>0).pop();if(!r)throw 0;
+    const t=T(r.time_tag);
+    mcard("m-xr",1,"Rayons X (GOES, 0,1–0,8 nm)",cls(r.flux),"",lvX(r.flux),0,`NOAA SWPC · GOES${r.satellite?"-"+r.satellite:""} · ${hhmm(t)} UTC · ${ago(t)}`,Date.now()-t>18e5);
+  }).catch(()=>drop("meas","m-xr"));
+}
+const act=d=>d.filter(r=>r.active!==false);
+const ser=(d,k,lo,hi)=>act(d).filter(r=>typeof r[k]==="number"&&r[k]>lo&&r[k]<hi&&isFinite(T(r.time_tag))).map(r=>[T(r.time_tag),r[k],r.source]).sort((a,b)=>a[0]-b[0]);
+function loadWind(){
+  J("/json/rtsw/rtsw_wind_1m.json").then(d=>{
+    const sp=ser(d,"proton_speed",100,3000),dn=ser(d,"proton_density",-1,1000);
+    if(sp.length){const l=sp[sp.length-1],t=l[0];
+      mcard("m-ws",2,"Vitesse du vent solaire",Math.round(l[1]),"km/s",lvS(l[1]),0,`NOAA SWPC · ${l[2]||"L1"} · ${hhmm(t)} UTC · ${ago(t)}`,Date.now()-t>18e5);
+      const p=bin(last24(sp),6e5),v=p.map(q=>q[1]),x1=t,x0=t-864e5;
+      put("c24","g-ws",1,`<small>Vitesse du vent solaire, au point L1</small>`+chart({title:"Vitesse du vent solaire sur 24 heures",series:[{name:"Vitesse (moyenne sur 10 min)",color:"#2563EB",pts:p}],
+        bands:[[-1e9,500,"ok"],[500,700,"warn"],[700,1e9,"bad"]],bn:["Nominal : < 500 km/s","Élevé : 500 à 699 km/s","Inhabituel : ≥ 700 km/s"],
+        x0,x1,xt:ticks24(x0,x1),ymin:Math.min(...v),ymax:Math.max(...v,700),xtitle:"Heure (UTC), 24 dernières heures",ytitle:"Vitesse (km/s)",fmt:q=>hhmm(q[0])+" UTC · "+Math.round(q[1])+" km/s"}));
+    }else{drop("meas","m-ws");drop("c24","g-ws")}
+    if(dn.length){const l=dn[dn.length-1],t=l[0];
+      mcard("m-wd",3,"Densité du vent solaire",l[1].toFixed(1),"p/cm³",lvD(l[1]),0,`NOAA SWPC · ${l[2]||"L1"} · ${hhmm(t)} UTC · ${ago(t)}`,Date.now()-t>18e5);
+    }else drop("meas","m-wd");
+  }).catch(()=>{drop("meas","m-ws");drop("meas","m-wd");drop("c24","g-ws")});
+  J("/json/rtsw/rtsw_mag_1m.json").then(d=>{
+    const bz=ser(d,"bz_gsm",-999,999);if(!bz.length)throw 0;
+    const l=bz[bz.length-1],t=l[0];
+    mcard("m-bz",4,"Champ magnétique Bz",l[1].toFixed(1),"nT",lvB(l[1]),0,`NOAA SWPC · ${l[2]||"L1"} · ${hhmm(t)} UTC · ${ago(t)}`,Date.now()-t>18e5);
+    const p=bin(last24(bz),6e5),v=p.map(q=>q[1]),x1=t,x0=t-864e5;
+    put("c24","g-bz",2,`<small>Champ magnétique Bz (GSM), au point L1</small>`+chart({title:"Champ magnétique Bz sur 24 heures",series:[{name:"Bz (moyenne sur 10 min)",color:"#0F766E",pts:p}],
+      bands:[[-5,1e9,"ok"],[-10,-5,"warn"],[-1e9,-10,"bad"]],bn:["Nominal : > −5 nT","Élevé : −5 à −10 nT","Inhabituel : ≤ −10 nT"],
+      x0,x1,xt:ticks24(x0,x1),ymin:Math.min(...v,-10),ymax:Math.max(...v,5),xtitle:"Heure (UTC), 24 dernières heures",ytitle:"Bz (nT)",fmt:q=>hhmm(q[0])+" UTC · "+q[1].toFixed(1)+" nT"}));
+  }).catch(()=>{drop("meas","m-bz");drop("c24","g-bz")});
+  $("#upd").textContent="Dernière interrogation : "+new Date().toLocaleTimeString("fr-FR")+" (heure locale) · actualisation toutes les 60 s · heures des mesures en UTC";
+}
+
+/* ---------- Cycle solaire (valeurs mensuelles NOAA SWPC) ---------- */
+function loadCycle(){
+  Promise.all([J("/json/solar-cycle/observed-solar-cycle-indices.json"),J("/json/solar-cycle/predicted-solar-cycle.json").catch(()=>[])]).then(([o,p])=>{
+    const t=s=>Date.parse(s+"-01T00:00:00Z");o=o.filter(x=>x["time-tag"]>="2008-12");
+    const raw=o.filter(x=>x.ssn>=0),sm=o.filter(x=>x.smoothed_ssn>=0);if(!raw.length)throw 0;
+    const l=raw[raw.length-1],ls=sm[sm.length-1],mx=Math.max(...raw.map(x=>x.ssn)),mn=Math.min(...raw.map(x=>x.ssn));
+    mcard("m-ssn",5,"Taches solaires (mensuel)",Math.round(l.ssn),"",lvR((l.ssn-mn)/((mx-mn)||1)),LR,
+      `NOAA SWPC · mois ${l["time-tag"]} (valeur brute)${ls?` · lissé : ${Math.round(ls.smoothed_ssn)} (${ls["time-tag"]})`:""}`,false);
+    const fv=o.filter(x=>x["f10.7"]>0);
+    if(fv.length){const f=fv[fv.length-1],a=Math.max(...fv.map(x=>x["f10.7"])),b=Math.min(...fv.map(x=>x["f10.7"]));
+      mcard("m-f107",6,"Flux radio F10.7 (mensuel)",Math.round(f["f10.7"]),"sfu",lvR((f["f10.7"]-b)/((a-b)||1)),LR,`NOAA SWPC · mois ${f["time-tag"]} (valeur brute)`,false)}
+    else drop("meas","m-f107");
+    const pr=p.filter(x=>x["time-tag"]>l["time-tag"]&&x.predicted_ssn>=0).map(x=>[t(x["time-tag"]),x.predicted_ssn]);
+    const all=raw.map(x=>[t(x["time-tag"]),x.ssn]),sp=sm.map(x=>[t(x["time-tag"]),x.smoothed_ssn]);
+    const x0=all[0][0],x1=(pr.length?pr[pr.length-1]:all[all.length-1])[0],ymax=Math.max(...all.map(a=>a[1]),...pr.map(a=>a[1]));
+    const xt=[];for(let y=2010;y<=new Date(x1).getUTCFullYear();y+=2)xt.push([Date.UTC(y,0,1),y]);
+    const series=[{name:"Mensuel (brut)",color:"#F59E0B",op:.55,w:1.5,pts:all},{name:"Lissé",color:"#B45309",w:3.5,pts:sp}];
+    if(pr.length)series.push({name:"Prévision NOAA",color:"#2563EB",w:2.5,dash:1,pts:pr});
+    put("cy","g-cy",1,`<small>Nombre de taches solaires par mois depuis décembre 2008</small>`+chart({title:"Nombre de taches solaires par mois",series,
+      vl:[{t:Date.now(),c:"#1D2630",name:"Aujourd’hui"},{t:Date.UTC(2019,11,1),c:"#7C3AED",name:"Début du cycle 25 (déc. 2019)"}],
+      x0,x1,xt,ymin:0,ymax,xtitle:"Année",ytitle:"Nombre de taches solaires",fmt:q=>new Date(q[0]).toISOString().slice(0,7)+" : "+Math.round(q[1])}));
+  }).catch(()=>{["m-ssn","m-f107"].forEach(i=>drop("meas",i));drop("cy","g-cy")});
+}
+
+/* ---------- Alertes et éruptions ---------- */
+function loadAl(){
+  J("/products/alerts.json").then(d=>{if(!d.length)throw 0;
+    put("alfl","a-al",1,`<small>Dernières alertes NOAA SWPC</small><ul class="list">`+d.slice(0,6).map(a=>{const ls=a.message.split(/\r?\n/).map(s=>s.trim()).filter(Boolean),t=ls.find(s=>/^(ALERT|WARNING|WATCH|SUMMARY|CONTINUED ALERT|EXTENDED WARNING)/.test(s))||ls[0];
+      return`<li><time>${a.issue_datetime} UTC</time>${t.slice(0,140)}</li>`}).join("")+`</ul>`)}).catch(()=>drop("alfl","a-al"));
+  J("/json/goes/primary/xray-flares-7-day.json").then(d=>{const o={X:4,M:3,C:2,B:1,A:0};
+    d=d.filter(x=>x.max_class).sort((a,b)=>o[b.max_class[0]]-o[a.max_class[0]]||parseFloat(b.max_class.slice(1))-parseFloat(a.max_class.slice(1))).slice(0,6);if(!d.length)throw 0;
+    put("alfl","a-fl",2,`<small>Éruptions des 7 derniers jours (les plus fortes), GOES</small><ul class="list">`+d.map(x=>`<li><time>${x.max_time} UTC</time><b>${x.max_class}</b></li>`).join("")+`</ul>`)}).catch(()=>drop("alfl","a-fl"));
+}
+
+loadXr();loadWind();loadCycle();loadAl();
+setInterval(()=>{loadXr();loadWind()},6e4);
+setInterval(loadAl,3e5);
+
+try{if(window.Lenis){const l=new Lenis();(function r(t){l.raf(t);requestAnimationFrame(r)})(0)}
+if(window.gsap)gsap.from(".disk",{opacity:0,y:24,duration:.7,ease:"power2.out"})}catch(e){}
+</script>
+</body>
+</html>

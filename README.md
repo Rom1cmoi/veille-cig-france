@@ -24,7 +24,8 @@ Chambon ───────┘     (toutes les 5 min)   docs/historique.json
 | Fichier | Rôle |
 |---|---|
 | `collecteur.py` | Lit les trois sources, calcule les dB/dt prévus et mesurés, écrit `docs/etat_courant.json` et `docs/historique.json`. Bibliothèque Python standard uniquement : rien à installer. |
-| `docs/index.html` | Page d'accueil du site commun : deux onglets, Télécoms et CIG France, chacun affichant sa page dans un cadre. |
+| `docs/index.html` | Page d'accueil du site commun : trois onglets, Soleil, Télécoms et CIG France, chacun affichant sa page dans un cadre. |
+| `docs/soleil.html` | La page État du Soleil (autre membre du groupe), images et données lues directement par le navigateur. |
 | `docs/cig.html` | La page Veille CIG France complète (tous les modes + le mode Direct). S'ouvre seule ou par `…/#cig`. |
 | `docs/telecom.html` | La page Veille SWx Télécoms (autre membre du groupe), données NOAA lues directement par le navigateur. |
 | `docs/etat_demo.json` | Une démonstration : le 10 mai 2024 à 16 h 35 UTC, quand le choc est déjà mesuré à L1 mais pas encore arrivé. La page l'affiche si le vrai fichier n'existe pas encore. |
