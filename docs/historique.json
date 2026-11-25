@@ -8522,7 +8522,7 @@
 "prevu_med": 1.1,
 "prevu_p90": 2.7,
 "prevu_med_brut": 2.2,
-"observe": null,
+"observe": 2.3,
 "emise_min": 0
 },
 "2026-11-25T10:00:00Z": {
