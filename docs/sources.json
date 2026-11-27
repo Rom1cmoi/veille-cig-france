@@ -4,11 +4,11 @@
   "issue": null
  },
  "magnetometres": {
-  "derniere": "2026-11-27T04:55:25Z",
+  "derniere": "2026-11-27T05:00:59Z",
   "issue": null
  },
  "l1": {
-  "derniere": "2026-11-27T04:51:00Z",
+  "derniere": "2026-11-27T04:57:00Z",
   "issue": null
  },
  "kp": {
@@ -16,11 +16,11 @@
   "issue": null
  },
  "cme": {
-  "derniere": "2026-11-27T04:30:46Z",
+  "derniere": "2026-11-27T05:00:59Z",
   "issue": null
  },
  "ap30": {
-  "derniere": "2026-11-27T04:00:00Z",
+  "derniere": "2026-11-27T04:30:00Z",
   "issue": null
  }
 }
